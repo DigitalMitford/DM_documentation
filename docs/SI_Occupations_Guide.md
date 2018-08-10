@@ -110,7 +110,6 @@ Example with multiple white-space-separated subtypes:
     * designer (for production designers, costume-makers, makers of stage sets and props)
     * musician (for pit players of music supporting the stage)
     * composer (for writers of instrumental and vocal music for the stage, including lyricists and librettists)
-
                      
 * `type="medical"` 
 `subtype="..."`  
@@ -127,7 +126,7 @@ Example with multiple white-space-separated subtypes:
     * army
     * navy
                      
-* `type="benevolence"` 
+* `type="benefactor"` 
 `subtype="..."` 
 
     * philanthropist (use for benevolent activites outside of the arts)
