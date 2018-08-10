@@ -6,6 +6,12 @@
 
 Elisa and Lisa:
 
+* GitHub and markdown orientation
+* GitHub: Pushing and pulling files
+* GitHub: Dealing with merge issues
+* Write up basic GitHub documentation 
+* Look at new Mitford project ODD schema, and how it works with Site Index files
+* Look at special schema for the Site Index itself
 * Establish new GitHub workflow for Site Index management and documentation
 * Test and refine new TEI ODD-generated project schema
 * Test, develop, and refine schema for SI management
