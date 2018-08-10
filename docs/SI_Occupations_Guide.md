@@ -51,6 +51,8 @@ Example with multiple white-space-separated subtypes:
 
     * teacher
     * schoolHead (for headmistress, schoolmaster, etc)
+    * governess
+    * tutor
     
 * `type="scholar"` 
 `subtype="..."` 
@@ -132,57 +134,52 @@ Example with multiple white-space-separated subtypes:
     * philanthropist (use for benevolent activites outside of the arts)
     * patron (use for supporters of the arts, theatre, and writers) 
                  
-                  
-                  <!-- POLITICAL & GOVERNMENT OCCUPATIONS: Use use "government" plus any of these:-->
-                  <occupation>politician</occupation><!-- Use for elected officials and those running for election or who are in office by reason of political party or affiliation. Put their TITLE under <roleName></roleName>; ie, Member of Parliament for Westminster. -->
-                  <occupation>orator</occupation><!-- Mostly use for political or reformist orators who are NOT clergy or actors -->
-                  <occupation>reformer</occupation><!-- any public advocate for political or social reform -->
-                  
-                  
-                     <occupation>monarch</occupation><!-- do not use king, queen, princess; put those titles under <roleName> instead -->
-                     <occupation>courtier</occupation><!-- use for aristocracy and others whose job is to serve at court in some capacity. -->
-                     <occupation>diplomat</occupation>
-                     <occupation>ambassador</occupation><!-- In some cases, this occupation is also a roleName. ie, Ambassador to the Court of St. James.-->
-                     <occupation>administrator</occupation><!-- Use for management positions, upper civil service positions within the British empire, etc. Lower positions may go under "clerk." "Civil servant" and bureaucrat are dispreferred.-->
-                     
-    
-                     * clerk
-                     <occupation>tax collector</occupation>
-                     <occupation>postmaster</occupation>
-                  
-                  <!-- SERVICE OCCUPATIONS: Use "service" plus any of these: THus far, we've mostly used servant for all of these.-->
-                     <occupation>service</occupation>
-                        <occupation>servant</occupation>
-                        <occupation>butler</occupation>
-                        <occupation>maid</occupation>
-                        <occupation>footman</occupation>
-                        <occupation>cook</occupation>
-                        <occupation>housekeeper</occupation>
-                  
-            
-                  
-                  <!-- TRADES, MERCHANTS, and AGRICULTURE-->
-                     <occupation>trades</occupation>
-                        <occupation>baker</occupation>
-                        <occupation>bricklayer</occupation>
-                        <occupation>wheelwright</occupation>
-                        <occupation>carpenter</occupation>
-                        <occupation>watchmaker</occupation>
-                        <occupation>miller</occupation>
-                        <occupation>goldsmith</occupation>
-                        <occupation>jeweller</occupation>
-                        <occupation>saddler</occupation>
-                        <occupation>bootmaker</occupation>
-                        
-                    <occupation>blacksmith</occupation>
+* `type="government"` 
+`subtype="..."` 
 
-<occupation>innkeeper</occupation>
-                  
-                  <occupation>merchant</occupation><!-- prefer merchant to shopkeeper -->
-                  <occupation>clerk</occupation>
-                  <occupation>banker</occupation><!-- prefer to banking -->
-                  <occupation>stockbroker</occupation>
-                  <occupation>auctioneer</occupation>
-                  <occupation>gambler</occupation>
-                  
-                  <occupation>farmer</occupation>
+    * monarch (titles like King, Queen, Princess are coded in `<roleName>` not occupation)
+    * politician (Use for elected officials and those running for election or who are in office by reason of political party or affiliation. Code their official title (such as "Member of Parliament for Westminster) with `<roleName>`.
+    * orator (for political or reformist orators who are not clergy or actors)
+    * reformer (any public advocate for political or social reform)
+    * courtier (use for aristocracy and others whose job is to serve at court in some capacity)
+    * diplomat (ambassadors and other diplomatists. Roles like Ambassador to the Court of St. James are coded in `<roleName>`)
+    * administrator (use for management positions, high-ranking civil service positions within the British empire, etc. Lower-ranking positions should be coded as "clerk".)
+    * clerk 
+    * taxCollector
+    * post (for postal service occupations)
+                     
+* `type="service"` 
+`subtype="..."`   
+
+    * butler
+    * maid
+    * footman
+    * cook
+    * housekeeper
+                
+* `type="trade"` 
+`subtype="..."`  
+
+    * baker
+    * butcher
+    * farmer
+    * bricklayer
+    * chandler
+    * wheelwright
+    * carpenter
+    * watchmaker
+    * miller
+    * blacksmith
+    * goldsmith
+    * jeweller
+    * tanner
+    * saddler
+    * bootmaker
+    * shoemaker
+    * innkeeper
+    * merchant
+    * clerk (for an employee in a shop)
+    * banker
+    * stockbroker
+    * auctioneer
+    * gambler
