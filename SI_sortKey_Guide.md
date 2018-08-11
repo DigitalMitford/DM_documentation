@@ -30,5 +30,15 @@ NOTE: To associate the physical location(s) of an organization, create a placeNa
 *  **archOrgs**  (Arch Orgs are groups of archtypal or mythological characters, such as the Graces, the Muses, etc.
 )
 
+## listEvent
+
+* **histEvents** (named historical events)
+
+## list 
+(animals, plants, art)
+
+* **plants**
+* **animals**
+* **art**
 
 
