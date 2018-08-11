@@ -20,7 +20,7 @@
 
 * **schol** printed materials post 1856 (available to scholars of MRM)
 
-## listOrgs  
+## listOrg  
 (organizations, including business enterprises, family groups, community organizations and other named collections of people)  
 
 NOTE: To associate the physical location(s) of an organization, create a placeName id. for the location (building, etc.) and cross-reference in the orgName note field.
