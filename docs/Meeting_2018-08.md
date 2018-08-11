@@ -12,7 +12,7 @@ Elisa and Lisa:
 * Write up basic GitHub documentation - IP
 * Look at new Mitford project ODD schema, and how it works with Site Index files - IP
 * Look at special schema for the Site Index itself 
-* Establish new GitHub workflow for Site Index management and documentation
+* Establish new GitHub workflow for Site Index management and documentation - IP
 * Test and refine new TEI ODD-generated project schema
 * Test, develop, and refine schema for SI management
 * Write documentation for new workflows and schemas
