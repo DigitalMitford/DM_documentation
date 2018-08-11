@@ -5,7 +5,7 @@
          xmlns:teix="http://www.tei-c.org/ns/Examples"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.tei-c.org/ns/1.0"><!--
-Schema generated from ODD source 2018-08-09T18:35:49Z. .
+Schema generated from ODD source 2018-08-11T22:53:00Z. .
 TEI Edition: Version 3.4.0. Last updated on
 	23rd July 2018, revision 1fa0b54
 TEI Edition Location: http://www.tei-c.org/Vault/P5/Version 3.4.0/
@@ -19321,7 +19321,7 @@ Sample values include: 1] header; 2] footer; 3] pageNum (page number) ; 4] lineN
                 context="tei:rs | tei:name">
                      <sch:let name="siFile" value="doc('http://digitalmitford.org/si.xml')"/>
                      <sch:let name="siAddColl"
-                  value="collection('https://digitalmitford.github.io/DM_SiteIndex/si-Add-Files/catalogue.xml')"/>
+                  value="collection('https://digitalmitford.github.io/DM_SiteIndex/si_Add_Staged/catalogue.xml')"/>
                      <sch:let name="back" value="//tei:back"/>
                      <sch:let name="everySiLoc" value="($siFile, $siAddColl, $back)"/>
                      <sch:let name="refs"
@@ -19370,7 +19370,7 @@ Sample values include: 1] header; 2] footer; 3] pageNum (page number) ; 4] lineN
                     <sch:rule context="@ref | @corresp">
                        <sch:let name="siFile" value="doc('http://digitalmitford.org/si.xml')"/>
                        <sch:let name="siAddColl"
-                  value="collection('https://digitalmitford.github.io/DM_SiteIndex/si-Add-Files/catalogue.xml')"/>
+                  value="collection('https://digitalmitford.github.io/DM_SiteIndex/si_Add_Staged/catalogue.xml')"/>
                        <sch:let name="backIDs" value="//tei:back//@xml:id"/>
                        <sch:let name="siAddIDs" value="$siAddColl//@xml:id"/>
                        <sch:let name="tempIDs" value="($backIDs, $siAddIDs)"/>
