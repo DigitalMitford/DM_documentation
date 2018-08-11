@@ -155,6 +155,7 @@ Example with multiple white-space-separated subtypes:
     * footman
     * cook
     * housekeeper
+    * gardener
 
                                 
 * **trade**  
