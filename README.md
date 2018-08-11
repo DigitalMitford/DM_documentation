@@ -1,2 +1,14 @@
 # documentation
-a repo for working on our documentation and templates explaining project methods and workflow
+a repo for working on our documentation and templates explaining project methods and workflow on the Digital Mitford project.
+
+The following documentation files are available for consultation by the project team:
+
+* **[Using Git through Command Line](Git_BasicCommands.md)** (a quick reading guide with the commands you need for working with project files in GitHub)
+
+* **[Site Index: Guide to Occupation Types and Subtypes](SI_Occupations_Guide.md)** (a guide to marking people's occupations for site index entries, listing standard values for `@type` and `@subtype`)
+
+* **[Site Index: sortKeys for each kind of list](SI_sortKey_Guide.md)**
+
+* **[Poetry Editing Readme](poetryReadMe.md)** (under construction)
+
+* **[Agenda and notes for August 2018 Digital Mitford GitHub Workflow meeting](Meeting_2018-08.md)**  (Elisa, Lisa, and Greg) 
