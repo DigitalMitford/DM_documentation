@@ -1,5 +1,5 @@
 # Using Git through Command Line
-  
+
 *To download a file without cloning or pulling in changes locally, navigate to the file on GitHub and on the right side near the top of the file's content click the button that gives you the "Raw" view of the file. From there you can copy and paste or right click and save.*
   
 ## Quick reference
@@ -70,17 +70,59 @@ Think of these commit messages as breadcrumbs for you and others to use in recor
 git push
 ````
 And gears turn and lines of text whirl on the screen, and your changes go up into the remote "Mothership repo"! You should always check on the web repository to see if your commit went through.  
- 
+
+## Dealing with merge issues
+When you and other team members are working in a repo at the same time, and each of you is pulling, committing, and pushing files, you may find that you cannot pull in changes to your local repo, because GitHub warns that changes might write over the state of your work. 
+
+* To deal with a merge issue, you need to first be sure that you `git add` and `git commit` any changes you have made. (You won't be able to push them just yet.) 
+* Now, type:
+```
+git pull
+```
+* GitHub will now attempt a merge of your commit with the new material. It will attempt to do this automatically (something GitHub was designed to do). As long as you and your team member were working on different files or on very different areas of the same file, GitHub will be able to work out a way to merge your changes with your teammates'. But you will need to add and commit the result. GitHub will invite you to do this using an ancient early-days-of-computing editor called the "vi" editor, which will open on top of your terminal, and it will invite you to edit its standard commit message which will indicate that this is a "merge". To edit in vi, your usual tools of writing won't work (your mouse doesn't work here, and you have to type commands to move around the screen). Type the following to insert your own text if you want to add your own description to the merge):
+```
+I
+```
+(The "I" is for "insert"). Type whatever you want to add or modify at the top line where the commit message goes. You do use quotation marks around the commit message in the vi editor. When you're finished, type this sequence
+
+```
+esc : w q
+```
+That's the escape key then colon, w, and q. This combination let's you escape out of the commit-editing window, then :wq is to write and quit the vi editor. This will bring you back to the terminal / command line prompt where you normally write git commands.
+
+* Now, type `git status` and it should tell you that you're ready to push two (or more) commits (the result of your merge plus your first commits that were never pushed). It should prompt you to do a `git push`. So do that. Type
+```
+git push
+```
+And the merge should be resolved.
+
+## Merge conflicts
+A variation on the merge issue above involves multiple team members working on a file and pushing at nearly the same time. The edits may be in locations where it is difficult for GitHub to automatically figure out how to merge them. When you attempt to pull these in, you will be told that GitHub cannot automatically complete the merge. Don't panic, but **do** be patient. 
+
+* First, you may want to inform your team members that there is a merge conflict and you're going to work on resolving it, and that they should wait to hear from you before trying any new commits. 
+
+* In your terminal / command line, when you attempt to pull, GitHub informs you which file(s) are affected, and you should then open these in `<oXygen/>` to resolve the conflict by hand. GitHub makes it as easy as possible to do this, because it will mark the affected areas with what I like to call "tire tracks", like so:
+
+```
+>>>>>>>>>
+>>>>>>>>>
+code of one version
+
+============
+============
+code of the other version
+>>>>>>>>>
+>>>>>>>>>
+
+```
+
+You'll need to read this carefully and delete the version that's not wanted, as well as the GitHub "tiretrack" marks. Save the file and return to your command line / terminal. 
+
+Type `git add` and `git commit -m "your message about resolving the merge conflict here"`. Then try a `git status` to make sure all is well, and if GitHub approves, go ahead and type `git push` to resolve the conflict.
+
+Your team members should now do a `git pull` and pull in your resolution of the merge conflict, and all may continue their work as before. 
+
   
-  
-### Git commands for a Forked Repo workflow
-* `git pull upstream master` (This pulls any changes that were made to the original repository since you last synced into your forked repository.)
-* Save changes / move files into directory through File Explorer / Finder
-* `git status` (shows the differences/changes between the master and your fork/branch -- should be red)
-* `git add .` OR `git add -A` (You're adding your changes to your branch.)
-* `git status` (To see that you added your changes to your branch -- should be green.)
-* `git commit -m "your commit message here"` (Commits your changes to your branch with a message describing changes.)
-* `git status` (To see that your commit was successful and your branch is ahead of your remote fork.)
-* `git push` (Push your committed changes to your remote fork.)
-* Create a pull request on the web repository from your fork to the original repo
+## Further Reading: Becca Parker's ["Explain Git Shell"](http://dh.newtfire.org/explainGitShell.html) tutorial
+
 
