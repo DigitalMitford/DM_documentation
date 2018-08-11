@@ -8,18 +8,18 @@ Elisa and Lisa:
 
 * GitHub and markdown orientation - DONE
 * GitHub: Pushing and pulling files - DONE
-* GitHub: Dealing with merge issues - IP
-* Write up basic GitHub documentation - IP
-* Look at new Mitford project ODD schema, and how it works with Site Index files - IP
+* GitHub: Dealing with merge issues - IP EBB/LMW
+* Write up basic GitHub documentation - IP EBB
+* Look at new Mitford project ODD schema, and how it works with Site Index files - IP EBB/LMW
 * Look at special schema for the Site Index itself 
-* Establish new GitHub workflow for Site Index management and documentation - IP
+* Establish new GitHub workflow for Site Index management and documentation
 * Test and refine new TEI ODD-generated project schema
 * Test, develop, and refine schema for SI management
 * Write documentation for new workflows and schemas
 
 Greg:
 
-* Update ms listing with Penn State MRM letters
+* Update ms listing with Penn State MRM letters - check
 * Develop TEI table listing of letter seals and ids - IP
 
 
