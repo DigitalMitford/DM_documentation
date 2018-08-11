@@ -13,13 +13,13 @@ Elisa and Lisa:
 * Look at new Mitford project ODD schema, and how it works with Site Index files - IP
 * Look at special schema for the Site Index itself 
 * Establish new GitHub workflow for Site Index management and documentation - IP
-* Test and refine new TEI ODD-generated project schema
-* Test, develop, and refine schema for SI management
-* Write documentation for new workflows and schemas
+* Test and refine new TEI ODD-generated project schema - IP
+* Test, develop, and refine schema for SI management - IP
+* Write documentation for new workflows and schemas 
 
 Greg:
 
-* Update ms listing with Penn State MRM letters
+* Update ms listing with Penn State MRM letters - IP
 * Develop TEI table listing of letter seals and ids - IP
 
 
