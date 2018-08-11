@@ -164,6 +164,7 @@ Example with multiple white-space-separated subtypes:
     * butcher
     * farmer
     * bricklayer
+    * mason
     * chandler
     * wheelwright
     * carpenter
