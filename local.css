@@ -1,7 +1,7 @@
 a.link-no-style {
   color: inherit;
 }
-table#weekMenu tr td:nth-child(even){background: #f0f5f5;}
+table tr td:nth-child(even){background: #f0f5f5;}
 /*  table#team tr td img {max-width:150px; width:15%;}*/
 tr:nth-child(even) {background: #f0f5f5}
 .rpad {padding-right:2em;}
