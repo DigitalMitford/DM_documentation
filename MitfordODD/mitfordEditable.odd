@@ -39,7 +39,7 @@
       </fileDesc>
      <revisionDesc>
         <listChange>
-           <change when="2018-09-25" who="#ebb"></change>
+           <change when="2018-09-25" who="#ebb">Moved official location of this ODD and generated Relax NG schema files to the DM_documentation GitHub repository. Refined Schematron constraints for checking bibl and bibl/title elements.</change>
            <change when="2018-08-08" who="#ebb">Built Site Index Ids into this ODD, with si-to-ODD.xsl to build elementSpecs and attDef lists.</change>
            <change when="2018-08-06" who="#ebb">Prepared this ODD file, working with the Digital Mitford Schematron files in place to this point, and the Digital Mitford codebook.</change>
         </listChange>
@@ -74,7 +74,7 @@
             </constraintSpec>
             <constraintSpec scheme="schematron" ident="refsReq">
                <constraint>
-                  <sch:rule context="tei:text//tei:persName[not(ancestor::tei:back)] | tei:text//tei:rs[not(ancestor::tei:back)] | tei:text//tei:placeName[not(ancestor::tei:back)] | tei:text//tei:orgName[not(ancestor::tei:back)] | tei:text//tei:name[not(ancestor::tei:back)] | tei:text//tei:title[not(ancestor::tei:back)]">
+                  <sch:rule context="tei:text//tei:persName[not(ancestor::tei:back)] | tei:text//tei:rs[not(ancestor::tei:back)] | tei:text//tei:placeName[not(ancestor::tei:back)] | tei:text//tei:orgName[not(ancestor::tei:back)] | tei:text//tei:name[not(ancestor::tei:back)] | tei:text//tei:title[not(ancestor::tei:back)][not(ancestor::bibl)]">
                      <sch:assert test="@ref">
                         If you're using this element, <sch:value-of select="name()"/>, in the main text of a Digital Mitford file, you'll need to apply an @ref attribute pointing to an xml:id of a named entity. This rule applies to persName, placeName, orgName, title, name, and rs elements.
                         Named entity information and xml:ids are stored either in the main Site Index, or a proposed entry in the back of this document, or in a temporary si-Add file. 
