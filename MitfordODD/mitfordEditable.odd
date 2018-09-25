@@ -67,7 +67,7 @@
                <constraint>
                   <sch:rule context="tei:TEI//@xml:id">
                      <sch:report test="matches(., '\s+')" role="fatal">
-                        @xml:id values may NOT contain white spaces!
+                        @xml:id values must not contain white spaces!
                      </sch:report>        
                   </sch:rule>
                </constraint>
@@ -85,7 +85,7 @@
             <constraintSpec scheme="schematron" ident="correspReq">
                <constraint>
                   <sch:rule context="tei:text//tei:bibl[not(ancestor::tei:back)]">
-                     <sch:assert test="@corresp">
+                     <sch:assert test="@corresp" role="warning">
                         If you're using a bibl element in the main text of a Digital Mitford file, you'll need to apply an @corresp attribute pointing to an xml:id of a named entity for a written work. 
                         Named entity information and xml:ids are stored either in the main Site Index, or a proposed entry in the back of this document, or in a temporary si-Add file. 
                      </sch:assert>  
@@ -173,7 +173,7 @@
                        <sch:let name="backIDs" value="//tei:back//@xml:id"/>
                        <sch:let name="siAddIDs" value="$siAddColl//@xml:id"/>
                        <sch:let name="tempIDs" value="($backIDs, $siAddIDs)"/>
-                    <sch:let name="refs" value="for $i in tokenize(., '\s+') return substring-after($i,'#')"/><!-- ebb: formulated this way in case we have plural ref or corresp values,-->
+                    <sch:let name="refs" value="for $i in tokenize(., '\s+') return substring-after($i,'#')"/><!-- ebb: formulated this way in case we have plural ref or corresp values.-->
                        <sch:let name="backRefs" value="for $ref in $refs return $ref = $tempIDs"/>
                        <sch:let name="siRefs" value="for $ref in $refs return $ref = $siFile//@xml:id"/>
                        <sch:report role="info" test="$backRefs">
