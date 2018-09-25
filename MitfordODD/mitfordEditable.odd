@@ -13,10 +13,11 @@
       * If updating the ODD because of new site index updates, 
             1) be sure the new SI is posted at http://digitalmitford.org/si.xml. 
             2) Generate elementSpecs for new named entity markup (persons, places, titles, etc) with attribute values for @ref and @corresp 
-      by running si-to-ODD.xsl over the current si.xml stored at http://digitalmitford.org/si.xml.
-     * Finally generate the full ODD file by running mitfordODD-Combiner.xsl on mitfordEditable.odd, which pulls in site index data stored in MRMProsopREf.odd. 
+      by running si-to-ODD.xsl over the current si.xml stored at http://digitalmitford.org/si.xml. Save the output file as MRMProsopRef.odd 
+     * Finally generate the full ODD file by running mitfordODD-Combiner.xsl on mitfordEditable.odd, which pulls in site index data stored in MRMProsopRef.odd. 
      Save the output as mitfordODD.odd
      * "Run the wrench" in oXygen to generate the new Relax-NG XML-syntax project schema and HTML documentation for the project.
+      2018-09-25 ebb: The canonical version of the Mitford ODD is stored in the DM_Documentation GitHub repo. Project schema lines should point to the ODD-generated Relax NG schema at https://digitalmitford.github.io/DM_documentation/MitfordODD/out/mitfordODD.rng 
   -->
   <teiHeader>
       <fileDesc>
@@ -26,7 +27,7 @@
          </titleStmt>
         <!-- <xi:include href="MRMProsopRef.odd" xpointer="edition"/>-->
          <publicationStmt>
-            <authority>Prepared in TEI P5 by Elisa Beshero-Bondar in the Digital Mitford GitHub repository: <ref target="https://github.com/DigitalMitford/DM_processing"/>. Date last worked on: <date when="2018-08-06">6 August 2018</date></authority>
+            <authority>Prepared in TEI P5 by Elisa Beshero-Bondar in the Digital Mitford GitHub repository: <ref target="https://github.com/DigitalMitford/DM_documentation"/>. Date last worked on: <date when="2018-09-25">25 September 2018</date></authority>
             <availability><licence>Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) approved for Free Cultural Works <ref target="https://creativecommons.org/licenses/by-sa/4.0/"/></licence></availability>
          </publicationStmt>
          <seriesStmt>
@@ -38,6 +39,7 @@
       </fileDesc>
      <revisionDesc>
         <listChange>
+           <change when="2018-09-25" who="#ebb"></change>
            <change when="2018-08-08" who="#ebb">Built Site Index Ids into this ODD, with si-to-ODD.xsl to build elementSpecs and attDef lists.</change>
            <change when="2018-08-06" who="#ebb">Prepared this ODD file, working with the Digital Mitford Schematron files in place to this point, and the Digital Mitford codebook.</change>
         </listChange>
