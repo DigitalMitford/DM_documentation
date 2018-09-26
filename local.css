@@ -22,3 +22,6 @@ div #credits {padding-top:1.5em;}
 pre {
     white-space: pre-wrap;
 }
+code {
+    white-space: pre-wrap;
+}
