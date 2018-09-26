@@ -18,3 +18,7 @@ div #credits {padding-top:1.5em;}
 @media screen and (max-width: 42em) {
   .page-header-subpages {
     padding: 0.2rem 0.1rem; } }
+    
+pre {
+    white-space: pre-wrap;
+}
