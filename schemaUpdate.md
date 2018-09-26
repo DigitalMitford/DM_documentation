@@ -6,7 +6,7 @@ We would like all active project team members and students to use the new schema
 
 ## Instructions 
 
-First, locate the schema lines at the top of your Digital Mitford project file. They appear in purple in oXygen, and are positioned in between the XML declaration line (which looks like this: <?xml version="1.0" encoding="UTF-8"?>`) and the TEI root element (which looks like this: `<TEI xmlns="http://www.tei-c.org/ns/1.0">`).
+First, locate the schema lines at the top of your Digital Mitford project file. They appear in purple in oXygen, and are positioned in between the XML declaration line (which looks like this: `<?xml version="1.0" encoding="UTF-8"?>`) and the TEI root element (which looks like this: `<TEI xmlns="http://www.tei-c.org/ns/1.0">`).
 
 Begin by *commenting out* those schema lines. One way to do this is to highlight just the schema lines with your mouse and right-click, and select "Toggle comment" from the drop-down menu in oXygen. Make sure your top lines look like this: 
 
