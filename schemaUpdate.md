@@ -2,9 +2,10 @@
 ## and working with our new project ODD
 
 As of September 2018, the Digital Mitford has a new TEI ODD to document our project's customization of the TEI Guidelines and to generate our schema validation that guides our encoding. There are two benefits to the ODD:
-1) The ODD generates some project-specific documentation of our code, and that means you can look up alphabetically any element we're using in the project and read about what attributes we permit and what values we're using: 
+
+1. The ODD generates some project-specific documentation of our code, and that means you can look up alphabetically any element we're using in the project and read about what attributes we permit and what values we're using: 
 **[Read the ODD Documentation](https://digitalmitford.github.io/DM_documentation/MitfordODD/mitfordODD.html)**
-2) The ODD generates new Relax-NG and Schematron validation rules for our project--calling for new schema association lines on our project files.
+1. The ODD generates new Relax-NG and Schematron validation rules for our project--calling for new schema association lines on our project files.
 
 We would like all active project team members and students to use the new schema and perhaps take some time to compare how it works with the old schema. The new schema should provide more guidance and more clarity on encoding decisions, but we need the team to work with it and give us feedback to improve it. **Here is how to work with the new schema.**
 
