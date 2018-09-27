@@ -2,9 +2,10 @@
 <?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml"
 	schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<!--<?xml-model href="http://ebeshero.github.io/siCheck.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>-->
-
-<?xml-model href="si_Schema/siChecker.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="http://ebeshero.github.io/siCheck.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<!--<?xml-model href="../schemas/out/si_ODD.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="../schemas/out/si_ODD.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>-->
+<!--2018-09-27 ebb: For this small update, I am reinstating the old schema of TEI All and our separate Schematron validation file to add Anne Longmuir's new editor bio. New SI ODD still needs work. -->
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
    <teiHeader>
       <fileDesc>
@@ -27,7 +28,7 @@
             </respStmt>
          </titleStmt>
          <editionStmt>
-            <edition>Site Index for the Digital Mitford project. Date: 2017-12-31T20:39:30.156-05:00. Extracted by Elisa Beshero-Bondar.
+            <edition>Site Index for the Digital Mitford project. Date: 2018-09-27T11:15:30.797-04:00. Extracted by Elisa Beshero-Bondar.
         Count of all @xml:ids in the current file: 1946. First digital edition in TEI P5, launched on 19 August 2013.</edition>
          </editionStmt>
          <publicationStmt>
@@ -151,6 +152,20 @@
                      <affiliation>University of Montevallo</affiliation>
                   </occupation>
                   <note type="bio">Aymee Lynn Woody received her Bachelor’s in English from the University of Montevallo in 2016. She is currently working towards her Master’s degree in Education at Montevallo and is slated to graduate in May of 2018. In her spare time, Aymee enjoys reading, writing, quilting, sewing, and embroidery. She worked on the Digital Mitford Archive while enrolled in Samantha Webb’s Digital Romanticism course in Spring 2017.</note>
+               </person>
+               <person xml:id="aol">
+                  <persName>
+                     <surname>Longmuir</surname>
+                     <forename>Anne</forename>
+                     <roleName>Editor</roleName>
+                     <ptr target="https://www.k-state.edu/english/people/longmuir.html"/>
+                  </persName>
+                  <occupation>
+                     <affiliation>Kansas State University</affiliation>
+                  </occupation>
+                  <note type="bio">
+                     Anne Longmuir is Associate Professor of English at Kansas State University. Anne specializes in Victorian literature and has published more than ten articles and book chapters on Charlotte Brontë, Elizabeth Gaskell, and Wilkie Collins, among others. She also co-edited <title level="m">Victorian Literature: Criticism and Debates</title> (Routledge 2016) with Lee Behlman (Montclair State University). Anne is currently working on a book on the gender politics of John Ruskin's economic theory, which will explore his relationship with several nineteenth-century women writers, including Mary Russell Mitford. Anne is working on Mitford's letters and <title level="m" ref="#Our_Village1st_ed">Our Village</title> for the Digital Mitford Project. 
+                  </note>
                </person>
                <person xml:id="avg"><!--2017-10-15 ebb: Eventually, move to Past Research Assistants -->
                   <persName>Annie Gill
@@ -22659,7 +22674,7 @@ Life of William Harness (1870s):  mentions Fitzharris as MRM protege and failure
                      <orgName ref="#Whittakers_pub">G. &amp; W. B. Whittaker</orgName>
                   </publisher>
                   <date when="1824">1824</date>
-                  <note resp="#lmw">The first edition, first volume of Our Village appeared without a volume number on the title page. Only after the publication of subsequent volumes do volume numbers begin to appear on the title pages.</note>
+                  <note resp="#lmw">The first edition, first volume of <title level="m">Our Village</title> appeared without a volume number on the title page. Only after the publication of subsequent volumes do volume numbers begin to appear on the title pages.</note>
                </bibl>
                <bibl xml:id="Our_Village2nd">
                   <title>Our Village: Sketches of Rural Character and Scenery. Volume II. [volume two]</title>
@@ -23495,7 +23510,6 @@ Life of William Harness (1870s):  mentions Fitzharris as MRM protege and failure
                   <!--scw: As I look through the photos you've uploaded, especially of the introductory matter, I'm finding the different emphases of these editions quite interesting, and worth annotating. Though this needn't be a major focus for us.-->
                   <!--scw: I went through pics and noted any identified intro authors in the xml:id's that I could find.-->
                </bibl>
-               
                <bibl xml:id="OurVillage_story">
                   <title level="a">Our Village</title>
                   <date when="1821">composed 1821</date>
