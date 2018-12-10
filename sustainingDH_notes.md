@@ -29,11 +29,35 @@ Phases:
 * **Ongoing Maintenance**: regular, non-transformative activites to sustain the project are undertaken
 * **Retirement**: proactive project management ends, with proactive removal OR graceful degradation
 
-1) Cathedral scale. Letters are forever and SI , Lit editions more finite and less pressing. However, in 10-15 years the senior editors will start retiring. We need to package up the project to train up a new generation of scholar-coders on this project who will sustain the letters and SI activity. And we need to Teach and Document our work for that to happen. 
+1) and 2) Cathedral scale. Letters are forever and SI , Lit editions more finite and less pressing. However, in 10-15 years the senior editors will start retiring. We need to package up the project to train up a new generation of scholar-coders on this project who will sustain the letters and SI activity. And we need to Teach and Document our work for that to happen. 
 
 --Next generations may be to us as we are to Coles? Our interpretations will become dated. However, the data on named entities, document sources, etc should be stable, though software support will change.  
 
-2) 
+2) Lifespan why? Because economic (time), financial (no regular funding), intellectual (scale of edition projects)
+
+3) "Mid-morning phase": 
+* dawn was conceiving the project / writing the codebook
+* now we're working out bugs, and publishing more things, changing the interface
+* once literary modules are in development and SI encoding stabilized, it'll be "Noon": building on established precedents. 
+
+4) Next phase of development: (maybe after 5 years)
+* Take on a wider scale of years (not just 1819-1825, but moving backward + forward in time
+* Writing for a big grant again. 
+
+## Module A3
+
+Who uses your project?
+
+Why do they use it? what needs do they have?
+
+What do you imagine they get out of it? 
+
+General notes: we need to be aware of other coding projects looking to learn from us or link with us 
+
+
+
+
+
 
   
   
