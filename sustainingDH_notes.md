@@ -16,6 +16,8 @@
 
 5. Lather, rinse, repeat--this is recursive. As we publish, we see issues to correct in the source code. We find duplicate entries, etc.
 
+6. Invade wikipedia and ODNB etc with our rich data!
+
 ## Module A2
 General notes: Digital projects
 * fewer than 3 years 
@@ -27,7 +29,11 @@ Phases:
 * **Ongoing Maintenance**: regular, non-transformative activites to sustain the project are undertaken
 * **Retirement**: proactive project management ends, with proactive removal OR graceful degradation
 
+1) Cathedral scale. Letters are forever and SI , Lit editions more finite and less pressing. However, in 10-15 years the senior editors will start retiring. We need to package up the project to train up a new generation of scholar-coders on this project who will sustain the letters and SI activity. And we need to Teach and Document our work for that to happen. 
 
+--Next generations may be to us as we are to Coles? Our interpretations will become dated. However, the data on named entities, document sources, etc should be stable, though software support will change.  
+
+2) 
 
   
   
