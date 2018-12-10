@@ -109,7 +109,7 @@ Types of Documentation? | Designated a Reliable Site for the Project ? | Accessi
 Box comments |  No(!) People whose institutions start Box accounts are forced to change accounts  (we lose their identities) | Project team | Box corporate / university
 XML comments and TEI Header | Yes (but file/by/file access or XPath-able by a few) | Project team | project team's time and oXygen
 Google Docs | No these are ephemeral: for Lisa's use to find info quickly | Project Mgr first, rest of team as we work together | Google
-[Codebook](http://codebook.mitford.pitt.edu) | Yes, but this Google Doc is inconsistent with our current GitHub and ODD-based documenetation. A subproject is to curate and replace this. | Project team and public (coders) | Google
+[Codebook](http://codebook.mitford.pitt.edu) | Yes, but we need to phase this out as Digital Mitford 1.0. This Google Doc is inconsistent with our current GitHub and ODD-based documentation. A subproject is to curate and replace this. | Project team and public (coders) | Google
 Box files in MRMS Project Support | Yes reliable | Project team | Box corporate
 File Directory Structure (in Box, but mappable elsewehere) | Yes reliable | Project team | Us: Project team intellectual time and debate and energy
 
