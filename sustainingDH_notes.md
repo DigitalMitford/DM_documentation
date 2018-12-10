@@ -84,12 +84,11 @@ See ![our photo of post-it notes on our user communities](sustainingDH_photos/mo
 
 
 Significant Property |  Function on the Project | Designated Communities Served
------------------ | --------------------- |-------------------- |
+----------------- | --------------------- |-------------------- 
 Box Workspace | Workspace and teaching/research resources | **whole** project team
 Site Index integration with editions | sharing new data about 19c contexts | builds linked open data, available knowledge on web 
 Schema Code and Codebook | Manage and guide the code, ease selection of tags, provide examples | project team and other coders
 oXygen XML Editor | syntax awareness, guiding the code | project team
-
 public-facing website and eXist-db | publish our data, share code, "surface" SI data in search engines |  all our user groups, project team members' accreditation of work, proofreading. Data surfacing encourages "stumbling upon" our site in quest of named entities we're coding. 
 Social Media 2: Blog / Listservs | Announcements, detailed posts about project process | reaches potential new editors, coding school participants, involves our students 
 Social Media 3: Ancestry.com | public genealogy trees | finds people with overlapping research interests on historical people and places
