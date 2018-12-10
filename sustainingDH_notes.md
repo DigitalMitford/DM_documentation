@@ -78,18 +78,26 @@ Format: ![photo of user communities for Digital Mitford](sustainingDH_photos/mod
     * 
 
 * What are the structural components of your project?
-    * 
+    
 
 * What about your project's chosen technologies and/or digital interactivity is most salient to you? What forms does it take? 
 
 
 Significant Property |  Function on the Project | Designated Communities Served
 ----------------- | --------------------- |-------------------- |
-public-facing website | publish our data, share code |  all our user groups
-GitHub repos | share and refine code, with version control | serves project and other coders
+Box Workspace | Workspace and teaching/research resources | **whole** project team
 Site Index integration with editions | sharing new data about 19c contexts | builds linked open data, available knowledge on web 
-Box Workspace | Workspace and teaching/research resources | project team
-Instagram / Twitter | Popularize/ publicize | reaches librarians, archivisits/rare books fans 
+Schema Code and Codebook | Manage and guide the code, ease selection of tags, provide examples | project team and other coders
+oXygen XML Editor | syntax awareness, guiding the code | project team
+
+public-facing website and eXist-db | publish our data, share code |  all our user groups, project team members' accreditation of work, proofreading  
+Social Media 2: Blog / Listservs | Announcements, detailed posts about project process | reaches potential new editors, coding school participants, involves our students 
+GitHub repos | share and refine code, with version control | serves project and other coders
+
+Social Media 1: Instagram / Twitter / Facebook | Popularize/ publicize | reaches librarians, archivisits/rare books fans
+
+
+RANKINGS: Which properties are most important? 
 
 
 Eventually in course of this workshop, we'll be matching up user-groups with properties we list in A4.
