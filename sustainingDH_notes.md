@@ -12,7 +12,7 @@
 3. @lmwilson and @ebeshero: Macro level cleanup of entries, standardization of notes, create basis for linked open data.
 
 4. @ebeshero: publishing from SI on the website: (the way annotations are pulled into edition files, 
-`* AND separate publications profiling significant names. (not currently delivered, but will be).
+    * AND separate publications profiling significant names. (not currently delivered, but will be).
 
 5. Lather, rinse, repeat--this is recursive. As we publish, we see issues to correct in the source code. We find duplicate entries, etc.
 
