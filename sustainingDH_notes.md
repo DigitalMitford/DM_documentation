@@ -75,7 +75,8 @@ Format: ![photo of user communities for Digital Mitford](sustainingDH_photos/mod
     * Incomplete conveyance, but some network graphing, some publishing of bibliographies and archival holdings, editions 
 
 * How do you define your project's institutional context? What are its contours and features?
-    * 
+    * multiple institutions, connected as our own network.
+    * Annual coding school, Box, e-mail, and social media keep us connected and in contact
 
 * What are the structural components of your project?
     
