@@ -44,7 +44,7 @@ Phases:
 * Take on a wider scale of years (not just 1819-1825, but moving backward + forward in time
 * Writing for a big grant again. 
 
-## Module A3
+## Module A3: Who's visiting?
 
 Who uses your project?
 
@@ -56,6 +56,44 @@ General notes: we need to be aware of other coding projects looking to learn fro
 
 See ![our photo of post-it notes on our user communities](sustainingDH_photos/moduleA3_userGroups.jpg)
 Format: ![photo of user communities for Digital Mitford](sustainingDH_photos/moduleA3_userGroups.jpg)
+
+## Module A4 What are the project's sustainability priorities? 
+
+* What is your project's narrative, argument, or mission? Where and how do your intellectual goals unfold?
+    * Sidenote: We may be serving our "learn to code" audience more directly right now than the audience for MRM's writings
+    * Intellectual goals unfolding in the classroom
+    * Deans/admins might not have good sense of what our code means, or how our students are learning from this, or the activity going on behind the website view. 
+    * Intellectual goals are unfolding in Box and GitHub--not seen on website b/c long in-progress cycle. 
+    * Public presentations / conferences are one way of motivating stages that can be shared. 
+
+
+* What information is your project intended to convey? How does it convey it?
+    * Read MRM's writings
+    * Finding MRM's papers (tabular publication)
+    * Information about MRM's networks of people, places, documents
+    * Information about 19th-century letter writing, how to read postmarks, etc
+    * Incomplete conveyance, but some network graphing, some publishing of bibliographies and archival holdings, editions 
+
+* How do you define your project's institutional context? What are its contours and features?
+    * 
+
+* What are the structural components of your project?
+    * 
+
+* What about your project's chosen technologies and/or digital interactivity is most salient to you? What forms does it take? 
+
+
+Significant Property |  Function on the Project | Designated Communities Served
+----------------- | --------------------- |-------------------- |
+public-facing website | publish our data, share code |  all our user groups
+GitHub repos | share and refine code, with version control | serves project and other coders
+Site Index integration with editions | sharing new data about 19c contexts | builds linked open data, available knowledge on web 
+Box Workspace | Workspace and teaching/research resources | project team
+Instagram / Twitter | Popularize/ publicize | reaches librarians, archivisits/rare books fans 
+
+
+Eventually in course of this workshop, we'll be matching up user-groups with properties we list in A4.
+
 
 
 
