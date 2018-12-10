@@ -54,6 +54,11 @@ What do you imagine they get out of it?
 
 General notes: we need to be aware of other coding projects looking to learn from us or link with us 
 
+See ![our photo of post-it notes on our user communities](sustainingDH_photos/moduleA3_userGroups.jpg)
+Format: ![photo of user communities for Digital Mitford](sustainingDH_photos/moduleA3_userGroups.jpg)
+
+
+
 
 
 
