@@ -3,11 +3,11 @@
 ## Module A1: 
 ### Site Index Workflow
 1. Coders on the ground: tag named entities. Look up if they are in SI. If not, add. 
-  * If problematic, write an update.
-  * Known danger of producing duplicate entries.
+    * If problematic, write an update.
+    * Known danger of producing duplicate entries.
   
-2. @lmwilson and @ebeshero : Collect (harvest) and "dedupe" (merge duplicates), revise, and add to official SI for new releases of the SI. 
-  * We might want to start naming releases of the SI! 
+2. @lmwilson and @ebeshero : Collect (harvest) and "dedupe" (merge duplicates), revise, and add to official SI for new releases of the SI.
+    * We might want to start naming releases of the SI! 
 
 3. @lmwilson and @ebeshero: Macro level cleanup of entries, standardization of notes, create basis for linked open data.
 
