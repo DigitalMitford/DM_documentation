@@ -16,6 +16,17 @@
 
 5. Lather, rinse, repeat--this is recursive. As we publish, we see issues to correct in the source code. We find duplicate entries, etc.
 
+## Module A2
+General notes: Digital projects
+* fewer than 3 years 
+* over 3 years with the expectation of eventual retirement
+* "book time"-- as long as book would last? This is not necessarily the default. 
+
+Phases: 
+* **Active Creation**: The project is being created, developed, updated
+* **Ongoing Maintenance**: regular, non-transformative activites to sustain the project are undertaken
+* **Retirement**: proactive project management ends, with proactive removal OR graceful degradation
+
 
 
   
