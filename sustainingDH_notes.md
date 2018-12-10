@@ -114,6 +114,10 @@ Google Docs | No these are ephemeral: for Lisa's use to find info quickly | Proj
 Box files in MRMS Project Support | Yes reliable | Project team | Box corporate
 File Directory Structure (in Box, but mappable elsewehere) | Yes reliable | Project team | Us: Project team intellectual time and debate and energy
 
+Hey! We can now run Sustainability workshops on our own! 
+
+
+
 
 
 
