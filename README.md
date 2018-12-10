@@ -13,3 +13,4 @@ The following documentation files are available for consultation by the project 
 * **[Poetry Editing Readme](poetryReadMe.md)** (under construction)
 
 * **[Agenda and notes for August 2018 Digital Mitford GitHub Workflow meeting](Meeting_2018-08.md)**  (Elisa, Lisa, and Greg) 
+* **[Project Notes / Roadmap from Sustaining DH Institute, Pittsburgh 10-11 December 2018](sustainingDH_notes.md)**
