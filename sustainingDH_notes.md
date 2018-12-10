@@ -90,7 +90,7 @@ Site Index integration with editions | sharing new data about 19c contexts | bui
 Schema Code and Codebook | Manage and guide the code, ease selection of tags, provide examples | project team and other coders
 oXygen XML Editor | syntax awareness, guiding the code | project team
 
-public-facing website and eXist-db | publish our data, share code |  all our user groups, project team members' accreditation of work, proofreading  
+public-facing website and eXist-db | publish our data, share code, "surface" SI data in search engines |  all our user groups, project team members' accreditation of work, proofreading. Data surfacing encourages "stumbling upon" our site in quest of named entities we're coding. 
 Social Media 2: Blog / Listservs | Announcements, detailed posts about project process | reaches potential new editors, coding school participants, involves our students 
 Social Media 3: Ancestry.com | public genealogy trees | finds people with overlapping research interests on historical people and places
 GitHub repos | share and refine code, with version control | serves project and other coders
