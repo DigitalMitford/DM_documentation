@@ -98,8 +98,7 @@ GitHub repos | share and refine code, with version control | serves project and 
 Social Media 1: Instagram / Twitter / Facebook | Popularize/ publicize | reaches librarians, archivisits/rare books fans
 
 
-RANKINGS: Which properties are most important? 
-
+RANKINGS: We have organized the above properties from first to last in terms of their priorities to our project.
 
 Eventually in course of this workshop, we'll be matching up user-groups with properties we list in A4.
 
