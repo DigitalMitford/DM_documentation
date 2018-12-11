@@ -139,7 +139,8 @@ Hey! We can now run Sustainability workshops on our own!
     * Elisa and Lisa are involved in all sections
     * Drama, Poetry, and Fiction sections are more specialized. (Editors working in one of these sections are not usually working in one of the others)
     
-** We need to come back to this in a lot more detail! 
+** See our [Digital Mitford Staff] (http://digitalmitford.org/staff.html) which is reading from records of our staff in our site index at [http://digitalmitford.org/si.xml](http://digitalmitford.org/si.xml) ) 
+We need to come back to this module in a lot more detail! 
    
     
    
