@@ -89,7 +89,7 @@ Box Workspace | Workspace and teaching/research resources | **whole** project te
 Site Index integration with editions | sharing new data about 19c contexts | builds linked open data, available knowledge on web 
 Schema Code and Codebook | Manage and guide the code, ease selection of tags, provide examples | project team and other coders
 oXygen XML Editor | syntax awareness, guiding the code | project team
-public-facing website and eXist-db | publish our data, share code, "surface" SI data in search engines |  all our user groups, project team members' accreditation of work, proofreading. Data surfacing encourages "stumbling upon" our site in quest of named entities we're coding. 
+public-facing website (Apache on Digital Ocean) and eXist-db | publish our data, share code, "surface" SI data in search engines |  all our user groups, project team members' accreditation of work, proofreading. Data surfacing encourages "stumbling upon" our site in quest of named entities we're coding. 
 Social Media 2: Blog / Listservs | Announcements, detailed posts about project process | reaches potential new editors, coding school participants, involves our students 
 Social Media 3: Ancestry.com | public genealogy trees | finds people with overlapping research interests on historical people and places
 GitHub repos (Digital Mitford GitHub Organization) | share and refine code, with version control, our code Documentation repo as well as various development projects | serves project and other coders
@@ -113,7 +113,32 @@ Google Docs | No these are ephemeral: for Lisa's use to find info quickly | Proj
 Box files in MRMS Project Support | Yes reliable | Project team | Box corporate
 File Directory Structure (in Box, but mappable elsewehere) | Yes reliable | Project team | Us: Project team intellectual time and debate and energy
 
-Hey! We can now run Sustainability workshops on our own! (And we'll come back to this tomorrow with Part II. More soon!) 
+Hey! We can now run Sustainability workshops on our own! 
+
+# Part II 
+
+## Module B1: Who is on the project team and what are their roles?
+
+### Tools and Tech roles (Tech Infrastructure = part of the institutional base of project)
+* Box (via Pitt, sort of) Pitt connection gives us "infinite space" for free as long as PI is at Pitt. Brittle relationship, but vital for most of team's experience of this project's workspace. 
+* Digital Ocean supports our web presence:
+    * Apache web server (thanks to Apache documentation)
+    * Webmin and Digital Ocea
+* FileZilla (macro filtering downloads from Box and access to Apache)
+* eXist db: publishing editions on site
+* pHp: interfaces safely between Apache and eXist-db
+* Cytoscape: network graphs 
+
+
+### People:
+* Drama Section:
+    * Elizabeth 
+
+
+
+    
+
+
 
 
 
