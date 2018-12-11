@@ -175,6 +175,17 @@ What resources and actions are required to reach (and maintain) your desired lev
 * New OSF repo centralizes data streams (like Google working documents and GitHub, etc) under a single ORCID. Get everyone involved access to this to find everything quickly. 
 * Regularly revisit our standards. 
 
+## Module C3: File Formats and Metadata
+
+* **Level 1:** When possible, create files using a limited set of known open file formats
+    * Create and store descriptive metadata, such as title, abstract, keywords, or other information that is useful for discovery
+* **Level 2:** Maintain an inventory of all file formats used in your project 
+    * Keep an inventory of metadata file types and sizes 
+* **Level 3:** Routinely monitor your file formats for obsolescence issues
+    * Store administrative metadata, such as when files were creatd and with what technologies
+* **Level 4:** Perform format migrations, emulations, and other updating activities as needed
+    * Store transformative metadata, such as a log of how files have been altered over time
+    * Store standard preservation metadata
 
 
 
