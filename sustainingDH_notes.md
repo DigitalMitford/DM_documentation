@@ -147,6 +147,38 @@ We need to come back to this module in a lot more detail!
 We just set up a Center for Open Science (osf.io) account to help centralize our various data streams for our project. This unifies all our work under a single ORCID! 
 Digital Mitford on OSF: [https://osf.io/he34x/](https://osf.io/he34x/)
 
+## Module C2: File Formats and Metadata
+
+* **Level 1**: When Possible create files using a limited set of known open file format. Create and store descriptive metadat, such astitle, abstract, or keywords, or other info useful for discovery
+    *  Maintain 2 complete copies, stored separately
+* **Level 2**: Have publicly available documentation, user guides, or other materials that make your work legible to users
+    * Maintain 3 complete copies, with at least one copy in a different geographic location. 
+    * Transfer all data from heterogeneous types of media to a central storage system.
+* **Level 3**: Have a publicly available access and use policy
+    * Routinely monitory your storage systems and media for obsolescence.
+* **Level 4**: Provide accesss to the parts of the project that have become obsolete or difficult to access via a native environment and/or emulation
+    * Have a comprehensive plan in place to keep files and metadata on currently accessible media or systems.
+  
+
+What is your desired level? Why?
+At least level 3. Probably level 4. Because we need to curate the original codebook.mitford.pitt.edu for the project team to revisit its earliest decisions. 
+We can't have less than level 3 b/c everyone on this large-scale project needs the same kinds of access. 
+
+How high a priority is reaching your desire level? (Low / Medium / High)
+High. (maintain this level)
+
+What is your current level? Why?
+4 because we're a multi-headed dragon which makes us awesome! 
+
+What resources and actions are required to reach (and maintain) your desired level?
+* Get more of our project leaders regularly working with GitHub. 
+* New OSF repo centralizes data streams (like Google working documents and GitHub, etc) under a single ORCID. Get everyone involved access to this to find everything quickly. 
+* Regularly revisit our standards. 
+
+
+
+
+
 
 
 
