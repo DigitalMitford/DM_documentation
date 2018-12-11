@@ -144,6 +144,9 @@ We need to come back to this module in a lot more detail!
    
 [Google Sheet for Module B2](https://docs.google.com/spreadsheets/d/1oHpxaaVpICaSG77Vf2Prmp4kKNBVihLWT7NIpmRbZ6Q/edit?usp=sharing) (Note: internal to Digital Mitford project team)
 
+We just set up a Center for Open Science (osf.io) account to help centralize our various data streams for our project. This unifies all our work under a single ORCID! 
+Digital Mitford on OSF: [https://osf.io/he34x/](https://osf.io/he34x/)
+
 
 
 
