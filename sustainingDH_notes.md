@@ -131,8 +131,19 @@ Hey! We can now run Sustainability workshops on our own!
 
 
 ### People:
-* Drama Section:
-    * Elizabeth 
+* Section:
+    * Section Leads: communicate with section editors, updates them on major project issues. Manages section workflow for proofreading and quality control. Negotiates with Lisa and Elisa. 
+    * Editors: work on their own time at their speed. 
+    * Everyone is involved in Bibliography and Correspondence
+    * Everyone is involved (potentially) in Manuscript Archaeology
+    * Elisa and Lisa are involved in all sections
+    * Drama, Poetry, and Fiction sections are more specialized. (Editors working in one of these sections are not usually working in one of the others)
+    
+** We need to come back to this in a lot more detail! 
+   
+    
+   
+  
 
 
 
