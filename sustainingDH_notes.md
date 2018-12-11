@@ -203,6 +203,32 @@ Level 1 b/c we lack the inventory. Level 3 b/c we routinely monitor for obsolesc
 
 Resources and actions? Time and studying up on code scripts. 
 
+## Module C4: Permissions and Data Integrity
+
+Note: project members are typically the biggest threat to data integrity in the project!
+
+**fixity** keyword: data integrity. actual quality of the bits of data as they're embedded in the real world, and ensuring that the order of bits is maintained. 
+
+* **Level 1**: Identify which project members have login credentials to accounts and services used. 
+    * Identify which project members have read, write, move, and delete authorization to individual files
+* **Level 2**: Restrict authorizations to only necessary team members.
+    * Document access restrictions for services and files
+    * Be able to replace/repair corrupted data
+    * Create fixity of stable content as fixed intervals
+    * Check fixity of stable content in response to specific events or activities
+* **Level 3**: Maintain logs of who performs what actions on files, including deletions and preservation actions
+* **Level 4**: Perform routine audits of activity and logs
+
+What is your desired level and why?
+
+How high a priority is reaching your desired level in this area and why?
+
+What is your current level and why?
+
+What resources and actions are required to reach your desired level? 
+
+
+
 
 
 
