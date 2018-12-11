@@ -168,12 +168,13 @@ How high a priority is reaching your desire level? (Low / Medium / High)
 High. (maintain this level)
 
 What is your current level? Why?
-4 because we're a multi-headed dragon which makes us awesome! 
+We think, 4, but we do need to update some massive Excel spreadsheets to a more tractable long-term database format.
 
 What resources and actions are required to reach (and maintain) your desired level?
 * Get more of our project leaders regularly working with GitHub. 
 * New OSF repo centralizes data streams (like Google working documents and GitHub, etc) under a single ORCID. Get everyone involved access to this to find everything quickly. 
-* Regularly revisit our standards. 
+* Regularly revisit our standards.
+* Deal with Massive Excel Spreadsheets 
 
 ## Module C3: File Formats and Metadata
 
@@ -182,11 +183,25 @@ What resources and actions are required to reach (and maintain) your desired lev
 * **Level 2:** Maintain an inventory of all file formats used in your project 
     * Keep an inventory of metadata file types and sizes 
 * **Level 3:** Routinely monitor your file formats for obsolescence issues
-    * Store administrative metadata, such as when files were creatd and with what technologies
+    * Store administrative metadata, such as when files were created and with what technologies
 * **Level 4:** Perform format migrations, emulations, and other updating activities as needed
     * Store transformative metadata, such as a log of how files have been altered over time
     * Store standard preservation metadata
 
+(Note: Level 4 doesn't necessarily make sense for people who are working in progress actively on projects. These standards are developed for people curating finished projects.) 
+
+Desired level: 4
+* Desired action: Extract data on all of our file directories and sizes, and internal file names, types, and sizes. 
+* Desired action: Greg's giant Excel spreadsheets on MS archive locations need a format grade. We need a script system to permit data entry in Excel (where it's convenient) and transformation to XML format for access /viewing on the public-facing website 
+
+How high a priority? Low to Medium 
+We should generate the inventory of files.
+We don't necessarily need to act quickly on the format transfer from Excel. The key thing for us is that the Excel data is being regularly updated (by @ghbondar, our MS Archaeologist.) 
+
+What is your current level and why?
+Level 1 b/c we lack the inventory. Level 3 b/c we routinely monitor for obsolescence.
+
+Resources and actions? Time and studying up on code scripts. 
 
 
 
