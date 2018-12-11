@@ -219,13 +219,27 @@ Note: project members are typically the biggest threat to data integrity in the 
 * **Level 3**: Maintain logs of who performs what actions on files, including deletions and preservation actions
 * **Level 4**: Perform routine audits of activity and logs
 
-What is your desired level and why?
+Our logs/logging systems include:
+* Google sheets (manually produced). Tells us what assignments are in progress
+* Box folder labels, indicating who's assigned what, what's in progress, what needs backlist development. This is done by @lmwilson by hand. 
+* Box tracks which files were accessed and altered and when. Version control up 
+* GitHub tracks which files were accessed and altered and when. 
+* Filezilla: helps us filter aggregate directories and hunt for "old" files.
+* XML is tractable from the file-directory level via XQuery, which helps Elisa locate backlists for harvest. 
+* Photo logs (@ghbondar maintains original camera file logs from before they were filed in Box) This log could be stored on GitHub for additional support. 
 
-How high a priority is reaching your desired level in this area and why?
+Understand: Box is a workspace, not a sustainable storage space.
+
+What is your desired level and why? Level 4, defined for *our* project as visible via continuous integration
+
+How high a priority is reaching your desired level in this area and why? 
+Medium (because we're kind of okay without it, but things would be easier with it. Takes time to learn the tech for continuous integration.)
 
 What is your current level and why?
+Level 2.5? In between 2 and 3: We have fixity for file formats. We aren't maintaining logs separate from the software systems (like Box or GitHub or server logs) that are automatically generated. Continuous integration would help this. 
 
 What resources and actions are required to reach your desired level? 
+PI needs to learn and develop continuous integration, or recruit some willing and knowledgeable helper for this. 
 
 
 
