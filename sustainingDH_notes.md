@@ -123,7 +123,7 @@ Hey! We can now run Sustainability workshops on our own!
 * Box (via Pitt, sort of) Pitt connection gives us "infinite space" for free as long as PI is at Pitt. Brittle relationship, but vital for most of team's experience of this project's workspace. 
 * Digital Ocean supports our web presence:
     * Apache web server (thanks to Apache documentation)
-    * Webmin and Digital Ocea
+    * Webmin and Digital Ocean
 * FileZilla (macro filtering downloads from Box and access to Apache)
 * eXist db: publishing editions on site
 * pHp: interfaces safely between Apache and eXist-db
