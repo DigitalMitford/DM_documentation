@@ -195,13 +195,13 @@
                         <!-- ebb: formulated this way in case we have plural ref or corresp values.-->
                        <sch:let name="backRefs" value="every $ref in $refs satisfies $ref = $tempIDs"/>
                        <sch:let name="siRefs" value="every $ref in $refs satisfies $ref = $siFile//@xml:id"/>
-                       <sch:report role="info" test="$backRefs">
+                       <sch:report role="info" test="not(empty($backRefs))">
                           This referencing value, <sch:value-of select="."/>, points to &lt;back&gt; or to one of the temporary siAdd files. All is well, but the Digital Mitford prosopography team needs to review the proposed new entries.                
                        </sch:report>
-                        <sch:report role="info" test="$backRefs and not($siRefs)">
+                        <sch:report role="info" test="not(empty($backRefs)) and empty($siRefs)">
                        NOTE: This back or temporary siAdd reference is new and not currently listed in the official Digital Mitford Site Index.
                     </sch:report>
-                       <sch:report role="warning" test="not($backRefs) and not($siRefs)">
+                       <sch:report role="warning" test="empty($backRefs) and not(empty($siRefs))">
                           WARNING! This id value is not listed in the Site Index AND is not listed in the back or a temporary siAdd file. Check and see if this named entity already has an assigned id, and if not, please propose a new Site Index entry following our project rules.
                        </sch:report>
                        
