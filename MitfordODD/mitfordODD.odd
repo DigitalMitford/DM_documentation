@@ -193,8 +193,8 @@
                         <sch:let name="refs"
                                  value="for $i in tokenize(., '\s+') return substring-after($i,'#')"/>
                         <!-- ebb: formulated this way in case we have plural ref or corresp values.-->
-                       <sch:let name="backRefs" value="for $ref in $refs return $ref = $tempIDs"/>
-                       <sch:let name="siRefs" value="for $ref in $refs return $ref = $siFile//@xml:id"/>
+                       <sch:let name="backRefs" value="every $ref in $refs satisfies $ref = $tempIDs"/>
+                       <sch:let name="siRefs" value="every $ref in $refs satisfies $ref = $siFile//@xml:id"/>
                        <sch:report role="info" test="$backRefs">
                           This referencing value, <sch:value-of select="."/>, points to &lt;back&gt; or to one of the temporary siAdd files. All is well, but the Digital Mitford prosopography team needs to review the proposed new entries.                
                        </sch:report>
