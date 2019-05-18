@@ -44,7 +44,8 @@ Example with multiple white-space-separated subtypes:
     * curate
     * minister
     * priest (Use for Catholic clergy as well as Greek/Roman clergy. Do not use priestess.)
-
+    * composer (for composers of religious music)
+    * musician (for musical performers in church settings and religious contexts)
 
 * **educator** 
 
