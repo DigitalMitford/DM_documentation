@@ -16,7 +16,7 @@
 
 * **book_MRM** printed in books or serials (available to MRM in her lifetime, pre 1856)
 
-* **serial_MRM** serials (magazines or newspapers available to MRM in her lifetimes, pre 1856)
+* **serial_MRM** serials (magazines or newspapers available to MRM in her lifetime, pre 1856)
 
 * **schol** printed materials post 1856 (available to scholars of MRM)
 
