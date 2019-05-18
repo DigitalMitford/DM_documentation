@@ -52,6 +52,7 @@ Example with multiple white-space-separated subtypes:
     * schoolHead (for headmistress, schoolmaster, etc)
     * governess
     * tutor
+    * lecturer (for public lecturers on educational topics)
 
         
 * **scholar** 
