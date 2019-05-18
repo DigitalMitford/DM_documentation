@@ -180,7 +180,7 @@ Example with multiple white-space-separated subtypes:
     * bootmaker
     * shoemaker
     * innkeeper
-    * licquor (for a beer/alcohol retailer)
+    * liquor (for a beer/alcohol retailer)
     * merchant
     * clerk (for an employee in a shop)
     * banker
