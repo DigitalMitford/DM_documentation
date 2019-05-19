@@ -132,45 +132,156 @@
            </constraintSpec>
             <constraintSpec scheme="schematron" ident="rsReferencing">
                <constraint>
-                  <sch:p>Check the @ref values on rs and name that these are pointing to the appropriate lists in the Site Index.</sch:p>
+                  <sch:p>Ensure there are @ref values on rs</sch:p>
                   <sch:rule context="tei:rs | tei:name">
-                     <sch:let name="siFile" value="doc('https://digitalmitford.org/si.xml')"/>
-                     <sch:let name="siAddColl"
-                              value="collection('https://digitalmitford.github.io/DM_SiteIndex/si_Add_Staged/catalogue.xml')"/>
-                     <sch:let name="back" value="//tei:back"/>
-                     <sch:let name="everySiLoc" value="($siFile, $siAddColl, $back)"/>
-                     <sch:let name="refs"
-                              value="for $i in tokenize(@ref, '\s+') return substring-after($i,'#')"/>
                      <sch:assert test="@ref">An @ref attribute is required on this element!</sch:assert>
-                     <sch:report test="@type='event' and not(every $ref in $refs satisfies $ref = $everySiLoc//tei:text//tei:event/@xml:id)"
-                                 role="fatal">
+                  </sch:rule>
+               </constraint>
+            </constraintSpec>
+                  <constraintSpec scheme="schematron" ident="rsEventcheck">
+                     <constraint>
+                        <sch:p>Ensure there the @ref values on rs of type event point to event site index entries across the project.</sch:p>
+                        <sch:rule context="tei:rs[@type='event'] | tei:name[@type='event']">
+
+                     <sch:let name="siFile" value="doc('https://digitalmitford.org/si.xml')"/>
+                     <sch:let name="siAddColl" value="collection('https://digitalmitford.github.io/DM_SiteIndex/si_Add_Staged/catalogue.xml')"/>
+                        <sch:let name="backIDs" value="//tei:back//tei:event/@xml:id"/>
+                        <sch:let name="siAddIDs" value="$siAddColl//tei:text//tei:event/@xml:id"/>
+                        <sch:let name="siFileIDs" value="$siFile//tei:text//tei:event/@xml:id"/>
+                        <sch:let name="tempIDs" value="($backIDs, $siAddIDs)"/>
+                     <sch:let name="everySiLocIDs" value="($tempIDs, $siFileIDs)"/>
+                     <sch:let name="refs"
+                        value="for $i in tokenize(@ref, '\s+') return substring-after($i,'#')"/>
+                     <sch:assert test="every $ref in $refs satisfies $ref = $everySiLocIDs" role="fatal">
                         An rs with type="event" must refer to an xml:id on an event element.
-                     </sch:report>
-                     <sch:report test="@type='title' and not(every $ref in $refs satisfies $ref = $everySiLoc//tei:text//tei:bibl/@xml:id)"
-                                 role="fatal">
+                     </sch:assert>
+                  </sch:rule></constraint></constraintSpec>
+            <constraintSpec scheme="schematron" ident="rsTitlecheck">
+               <constraint>
+                  <sch:p>Ensure there the @ref values on rs of type title point to bibl site index entries across the project.</sch:p>
+                  <sch:rule context="tei:rs[@type='title'] | tei:name[@type='title']">
+                     <sch:let name="siFile" value="doc('https://digitalmitford.org/si.xml')"/>
+                     <sch:let name="siAddColl" value="collection('https://digitalmitford.github.io/DM_SiteIndex/si_Add_Staged/catalogue.xml')"/>
+                     <sch:let name="backIDs" value="//tei:back//tei:bibl/@xml:id"/>
+                     <sch:let name="siAddIDs" value="$siAddColl//tei:text//tei:bibl/@xml:id"/>
+                     <sch:let name="siFileIDs" value="$siFile//tei:text//tei:bibl/@xml:id"/>
+                     <sch:let name="tempIDs" value="($backIDs, $siAddIDs)"/>
+                     <sch:let name="everySiLocIDs" value="($tempIDs, $siFileIDs)"/>
+                     <sch:let name="refs"
+                        value="for $i in tokenize(@ref, '\s+') return substring-after($i,'#')"/>
+                     <sch:assert test="every $ref in $refs satisfies $ref = $everySiLocIDs" role="fatal">
                         An rs with type="title" must refer to an xml:id on a bibl element.
-                     </sch:report>
-                     <sch:report test="@type='place' and not(every $ref in $refs satisfies $ref = $everySiLoc//tei:text//tei:place/@xml:id)"
-                                 role="fatal">
+                     </sch:assert>      
+      </sch:rule>
+               </constraint>
+            </constraintSpec>
+            <constraintSpec scheme="schematron" ident="rsPlacecheck">
+               <constraint>
+                  <sch:p>Ensure there the @ref values on rs of type place point to place site index entries across the project.</sch:p>
+                  <sch:rule context="tei:rs[@type='place'] | tei:name[@type='place']">
+                     <sch:let name="siFile" value="doc('https://digitalmitford.org/si.xml')"/>
+                     <sch:let name="siAddColl" value="collection('https://digitalmitford.github.io/DM_SiteIndex/si_Add_Staged/catalogue.xml')"/>
+                     <sch:let name="backIDs" value="//tei:back//tei:place/@xml:id"/>
+                     <sch:let name="siAddIDs" value="$siAddColl//tei:text//tei:place/@xml:id"/>
+                     <sch:let name="siFileIDs" value="$siFile//tei:text//tei:place/@xml:id"/>
+                     <sch:let name="tempIDs" value="($backIDs, $siAddIDs)"/>
+                     <sch:let name="everySiLocIDs" value="($tempIDs, $siFileIDs)"/>
+                     <sch:let name="refs"
+                        value="for $i in tokenize(@ref, '\s+') return substring-after($i,'#')"/>
+                     <sch:assert test="every $ref in $refs satisfies $ref = $everySiLocIDs" role="fatal">
                         An rs with type="place" must refer to an xml:id on a place element.
-                     </sch:report>
-                     <sch:report test="@type='org' and not(every $ref in $refs satisfies $ref = $everySiLoc//tei:text//tei:org/@xml:id)" role="fatal">
+                     </sch:assert>
+                  </sch:rule>
+               </constraint>
+            </constraintSpec>
+            <constraintSpec scheme="schematron" ident="rsOrgcheck">
+               <constraint>
+                  <sch:p>Ensure there the @ref values on rs of type org (organization) point to org site index entries across the project.</sch:p>
+                  <sch:rule context="tei:rs[@type='org'] | tei:name[@type='org']">
+                     <sch:let name="siFile" value="doc('https://digitalmitford.org/si.xml')"/>
+                     <sch:let name="siAddColl" value="collection('https://digitalmitford.github.io/DM_SiteIndex/si_Add_Staged/catalogue.xml')"/>
+                     <sch:let name="backIDs" value="//tei:back//tei:org/@xml:id"/>
+                     <sch:let name="siAddIDs" value="$siAddColl//tei:text//tei:org/@xml:id"/>
+                     <sch:let name="siFileIDs" value="$siFile//tei:text//tei:org/@xml:id"/>
+                     <sch:let name="tempIDs" value="($backIDs, $siAddIDs)"/>
+                     <sch:let name="everySiLocIDs" value="($tempIDs, $siFileIDs)"/>
+                     <sch:let name="refs"
+                        value="for $i in tokenize(@ref, '\s+') return substring-after($i,'#')"/>
+                     <sch:assert test="every $ref in $refs satisfies $ref = $everySiLocIDs" role="fatal">
                         An rs with type="org" must refer to an xml:id on an org element.
-                     </sch:report>
-                     <sch:report test="@type='person' and not(every $ref in $refs satisfies $ref = $everySiLoc//tei:text//tei:person/@xml:id)"
-                                 role="fatal">
+                     </sch:assert> 
+                  </sch:rule>
+               </constraint></constraintSpec>
+            <constraintSpec scheme="schematron" ident="rsPersoncheck">
+               <constraint>
+                  <sch:p>Ensure there the @ref values on rs of type person point to person site index entries across the project.</sch:p>
+                  <sch:rule context="tei:rs[@type='person'] | tei:name[@type='person']">
+                     <sch:let name="siFile" value="doc('https://digitalmitford.org/si.xml')"/>
+                     <sch:let name="siAddColl" value="collection('https://digitalmitford.github.io/DM_SiteIndex/si_Add_Staged/catalogue.xml')"/>
+                     <sch:let name="backIDs" value="//tei:back//tei:person/@xml:id"/>
+                     <sch:let name="siAddIDs" value="$siAddColl//tei:text//tei:person/@xml:id"/>
+                     <sch:let name="siFileIDs" value="$siFile//tei:text//tei:person/@xml:id"/>
+                     <sch:let name="tempIDs" value="($backIDs, $siAddIDs)"/>
+                     <sch:let name="everySiLocIDs" value="($tempIDs, $siFileIDs)"/>
+                     <sch:let name="refs"
+                        value="for $i in tokenize(@ref, '\s+') return substring-after($i,'#')"/>
+                     <sch:assert test="every $ref in $refs satisfies $ref = $everySiLocIDs" role="fatal">
                         An rs with type="person" must refer to an xml:id on a person element.
-                     </sch:report>
-                     <sch:report test="@type='plant' and not(every $ref in $refs satisfies $ref = $everySiLoc//tei:text//tei:list[@sortKey='plants']/tei:item/@xml:id)"
-                                 role="fatal">
+                     </sch:assert>
+                  </sch:rule>
+               </constraint></constraintSpec>
+            <constraintSpec scheme="schematron" ident="rsPlantcheck">
+               <constraint>
+                  <sch:p>Ensure there the @ref values on rs of type plant point to plant site index entries across the project.</sch:p>
+                  <sch:rule context="tei:rs[@type='plant'] | tei:name[@type='plant']">
+                     <sch:let name="siFile" value="doc('https://digitalmitford.org/si.xml')"/>
+                     <sch:let name="siAddColl" value="collection('https://digitalmitford.github.io/DM_SiteIndex/si_Add_Staged/catalogue.xml')"/>
+                     <sch:let name="backIDs" value="//tei:back//tei:list[@sortKey='plants']//tei:item/@xml:id"/>
+                     <sch:let name="siAddIDs" value="$siAddColl//tei:text//tei:list[@sortKey='plants']//tei:item/@xml:id"/>
+                     <sch:let name="siFileIDs" value="$siFile//tei:text//tei:list[@sortKey='plants']//tei:item/@xml:id"/>
+                     <sch:let name="tempIDs" value="($backIDs, $siAddIDs)"/>
+                     <sch:let name="everySiLocIDs" value="($tempIDs, $siFileIDs)"/>
+                     <sch:let name="refs"
+                        value="for $i in tokenize(@ref, '\s+') return substring-after($i,'#')"/>
+                     <sch:assert test="every $ref in $refs satisfies $ref = $everySiLocIDs" role="fatal">
                         An rs with type="plant" must refer to an @xml:id on an item element in a list with sortKey="plants".
-                     </sch:report>
-                     <sch:report test="@type='animal' and not(every $ref in $refs satisfies $ref = $everySiLoc//tei:text//tei:list[@sortKey='animals']/tei:item/@xml:id)" role="fatal">
+                     </sch:assert>      
+                  </sch:rule>
+               </constraint></constraintSpec>
+                  <constraintSpec scheme="schematron" ident="rsAnimalcheck">
+                     <constraint>
+                        <sch:p>Ensure there the @ref values on rs of type animal point to animal site index entries across the project.</sch:p>
+                  <sch:rule context="tei:rs[@type='animal'] | tei:name[@type='animal']">
+                     <sch:let name="siFile" value="doc('https://digitalmitford.org/si.xml')"/>
+                     <sch:let name="siAddColl" value="collection('https://digitalmitford.github.io/DM_SiteIndex/si_Add_Staged/catalogue.xml')"/>
+                     <sch:let name="backIDs" value="//tei:back//tei:list[@sortKey='animals']//tei:item/@xml:id"/>
+                     <sch:let name="siAddIDs" value="$siAddColl//tei:text//tei:list[@sortKey='animals']//tei:item/@xml:id"/>
+                     <sch:let name="siFileIDs" value="$siFile//tei:text//tei:list[@sortKey='animals']//tei:item/@xml:id"/>
+                     <sch:let name="tempIDs" value="($backIDs, $siAddIDs)"/>
+                     <sch:let name="everySiLocIDs" value="($tempIDs, $siFileIDs)"/>
+                     <sch:let name="refs"
+                        value="for $i in tokenize(@ref, '\s+') return substring-after($i,'#')"/>     
+                     <sch:assert test="every $ref in $refs satisfies $ref = $everySiLocIDs" role="fatal">
                         An rs with type="animal" must refer to an @xml:id on an item element in a list with sortKey="animals".
-                     </sch:report>
-                     <sch:report test="@type='art' and not(every $ref in $refs satisfies $ref = $everySiLoc//tei:text//tei:list[@sortKey='art']/tei:figure/@xml:id)" role="fatal">
+                     </sch:assert> 
+                  </sch:rule>
+                     </constraint></constraintSpec>
+            <constraintSpec scheme="schematron" ident="rsArtcheck">
+               <constraint>
+                  <sch:p>Ensure there the @ref values on rs of type art point to art site index entries across the project.</sch:p>
+                  <sch:rule context="tei:rs[@type='art'] | tei:name[@type='art']">
+                     <sch:let name="siFile" value="doc('https://digitalmitford.org/si.xml')"/>
+                     <sch:let name="siAddColl" value="collection('https://digitalmitford.github.io/DM_SiteIndex/si_Add_Staged/catalogue.xml')"/>
+                     <sch:let name="backIDs" value="//tei:back//tei:list[@sortKey='art']//*/@xml:id"/>
+                     <sch:let name="siAddIDs" value="$siAddColl//tei:text//tei:list[@sortKey='art']//*/@xml:id"/>
+                     <sch:let name="siFileIDs" value="$siFile//tei:text//tei:list[@sortKey='art']//*/@xml:id"/>
+                     <sch:let name="tempIDs" value="($backIDs, $siAddIDs)"/>
+                     <sch:let name="everySiLocIDs" value="($tempIDs, $siFileIDs)"/>
+                     <sch:let name="refs"
+                        value="for $i in tokenize(@ref, '\s+') return substring-after($i,'#')"/>     
+                     <sch:assert test="every $ref in $refs satisfies $ref = $everySiLocIDs" role="fatal">
                         An rs with type="art" must refer to an @xml:id on a figure element in a list with sortKey="art".
-                     </sch:report>
+                     </sch:assert>   
                   </sch:rule>
                </constraint>
             </constraintSpec>
@@ -192,13 +303,13 @@
                        <sch:let name="backRefs" value="some $ref in $refs satisfies $ref = $tempIDs"/>
                        <sch:let name="siRefs" value="some $ref in $refs satisfies $ref = $siFile//@xml:id"/>
                        <!--2019-05-17 ebb: In the test attributes below, if the current value is $backRefs, it was in an earlier stage following perhaps poor advice on the oXygen-users list, not(empty($backRefs)); restoring to simpler original in case it's what's causing *everything* to fire to as backRef. -->
-                       <sch:report role="info" test="$backRefs eq 'true'">
+                       <sch:report role="info" test="$backRefs">
                           This referencing value, <sch:value-of select="."/>, points to &lt;back&gt; or to one of the temporary siAdd files. All is well, but the Digital Mitford prosopography team needs to review the proposed new entries.                
                        </sch:report>
-                        <sch:report role="info" test="$backRefs eq 'true' and $siRefs eq 'false'">
+                        <sch:report role="info" test="$backRefs and not($siRefs)">
                        NOTE: This back or temporary siAdd reference is new and not currently listed in the official Digital Mitford Site Index.
                     </sch:report>
-                       <sch:report role="warning" test="$backRefs eq 'false' and $siRefs eq 'false'">
+                       <sch:report role="warning" test="not($backRefs) and not($siRefs)">
                           WARNING! This id value is not listed in the Site Index AND is not listed in the back or a temporary siAdd file. Check and see if this named entity already has an assigned id, and if not, please propose a new Site Index entry following our project rules.
                        </sch:report>
                        
