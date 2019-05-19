@@ -304,8 +304,7 @@ schematypens="http://purl.oclc.org/dsdl/schematron"?>-->
                         <measure quantity="12" unit="mi">twelve miles</measure> off, which had been
                     his last residence. Here was desertion! Here was treachery! Here was treason
                     against that goodly state, <rs type="place" ref="#Shinfield">our parish</rs>! To
-                    send <persName ref="#Brown_James_OV">James Brown</persName> to Coventry<note
-                        resp="#scw">The phrase "send to Coventry" meant to shun or to stop speaking
+                    send <persName ref="#Brown_James_OV">James Brown</persName> to Coventry<note resp="#scw">The phrase "send to Coventry" meant to shun or to stop speaking
                         to someone in punishment for bad or socially unacceptable
                     behavior.</note>was the immediate resolution; but even that seemed too light a
                     punishment for such delinquency. Then how we cried him down! At <time when="22:00:00">ten</time>, on
@@ -378,7 +377,7 @@ schematypens="http://purl.oclc.org/dsdl/schematron"?>-->
                     greatly care how little we say to him. But he must not be sent to
                     <placeName ref="#Coventry_City">Coventry</placeName>—True-love forbid!</p>
                 <p> At last we were all assembled, and marched down to <placeName ref="#H_common_OV">H. common</placeName>, the appointed
-                    ground, which, though in our dominions according to the map, was the constant
+                    ground, which, though in our dominions according to the map, was the constant<note resp="#coles">stuff</note>
                     practising place of <rs type="org" ref="#CountryCM_B_cricketers_OV">our opponents</rs>, and <emph rend="italic"><foreign xml:lang="la">terra incognita</foreign></emph> to us. We
                     found our adversaries on the ground as we expected, for our various delays had
                     hindered us from taking the field so early as we wished; and, as soon as we had
@@ -470,7 +469,7 @@ schematypens="http://purl.oclc.org/dsdl/schematron"?>-->
                         <surname>Brown</surname>
                         <forename>James</forename>
                     </persName>
-                    <occupation type="#blacksmith">journeyman blacksmith</occupation>
+                    <occupation type="trade" subtype="#blacksmith"/>
                     <note resp="#jap #scw">Character who appears in <title ref="#Country_Cricket_Match_OV">A Country Cricket Match</title>. After traveling as a journeyman for six years, he has returned to the village, where he has a reputation as a good cricket player and a Lothario.</note>
                 </person>
                 
@@ -517,7 +516,7 @@ schematypens="http://purl.oclc.org/dsdl/schematron"?>-->
                     <surname>Grey</surname>
                     <forename>William</forename>
                 </persName>
-                <occupation type="#farmer">farmer</occupation> 
+                <occupation type="trade" subtype="#farmer"/>
                     <note resp="#jap #scw">The captain of the <placeName ref="#ThreeMileCross">Three Mile Cross</placeName> cricket team who appears in <title level="a" ref="#Country_Cricket_Match_OV">A Country Cricket Match</title>.</note>
                 </person>
                 
