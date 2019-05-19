@@ -130,9 +130,26 @@
                  </sch:rule>
               </constraint>
            </constraintSpec>
+            <constraintSpec scheme="schematron" ident="respCheck">
+               <constraint>
+                  <sch:p>Ensure that the @resp values on note and other elements point to members of the Mitford Team or to Past Editors</sch:p>
+                  <sch:rule context="*/@resp">
+                     <sch:let name="siFile" value="doc('https://digitalmitford.org/si.xml')"/>
+                     <sch:let name="siAddColl" value="collection('https://digitalmitford.github.io/DM_SiteIndex/si_Add_Staged/catalogue.xml')"/>
+                     <sch:let name="backIDs" value="//tei:back//tei:person/@xml:id"/><!--2019-05-19 ebb: Let's keep this one simple since people may not set the right divs in place in the backList -->
+                     <sch:let name="siAddIDs" value="$siAddColl//tei:text//tei:listPerson[@sortKey='Mitford_Team']/@xml:id | $siAddColl//tei:text//tei:listPerson[starts-with(@sortKey, 'Past')]/@xml:id"/>
+                     <sch:let name="siFileIDs" value="$siFile//tei:text//tei:listPerson[@sortKey='Mitford_Team']/@xml:id | $siAddColl//tei:text//tei:listPerson[starts-with(@sortKey, 'Past')]/@xml:id"/>
+                     <sch:let name="tempIDs" value="($backIDs, $siAddIDs)"/>
+                     <sch:let name="everySiLocIDs" value="($tempIDs, $siFileIDs)"/>
+                     <sch:let name="resps"
+                        value="for $i in tokenize(@resp, '\s+') return substring-after($i,'#')"/>
+                     <sch:assert test="every $resp in $resps satisfies $resp = $everySiLocIDs" role="fatal">
+      A resp attribute must refer to a member of the Mitford team, past assistants, or past editors of MRM in the site index entries.
+                     </sch:assert>
+                  </sch:rule></constraint></constraintSpec>
             <constraintSpec scheme="schematron" ident="rsReferencing">
                <constraint>
-                  <sch:p>Ensure there are @ref values on rs</sch:p>
+                  <sch:p>Ensure that there are @ref values on rs</sch:p>
                   <sch:rule context="tei:rs | tei:name">
                      <sch:assert test="@ref">An @ref attribute is required on this element!</sch:assert>
                   </sch:rule>
@@ -140,7 +157,7 @@
             </constraintSpec>
                   <constraintSpec scheme="schematron" ident="rsEventcheck">
                      <constraint>
-                        <sch:p>Ensure there the @ref values on rs of type event point to event site index entries across the project.</sch:p>
+                        <sch:p>Ensure that the @ref values on rs of type event point to event site index entries across the project.</sch:p>
                         <sch:rule context="tei:rs[@type='event'] | tei:name[@type='event']">
 
                      <sch:let name="siFile" value="doc('https://digitalmitford.org/si.xml')"/>
@@ -158,7 +175,7 @@
                   </sch:rule></constraint></constraintSpec>
             <constraintSpec scheme="schematron" ident="rsTitlecheck">
                <constraint>
-                  <sch:p>Ensure there the @ref values on rs of type title point to bibl site index entries across the project.</sch:p>
+                  <sch:p>Ensure that the @ref values on rs of type title point to bibl site index entries across the project.</sch:p>
                   <sch:rule context="tei:rs[@type='title'] | tei:name[@type='title']">
                      <sch:let name="siFile" value="doc('https://digitalmitford.org/si.xml')"/>
                      <sch:let name="siAddColl" value="collection('https://digitalmitford.github.io/DM_SiteIndex/si_Add_Staged/catalogue.xml')"/>
@@ -177,7 +194,7 @@
             </constraintSpec>
             <constraintSpec scheme="schematron" ident="rsPlacecheck">
                <constraint>
-                  <sch:p>Ensure there the @ref values on rs of type place point to place site index entries across the project.</sch:p>
+                  <sch:p>Ensure that the @ref values on rs of type place point to place site index entries across the project.</sch:p>
                   <sch:rule context="tei:rs[@type='place'] | tei:name[@type='place']">
                      <sch:let name="siFile" value="doc('https://digitalmitford.org/si.xml')"/>
                      <sch:let name="siAddColl" value="collection('https://digitalmitford.github.io/DM_SiteIndex/si_Add_Staged/catalogue.xml')"/>
@@ -196,7 +213,7 @@
             </constraintSpec>
             <constraintSpec scheme="schematron" ident="rsOrgcheck">
                <constraint>
-                  <sch:p>Ensure there the @ref values on rs of type org (organization) point to org site index entries across the project.</sch:p>
+                  <sch:p>Ensure that the @ref values on rs of type org (organization) point to org site index entries across the project.</sch:p>
                   <sch:rule context="tei:rs[@type='org'] | tei:name[@type='org']">
                      <sch:let name="siFile" value="doc('https://digitalmitford.org/si.xml')"/>
                      <sch:let name="siAddColl" value="collection('https://digitalmitford.github.io/DM_SiteIndex/si_Add_Staged/catalogue.xml')"/>
@@ -214,7 +231,7 @@
                </constraint></constraintSpec>
             <constraintSpec scheme="schematron" ident="rsPersoncheck">
                <constraint>
-                  <sch:p>Ensure there the @ref values on rs of type person point to person site index entries across the project.</sch:p>
+                  <sch:p>Ensure that the @ref values on rs of type person point to person site index entries across the project.</sch:p>
                   <sch:rule context="tei:rs[@type='person'] | tei:name[@type='person']">
                      <sch:let name="siFile" value="doc('https://digitalmitford.org/si.xml')"/>
                      <sch:let name="siAddColl" value="collection('https://digitalmitford.github.io/DM_SiteIndex/si_Add_Staged/catalogue.xml')"/>
@@ -232,7 +249,7 @@
                </constraint></constraintSpec>
             <constraintSpec scheme="schematron" ident="rsPlantcheck">
                <constraint>
-                  <sch:p>Ensure there the @ref values on rs of type plant point to plant site index entries across the project.</sch:p>
+                  <sch:p>Ensure that the @ref values on rs of type plant point to plant site index entries across the project.</sch:p>
                   <sch:rule context="tei:rs[@type='plant'] | tei:name[@type='plant']">
                      <sch:let name="siFile" value="doc('https://digitalmitford.org/si.xml')"/>
                      <sch:let name="siAddColl" value="collection('https://digitalmitford.github.io/DM_SiteIndex/si_Add_Staged/catalogue.xml')"/>
@@ -250,7 +267,7 @@
                </constraint></constraintSpec>
                   <constraintSpec scheme="schematron" ident="rsAnimalcheck">
                      <constraint>
-                        <sch:p>Ensure there the @ref values on rs of type animal point to animal site index entries across the project.</sch:p>
+                        <sch:p>Ensure that the @ref values on rs of type animal point to animal site index entries across the project.</sch:p>
                   <sch:rule context="tei:rs[@type='animal'] | tei:name[@type='animal']">
                      <sch:let name="siFile" value="doc('https://digitalmitford.org/si.xml')"/>
                      <sch:let name="siAddColl" value="collection('https://digitalmitford.github.io/DM_SiteIndex/si_Add_Staged/catalogue.xml')"/>
@@ -268,7 +285,7 @@
                      </constraint></constraintSpec>
             <constraintSpec scheme="schematron" ident="rsArtcheck">
                <constraint>
-                  <sch:p>Ensure there the @ref values on rs of type art point to art site index entries across the project.</sch:p>
+                  <sch:p>Ensure that the @ref values on rs of type art point to art site index entries across the project.</sch:p>
                   <sch:rule context="tei:rs[@type='art'] | tei:name[@type='art']">
                      <sch:let name="siFile" value="doc('https://digitalmitford.org/si.xml')"/>
                      <sch:let name="siAddColl" value="collection('https://digitalmitford.github.io/DM_SiteIndex/si_Add_Staged/catalogue.xml')"/>
@@ -289,7 +306,6 @@
               <constraint>
                  <sch:pattern>
                     <sch:p>Check whether ids point to &lt;back&gt; or to one of the temporary siAdd files.</sch:p>
-                 
                     <sch:rule context="@ref | @corresp">
                        <sch:let name="siFile" value="doc('https://digitalmitford.org/si.xml')"/>
                        <sch:let name="siAddColl"

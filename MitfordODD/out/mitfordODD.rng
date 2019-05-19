@@ -5,7 +5,7 @@
          xmlns:teix="http://www.tei-c.org/ns/Examples"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.tei-c.org/ns/1.0"><!--
-Schema generated from ODD source 2019-05-19T09:04:10Z. .
+Schema generated from ODD source 2019-05-19T09:33:51Z. .
 TEI Edition: Version 3.5.0. Last updated on
 	8th May 2019, revision 905f30769
 TEI Edition Location: http://www.tei-c.org/Vault/P5/Version 3.5.0/
@@ -19505,9 +19505,34 @@ Suggested values include: 1] label; 2] data</a:documentation>
    <sch:p xmlns="http://www.tei-c.org/ns/1.0"
           xmlns:xi="http://www.w3.org/2001/XInclude"
           xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-          xmlns:rng="http://relaxng.org/ns/structure/1.0">Ensure there are @ref values on rs</sch:p> 
+          xmlns:rng="http://relaxng.org/ns/structure/1.0">Ensure that the @resp values on note and other elements point to members of the Mitford Team or to Past Editors</sch:p> 
    <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-            id="mitfordODD-rsReferencing-constraint-rule-18">
+            id="mitfordODD-respCheck-constraint-rule-18">
+      <sch:rule xmlns:sch="http://purl.oclc.org/dsdl/schematron" context="*/@resp">
+                     <sch:let name="siFile" value="doc('https://digitalmitford.org/si.xml')"/>
+                     <sch:let name="siAddColl"
+                  value="collection('https://digitalmitford.github.io/DM_SiteIndex/si_Add_Staged/catalogue.xml')"/>
+                     <sch:let name="backIDs" value="//tei:back//tei:person/@xml:id"/>
+                     <sch:let name="siAddIDs"
+                  value="$siAddColl//tei:text//tei:listPerson[@sortKey='Mitford_Team']/@xml:id | $siAddColl//tei:text//tei:listPerson[starts-with(@sortKey, 'Past')]/@xml:id"/>
+                     <sch:let name="siFileIDs"
+                  value="$siFile//tei:text//tei:listPerson[@sortKey='Mitford_Team']/@xml:id | $siAddColl//tei:text//tei:listPerson[starts-with(@sortKey, 'Past')]/@xml:id"/>
+                     <sch:let name="tempIDs" value="($backIDs, $siAddIDs)"/>
+                     <sch:let name="everySiLocIDs" value="($tempIDs, $siFileIDs)"/>
+                     <sch:let name="resps"
+                  value="for $i in tokenize(@resp, '\s+') return substring-after($i,'#')"/>
+                     <sch:assert test="every $resp in $resps satisfies $resp = $everySiLocIDs"
+                     role="fatal">
+      A resp attribute must refer to a member of the Mitford team, past assistants, or past editors of MRM in the site index entries.
+                     </sch:assert>
+                  </sch:rule>
+   </pattern>
+   <sch:p xmlns="http://www.tei-c.org/ns/1.0"
+          xmlns:xi="http://www.w3.org/2001/XInclude"
+          xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+          xmlns:rng="http://relaxng.org/ns/structure/1.0">Ensure that there are @ref values on rs</sch:p> 
+   <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
+            id="mitfordODD-rsReferencing-constraint-rule-19">
       <sch:rule xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                 context="tei:rs | tei:name">
                      <sch:assert test="@ref">An @ref attribute is required on this element!</sch:assert>
@@ -19516,9 +19541,9 @@ Suggested values include: 1] label; 2] data</a:documentation>
    <sch:p xmlns="http://www.tei-c.org/ns/1.0"
           xmlns:xi="http://www.w3.org/2001/XInclude"
           xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-          xmlns:rng="http://relaxng.org/ns/structure/1.0">Ensure there the @ref values on rs of type event point to event site index entries across the project.</sch:p> 
+          xmlns:rng="http://relaxng.org/ns/structure/1.0">Ensure that the @ref values on rs of type event point to event site index entries across the project.</sch:p> 
    <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-            id="mitfordODD-rsEventcheck-constraint-rule-19">
+            id="mitfordODD-rsEventcheck-constraint-rule-20">
       <sch:rule xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                 context="tei:rs[@type='event'] | tei:name[@type='event']">
 
@@ -19540,9 +19565,9 @@ Suggested values include: 1] label; 2] data</a:documentation>
    <sch:p xmlns="http://www.tei-c.org/ns/1.0"
           xmlns:xi="http://www.w3.org/2001/XInclude"
           xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-          xmlns:rng="http://relaxng.org/ns/structure/1.0">Ensure there the @ref values on rs of type title point to bibl site index entries across the project.</sch:p> 
+          xmlns:rng="http://relaxng.org/ns/structure/1.0">Ensure that the @ref values on rs of type title point to bibl site index entries across the project.</sch:p> 
    <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-            id="mitfordODD-rsTitlecheck-constraint-rule-20">
+            id="mitfordODD-rsTitlecheck-constraint-rule-21">
       <sch:rule xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                 context="tei:rs[@type='title'] | tei:name[@type='title']">
                      <sch:let name="siFile" value="doc('https://digitalmitford.org/si.xml')"/>
@@ -19563,9 +19588,9 @@ Suggested values include: 1] label; 2] data</a:documentation>
    <sch:p xmlns="http://www.tei-c.org/ns/1.0"
           xmlns:xi="http://www.w3.org/2001/XInclude"
           xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-          xmlns:rng="http://relaxng.org/ns/structure/1.0">Ensure there the @ref values on rs of type place point to place site index entries across the project.</sch:p> 
+          xmlns:rng="http://relaxng.org/ns/structure/1.0">Ensure that the @ref values on rs of type place point to place site index entries across the project.</sch:p> 
    <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-            id="mitfordODD-rsPlacecheck-constraint-rule-21">
+            id="mitfordODD-rsPlacecheck-constraint-rule-22">
       <sch:rule xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                 context="tei:rs[@type='place'] | tei:name[@type='place']">
                      <sch:let name="siFile" value="doc('https://digitalmitford.org/si.xml')"/>
@@ -19586,9 +19611,9 @@ Suggested values include: 1] label; 2] data</a:documentation>
    <sch:p xmlns="http://www.tei-c.org/ns/1.0"
           xmlns:xi="http://www.w3.org/2001/XInclude"
           xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-          xmlns:rng="http://relaxng.org/ns/structure/1.0">Ensure there the @ref values on rs of type org (organization) point to org site index entries across the project.</sch:p> 
+          xmlns:rng="http://relaxng.org/ns/structure/1.0">Ensure that the @ref values on rs of type org (organization) point to org site index entries across the project.</sch:p> 
    <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-            id="mitfordODD-rsOrgcheck-constraint-rule-22">
+            id="mitfordODD-rsOrgcheck-constraint-rule-23">
       <sch:rule xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                 context="tei:rs[@type='org'] | tei:name[@type='org']">
                      <sch:let name="siFile" value="doc('https://digitalmitford.org/si.xml')"/>
@@ -19609,9 +19634,9 @@ Suggested values include: 1] label; 2] data</a:documentation>
    <sch:p xmlns="http://www.tei-c.org/ns/1.0"
           xmlns:xi="http://www.w3.org/2001/XInclude"
           xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-          xmlns:rng="http://relaxng.org/ns/structure/1.0">Ensure there the @ref values on rs of type person point to person site index entries across the project.</sch:p> 
+          xmlns:rng="http://relaxng.org/ns/structure/1.0">Ensure that the @ref values on rs of type person point to person site index entries across the project.</sch:p> 
    <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-            id="mitfordODD-rsPersoncheck-constraint-rule-23">
+            id="mitfordODD-rsPersoncheck-constraint-rule-24">
       <sch:rule xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                 context="tei:rs[@type='person'] | tei:name[@type='person']">
                      <sch:let name="siFile" value="doc('https://digitalmitford.org/si.xml')"/>
@@ -19632,9 +19657,9 @@ Suggested values include: 1] label; 2] data</a:documentation>
    <sch:p xmlns="http://www.tei-c.org/ns/1.0"
           xmlns:xi="http://www.w3.org/2001/XInclude"
           xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-          xmlns:rng="http://relaxng.org/ns/structure/1.0">Ensure there the @ref values on rs of type plant point to plant site index entries across the project.</sch:p> 
+          xmlns:rng="http://relaxng.org/ns/structure/1.0">Ensure that the @ref values on rs of type plant point to plant site index entries across the project.</sch:p> 
    <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-            id="mitfordODD-rsPlantcheck-constraint-rule-24">
+            id="mitfordODD-rsPlantcheck-constraint-rule-25">
       <sch:rule xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                 context="tei:rs[@type='plant'] | tei:name[@type='plant']">
                      <sch:let name="siFile" value="doc('https://digitalmitford.org/si.xml')"/>
@@ -19658,9 +19683,9 @@ Suggested values include: 1] label; 2] data</a:documentation>
    <sch:p xmlns="http://www.tei-c.org/ns/1.0"
           xmlns:xi="http://www.w3.org/2001/XInclude"
           xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-          xmlns:rng="http://relaxng.org/ns/structure/1.0">Ensure there the @ref values on rs of type animal point to animal site index entries across the project.</sch:p> 
+          xmlns:rng="http://relaxng.org/ns/structure/1.0">Ensure that the @ref values on rs of type animal point to animal site index entries across the project.</sch:p> 
    <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-            id="mitfordODD-rsAnimalcheck-constraint-rule-25">
+            id="mitfordODD-rsAnimalcheck-constraint-rule-26">
       <sch:rule xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                 context="tei:rs[@type='animal'] | tei:name[@type='animal']">
                      <sch:let name="siFile" value="doc('https://digitalmitford.org/si.xml')"/>
@@ -19684,9 +19709,9 @@ Suggested values include: 1] label; 2] data</a:documentation>
    <sch:p xmlns="http://www.tei-c.org/ns/1.0"
           xmlns:xi="http://www.w3.org/2001/XInclude"
           xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-          xmlns:rng="http://relaxng.org/ns/structure/1.0">Ensure there the @ref values on rs of type art point to art site index entries across the project.</sch:p> 
+          xmlns:rng="http://relaxng.org/ns/structure/1.0">Ensure that the @ref values on rs of type art point to art site index entries across the project.</sch:p> 
    <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-            id="mitfordODD-rsArtcheck-constraint-rule-26">
+            id="mitfordODD-rsArtcheck-constraint-rule-27">
       <sch:rule xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                 context="tei:rs[@type='art'] | tei:name[@type='art']">
                      <sch:let name="siFile" value="doc('https://digitalmitford.org/si.xml')"/>
@@ -19711,7 +19736,6 @@ Suggested values include: 1] label; 2] data</a:documentation>
                 xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                 xmlns:rng="http://relaxng.org/ns/structure/1.0">
                     <sch:p>Check whether ids point to &lt;back&gt; or to one of the temporary siAdd files.</sch:p>
-                 
                     <sch:rule context="@ref | @corresp">
                        <sch:let name="siFile" value="doc('https://digitalmitford.org/si.xml')"/>
                        <sch:let name="siAddColl"
