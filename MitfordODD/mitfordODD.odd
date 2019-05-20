@@ -12,9 +12,9 @@
       To make/edit/update the complete ODD: 
       * Make any necessary edits to the document model (element modules from the TEI, general constraints, anything except Site Index updates) in the mitfordEditable.odd file.
       * If updating the ODD because of new site index updates, 
-            1) be sure the new SI is posted at https://digitalmitford.org/si.xml. 
+            1) be sure the new SI is posted at http://digitalmitford.org/si.xml. 
             2) Generate elementSpecs for new named entity markup (persons, places, titles, etc) with attribute values for @ref and @corresp 
-      by running si-to-ODD.xsl over the current si.xml stored at https://digitalmitford.org/si.xml. Save the output file as MRMProsopRef.odd 
+      by running si-to-ODD.xsl over the current si.xml stored at http://digitalmitford.org/si.xml. Save the output file as MRMProsopRef.odd 
      * Finally generate the full ODD file by running mitfordODD-Combiner.xsl on mitfordEditable.odd, which pulls in site index data stored in MRMProsopRef.odd. 
      Save the output as mitfordODD.odd
      * "Run the wrench" in oXygen to generate the new Relax-NG XML-syntax project schema and HTML documentation for the project.
@@ -27,11 +27,11 @@
             <author>Elisa Beshero-Bondar</author>
          </titleStmt>
          <editionStmt xml:id="edition">
-            <edition>Generated on 2019-05-06T07:33:20.799-04:00 from updates to the Site Index for the Digital Mitford project. Date: 2019-04-21T19:39:21.872-04:00. Extracted by Elisa Beshero-Bondar.
-        Count of all @xml:ids in the current file: 1947. First digital edition in TEI P5, launched on 19 August 2013.</edition>
+            <edition>Generated on 2019-05-19T08:35:28.309-04:00 from updates to the Site Index for the Digital Mitford project. Date: 2019-05-19T07:47:18.614-04:00. Extracted by Elisa Beshero-Bondar.
+        Count of all @xml:ids in the current file: 1976. First digital edition in TEI P5, launched on 19 August 2013.</edition>
          </editionStmt>
          <publicationStmt>
-            <authority>Prepared in TEI P5 by Elisa Beshero-Bondar in the Digital Mitford GitHub repository: <ref target="https://github.com/DigitalMitford/DM_documentation"/>. Date last worked on: <date when="2018-09-25">25 September 2018</date>
+            <authority>Prepared in TEI P5 by Elisa Beshero-Bondar in the Digital Mitford GitHub repository: <ref target="https://github.com/DigitalMitford/DM_documentation"/>. Date last worked on: <date when="2019-05-18">18 May 2019</date>
             </authority>
             <availability>
                <licence>Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) approved for Free Cultural Works <ref target="https://creativecommons.org/licenses/by-sa/4.0/"/>
@@ -82,7 +82,7 @@
             <constraintSpec scheme="schematron" ident="quotes">
                <constraint>
                   <sch:rule context="*/text()[matches(., '[A-z]+')]">
-                     <sch:let name="regexQuote" value="'&quot;'" />
+                     <sch:let name="regexQuote" value="'&#34;'"/>
                      <sch:report test="matches(., $regexQuote)" role="warning">
    We see you're typing in quotation marks. It is better to use a meaningful TEI element for these. If it is a cited quotation, use the cit and quote elements together (or just the quote element for an uncited quotation). If it is a spoken aloud passage, use the said element. If it is a string of words in quotation marks and you are not sure what it is, use the q element.</sch:report>        
                   </sch:rule>
@@ -144,18 +144,25 @@
                   <sch:p>Ensure that the @resp values on note and other elements point to members of the Mitford Team or to Past Editors</sch:p>
                   <sch:rule context="*/@resp">
                      <sch:let name="siFile" value="doc('https://digitalmitford.org/si.xml')"/>
-                     <sch:let name="siAddColl" value="collection('https://digitalmitford.github.io/DM_SiteIndex/si_Add_Staged/catalogue.xml')"/>
-                     <sch:let name="backIDs" value="//tei:back//tei:person/@xml:id"/><!--2019-05-19 ebb: Let's keep this one simple since people may not set the right divs in place in the backList -->
-                     <sch:let name="siAddIDs" value="$siAddColl//tei:text//tei:listPerson[@sortKey='Mitford_Team']/@xml:id | $siAddColl//tei:text//tei:listPerson[starts-with(@sortKey, 'Past')]/@xml:id"/>
-                     <sch:let name="siFileIDs" value="$siFile//tei:text//tei:listPerson[@sortKey='Mitford_Team']/@xml:id | $siAddColl//tei:text//tei:listPerson[starts-with(@sortKey, 'Past')]/@xml:id"/>
+                     <sch:let name="siAddColl"
+                              value="collection('https://digitalmitford.github.io/DM_SiteIndex/si_Add_Staged/catalogue.xml')"/>
+                     <sch:let name="backIDs" value="//tei:back//tei:person/@xml:id"/>
+                     <!--2019-05-19 ebb: Let's keep this one simple since people may not set the right divs in place in the backList -->
+                     <sch:let name="siAddIDs"
+                              value="$siAddColl//tei:text//tei:listPerson[@sortKey='Mitford_Team']/@xml:id | $siAddColl//tei:text//tei:listPerson[starts-with(@sortKey, 'Past')]/@xml:id"/>
+                     <sch:let name="siFileIDs"
+                              value="$siFile//tei:text//tei:listPerson[@sortKey='Mitford_Team']/@xml:id | $siAddColl//tei:text//tei:listPerson[starts-with(@sortKey, 'Past')]/@xml:id"/>
                      <sch:let name="tempIDs" value="($backIDs, $siAddIDs)"/>
                      <sch:let name="everySiLocIDs" value="($tempIDs, $siFileIDs)"/>
                      <sch:let name="resps"
-                        value="for $i in tokenize(@resp, '\s+') return substring-after($i,'#')"/>
-                     <sch:assert test="every $resp in $resps satisfies $resp = $everySiLocIDs" role="fatal">
+                              value="for $i in tokenize(@resp, '\s+') return substring-after($i,'#')"/>
+                     <sch:assert test="every $resp in $resps satisfies $resp = $everySiLocIDs"
+                                 role="fatal">
       A resp attribute must refer to a member of the Mitford team, past assistants, or past editors of MRM in the site index entries.
                      </sch:assert>
-                  </sch:rule></constraint></constraintSpec>
+                  </sch:rule>
+               </constraint>
+            </constraintSpec>
             <constraintSpec scheme="schematron" ident="rsReferencing">
                <constraint>
                   <sch:p>Ensure that there are @ref values on rs</sch:p>
@@ -164,41 +171,45 @@
                   </sch:rule>
                </constraint>
             </constraintSpec>
-                  <constraintSpec scheme="schematron" ident="rsEventcheck">
+            <constraintSpec scheme="schematron" ident="rsEventcheck">
                      <constraint>
                         <sch:p>Ensure that the @ref values on rs of type event point to event site index entries across the project.</sch:p>
                         <sch:rule context="tei:rs[@type='event'] | tei:name[@type='event']">
 
                      <sch:let name="siFile" value="doc('https://digitalmitford.org/si.xml')"/>
-                     <sch:let name="siAddColl" value="collection('https://digitalmitford.github.io/DM_SiteIndex/si_Add_Staged/catalogue.xml')"/>
+                     <sch:let name="siAddColl"
+                              value="collection('https://digitalmitford.github.io/DM_SiteIndex/si_Add_Staged/catalogue.xml')"/>
                         <sch:let name="backIDs" value="//tei:back//tei:event/@xml:id"/>
                         <sch:let name="siAddIDs" value="$siAddColl//tei:text//tei:event/@xml:id"/>
                         <sch:let name="siFileIDs" value="$siFile//tei:text//tei:event/@xml:id"/>
                         <sch:let name="tempIDs" value="($backIDs, $siAddIDs)"/>
                      <sch:let name="everySiLocIDs" value="($tempIDs, $siFileIDs)"/>
                      <sch:let name="refs"
-                        value="for $i in tokenize(@ref, '\s+') return substring-after($i,'#')"/>
+                              value="for $i in tokenize(@ref, '\s+') return substring-after($i,'#')"/>
                      <sch:assert test="every $ref in $refs satisfies $ref = $everySiLocIDs" role="fatal">
                         An rs with type="event" must refer to an xml:id on an event element.
                      </sch:assert>
-                  </sch:rule></constraint></constraintSpec>
+                  </sch:rule>
+               </constraint>
+            </constraintSpec>
             <constraintSpec scheme="schematron" ident="rsTitlecheck">
                <constraint>
                   <sch:p>Ensure that the @ref values on rs of type title point to bibl site index entries across the project.</sch:p>
                   <sch:rule context="tei:rs[@type='title'] | tei:name[@type='title']">
                      <sch:let name="siFile" value="doc('https://digitalmitford.org/si.xml')"/>
-                     <sch:let name="siAddColl" value="collection('https://digitalmitford.github.io/DM_SiteIndex/si_Add_Staged/catalogue.xml')"/>
+                     <sch:let name="siAddColl"
+                              value="collection('https://digitalmitford.github.io/DM_SiteIndex/si_Add_Staged/catalogue.xml')"/>
                      <sch:let name="backIDs" value="//tei:back//tei:bibl/@xml:id"/>
                      <sch:let name="siAddIDs" value="$siAddColl//tei:text//tei:bibl/@xml:id"/>
                      <sch:let name="siFileIDs" value="$siFile//tei:text//tei:bibl/@xml:id"/>
                      <sch:let name="tempIDs" value="($backIDs, $siAddIDs)"/>
                      <sch:let name="everySiLocIDs" value="($tempIDs, $siFileIDs)"/>
                      <sch:let name="refs"
-                        value="for $i in tokenize(@ref, '\s+') return substring-after($i,'#')"/>
+                              value="for $i in tokenize(@ref, '\s+') return substring-after($i,'#')"/>
                      <sch:assert test="every $ref in $refs satisfies $ref = $everySiLocIDs" role="fatal">
                         An rs with type="title" must refer to an xml:id on a bibl element.
                      </sch:assert>      
-      </sch:rule>
+                  </sch:rule>
                </constraint>
             </constraintSpec>
             <constraintSpec scheme="schematron" ident="rsPlacecheck">
@@ -206,14 +217,15 @@
                   <sch:p>Ensure that the @ref values on rs of type place point to place site index entries across the project.</sch:p>
                   <sch:rule context="tei:rs[@type='place'] | tei:name[@type='place']">
                      <sch:let name="siFile" value="doc('https://digitalmitford.org/si.xml')"/>
-                     <sch:let name="siAddColl" value="collection('https://digitalmitford.github.io/DM_SiteIndex/si_Add_Staged/catalogue.xml')"/>
+                     <sch:let name="siAddColl"
+                              value="collection('https://digitalmitford.github.io/DM_SiteIndex/si_Add_Staged/catalogue.xml')"/>
                      <sch:let name="backIDs" value="//tei:back//tei:place/@xml:id"/>
                      <sch:let name="siAddIDs" value="$siAddColl//tei:text//tei:place/@xml:id"/>
                      <sch:let name="siFileIDs" value="$siFile//tei:text//tei:place/@xml:id"/>
                      <sch:let name="tempIDs" value="($backIDs, $siAddIDs)"/>
                      <sch:let name="everySiLocIDs" value="($tempIDs, $siFileIDs)"/>
                      <sch:let name="refs"
-                        value="for $i in tokenize(@ref, '\s+') return substring-after($i,'#')"/>
+                              value="for $i in tokenize(@ref, '\s+') return substring-after($i,'#')"/>
                      <sch:assert test="every $ref in $refs satisfies $ref = $everySiLocIDs" role="fatal">
                         An rs with type="place" must refer to an xml:id on a place element.
                      </sch:assert>
@@ -225,86 +237,103 @@
                   <sch:p>Ensure that the @ref values on rs of type org (organization) point to org site index entries across the project.</sch:p>
                   <sch:rule context="tei:rs[@type='org'] | tei:name[@type='org']">
                      <sch:let name="siFile" value="doc('https://digitalmitford.org/si.xml')"/>
-                     <sch:let name="siAddColl" value="collection('https://digitalmitford.github.io/DM_SiteIndex/si_Add_Staged/catalogue.xml')"/>
+                     <sch:let name="siAddColl"
+                              value="collection('https://digitalmitford.github.io/DM_SiteIndex/si_Add_Staged/catalogue.xml')"/>
                      <sch:let name="backIDs" value="//tei:back//tei:org/@xml:id"/>
                      <sch:let name="siAddIDs" value="$siAddColl//tei:text//tei:org/@xml:id"/>
                      <sch:let name="siFileIDs" value="$siFile//tei:text//tei:org/@xml:id"/>
                      <sch:let name="tempIDs" value="($backIDs, $siAddIDs)"/>
                      <sch:let name="everySiLocIDs" value="($tempIDs, $siFileIDs)"/>
                      <sch:let name="refs"
-                        value="for $i in tokenize(@ref, '\s+') return substring-after($i,'#')"/>
+                              value="for $i in tokenize(@ref, '\s+') return substring-after($i,'#')"/>
                      <sch:assert test="every $ref in $refs satisfies $ref = $everySiLocIDs" role="fatal">
                         An rs with type="org" must refer to an xml:id on an org element.
                      </sch:assert> 
                   </sch:rule>
-               </constraint></constraintSpec>
+               </constraint>
+            </constraintSpec>
             <constraintSpec scheme="schematron" ident="rsPersoncheck">
                <constraint>
                   <sch:p>Ensure that the @ref values on rs of type person point to person site index entries across the project.</sch:p>
                   <sch:rule context="tei:rs[@type='person'] | tei:name[@type='person']">
                      <sch:let name="siFile" value="doc('https://digitalmitford.org/si.xml')"/>
-                     <sch:let name="siAddColl" value="collection('https://digitalmitford.github.io/DM_SiteIndex/si_Add_Staged/catalogue.xml')"/>
+                     <sch:let name="siAddColl"
+                              value="collection('https://digitalmitford.github.io/DM_SiteIndex/si_Add_Staged/catalogue.xml')"/>
                      <sch:let name="backIDs" value="//tei:back//tei:person/@xml:id"/>
                      <sch:let name="siAddIDs" value="$siAddColl//tei:text//tei:person/@xml:id"/>
                      <sch:let name="siFileIDs" value="$siFile//tei:text//tei:person/@xml:id"/>
                      <sch:let name="tempIDs" value="($backIDs, $siAddIDs)"/>
                      <sch:let name="everySiLocIDs" value="($tempIDs, $siFileIDs)"/>
                      <sch:let name="refs"
-                        value="for $i in tokenize(@ref, '\s+') return substring-after($i,'#')"/>
+                              value="for $i in tokenize(@ref, '\s+') return substring-after($i,'#')"/>
                      <sch:assert test="every $ref in $refs satisfies $ref = $everySiLocIDs" role="fatal">
                         An rs with type="person" must refer to an xml:id on a person element.
                      </sch:assert>
                   </sch:rule>
-               </constraint></constraintSpec>
+               </constraint>
+            </constraintSpec>
             <constraintSpec scheme="schematron" ident="rsPlantcheck">
                <constraint>
                   <sch:p>Ensure that the @ref values on rs of type plant point to plant site index entries across the project.</sch:p>
                   <sch:rule context="tei:rs[@type='plant'] | tei:name[@type='plant']">
                      <sch:let name="siFile" value="doc('https://digitalmitford.org/si.xml')"/>
-                     <sch:let name="siAddColl" value="collection('https://digitalmitford.github.io/DM_SiteIndex/si_Add_Staged/catalogue.xml')"/>
-                     <sch:let name="backIDs" value="//tei:back//tei:list[@sortKey='plants']//tei:item/@xml:id"/>
-                     <sch:let name="siAddIDs" value="$siAddColl//tei:text//tei:list[@sortKey='plants']//tei:item/@xml:id"/>
-                     <sch:let name="siFileIDs" value="$siFile//tei:text//tei:list[@sortKey='plants']//tei:item/@xml:id"/>
+                     <sch:let name="siAddColl"
+                              value="collection('https://digitalmitford.github.io/DM_SiteIndex/si_Add_Staged/catalogue.xml')"/>
+                     <sch:let name="backIDs"
+                              value="//tei:back//tei:list[@sortKey='plants']//tei:item/@xml:id"/>
+                     <sch:let name="siAddIDs"
+                              value="$siAddColl//tei:text//tei:list[@sortKey='plants']//tei:item/@xml:id"/>
+                     <sch:let name="siFileIDs"
+                              value="$siFile//tei:text//tei:list[@sortKey='plants']//tei:item/@xml:id"/>
                      <sch:let name="tempIDs" value="($backIDs, $siAddIDs)"/>
                      <sch:let name="everySiLocIDs" value="($tempIDs, $siFileIDs)"/>
                      <sch:let name="refs"
-                        value="for $i in tokenize(@ref, '\s+') return substring-after($i,'#')"/>
+                              value="for $i in tokenize(@ref, '\s+') return substring-after($i,'#')"/>
                      <sch:assert test="every $ref in $refs satisfies $ref = $everySiLocIDs" role="fatal">
                         An rs with type="plant" must refer to an @xml:id on an item element in a list with sortKey="plants".
                      </sch:assert>      
                   </sch:rule>
-               </constraint></constraintSpec>
-                  <constraintSpec scheme="schematron" ident="rsAnimalcheck">
+               </constraint>
+            </constraintSpec>
+            <constraintSpec scheme="schematron" ident="rsAnimalcheck">
                      <constraint>
                         <sch:p>Ensure that the @ref values on rs of type animal point to animal site index entries across the project.</sch:p>
                   <sch:rule context="tei:rs[@type='animal'] | tei:name[@type='animal']">
                      <sch:let name="siFile" value="doc('https://digitalmitford.org/si.xml')"/>
-                     <sch:let name="siAddColl" value="collection('https://digitalmitford.github.io/DM_SiteIndex/si_Add_Staged/catalogue.xml')"/>
-                     <sch:let name="backIDs" value="//tei:back//tei:list[@sortKey='animals']//tei:item/@xml:id"/>
-                     <sch:let name="siAddIDs" value="$siAddColl//tei:text//tei:list[@sortKey='animals']//tei:item/@xml:id"/>
-                     <sch:let name="siFileIDs" value="$siFile//tei:text//tei:list[@sortKey='animals']//tei:item/@xml:id"/>
+                     <sch:let name="siAddColl"
+                              value="collection('https://digitalmitford.github.io/DM_SiteIndex/si_Add_Staged/catalogue.xml')"/>
+                     <sch:let name="backIDs"
+                              value="//tei:back//tei:list[@sortKey='animals']//tei:item/@xml:id"/>
+                     <sch:let name="siAddIDs"
+                              value="$siAddColl//tei:text//tei:list[@sortKey='animals']//tei:item/@xml:id"/>
+                     <sch:let name="siFileIDs"
+                              value="$siFile//tei:text//tei:list[@sortKey='animals']//tei:item/@xml:id"/>
                      <sch:let name="tempIDs" value="($backIDs, $siAddIDs)"/>
                      <sch:let name="everySiLocIDs" value="($tempIDs, $siFileIDs)"/>
                      <sch:let name="refs"
-                        value="for $i in tokenize(@ref, '\s+') return substring-after($i,'#')"/>     
+                              value="for $i in tokenize(@ref, '\s+') return substring-after($i,'#')"/>     
                      <sch:assert test="every $ref in $refs satisfies $ref = $everySiLocIDs" role="fatal">
                         An rs with type="animal" must refer to an @xml:id on an item element in a list with sortKey="animals".
                      </sch:assert> 
                   </sch:rule>
-                     </constraint></constraintSpec>
+                     </constraint>
+            </constraintSpec>
             <constraintSpec scheme="schematron" ident="rsArtcheck">
                <constraint>
                   <sch:p>Ensure that the @ref values on rs of type art point to art site index entries across the project.</sch:p>
                   <sch:rule context="tei:rs[@type='art'] | tei:name[@type='art']">
                      <sch:let name="siFile" value="doc('https://digitalmitford.org/si.xml')"/>
-                     <sch:let name="siAddColl" value="collection('https://digitalmitford.github.io/DM_SiteIndex/si_Add_Staged/catalogue.xml')"/>
+                     <sch:let name="siAddColl"
+                              value="collection('https://digitalmitford.github.io/DM_SiteIndex/si_Add_Staged/catalogue.xml')"/>
                      <sch:let name="backIDs" value="//tei:back//tei:list[@sortKey='art']//*/@xml:id"/>
-                     <sch:let name="siAddIDs" value="$siAddColl//tei:text//tei:list[@sortKey='art']//*/@xml:id"/>
-                     <sch:let name="siFileIDs" value="$siFile//tei:text//tei:list[@sortKey='art']//*/@xml:id"/>
+                     <sch:let name="siAddIDs"
+                              value="$siAddColl//tei:text//tei:list[@sortKey='art']//*/@xml:id"/>
+                     <sch:let name="siFileIDs"
+                              value="$siFile//tei:text//tei:list[@sortKey='art']//*/@xml:id"/>
                      <sch:let name="tempIDs" value="($backIDs, $siAddIDs)"/>
                      <sch:let name="everySiLocIDs" value="($tempIDs, $siFileIDs)"/>
                      <sch:let name="refs"
-                        value="for $i in tokenize(@ref, '\s+') return substring-after($i,'#')"/>     
+                              value="for $i in tokenize(@ref, '\s+') return substring-after($i,'#')"/>     
                      <sch:assert test="every $ref in $refs satisfies $ref = $everySiLocIDs" role="fatal">
                         An rs with type="art" must refer to an @xml:id on a figure element in a list with sortKey="art".
                      </sch:assert>   
@@ -326,7 +355,8 @@
                                  value="for $i in tokenize(., '\s+') return substring-after($i,'#')"/>
                         <!-- ebb: formulated this way in case we have plural ref or corresp values.-->
                        <sch:let name="backRefs" value="some $ref in $refs satisfies $ref = $tempIDs"/>
-                       <sch:let name="siRefs" value="some $ref in $refs satisfies $ref = $siFile//@xml:id"/>
+                       <sch:let name="siRefs"
+                                 value="some $ref in $refs satisfies $ref = $siFile//@xml:id"/>
                        <!--2019-05-17 ebb: In the test attributes below, if the current value is $backRefs, it was in an earlier stage following perhaps poor advice on the oXygen-users list, not(empty($backRefs)); restoring to simpler original in case it's what's causing *everything* to fire to as backRef. -->
                        <sch:report role="info" test="$backRefs">
                           This referencing value, <sch:value-of select="."/>, points to &lt;back&gt; or to one of the temporary siAdd files. All is well, but the Digital Mitford prosopography team needs to review the proposed new entries.                
@@ -342,6 +372,110 @@
                  </sch:pattern>
               </constraint>
            </constraintSpec>
+            <constraintSpec ident="backList_only" scheme="schematron">
+               <constraint>
+                  <sch:p>List elements holding sortKey attributes for proposed entries to the Site Index may only appear in the back portion of a Digital Mitford project TEI file.</sch:p>
+                  <sch:rule context="*[@sortKey]">
+                     <sch:assert test="ancestor::tei:back">List elements containing proposed new site index entries belong in the back element of the TEI file. They are not allowed in the body or the TEI header of a Digital Mitford project file.</sch:assert>
+                  </sch:rule> 
+               </constraint>
+            </constraintSpec>
+            <constraintSpec scheme="schematron" ident="occupation">
+               <constraint>
+                  <sch:pattern>
+                     <sch:let name="artistSubtypes"
+                              value="('painter', 'printmaker', 'engraver', 'sculptor', 'architect', 'landscape', 'illustrator')"/>
+                     <sch:let name="bookProducerSubtypes"
+                              value="('publisher', 'printer', 'binder', 'bookseller')"/>
+                     <sch:let name="religiousSubtypes"
+                              value="('clergy', 'prophet', 'vicar', 'curate', 'minister', 'priest', 'musician', 'composer')"/>
+                     <sch:let name="educatorSubtypes"
+                              value="('teacher', 'schoolHead', 'governess', 'tutor', 'lecturer')"/>
+                     <sch:let name="scholarSubtypes"
+                              value="('philosopher', 'naturalist', 'astronomer', 'curator', 'antiquarian', 'inventor', 'historian', 'economist', 'agronomist')"/>
+                     <sch:let name="explorerSubtypes"
+                              value="('traveller', 'navigator', 'cartographer', 'seaCaptain')"/>
+                     <sch:let name="legalSubtypes"
+                              value="('barrister', 'solicitor', 'lawyer', 'recorder', 'magistrate', 'judge')"/>
+                     <sch:let name="literarySubtypes"
+                              value="('novelist', 'poet', 'playwright', 'essayist', 'critic', 'journalist', 'editor', 'biographer', 'autobiographer', 'lexicographer', 'linguist', 'translator')"/>
+                     <sch:let name="theaterSubtypes"
+                              value="('actor', 'singer', 'manager', 'owner', 'designer', 'musician', 'composer')"/>
+                     <sch:let name="medicalSubtypes"
+                              value="('physician', 'surgeon', 'apothecary', 'midwife', 'oculist')"/>
+                     <sch:let name="militarySubtypes" value="('army', 'navy')"/>
+                     <sch:let name="benefactorSubtypes" value="('philanthropist', 'patron')"/>
+                     <sch:let name="governmentSubtypes"
+                              value="('monarch', 'politician', 'orator', 'reformer', 'courtier', 'diplomat', 'administrator', 'clerk', 'taxCollector', 'post')"/>
+                     <sch:let name="serviceSubtypes"
+                              value="('butler', 'maid', 'footman', 'cook', 'housekeeper', 'gardener')"/>
+                     <sch:let name="tradeSubtypes"
+                              value="('baker', 'butcher', 'farmer', 'bricklayer', 'mason', 'chandler', 'wheelwright', 'carpenter', 'watchmaker', 'miller', 'blacksmith', 'goldsmith', 'jeweller', 'tanner', 'saddler', 'bootmaker', 'shoemaker', 'innkeeper', 'liquor', 'merchant', 'clerk', 'banker', 'stockbroker', 'auctioneer', 'gambler')"/>
+                     <sch:rule context="tei:occupation[@type='artist'][@subtype]">
+                        <sch:let name="subtypes" value=" for $i in tokenize(@subtype, '\s+') return $i"/>
+                        <sch:assert test="every $subtype in $subtypes satisfies $subtype = $artistSubtypes">Multiple subtypes are permitted, but these must be from the following list: <sch:value-of select="$artistSubtypes"/>.</sch:assert>
+                     </sch:rule>
+                     <sch:rule context="tei:occupation[@type='bookProducer'][@subtype]">
+                        <sch:let name="subtypes" value=" for $i in tokenize(@subtype, '\s+') return $i"/>
+                        <sch:assert test="every $subtype in $subtypes satisfies $subtype = $bookProducerSubtypes">Multiple subtypes are permitted, but these must be from the following list: <sch:value-of select="$bookProducerSubtypes"/>.</sch:assert>
+                     </sch:rule>
+                     <sch:rule context="tei:occupation[@type='religious'][@subtype]">
+                        <sch:let name="subtypes" value=" for $i in tokenize(@subtype, '\s+') return $i"/>
+                        <sch:assert test="every $subtype in $subtypes satisfies $subtype = $religiousSubtypes">Multiple subtypes are permitted, but these must be from the following list: <sch:value-of select="$religiousSubtypes"/>.</sch:assert>
+                     </sch:rule>
+                     <sch:rule context="tei:occupation[@type='educator'][@subtype]">
+                        <sch:let name="subtypes" value=" for $i in tokenize(@subtype, '\s+') return $i"/>
+                        <sch:assert test="every $subtype in $subtypes satisfies $subtype = $educatorSubtypes">Multiple subtypes are permitted, but these must be from the following list: <sch:value-of select="$educatorSubtypes"/>.</sch:assert>
+                     </sch:rule>
+                     <sch:rule context="tei:occupation[@type='scholar'][@subtype]">
+                        <sch:let name="subtypes" value=" for $i in tokenize(@subtype, '\s+') return $i"/>
+                        <sch:assert test="every $subtype in $subtypes satisfies $subtype = $scholarSubtypes">Multiple subtypes are permitted, but these must be from the following list: <sch:value-of select="$scholarSubtypes"/>.</sch:assert>
+                     </sch:rule>
+                     <sch:rule context="tei:occupation[@type='explorer'][@subtype]">
+                        <sch:let name="subtypes" value=" for $i in tokenize(@subtype, '\s+') return $i"/>
+                        <sch:assert test="every $subtype in $subtypes satisfies $subtype = $explorerSubtypes">Multiple subtypes are permitted, but these must be from the following list: <sch:value-of select="$explorerSubtypes"/>.</sch:assert>
+                     </sch:rule>
+                     <sch:rule context="tei:occupation[@type='legal'][@subtype]">
+                        <sch:let name="subtypes" value=" for $i in tokenize(@subtype, '\s+') return $i"/>
+                        <sch:assert test="every $subtype in $subtypes satisfies $subtype = $legalSubtypes">Multiple subtypes are permitted, but these must be from the following list: <sch:value-of select="$legalSubtypes"/>.</sch:assert>
+                     </sch:rule>
+                     <sch:rule context="tei:occupation[@type='literary'][@subtype]">
+                        <sch:let name="subtypes" value=" for $i in tokenize(@subtype, '\s+') return $i"/>
+                        <sch:assert test="every $subtype in $subtypes satisfies $subtype = $literarySubtypes">Multiple subtypes are permitted, but these must be from the following list: <sch:value-of select="$literarySubtypes"/>.</sch:assert>
+                     </sch:rule>
+                     <sch:rule context="tei:occupation[@type='theater'][@subtype]">
+                        <sch:let name="subtypes" value=" for $i in tokenize(@subtype, '\s+') return $i"/>
+                        <sch:assert test="every $subtype in $subtypes satisfies $subtype = $theaterSubtypes">Multiple subtypes are permitted, but these must be from the following list: <sch:value-of select="$theaterSubtypes"/>.</sch:assert>
+                     </sch:rule>
+                     <sch:rule context="tei:occupation[@type='medical'][@subtype]">
+                        <sch:let name="subtypes" value=" for $i in tokenize(@subtype, '\s+') return $i"/>
+                        <sch:assert test="every $subtype in $subtypes satisfies $subtype = $medicalSubtypes">Multiple subtypes are permitted, but these must be from the following list: <sch:value-of select="$medicalSubtypes"/>.</sch:assert>
+                     </sch:rule>
+                     <sch:rule context="tei:occupation[@type='military'][@subtype]">
+                        <sch:let name="subtypes" value=" for $i in tokenize(@subtype, '\s+') return $i"/>
+                        <sch:assert test="every $subtype in $subtypes satisfies $subtype = $militarySubtypes">Multiple subtypes are permitted, but these must be from the following list: <sch:value-of select="$militarySubtypes"/>.</sch:assert>
+                     </sch:rule>
+                     <sch:rule context="tei:occupation[@type='benefactor'][@subtype]">
+                        <sch:let name="subtypes" value=" for $i in tokenize(@subtype, '\s+') return $i"/>
+                        <sch:assert test="every $subtype in $subtypes satisfies $subtype = $benefactorSubtypes">Multiple subtypes are permitted, but these must be from the following list: <sch:value-of select="$benefactorSubtypes"/>.</sch:assert>
+                     </sch:rule>
+                     <sch:rule context="tei:occupation[@type='government'][@subtype]">
+                        <sch:let name="subtypes" value=" for $i in tokenize(@subtype, '\s+') return $i"/>
+                        <sch:assert test="every $subtype in $subtypes satisfies $subtype = $governmentSubtypes">Multiple subtypes are permitted, but these must be from the following list: <sch:value-of select="$governmentSubtypes"/>.</sch:assert>
+                     </sch:rule>
+                     <sch:rule context="tei:occupation[@type='service'][@subtype]">
+                        <sch:let name="subtypes" value=" for $i in tokenize(@subtype, '\s+') return $i"/>
+                        <sch:assert test="every $subtype in $subtypes satisfies $subtype = $serviceSubtypes">Multiple subtypes are permitted, but these must be from the following list: <sch:value-of select="$serviceSubtypes"/>
+                        </sch:assert>
+                     </sch:rule>
+                     <sch:rule context="tei:occupation[@type='trade'][@subtype]">
+                        <sch:let name="subtypes" value=" for $i in tokenize(@subtype, '\s+') return $i"/>
+                        <sch:assert test="every $subtype in $subtypes satisfies $subtype = $tradeSubtypes">Multiple subtypes are permitted, but these must be from the following list: <sch:value-of select="$tradeSubtypes"/>
+                        </sch:assert>
+                     </sch:rule>  
+                  </sch:pattern>
+               </constraint>
+            </constraintSpec>
             <elementSpec ident="rs" module="core" mode="change">
                <attList>
                   <attDef ident="type" mode="replace" usage="req">
@@ -377,41 +511,30 @@
                   </attDef>
                </attList>
             </elementSpec>
-            <!-- Rules to help with writing "backlist" entries (or proposed new site index entries).-->
-       <constraintSpec ident="backList_only" scheme="schematron">
-          <constraint>
-             <sch:p>List elements holding sortKey attributes for proposed entries to the Site Index may only appear in the back portion of a Digital Mitford project TEI file.</sch:p>
-             <sch:rule context="*[@sortKey]">
-                <sch:assert test="ancestor::tei:back">List elements containing proposed new site index entries belong in the back element of the TEI file. They are not allowed in the body or the TEI header of a Digital Mitford project file.</sch:assert>
-             </sch:rule> 
-          </constraint>
-       </constraintSpec> 
-            <!-- The following rules (next ~400 lines or so) are drawn from the si_ODD.odd file. (Consider ODD chaining for this?) -->
-            <!--sortKey on SI list elements -->
-<elementSpec ident="listPerson" module="namesdates" mode="change">
-   <attList>
-      <attDef ident="sortKey" mode="replace" usage="req">
-         <valList type="closed">
-            <valItem ident="Mitford_Team"/>
-            <valItem ident="Past_Assistants"/>
-            <valItem ident="Past_Editors"/>
-            <valItem ident="histPersons"/>
-            <valItem ident="archPersons"/>
-            <valItem ident="fictPersons"/>
-         </valList>
-      </attDef>
-   </attList>
-</elementSpec>
-<elementSpec ident="listPlace" module="namesdates" mode="change">
-     <attList>
-         <attDef ident="sortKey" mode="replace" usage="req">
-             <valList type="closed">
-                 <valItem ident="histPlaces"/>
-                 <valItem ident="fictPlaces"/>
-              </valList>
-           </attDef>
-       </attList>
-</elementSpec>
+            <elementSpec ident="listPerson" module="namesdates" mode="change">
+               <attList>
+                  <attDef ident="sortKey" mode="replace" usage="req">
+                     <valList type="closed">
+                        <valItem ident="Mitford_Team"/>
+                        <valItem ident="Past_Assistants"/>
+                        <valItem ident="Past_Editors"/>
+                        <valItem ident="histPersons"/>
+                        <valItem ident="archPersons"/>
+                        <valItem ident="fictPersons"/>
+                     </valList>
+                  </attDef>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="listPlace" module="namesdates" mode="change">
+               <attList>
+                  <attDef ident="sortKey" mode="replace" usage="req">
+                     <valList type="closed">
+                        <valItem ident="histPlaces"/>
+                        <valItem ident="fictPlaces"/>
+                     </valList>
+                  </attDef>
+               </attList>
+            </elementSpec>
             <elementSpec ident="listOrg" module="namesdates" mode="change">
                <attList>
                   <attDef ident="sortKey" mode="replace" usage="req">
@@ -443,7 +566,7 @@
                      </valList>
                   </attDef>
                </attList>
-            </elementSpec> 
+            </elementSpec>
             <elementSpec ident="list" module="core" mode="change">
                <attList>
                   <attDef ident="sortKey" mode="replace" usage="req">
@@ -454,25 +577,31 @@
                      </valList>
                   </attDef>
                </attList>
-            </elementSpec> 
-            
-            <!--sex codes on person element: m, f, m f, and u -->           
+            </elementSpec>
             <elementSpec ident="person" module="namesdates" mode="change">
                <attList>
                   <attDef ident="sex" mode="replace" usage="rec">
                      <valList type="closed">
-                        <valItem ident="m"><gloss>for persons identified as male.</gloss></valItem>
-                        <valItem ident="f"><gloss>for persons identified as female.</gloss></valItem>
-                        <valItem ident="m f"><gloss>for persons identified as of transitional or multiple sexual identities.</gloss></valItem>
-                        <valItem ident="u"><gloss>for persons with unidentified or unknown sexual identity.</gloss></valItem>  
+                        <valItem ident="m">
+                           <gloss>for persons identified as male.</gloss>
+                        </valItem>
+                        <valItem ident="f">
+                           <gloss>for persons identified as female.</gloss>
+                        </valItem>
+                        <valItem ident="m f">
+                           <gloss>for persons identified as of transitional or multiple sexual identities.</gloss>
+                        </valItem>
+                        <valItem ident="u">
+                           <gloss>for persons with unidentified or unknown sexual identity.</gloss>
+                        </valItem>  
                      </valList>
                   </attDef>
                </attList>
             </elementSpec>
-        <elementSpec ident="occupation" module="namesdates" mode="change">
-           <content>
+            <elementSpec ident="occupation" module="namesdates" mode="change">
+               <content>
                  <elementRef key="roleName" minOccurs="0" maxOccurs="unbounded"/>
-           </content>
+               </content>
                <attList>
                   <attDef ident="type" mode="replace" usage="req">
                      <valList type="closed">
@@ -494,285 +623,382 @@
                      </valList>
                   </attDef>
                   <attDef ident="subtype" mode="replace" usage="opt">
-                     <datatype><dataRef name="string"/></datatype>
-            <valList type="semi">
+                     <datatype>
+                        <dataRef name="string"/>
+                     </datatype>
+                     <valList type="semi">
                <!--Subtypes related to type="artist" -->
-               <valItem ident="painter"><gloss>with type="artist": Designate type of painter as appropriate in the note element.</gloss></valItem>
-               <valItem ident="printmaker"><gloss>with type="artist": this includes printmaking for books.</gloss></valItem>
-               <valItem ident="engraver"><gloss>with type="artist": this includes engravings for books.</gloss></valItem> 
-               <valItem ident="sculptor"><gloss>with type="artist".</gloss></valItem>
-               <valItem ident="architect"><gloss>with type="artist". for designers of buildings.</gloss></valItem>
-               <valItem ident="landscape"><gloss>with type="artist". for designers and planners of gardens. The occupation of gardener, for one who helps maintain a garden, goes with @type="service" </gloss></valItem>
-               <valItem ident="illustrator"><gloss>with type="artist". This includes book illustrators.</gloss></valItem>
-               <!--Subtypes related to type="bookProducer" -->
-              <valItem ident="publisher"><gloss>with type="bookProducer".</gloss></valItem>
-               <valItem ident="printer"><gloss>with type="bookProducer". Do not use for art printing. For that, use one of the subtypes associated with type="artist".</gloss></valItem>
-               <valItem ident="binder"><gloss>with type="bookProducer".</gloss></valItem>
-               <valItem ident="bookseller"><gloss>with type="bookProducer".</gloss></valItem>
-               <!--Subtypes related to type="religious" -->
-               <valItem ident="clergy"><gloss>with type="religious".</gloss></valItem>
-               <valItem ident="prophet"><gloss>with type="religious".</gloss></valItem>
-               <valItem ident="vicar"><gloss>with type="religious".</gloss></valItem>
-               <valItem ident="curate"><gloss>with type="religious".</gloss></valItem>
-               <valItem ident="minister"><gloss>with type="religious".</gloss></valItem>
-               <valItem ident="priest"><gloss>with type="religious". Use for Catholic clergy as well as Greek/Roman clergy. Synonymous with priestess for the purposes of our encoding.</gloss></valItem>
-               <!--'musician', 'composer' -->
-               <valItem ident="composer"><gloss>with type="religious". For composers of religious music.</gloss></valItem>
-               <valItem ident="musician"><gloss>with type="religious". For musical performers in church settings and religious contexts.</gloss></valItem>
-               <!--Subtypes related to type="educator" -->
-               <valItem ident="teacher"><gloss>with type="educator".</gloss></valItem>
-               <valItem ident="schoolHead"><gloss>with type="educator". (for headmistress, schoolmaster, etc.)</gloss></valItem>
-               <valItem ident="governess"><gloss>with type="educator".</gloss></valItem>
-               <valItem ident="tutor"><gloss>with type="educator".</gloss></valItem>
-               <valItem ident="lecturer"><gloss>with type="educator". For public lecturers on educational topics.</gloss></valItem>
-               <!--Subtypes related to type="scholar" -->
-               <valItem ident="philosopher"><gloss>with type="scholar". Distinct from natural philosopher.</gloss></valItem> 
-               <valItem ident="naturalist"><gloss>with type="scholar". Covers the natural sciences and earth sciences, and includes biologist, botanist, ornithologist, geologist, etc.</gloss></valItem>
-               <valItem ident="astronomer"><gloss>with type="scholar".</gloss></valItem> 
-               <valItem ident="curator"><gloss>with type="scholar". for antiquarian collectors and those working in libraries and museums.</gloss></valItem>
-               <valItem ident="antiquarian"><gloss>with type="scholar". For those who research artifacts rather than collect them.</gloss></valItem>
-               <valItem ident="historian"><gloss>with type="scholar". </gloss></valItem>
-               <valItem ident="inventor"><gloss>with type="scholar". </gloss></valItem>
-               <valItem ident="economist"><gloss>with type="scholar". </gloss></valItem>
-               <valItem ident="agronomist"><gloss>with type="scholar". For those who study agriculture.</gloss></valItem>
-               <!--Subtypes related to type="explorer" --> 
-               <valItem ident="traveller"><gloss>with type="explorer".</gloss></valItem>
-               <valItem ident="navigator"><gloss>with type="explorer".</gloss></valItem>
-               <valItem ident="cartographer"><gloss>with type="explorer".</gloss></valItem>
-               <valItem ident="seaCaptain"><gloss>with type="explorer". Commands a ship, distinct from military post.</gloss></valItem>
-               <!--Subtypes related to type="legal" --> 
-               <valItem ident="barrister"><gloss>with type="legal". British lawyers who can plead in court.</gloss></valItem>
-               <valItem ident="solicitor"><gloss>with type="legal". British lawyers who do not plead in court.</gloss></valItem>
-               <valItem ident="lawyer"><gloss>with type="legal". ONLY appropriate if law practitioner from the United States.</gloss></valItem>  
-               <valItem ident="judge"><gloss>with type="legal". ex: Mr. Justice Talfourd</gloss></valItem>  
-               <valItem ident="magistrate"><gloss>with type="legal". ex: George Mitford</gloss></valItem>  
-               <valItem ident="recorder"><gloss>with type="legal". </gloss></valItem> 
-               <!--Subtypes related to type="literary" -->
-               <valItem ident="novelist"><gloss>with type="literary". </gloss></valItem> 
-               <valItem ident="poet"><gloss>with type="literary". </gloss></valItem> 
-               <valItem ident="playwright"><gloss>with type="literary". </gloss></valItem> 
-               <valItem ident="essayist"><gloss>with type="literary". For essayists who are not primarily writing specific literary/art reviews, but more broad-ranging philosophical or aesthetic writings.</gloss></valItem> 
-               <valItem ident="critic"><gloss>with type="literary". For literary, theatre / art critics and reviewers.</gloss></valItem> 
-               <valItem ident="journalist"><gloss>with type="literary". </gloss></valItem> 
-               <valItem ident="editor"><gloss>with type="literary". </gloss></valItem> 
-               <valItem ident="biographer"><gloss>with type="literary". </gloss></valItem> 
-               <valItem ident="autobiographer"><gloss>with type="literary". </gloss></valItem> 
-               <valItem ident="lexicographer"><gloss>with type="literary". </gloss></valItem> 
-               <valItem ident="linguist"><gloss>with type="literary". For those who systemically study languages, not simply translators.</gloss></valItem> 
-               <valItem ident="translator"><gloss>with type="literary". </gloss></valItem> 
-               <!--Subtypes related to type="theater" -->  
-               <valItem ident="actor"><gloss>with type="theater". General term for all sexes; do not use "actress".</gloss></valItem> 
-               <valItem ident="singer"><gloss>with type="theater". Includes opera singers in performing roles. </gloss></valItem> 
-               <valItem ident="manager"><gloss>with type="theater". For actor-managers and theater managers like William Macready.</gloss></valItem> 
-               <valItem ident="owner"><gloss>with type="theater". </gloss></valItem> 
-               <valItem ident="designer"><gloss>with type="theater". For production designers, costume-makers, makers of stage sets and props.</gloss></valItem> 
-               <valItem ident="musician"><gloss>with type="theater". For pit players of music supporting the stage.</gloss></valItem>   
-               <valItem ident="composer"><gloss>with type="theater". For writers of instrumental and vocal music for the stage, including lyricists and librettists.</gloss></valItem>
-               <!--Subtypes related to type="medical" -->
-               <valItem ident="physician"><gloss>with type="medical".</gloss></valItem>
-               <valItem ident="surgeon"><gloss>with type="medical". Includes barbers and others who do surgery and bloodletting.</gloss></valItem>
-               <valItem ident="apothecary"><gloss>with type="medical". For pharmacy specialists.</gloss></valItem>
-               <valItem ident="midwife"><gloss>with type="medical". Includes, should we ever see one, a "man-midwife" or a male who assists with births and is not a physician or surgeon.</gloss></valItem>
-               <valItem ident="oculist"><gloss>with type="medical".</gloss></valItem>
-               <!--Subtypes related to type="military" -->
-               <valItem ident="army"><gloss>with type="military".</gloss></valItem>    
-               <valItem ident="navy"><gloss>with type="military".</gloss></valItem>
-               <!--Subtypes related to type="benefactor" -->
-               <valItem ident="philanthropist"><gloss>with type="benefactor". For doers of benevolent activities outside of the arts</gloss></valItem>
-               <valItem ident="patron"><gloss>with type="benefactor". For supporters of the arts, theatre, and writers</gloss></valItem>
-               <!--Subtypes related to type="government" -->
-               <valItem ident="monarch"><gloss>with type="government". Titles like King, Queen, Princess are coded in &lt;roleName&gt;, not &lt;occupation&gt;.</gloss></valItem> 
-               <valItem ident="politician"><gloss>with type="government". Use for elected officials and those running for election or who are in office by reason of political party or affiliation. Code their official title (such as "Member of Parliament for Westminster) with &lt;roleName&gt;.</gloss></valItem>  
-               <valItem ident="orator"><gloss>with type="government". For political or reformist orators who are not clergy, actors, or prophets.</gloss></valItem>  
-               <valItem ident="reformer"><gloss>with type="government". Any public advocate for political or social reform.</gloss></valItem>  
-               <valItem ident="courtier"><gloss>with type="government". For aristocracy and others whose job is to serve at court in some capacity.</gloss></valItem>  
-               <valItem ident="diplomat"><gloss>with type="government". Ambassadors and other diplomatists. Roles like “Ambassador to the Court of St. James” are coded in &lt;roleName&gt;.</gloss></valItem>  
-               <valItem ident="administrator"><gloss>with type="government". For management positions, high-ranking civil service positions within the British empire, etc. Lower-ranking positions should be coded as subtype="clerk".</gloss></valItem>  
-               <valItem ident="clerk"><gloss>with type="government".</gloss></valItem>  
-               <valItem ident="taxCollector"><gloss>with type="government".</gloss></valItem>  
-               <valItem ident="post"><gloss>with type="government". For postal service occupations.</gloss></valItem>
-               <!--Subtypes related to type="service" -->
-               <valItem ident="butler"><gloss>with type="service".</gloss></valItem> 
-               <valItem ident="maid"><gloss>with type="service".</gloss></valItem> 
-               <valItem ident="footman"><gloss>with type="service".</gloss></valItem> 
-               <valItem ident="cook"><gloss>with type="service".</gloss></valItem>
-               <valItem ident="housekeeper"><gloss>with type="service".</gloss></valItem>   
-               <valItem ident="gardener"><gloss>with type="service".</gloss></valItem>   
-               <!--Subtypes related to type="trade" -->
-               <valItem ident="baker"><gloss>with type="trade".</gloss></valItem>
-               <valItem ident="butcher"><gloss>with type="trade".</gloss></valItem> 
-               <valItem ident="farmer"><gloss>with type="trade".</gloss></valItem> 
-               <valItem ident="bricklayer"><gloss>with type="trade".</gloss></valItem> 
-               <valItem ident="mason"><gloss>with type="trade".</gloss></valItem> 
-               <valItem ident="chandler"><gloss>with type="trade".</gloss></valItem> 
-               <valItem ident="wheelwright"><gloss>with type="trade".</gloss></valItem> 
-               <valItem ident="carpenter"><gloss>with type="trade".</gloss></valItem> 
-               <valItem ident="watchmaker"><gloss>with type="trade".</gloss></valItem> 
-               <valItem ident="miller"><gloss>with type="trade".</gloss></valItem> 
-               <valItem ident="blacksmith"><gloss>with type="trade".</gloss></valItem> 
-               <valItem ident="goldsmith"><gloss>with type="trade".</gloss></valItem> 
-               <valItem ident="jeweller"><gloss>with type="trade".</gloss></valItem> 
-               <valItem ident="tanner"><gloss>with type="trade".</gloss></valItem> 
-               <valItem ident="saddler"><gloss>with type="trade".</gloss></valItem> 
-               <valItem ident="bootmaker"><gloss>with type="trade".</gloss></valItem> 
-               <valItem ident="shoemaker"><gloss>with type="trade".</gloss></valItem> 
-               <valItem ident="innkeeper"><gloss>with type="trade".</gloss></valItem> 
-               <valItem ident="liquor"><gloss>with type="trade". For a retailer of beer/wine.</gloss></valItem>  
-               <valItem ident="merchant"><gloss>with type="trade".</gloss></valItem>
-               <valItem ident="clerk"><gloss>with type="trade". For an employee in a shop.</gloss></valItem> 
-               <valItem ident="banker"><gloss>with type="trade".</gloss></valItem> 
-               <valItem ident="stockbroker"><gloss>with type="trade".</gloss></valItem> 
-               <valItem ident="auctioneer"><gloss>with type="trade".</gloss></valItem> 
-               <valItem ident="gambler"><gloss>with type="trade".</gloss></valItem> 
+                        <valItem ident="painter">
+                           <gloss>with type="artist": Designate type of painter as appropriate in the note element.</gloss>
+                        </valItem>
+                        <valItem ident="printmaker">
+                           <gloss>with type="artist": this includes printmaking for books.</gloss>
+                        </valItem>
+                        <valItem ident="engraver">
+                           <gloss>with type="artist": this includes engravings for books.</gloss>
+                        </valItem> 
+                        <valItem ident="sculptor">
+                           <gloss>with type="artist".</gloss>
+                        </valItem>
+                        <valItem ident="architect">
+                           <gloss>with type="artist". for designers of buildings.</gloss>
+                        </valItem>
+                        <valItem ident="landscape">
+                           <gloss>with type="artist". for designers and planners of gardens. The occupation of gardener, for one who helps maintain a garden, goes with @type="service" </gloss>
+                        </valItem>
+                        <valItem ident="illustrator">
+                           <gloss>with type="artist". This includes book illustrators.</gloss>
+                        </valItem>
+                        <!--Subtypes related to type="bookProducer" -->
+                        <valItem ident="publisher">
+                           <gloss>with type="bookProducer".</gloss>
+                        </valItem>
+                        <valItem ident="printer">
+                           <gloss>with type="bookProducer". Do not use for art printing. For that, use one of the subtypes associated with type="artist".</gloss>
+                        </valItem>
+                        <valItem ident="binder">
+                           <gloss>with type="bookProducer".</gloss>
+                        </valItem>
+                        <valItem ident="bookseller">
+                           <gloss>with type="bookProducer".</gloss>
+                        </valItem>
+                        <!--Subtypes related to type="religious" -->
+                        <valItem ident="clergy">
+                           <gloss>with type="religious".</gloss>
+                        </valItem>
+                        <valItem ident="prophet">
+                           <gloss>with type="religious".</gloss>
+                        </valItem>
+                        <valItem ident="vicar">
+                           <gloss>with type="religious".</gloss>
+                        </valItem>
+                        <valItem ident="curate">
+                           <gloss>with type="religious".</gloss>
+                        </valItem>
+                        <valItem ident="minister">
+                           <gloss>with type="religious".</gloss>
+                        </valItem>
+                        <valItem ident="priest">
+                           <gloss>with type="religious". Use for Catholic clergy as well as Greek/Roman clergy. Synonymous with priestess for the purposes of our encoding.</gloss>
+                        </valItem>
+                        <!--'musician', 'composer' -->
+                        <valItem ident="composer">
+                           <gloss>with type="religious". For composers of religious music.</gloss>
+                        </valItem>
+                        <valItem ident="musician">
+                           <gloss>with type="religious". For musical performers in church settings and religious contexts.</gloss>
+                        </valItem>
+                        <!--Subtypes related to type="educator" -->
+                        <valItem ident="teacher">
+                           <gloss>with type="educator".</gloss>
+                        </valItem>
+                        <valItem ident="schoolHead">
+                           <gloss>with type="educator". (for headmistress, schoolmaster, etc.)</gloss>
+                        </valItem>
+                        <valItem ident="governess">
+                           <gloss>with type="educator".</gloss>
+                        </valItem>
+                        <valItem ident="tutor">
+                           <gloss>with type="educator".</gloss>
+                        </valItem>
+                        <valItem ident="lecturer">
+                           <gloss>with type="educator". For public lecturers on educational topics.</gloss>
+                        </valItem>
+                        <!--Subtypes related to type="scholar" -->
+                        <valItem ident="philosopher">
+                           <gloss>with type="scholar". Distinct from natural philosopher.</gloss>
+                        </valItem> 
+                        <valItem ident="naturalist">
+                           <gloss>with type="scholar". Covers the natural sciences and earth sciences, and includes biologist, botanist, ornithologist, geologist, etc.</gloss>
+                        </valItem>
+                        <valItem ident="astronomer">
+                           <gloss>with type="scholar".</gloss>
+                        </valItem> 
+                        <valItem ident="curator">
+                           <gloss>with type="scholar". for antiquarian collectors and those working in libraries and museums.</gloss>
+                        </valItem>
+                        <valItem ident="antiquarian">
+                           <gloss>with type="scholar". For those who research artifacts rather than collect them.</gloss>
+                        </valItem>
+                        <valItem ident="historian">
+                           <gloss>with type="scholar". </gloss>
+                        </valItem>
+                        <valItem ident="inventor">
+                           <gloss>with type="scholar". </gloss>
+                        </valItem>
+                        <valItem ident="economist">
+                           <gloss>with type="scholar". </gloss>
+                        </valItem>
+                        <valItem ident="agronomist">
+                           <gloss>with type="scholar". For those who study agriculture.</gloss>
+                        </valItem>
+                        <!--Subtypes related to type="explorer" --> 
+                        <valItem ident="traveller">
+                           <gloss>with type="explorer".</gloss>
+                        </valItem>
+                        <valItem ident="navigator">
+                           <gloss>with type="explorer".</gloss>
+                        </valItem>
+                        <valItem ident="cartographer">
+                           <gloss>with type="explorer".</gloss>
+                        </valItem>
+                        <valItem ident="seaCaptain">
+                           <gloss>with type="explorer". Commands a ship, distinct from military post.</gloss>
+                        </valItem>
+                        <!--Subtypes related to type="legal" --> 
+                        <valItem ident="barrister">
+                           <gloss>with type="legal". British lawyers who can plead in court.</gloss>
+                        </valItem>
+                        <valItem ident="solicitor">
+                           <gloss>with type="legal". British lawyers who do not plead in court.</gloss>
+                        </valItem>
+                        <valItem ident="lawyer">
+                           <gloss>with type="legal". ONLY appropriate if law practitioner from the United States.</gloss>
+                        </valItem>  
+                        <valItem ident="judge">
+                           <gloss>with type="legal". ex: Mr. Justice Talfourd</gloss>
+                        </valItem>  
+                        <valItem ident="magistrate">
+                           <gloss>with type="legal". ex: George Mitford</gloss>
+                        </valItem>  
+                        <valItem ident="recorder">
+                           <gloss>with type="legal". </gloss>
+                        </valItem> 
+                        <!--Subtypes related to type="literary" -->
+                        <valItem ident="novelist">
+                           <gloss>with type="literary". </gloss>
+                        </valItem> 
+                        <valItem ident="poet">
+                           <gloss>with type="literary". </gloss>
+                        </valItem> 
+                        <valItem ident="playwright">
+                           <gloss>with type="literary". </gloss>
+                        </valItem> 
+                        <valItem ident="essayist">
+                           <gloss>with type="literary". For essayists who are not primarily writing specific literary/art reviews, but more broad-ranging philosophical or aesthetic writings.</gloss>
+                        </valItem> 
+                        <valItem ident="critic">
+                           <gloss>with type="literary". For literary, theatre / art critics and reviewers.</gloss>
+                        </valItem> 
+                        <valItem ident="journalist">
+                           <gloss>with type="literary". </gloss>
+                        </valItem> 
+                        <valItem ident="editor">
+                           <gloss>with type="literary". </gloss>
+                        </valItem> 
+                        <valItem ident="biographer">
+                           <gloss>with type="literary". </gloss>
+                        </valItem> 
+                        <valItem ident="autobiographer">
+                           <gloss>with type="literary". </gloss>
+                        </valItem> 
+                        <valItem ident="lexicographer">
+                           <gloss>with type="literary". </gloss>
+                        </valItem> 
+                        <valItem ident="linguist">
+                           <gloss>with type="literary". For those who systemically study languages, not simply translators.</gloss>
+                        </valItem> 
+                        <valItem ident="translator">
+                           <gloss>with type="literary". </gloss>
+                        </valItem> 
+                        <!--Subtypes related to type="theater" -->  
+                        <valItem ident="actor">
+                           <gloss>with type="theater". General term for all sexes; do not use "actress".</gloss>
+                        </valItem> 
+                        <valItem ident="singer">
+                           <gloss>with type="theater". Includes opera singers in performing roles. </gloss>
+                        </valItem> 
+                        <valItem ident="manager">
+                           <gloss>with type="theater". For actor-managers and theater managers like William Macready.</gloss>
+                        </valItem> 
+                        <valItem ident="owner">
+                           <gloss>with type="theater". </gloss>
+                        </valItem> 
+                        <valItem ident="designer">
+                           <gloss>with type="theater". For production designers, costume-makers, makers of stage sets and props.</gloss>
+                        </valItem> 
+                        <valItem ident="musician">
+                           <gloss>with type="theater". For pit players of music supporting the stage.</gloss>
+                        </valItem>   
+                        <valItem ident="composer">
+                           <gloss>with type="theater". For writers of instrumental and vocal music for the stage, including lyricists and librettists.</gloss>
+                        </valItem>
+                        <!--Subtypes related to type="medical" -->
+                        <valItem ident="physician">
+                           <gloss>with type="medical".</gloss>
+                        </valItem>
+                        <valItem ident="surgeon">
+                           <gloss>with type="medical". Includes barbers and others who do surgery and bloodletting.</gloss>
+                        </valItem>
+                        <valItem ident="apothecary">
+                           <gloss>with type="medical". For pharmacy specialists.</gloss>
+                        </valItem>
+                        <valItem ident="midwife">
+                           <gloss>with type="medical". Includes, should we ever see one, a "man-midwife" or a male who assists with births and is not a physician or surgeon.</gloss>
+                        </valItem>
+                        <valItem ident="oculist">
+                           <gloss>with type="medical".</gloss>
+                        </valItem>
+                        <!--Subtypes related to type="military" -->
+                        <valItem ident="army">
+                           <gloss>with type="military".</gloss>
+                        </valItem>    
+                        <valItem ident="navy">
+                           <gloss>with type="military".</gloss>
+                        </valItem>
+                        <!--Subtypes related to type="benefactor" -->
+                        <valItem ident="philanthropist">
+                           <gloss>with type="benefactor". For doers of benevolent activities outside of the arts</gloss>
+                        </valItem>
+                        <valItem ident="patron">
+                           <gloss>with type="benefactor". For supporters of the arts, theatre, and writers</gloss>
+                        </valItem>
+                        <!--Subtypes related to type="government" -->
+                        <valItem ident="monarch">
+                           <gloss>with type="government". Titles like King, Queen, Princess are coded in &lt;roleName&gt;, not &lt;occupation&gt;.</gloss>
+                        </valItem> 
+                        <valItem ident="politician">
+                           <gloss>with type="government". Use for elected officials and those running for election or who are in office by reason of political party or affiliation. Code their official title (such as "Member of Parliament for Westminster) with &lt;roleName&gt;.</gloss>
+                        </valItem>  
+                        <valItem ident="orator">
+                           <gloss>with type="government". For political or reformist orators who are not clergy, actors, or prophets.</gloss>
+                        </valItem>  
+                        <valItem ident="reformer">
+                           <gloss>with type="government". Any public advocate for political or social reform.</gloss>
+                        </valItem>  
+                        <valItem ident="courtier">
+                           <gloss>with type="government". For aristocracy and others whose job is to serve at court in some capacity.</gloss>
+                        </valItem>  
+                        <valItem ident="diplomat">
+                           <gloss>with type="government". Ambassadors and other diplomatists. Roles like “Ambassador to the Court of St. James” are coded in &lt;roleName&gt;.</gloss>
+                        </valItem>  
+                        <valItem ident="administrator">
+                           <gloss>with type="government". For management positions, high-ranking civil service positions within the British empire, etc. Lower-ranking positions should be coded as subtype="clerk".</gloss>
+                        </valItem>  
+                        <valItem ident="clerk">
+                           <gloss>with type="government".</gloss>
+                        </valItem>  
+                        <valItem ident="taxCollector">
+                           <gloss>with type="government".</gloss>
+                        </valItem>  
+                        <valItem ident="post">
+                           <gloss>with type="government". For postal service occupations.</gloss>
+                        </valItem>
+                        <!--Subtypes related to type="service" -->
+                        <valItem ident="butler">
+                           <gloss>with type="service".</gloss>
+                        </valItem> 
+                        <valItem ident="maid">
+                           <gloss>with type="service".</gloss>
+                        </valItem> 
+                        <valItem ident="footman">
+                           <gloss>with type="service".</gloss>
+                        </valItem> 
+                        <valItem ident="cook">
+                           <gloss>with type="service".</gloss>
+                        </valItem>
+                        <valItem ident="housekeeper">
+                           <gloss>with type="service".</gloss>
+                        </valItem>   
+                        <valItem ident="gardener">
+                           <gloss>with type="service".</gloss>
+                        </valItem>   
+                        <!--Subtypes related to type="trade" -->
+                        <valItem ident="baker">
+                           <gloss>with type="trade".</gloss>
+                        </valItem>
+                        <valItem ident="butcher">
+                           <gloss>with type="trade".</gloss>
+                        </valItem> 
+                        <valItem ident="farmer">
+                           <gloss>with type="trade".</gloss>
+                        </valItem> 
+                        <valItem ident="bricklayer">
+                           <gloss>with type="trade".</gloss>
+                        </valItem> 
+                        <valItem ident="mason">
+                           <gloss>with type="trade".</gloss>
+                        </valItem> 
+                        <valItem ident="chandler">
+                           <gloss>with type="trade".</gloss>
+                        </valItem> 
+                        <valItem ident="wheelwright">
+                           <gloss>with type="trade".</gloss>
+                        </valItem> 
+                        <valItem ident="carpenter">
+                           <gloss>with type="trade".</gloss>
+                        </valItem> 
+                        <valItem ident="watchmaker">
+                           <gloss>with type="trade".</gloss>
+                        </valItem> 
+                        <valItem ident="miller">
+                           <gloss>with type="trade".</gloss>
+                        </valItem> 
+                        <valItem ident="blacksmith">
+                           <gloss>with type="trade".</gloss>
+                        </valItem> 
+                        <valItem ident="goldsmith">
+                           <gloss>with type="trade".</gloss>
+                        </valItem> 
+                        <valItem ident="jeweller">
+                           <gloss>with type="trade".</gloss>
+                        </valItem> 
+                        <valItem ident="tanner">
+                           <gloss>with type="trade".</gloss>
+                        </valItem> 
+                        <valItem ident="saddler">
+                           <gloss>with type="trade".</gloss>
+                        </valItem> 
+                        <valItem ident="bootmaker">
+                           <gloss>with type="trade".</gloss>
+                        </valItem> 
+                        <valItem ident="shoemaker">
+                           <gloss>with type="trade".</gloss>
+                        </valItem> 
+                        <valItem ident="innkeeper">
+                           <gloss>with type="trade".</gloss>
+                        </valItem> 
+                        <valItem ident="liquor">
+                           <gloss>with type="trade". For a retailer of beer/wine.</gloss>
+                        </valItem>  
+                        <valItem ident="merchant">
+                           <gloss>with type="trade".</gloss>
+                        </valItem>
+                        <valItem ident="clerk">
+                           <gloss>with type="trade". For an employee in a shop.</gloss>
+                        </valItem> 
+                        <valItem ident="banker">
+                           <gloss>with type="trade".</gloss>
+                        </valItem> 
+                        <valItem ident="stockbroker">
+                           <gloss>with type="trade".</gloss>
+                        </valItem> 
+                        <valItem ident="auctioneer">
+                           <gloss>with type="trade".</gloss>
+                        </valItem> 
+                        <valItem ident="gambler">
+                           <gloss>with type="trade".</gloss>
+                        </valItem> 
                      </valList>      
                   </attDef>
                </attList>
-           <exemplum>
-              <p>The <gi>occupation</gi> element in lists of editors and assistants on the Digital Mitford project should contain a roleName to contain institutional roles and affiliation:</p>
-              <egXML xmlns="http://www.tei-c.org/ns/Examples">
-                 <occupation type="educator"><roleName>Assistant Professor of English <affiliation>Missouri Southern State
-                    University</affiliation></roleName>
-                 </occupation>
-              </egXML>
-           </exemplum>
-           <exemplum>
-              <p>When the <gi>occupation</gi> element appears in other lists (for historical or fictional persons) in the site index, it is an empty element, and must hold attributes for typing and subtyping:</p>
-              <egXML xmlns="http://www.tei-c.org/ns/Examples">
-                 <occupation type="literary" subtype="playwright"/>
-              </egXML>
-           </exemplum>
+               <exemplum>
+                  <p>The <gi>occupation</gi> element in lists of editors and assistants on the Digital Mitford project should contain a roleName to contain institutional roles and affiliation:</p>
+                  <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                     <occupation type="educator">
+                        <roleName>Assistant Professor of English <affiliation>Missouri Southern State
+                    University</affiliation>
+                        </roleName>
+                     </occupation>
+                  </egXML>
+               </exemplum>
+               <exemplum>
+                  <p>When the <gi>occupation</gi> element appears in other lists (for historical or fictional persons) in the site index, it is an empty element, and must hold attributes for typing and subtyping:</p>
+                  <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                     <occupation type="literary" subtype="playwright"/>
+                  </egXML>
+               </exemplum>
             </elementSpec>
-         <!--Occupation coding: binding appropriate subtypes with types and permitting plural subtype values. -->
-         <constraintSpec scheme="schematron" ident="occupation">
-            <constraint>
-               <sch:pattern>
-                  <sch:let name="artistSubtypes"
-                     value="('painter', 'printmaker', 'engraver', 'sculptor', 'architect', 'landscape', 'illustrator')"/>
-                  <sch:let name="bookProducerSubtypes"
-                     value="('publisher', 'printer', 'binder', 'bookseller')"/>
-                  <sch:let name="religiousSubtypes"
-                     value="('clergy', 'prophet', 'vicar', 'curate', 'minister', 'priest', 'musician', 'composer')"/>
-                  <sch:let name="educatorSubtypes"
-                     value="('teacher', 'schoolHead', 'governess', 'tutor', 'lecturer')"/>
-                  <sch:let name="scholarSubtypes"
-                     value="('philosopher', 'naturalist', 'astronomer', 'curator', 'antiquarian', 'inventor', 'historian', 'economist', 'agronomist')"/>
-                  <sch:let name="explorerSubtypes"
-                     value="('traveller', 'navigator', 'cartographer', 'seaCaptain')"/>
-                  <sch:let name="legalSubtypes"
-                     value="('barrister', 'solicitor', 'lawyer', 'recorder', 'magistrate', 'judge')"/>
-                  <sch:let name="literarySubtypes"
-                     value="('novelist', 'poet', 'playwright', 'essayist', 'critic', 'journalist', 'editor', 'biographer', 'autobiographer', 'lexicographer', 'linguist', 'translator')"/>
-                  <sch:let name="theaterSubtypes"
-                     value="('actor', 'singer', 'manager', 'owner', 'designer', 'musician', 'composer')"/>
-                  <sch:let name="medicalSubtypes"
-                     value="('physician', 'surgeon', 'apothecary', 'midwife', 'oculist')"/>
-                  <sch:let name="militarySubtypes"
-                     value="('army', 'navy')"/>
-                  <sch:let name="benefactorSubtypes"
-                     value="('philanthropist', 'patron')"/>
-                  <sch:let name="governmentSubtypes"
-                     value="('monarch', 'politician', 'orator', 'reformer', 'courtier', 'diplomat', 'administrator', 'clerk', 'taxCollector', 'post')"/>
-                  <sch:let name="serviceSubtypes"
-                     value="('butler', 'maid', 'footman', 'cook', 'housekeeper', 'gardener')"/>
-                  <sch:let name="tradeSubtypes"
-                     value="('baker', 'butcher', 'farmer', 'bricklayer', 'mason', 'chandler', 'wheelwright', 'carpenter', 'watchmaker', 'miller', 'blacksmith', 'goldsmith', 'jeweller', 'tanner', 'saddler', 'bootmaker', 'shoemaker', 'innkeeper', 'liquor', 'merchant', 'clerk', 'banker', 'stockbroker', 'auctioneer', 'gambler')"/>
-                  <sch:rule context="tei:occupation[@type='artist'][@subtype]">
-                     <sch:let name="subtypes"
-                        value=" for $i in tokenize(@subtype, '\s+') return $i"/>
-                     <sch:assert
-                        test="every $subtype in $subtypes satisfies $subtype = $artistSubtypes">Multiple subtypes are permitted, but these must be from the following list: <sch:value-of select="$artistSubtypes"/>.</sch:assert>
-               </sch:rule>
-                  <sch:rule context="tei:occupation[@type='bookProducer'][@subtype]">
-                     <sch:let name="subtypes"
-                        value=" for $i in tokenize(@subtype, '\s+') return $i"/>
-                     <sch:assert
-                        test="every $subtype in $subtypes satisfies $subtype = $bookProducerSubtypes">Multiple subtypes are permitted, but these must be from the following list: <sch:value-of select="$bookProducerSubtypes"/>.</sch:assert>
-                  </sch:rule>
-                  <sch:rule context="tei:occupation[@type='religious'][@subtype]">
-                     <sch:let name="subtypes"
-                        value=" for $i in tokenize(@subtype, '\s+') return $i"/>
-                     <sch:assert
-                        test="every $subtype in $subtypes satisfies $subtype = $religiousSubtypes">Multiple subtypes are permitted, but these must be from the following list: <sch:value-of select="$religiousSubtypes"/>.</sch:assert>
-                  </sch:rule>
-                  <sch:rule context="tei:occupation[@type='educator'][@subtype]">
-                     <sch:let name="subtypes"
-                        value=" for $i in tokenize(@subtype, '\s+') return $i"/>
-                     <sch:assert
-                        test="every $subtype in $subtypes satisfies $subtype = $educatorSubtypes">Multiple subtypes are permitted, but these must be from the following list: <sch:value-of select="$educatorSubtypes"/>.</sch:assert>
-                  </sch:rule>
-                  <sch:rule context="tei:occupation[@type='scholar'][@subtype]">
-                     <sch:let name="subtypes"
-                        value=" for $i in tokenize(@subtype, '\s+') return $i"/>
-                     <sch:assert
-                        test="every $subtype in $subtypes satisfies $subtype = $scholarSubtypes">Multiple subtypes are permitted, but these must be from the following list: <sch:value-of select="$scholarSubtypes"/>.</sch:assert>
-                  </sch:rule>
-                  <sch:rule context="tei:occupation[@type='explorer'][@subtype]">
-                     <sch:let name="subtypes"
-                        value=" for $i in tokenize(@subtype, '\s+') return $i"/>
-                     <sch:assert
-                        test="every $subtype in $subtypes satisfies $subtype = $explorerSubtypes">Multiple subtypes are permitted, but these must be from the following list: <sch:value-of select="$explorerSubtypes"/>.</sch:assert>
-                  </sch:rule>
-                  <sch:rule context="tei:occupation[@type='legal'][@subtype]">
-                     <sch:let name="subtypes"
-                        value=" for $i in tokenize(@subtype, '\s+') return $i"/>
-                     <sch:assert
-                        test="every $subtype in $subtypes satisfies $subtype = $legalSubtypes">Multiple subtypes are permitted, but these must be from the following list: <sch:value-of select="$legalSubtypes"/>.</sch:assert>
-                  </sch:rule>
-                  <sch:rule context="tei:occupation[@type='literary'][@subtype]">
-                     <sch:let name="subtypes"
-                        value=" for $i in tokenize(@subtype, '\s+') return $i"/>
-                     <sch:assert
-                        test="every $subtype in $subtypes satisfies $subtype = $literarySubtypes">Multiple subtypes are permitted, but these must be from the following list: <sch:value-of select="$literarySubtypes"/>.</sch:assert>
-                  </sch:rule>
-                  <sch:rule context="tei:occupation[@type='theater'][@subtype]">
-                     <sch:let name="subtypes"
-                        value=" for $i in tokenize(@subtype, '\s+') return $i"/>
-                     <sch:assert
-                        test="every $subtype in $subtypes satisfies $subtype = $theaterSubtypes">Multiple subtypes are permitted, but these must be from the following list: <sch:value-of select="$theaterSubtypes"/>.</sch:assert>
-                  </sch:rule>
-                  <sch:rule context="tei:occupation[@type='medical'][@subtype]">
-                     <sch:let name="subtypes"
-                        value=" for $i in tokenize(@subtype, '\s+') return $i"/>
-                     <sch:assert
-                        test="every $subtype in $subtypes satisfies $subtype = $medicalSubtypes">Multiple subtypes are permitted, but these must be from the following list: <sch:value-of select="$medicalSubtypes"/>.</sch:assert>
-                  </sch:rule>
-                  <sch:rule context="tei:occupation[@type='military'][@subtype]">
-                     <sch:let name="subtypes"
-                        value=" for $i in tokenize(@subtype, '\s+') return $i"/>
-                     <sch:assert
-                        test="every $subtype in $subtypes satisfies $subtype = $militarySubtypes">Multiple subtypes are permitted, but these must be from the following list: <sch:value-of select="$militarySubtypes"/>.</sch:assert>
-                  </sch:rule>
-                  <sch:rule context="tei:occupation[@type='benefactor'][@subtype]">
-                     <sch:let name="subtypes"
-                        value=" for $i in tokenize(@subtype, '\s+') return $i"/>
-                     <sch:assert
-                        test="every $subtype in $subtypes satisfies $subtype = $benefactorSubtypes">Multiple subtypes are permitted, but these must be from the following list: <sch:value-of select="$benefactorSubtypes"/>.</sch:assert>
-                  </sch:rule>
-                  <sch:rule context="tei:occupation[@type='government'][@subtype]">
-                     <sch:let name="subtypes"
-                        value=" for $i in tokenize(@subtype, '\s+') return $i"/>
-                     <sch:assert
-                        test="every $subtype in $subtypes satisfies $subtype = $governmentSubtypes">Multiple subtypes are permitted, but these must be from the following list: <sch:value-of select="$governmentSubtypes"/>.</sch:assert>
-                  </sch:rule>
-                  <sch:rule context="tei:occupation[@type='service'][@subtype]">
-                     <sch:let name="subtypes"
-                        value=" for $i in tokenize(@subtype, '\s+') return $i"/>
-                     <sch:assert
-                        test="every $subtype in $subtypes satisfies $subtype = $serviceSubtypes">Multiple subtypes are permitted, but these must be from the following list: <sch:value-of select="$serviceSubtypes"/></sch:assert>
-                  </sch:rule>
-                  <sch:rule context="tei:occupation[@type='trade'][@subtype]">
-                     <sch:let name="subtypes"
-                        value=" for $i in tokenize(@subtype, '\s+') return $i"/>
-                     <sch:assert
-                        test="every $subtype in $subtypes satisfies $subtype = $tradeSubtypes">Multiple subtypes are permitted, but these must be from the following list: <sch:value-of select="$tradeSubtypes"/></sch:assert>
-                  </sch:rule>  
-               </sch:pattern>
-            </constraint>
-         </constraintSpec>   
-            
-            
-            
-            
             <elementSpec ident="persName" module="namesdates" mode="change">
                   <attList>
                      <attDef ident="ref" mode="replace" usage="rec">
@@ -785,6 +1011,9 @@
                            </valItem>
                            <valItem ident="#ad">
                               <gloss>Drayton Alexandra Ph.D. Consultant | One of the Digital Mitford project’s founding editors, Alexandra Drayton earned </gloss>
+                           </valItem>
+                           <valItem ident="#adp">
+                              <gloss>Phoenix Anaya Research Assistant | Anaya Phoenix plans to graduate in 2019 with a B.A. in Literature/Writing from t</gloss>
                            </valItem>
                            <valItem ident="#ahm">
                               <gloss>Algee-Hewitt Mark Consultant: Data Visualization Group Advisory Board</gloss>
@@ -805,10 +1034,7 @@
                               <gloss>Annie Gill Gill Annie Research Assistant | Annie Gill is a Theatre major and English minor at the University of Montevallo.</gloss>
                            </valItem>
                            <valItem ident="#bas">
-                              <gloss>Stewart Brooke Ann Research Assistant | Brooke A. Stewart worked on the Digital Mitford project as a student at the Univ</gloss>
-                           </valItem>
-                           <valItem ident="#cay">
-                              <gloss>Collins Younes Courtney Research Assistant | Courtney Younes Collins plans to graduate in 2017 with a B.A. in English: Litera</gloss>
+                              <gloss>Stewart Brooke Ann Editor | Brooke A. Stewart transcribed, researched, encoded, and proofed the Mitford lett</gloss>
                            </valItem>
                            <valItem ident="#cjb">
                               <gloss>Bolton Carol Advisory Board</gloss>
@@ -861,9 +1087,6 @@
                            <valItem ident="#jb">
                               <gloss>Bawden John Ph.D Associate Professor of History Research Assistant | John Bawden is Associate Professor of History at the University of Montevallo. H</gloss>
                            </valItem>
-                           <valItem ident="#jgf">
-                              <gloss>Fish Julie Research Assistant | Julie Fish plans to graduate in 2017 with a B.A. in English: Literature from the</gloss>
-                           </valItem>
                            <valItem ident="#jjr">
                               <gloss>Rovira James Ph.D. Editor | James Rovira teaches British literature, Creative Writing: Poetry, Creative Writ</gloss>
                            </valItem>
@@ -875,6 +1098,9 @@
                            </valItem>
                            <valItem ident="#kdc">
                               <gloss>Donovan-Condron Kellie Ph.D. Founding Editor Poetry | Kellie Donovan-Condron is a Founding Editor and Poetry Section Editor for Digita</gloss>
+                           </valItem>
+                           <valItem ident="#led">
+                              <gloss>Dingman Lindsay Research Assistant | Lindsay Dingman plans to graduate in 2019 with a B.A. in Literature/Writing from</gloss>
                            </valItem>
                            <valItem ident="#lmw">
                               <gloss>Wilson Lisa M. Managing Editor Bibliography and Correspondence Founding Editor | Lisa Wilson is Professor in the Department of English and Communication at SUNY </gloss>
@@ -930,14 +1156,14 @@
                            <valItem ident="#slc">
                               <gloss>Cantwell Sara Consultant | Sara Cantwell received her B.F.A. in Creative Writing from the State University </gloss>
                            </valItem>
+                           <valItem ident="#sm">
+                              <gloss>Morelli Sophia Research Assistant | Sophia Morelli plans to graduate in 2019 with a B.A. in Literature/Writing from </gloss>
+                           </valItem>
                            <valItem ident="#SMG">
                               <gloss>Garrett Shekneko Research Assistant | Shekneko Garrett is pursuing a Master’s degree in Secondary Education in English</gloss>
                            </valItem>
                            <valItem ident="#SMP">
                               <gloss>Sara Perry Perry Sara Research Assistant | Sara Perry is an English major and Game Studies and Design minor at the Universi</gloss>
-                           </valItem>
-                           <valItem ident="#ssc">
-                              <gloss>Courtney Shawntel Research Assistant | Shawntel Courtney plans to graduate in 2018 with a B.A. in English: Writing and </gloss>
                            </valItem>
                            <valItem ident="#st">
                               <gloss>Triplette Stacey Ph.D. Consultant | Stacey Triplette, Assistant Professor of Spanish and French at the University of</gloss>
@@ -953,6 +1179,12 @@
                            </valItem>
                            <valItem ident="#apc">
                               <gloss>Calderwood Austin Research Assistant | </gloss>
+                           </valItem>
+                           <valItem ident="#avm">
+                              <gloss>McConlogue Allison Research Assistant | Allison McConlogue graduated in 2018 with a B.A. in Literature/Writing from the </gloss>
+                           </valItem>
+                           <valItem ident="#cay">
+                              <gloss>Collins Younes Courtney Research Assistant | Courtney Younes Collins graduated in 2017 with a B.A. in English: Literature fro</gloss>
                            </valItem>
                            <valItem ident="#cmm">
                               <gloss>Murray Chelsie Research Assistant | Chelsie Murray received her B.A. in Psychology and her M.A. in English &amp; Communi</gloss>
@@ -981,11 +1213,26 @@
                            <valItem ident="#jbb">
                               <gloss>Burwell Jaime Breanna Research Assistant | Jaime Burwell is a native of northern New York. She received her B.A. in English</gloss>
                            </valItem>
+                           <valItem ident="#jcm">
+                              <gloss>Mostales Joshua Research Assistant | Joshua Mostales is an undergraduate student in the Robert D. Clark Honors Colleg</gloss>
+                           </valItem>
+                           <valItem ident="#jgf">
+                              <gloss>Fish Julie Research Assistant | Julie Fish graduated in 2017 with a B.A. in English Literature from the State Un</gloss>
+                           </valItem>
                            <valItem ident="#knm">
                               <gloss>Murphy Kristen Research Assistant | </gloss>
                            </valItem>
+                           <valItem ident="#lrs">
+                              <gloss>Spillar Lindsey R. Research Assistant | Lindsey Spillar expects to graduate from the Robert D. Clark Honors College at t</gloss>
+                           </valItem>
+                           <valItem ident="#mbn">
+                              <gloss>Nardoci Matthew Blake Research Assistant | Matt Nardoci is a biochemistry major at the University of Oregon and is expected</gloss>
+                           </valItem>
                            <valItem ident="#mq">
                               <gloss>Kohli Mehaque Research Assistant | In 2014, Mehaque Kohli was a fourth year International Development Studies major</gloss>
+                           </valItem>
+                           <valItem ident="#ms">
+                              <gloss>Scott Madelyn N. Research Assistant | Madelyn N. Scott plans to graduate in 2020 with a B.S. in Chemistry from the Rob</gloss>
                            </valItem>
                            <valItem ident="#msp">
                               <gloss>Paine Margo Research Assistant | Margo Paine graduated in May 2015 from the State University of New York at Potsd</gloss>
@@ -1001,6 +1248,12 @@
                            </valItem>
                            <valItem ident="#rct">
                               <gloss>Tang Rebecca Research Assistant | In 2014, Rebecca Tang was a fourth-year student at UCLA, majoring in English wit</gloss>
+                           </valItem>
+                           <valItem ident="#sg">
+                              <gloss>Gemelas Sophia Research Assistant | Sophia Gemelas is an undergraduate student in the Robert D. Clark Honors College</gloss>
+                           </valItem>
+                           <valItem ident="#ssc">
+                              <gloss>Courtney Shawntel Research Assistant | Shawntel Courtney graduated in 2018 with a B.A. in English: Writing and a minor </gloss>
                            </valItem>
                            <valItem ident="#tlh">
                               <gloss>Harnish Tracy Lynn Research Assistant | Tracy Harnish is a native of northern New York. She received her B.F.A. in Creat</gloss>
@@ -1362,6 +1615,9 @@
                            <valItem ident="#Clarke_ED">
                               <gloss>Edward Daniel Clarke | b. 1769-06-05 | d. 1822-03-09 | </gloss>
                            </valItem>
+                           <valItem ident="#Clarke_Mrs">
+                              <gloss>Mrs. Clarke | The daughter of Colonel Anstruther who lived in Reading. An associate of the Pal</gloss>
+                           </valItem>
                            <valItem ident="#Clarke_William">
                               <gloss>Clarke William | Listed as a shopkeeper in Three Mile Crossin the 1854 Post Office Directory of B</gloss>
                            </valItem>
@@ -1578,9 +1834,6 @@
                            <valItem ident="#Edgeworth_Maria">
                               <gloss>Edgeworth Maria | b. 1768-01-01 | d. 1849-05-22 | British author and educator. Best known for Castle Rackrent (novel, 1800); also </gloss>
                            </valItem>
-                           <valItem ident="#Elford_Eliz_da">
-                              <gloss>Elizabeth Elford Adams | b.  | d. </gloss>
-                           </valItem>
                            <valItem ident="#Elford_Elizabeth">
                               <gloss>Elford Adams Elizabeth | b. 1782-03-11 | d. 1837 | Second daughter of Sir William Elford by his first wife, Mary Davies Elford. On </gloss>
                            </valItem>
@@ -1588,22 +1841,22 @@
                               <gloss>Grace Chard Elford | b.  | d. 1856-02-24 | Elder daughter of Sir William Elford and Mary Davies Elford; she was baptised at</gloss>
                            </valItem>
                            <valItem ident="#Elford_J">
-                              <gloss>Elford Jonathan | b. 1776-11-05 | d. 1823-03-11 | The only son of Sir William Elford and his first wife Mary Davies Elford. He joi</gloss>
+                              <gloss>Jonathan Elford | b. 1776-11-05 | d. 1823-03-11 | The only son of Sir William Elford and his first wife Mary Davies Elford. He joi</gloss>
                            </valItem>
                            <valItem ident="#Elford_MrsC">
                               <gloss>Charlotte Wynne Elford | Daughter of John Wynne of Abercynlleth, Denbigh. Married Jonathan Elford on May </gloss>
                            </valItem>
                            <valItem ident="#Elford_MrsE">
-                              <gloss>Hall Walrond Elford Elizabeth | b. 1780 | d. 1839 | Elizabeth was the second wife of Sir William Elford; they married after the deat</gloss>
+                              <gloss>Elizabeth Hall Walrond Elford | b. 1780 | d. 1839 | Elizabeth Walrond was the second wife of Sir William Elford; they married on Jul</gloss>
                            </valItem>
                            <valItem ident="#Elford_MrsM">
-                              <gloss>Elford Davies Mary | b. 1753 | d. 1807-08-02 | Mary was the first wife of Sir William Elford; they married on January 20, 1776 </gloss>
+                              <gloss>Mary Davies Elford | b. 1753 | d. 1807-08-02 | Mary Davies was the first wife of Sir William Elford; they married on January 20</gloss>
                            </valItem>
                            <valItem ident="#Elford_SirWm">
                               <gloss>Sir William Elford | b. 1749-08 | d. 1837-11-30 | According to L’Estrange, Sir William was first a friend of Mitford’s father, and</gloss>
                            </valItem>
                            <valItem ident="#ElizI">
-                              <gloss>Elizabeth Tudor Queen Elizabeth I Queen of England, France and Ireland, Defender of the Faith, etc. | b. 1533-09-07 | d. 1603-03-24 | The last of the Tudor monarchs, and defender of father’s instition of a Protesta</gloss>
+                              <gloss>Elizabeth I | b. 1533-09-07 | d. 1603-03-24 | The last of the Tudor monarchs, and defender of father’s instition of a Protesta</gloss>
                            </valItem>
                            <valItem ident="#Ellis_Hen">
                               <gloss>Sir Henry Ellis | b. 1788-09-01 | d. 1855-09-28 | A commissioner in Lord Amherst’s embassy to China 1816-17. Author of Journal of </gloss>
@@ -1676,6 +1929,9 @@
                            </valItem>
                            <valItem ident="#Ford_John">
                               <gloss>Ford John | b. 1586 | d. 1639—1640 | English playwright and poet, wrote ’Tis Pity She’s a Whore (play, printed 1633)</gloss>
+                           </valItem>
+                           <valItem ident="#Forsyth_Jos">
+                              <gloss>Joseph Forsyth | b. 1763-02-18 | d. 1815-09-20 | Schoolmaster and author of Remarks on Antiquities, Arts, and Letters, during an </gloss>
                            </valItem>
                            <valItem ident="#Foscari_son_hist">
                               <gloss>Jacopo Foscari | b. 1416 | d. 1457 | Historical personage on whom Mitford based the character of Francesco Foscari in</gloss>
@@ -2319,6 +2575,9 @@
                            <valItem ident="#ONeill_Eliz">
                               <gloss>O’Neill Elizabeth | Irish actor (1791-1872). Later Lady Becher (married Mr., afterwards Sir William </gloss>
                            </valItem>
+                           <valItem ident="#Opie_Amelia">
+                              <gloss>Opie Amelia Alderson | b. 1769-11-12 | d. 1853-12-02 | A prolific novelist from 1790 through 1834, contemporary with Mitford, and an ac</gloss>
+                           </valItem>
                            <valItem ident="#Orger_MA">
                               <gloss>Mary Ann Orger | b. 1788 | d. 1849 | English actor (1788-1849?) specializing in comedy. Born Mary Ann Ivers, daughter</gloss>
                            </valItem>
@@ -2468,6 +2727,9 @@
                            </valItem>
                            <valItem ident="#Reynolds_JH">
                               <gloss>John Hamilton Reynolds | b. 1794-09-09 | d. 1852-11-15 | </gloss>
+                           </valItem>
+                           <valItem ident="#Reynolds_Josh">
+                              <gloss>Sir Joshua Reynolds | b. 1723-07-16 | d. 1792-02-23 | The most celebrated and sought-after English portrait painter of the second half</gloss>
                            </valItem>
                            <valItem ident="#RichardI">
                               <gloss>Richard I King of England Duke of Normandy Duke of Aquitaine Count of Anjou | English monarch (1157-1199). House of Plantaganet. Son of Henry II of England an</gloss>
@@ -2739,6 +3001,9 @@
                            <valItem ident="#Vanbrugh">
                               <gloss>Sir John Vanbrugh | b. 1664-01-24 | d. 1726-03-26 | Sir John Vanbrugh was a noted architect and successful playwright who wrote orig</gloss>
                            </valItem>
+                           <valItem ident="#Vandyke">
+                              <gloss>Sir Anthony van Dyck | b. 1599-03-22 | d. 1641-12-09 | Flemish portrait painter who became celebrated in England for his portraits of C</gloss>
+                           </valItem>
                            <valItem ident="#Vane_hist">
                               <gloss>Henry Vane | b. 1613 | d. 1662-06-14 | Vane was executed for treason by Charles II</gloss>
                            </valItem>
@@ -2957,6 +3222,9 @@
                            </valItem>
                            <valItem ident="#Satan">
                               <gloss>Satan | In Judeo-Christian theology, the opponent of God and mankind. The word’s derivat</gloss>
+                           </valItem>
+                           <valItem ident="#Venus">
+                              <gloss>Venus | Roman goddess of love and beauty; her counterpart in Greek mythology is Aphrodit</gloss>
                            </valItem>
                            <valItem ident="#Vesta">
                               <gloss>Vesta | Vesta is the Roman goddess of hearth and domesticity. The temple to Vesta was ke</gloss>
@@ -3213,6 +3481,9 @@
                            <valItem ident="#Friday">
                               <gloss/>
                            </valItem>
+                           <valItem ident="#Glenalvon">
+                              <gloss>Glenalvon | Secondary character in Douglas.</gloss>
+                           </valItem>
                            <valItem ident="#Gloucester">
                               <gloss>Duke of Gloucester | Son of King Charles I, a boy of seven years old in Mitford’s play, Charles I.</gloss>
                            </valItem>
@@ -3251,6 +3522,9 @@
                            </valItem>
                            <valItem ident="#HughSir_Camilla">
                               <gloss>Camilla | Character in Camilla; Mitford admires Burney’s characterization of him in her a </gloss>
+                           </valItem>
+                           <valItem ident="#Iago_O">
+                              <gloss>Iago | Character in Othello.</gloss>
                            </valItem>
                            <valItem ident="#Imogen_C">
                               <gloss>Imogen | character in Cymbeline</gloss>
@@ -3357,6 +3631,9 @@
                            <valItem ident="#MasonsWife">
                               <gloss/>
                            </valItem>
+                           <valItem ident="#Master_Peter_DQ">
+                              <gloss>Master Peter | Master Peter is the puppetmaster in Don Quixote; his puppets are destroyed in th</gloss>
+                           </valItem>
                            <valItem ident="#May-flower">
                               <gloss>May-flower | Greyhound dog who is featured as the narrator’s companion in many Our Villageske</gloss>
                            </valItem>
@@ -3416,6 +3693,9 @@
                            </valItem>
                            <valItem ident="#Oldbuck_Jonathan">
                               <gloss>John Oldbuck | character in The Antiquary.</gloss>
+                           </valItem>
+                           <valItem ident="#OLeary_FM">
+                              <gloss>Terence Oge O’Leary | Character of an Irish hedge schoolmaster in Lady Morgan's novel Florence Macarth</gloss>
                            </valItem>
                            <valItem ident="#Olivia_F">
                               <gloss>Olivia | One of the Ladies in Foscari</gloss>
@@ -4707,102 +4987,6 @@
                            <dataRef name="string"/>
                         </datatype>
                         <valList type="semi">
-                           <valItem ident="#America_Birkbeck">
-                              <gloss>Notes on a Journey in America, from the Coast of Virginia to the Territory of Illinois | 1817 | Mitford likely read the second edition, published in London in 1818 by J. Ridgwa</gloss>
-                           </valItem>
-                           <valItem ident="#BoR">
-                              <gloss>the Bill of Rights | 1689 | One of the basic instruments of the British constitution, the English Bill of Ri</gloss>
-                           </valItem>
-                           <valItem ident="#CaptivityCaptKnox">
-                              <gloss>Account of the Captivity of Robert Knox and Other Englishmen, in the Island of Ceylon: And of the Captain’s Miraculous Escape and Return to England in September 1680, After Detention on the Island of Nineteen Years and a Half | 1818</gloss>
-                           </valItem>
-                           <valItem ident="#ClarkesTravelsScand">
-                              <gloss>Travels in Various Countries of Europe, Asia and Africa. Part the third, section the first: Scandinavia | 1819 | Clarke began publishing a series of travel accounts in 1811 under the series tit</gloss>
-                           </valItem>
-                           <valItem ident="#Collectanea">
-                              <gloss>Collectanea Curiosa, or Miscellaneous Tracts: Relating to the History and Antiquities of England and Ireland, the Universities of Oxford and Cambridge, and a Variety of Other Subjects | 1781</gloss>
-                           </valItem>
-                           <valItem ident="#Compl_Angler">
-                              <gloss>The Compleat Angler, or, The Contemplative Man’s Recreation: Being a Discourse of Rivers, and Fish-ponds, and Fish and Fishing: Not Unworthy the Perusal of Most Anglers | 1653 | First published in 1653, then expanded and republished in further editions in 16</gloss>
-                           </valItem>
-                           <valItem ident="#Daniells">
-                              <gloss>Rural Sports | Printed in numerous editions between 1801-1817.</gloss>
-                           </valItem>
-                           <valItem ident="#Enc_Metr">
-                              <gloss>Encyclopedia Metropolitana; or, Universal Dictionary of Knowledge (30 vols., 1817-1845)</gloss>
-                           </valItem>
-                           <valItem ident="#History_Municipal_Church_St_Lawrence">
-                              <gloss>A History of the Municipal Church of St. Lawrence, Reading | 1883 publication used by Needham to establish local histories and identities of </gloss>
-                           </valItem>
-                           <valItem ident="#Illinois_Birkbeck">
-                              <gloss>Letters from Illinois: Illustrated by a Map of the United States, Shewing Mr. Birkbeck’s Journey from Norfolk to Illinois and a Map of English Prairie and the Adjacent Country by John Melish | 1818 | Mitford likely read this edition, published in London; editions also appeared in</gloss>
-                           </valItem>
-                           <valItem ident="#Johnson_Lives">
-                              <gloss>Lives of the English Poets | 1783</gloss>
-                           </valItem>
-                           <valItem ident="#LecComic_WHaz">
-                              <gloss>Lectures on the English Comic Writers, delivered at the Surry Institution | 1819 | Spelled "Surry" on title page.</gloss>
-                           </valItem>
-                           <valItem ident="#Letters_Hearne_Aubrey">
-                              <gloss>Letters Written by Eminent Persons in the Seventeenth and Eighteenth Centuries: To Which are Added, Hearne’s Journeys to Reading, and to Whaddon Hall, the Seat of Browne Willis, Esq., and Lives of Eminent Men by John Aubrey, Esq., the Whole Now First Published from the Originals | 1813</gloss>
-                           </valItem>
-                           <valItem ident="#Life_DukeofMarl_WC">
-                              <gloss>Memoirs of John Duke of Marlborough: With His Original Correspondence; Collected from the Family Records at Blenheim, and Other Authentic Sources. Illustrated with Portraits, Maps, and Military Plans. | 1818</gloss>
-                           </valItem>
-                           <valItem ident="#Life_LadyRussell">
-                              <gloss>Some Account of the Life of Rachael Wriothesley, Lady Russell, by the editor of Madam Du Deffand’s letters. Followed by a series of letters from Lady Russell to her husband, William, Lord Russell; from 1672 to 1682; together with some miscellaneous letters to and from Lady Russell. To which are added, eleven letters from Dorothy Sidney, Countess of Sunderland, to George Saville, Marquis of Hallifax, in the year 1680 | 1819 | Source: HathiTrust</gloss>
-                           </valItem>
-                           <valItem ident="#Lit_Pocket_Bk">
-                              <gloss>The Literary Pocket Book, or Companion for the Lover of Art and Nature | Literary almanac edited by Leigh Hunt that includes original poems by P. Shelley</gloss>
-                           </valItem>
-                           <valItem ident="#Napoleon_memoir_nonfict">
-                              <gloss>Mémoires pour servir à l’histoire de la vie privée, du retour, et du règne de Napoléon en 1815 | 1819—1820 | Two volume publication: the first volume was published in 1819 and the second in</gloss>
-                           </valItem>
-                           <valItem ident="#NaturalisHist">
-                              <gloss>Naturalis Historiæ | 0077—0079 | Encyclopedic work of thirty-seven books, organized in ten volumes. Source: LBT</gloss>
-                           </valItem>
-                           <valItem ident="#NewWhigGuide">
-                              <gloss>The New Whig Guide | 1819 | Authorship attributed to Viscount Henry John Temple Palmerston John Wilson Croke</gloss>
-                           </valItem>
-                           <valItem ident="#PO_BerkshireDir">
-                              <gloss>Post Office Directory of Berkshire, Northamptonshire, and Oxfordshire; with Bedfordshire, Buckinghamshire, and Huntingdonshire | 1847—1854 | Text and page images of the 1854 edition may be accessed through the University </gloss>
-                           </valItem>
-                           <valItem ident="#PO_Directory_Berkshire">
-                              <gloss>The Post Office Directory of Berkshire, Northamptonshire, Oxfordshire, with Bedfordshire, Buckinghamshire, and Huntingdonshire | A series of directories of local gentry and tradespeople in the counties of the </gloss>
-                           </valItem>
-                           <valItem ident="#Shakespeare_Times_nonfict">
-                              <gloss>Shakespeare and His Times: Including the Biography of the Poet; Criticisms on his Genius and Writings; A New Chronology of the Plays; A Disquisition on the Object of His Sonnets; And a History of the Manners, Customs, and Amusements, Superstitions, Poetry, and Elegant Literature of His Age | 1817</gloss>
-                           </valItem>
-                           <valItem ident="#Sketches_of_America">
-                              <gloss>Sketches of America: a Narrative of a Journey of Five Thousand Miles Through the Eastern and Western States of America; Contained in Eight Reports Addressed to the Thirty-nine English Families by whom the Author was Deputed, in June 1817, to Ascertain Whether Any, and What Part of the United States Would be Suitable for Their Residence. With Remarks on Mr. Birkbeck’s Notes and Letters | 1818 | The work’s subtitle refers to to Morris Birkbeck’s Notes on a Journey in America</gloss>
-                           </valItem>
-                           <valItem ident="#SpencesAnec">
-                              <gloss>Anecdotes, Observations, and Characters of Books and Men. Collected from the Conversation of Mr. Pope, and Other Eminent Persons of His Time | 1820 | Spence’s Anecdotes were collected and published posthumously in 1820 by Edmund M</gloss>
-                           </valItem>
-                           <valItem ident="#TenYearsatTripoli">
-                              <gloss>Miss Tully | 1816 | Mitford may have read the third edition, published in 1819.</gloss>
-                           </valItem>
-                           <valItem ident="#Tour_Normandy">
-                              <gloss>Account of a tour in Normandy | 1820</gloss>
-                           </valItem>
-                           <valItem ident="#Travels_Acerbi">
-                              <gloss>Travels through Sweden, Finland, and Lapland to the North Cape, in the Years 1798 and 1799. | 1802</gloss>
-                           </valItem>
-                           <valItem ident="#Travels_Nile">
-                              <gloss>Travels to Discover the Source of the Nile, In the Years 1768, 1769, 1770, 1771 1772, and 1773 | 1790</gloss>
-                           </valItem>
-                           <valItem ident="#Visit_Paris">
-                              <gloss>A Visit To Paris in 1814: Being a Review of the Moral, Political, Intellectual, and Social Condition of the French Capital | 2nd edition, corrected and with a new preface referring to late events, publishe</gloss>
-                           </valItem>
-                           <valItem ident="#WalpoletoMontagu">
-                              <gloss>Letters from the Hon. Horace Walpole to George Montagu, Esq. from the year 1736, to the year 1770: Now First Published from the Originals in the Possession of the Editor | 1818 | A second edition appears in 1819.</gloss>
-                           </valItem>
-                           <valItem ident="#Walton_Lives">
-                              <gloss>The Lives of Dr. John Donne, Sir Henry Wotton, Mr. Richard Hooker, Mr. George Herbert and Dr. Robert Sanderson. | Walton had written biographical sketches ("Lives") of Donne, Wotton, Hooker and </gloss>
-                           </valItem>
-                           <valItem ident="#Whiteknights_Desc_TCH">
-                              <gloss>A Descriptive Account of the Mansion and Gardens of White-Knights: A Seat of His Grace the Duke of Marlborough. By Mrs. Hofland. Illustrated with twenty-three engravings, from pictures taken on the spot by T.C. Hofland | 1819 | Printed by T.C. Hofland for the 6th Duke of Marlbourough; publisher and printer </gloss>
-                           </valItem>
                            <valItem ident="#Ackermans_Juv_ForgetMeNot">
                               <gloss>Ackermann's Juvenile Forget Me Not | 1830—1832 | Children's gift book/annual founded by Rudolf Ackermann and edited by Frederic S</gloss>
                            </valItem>
@@ -4871,6 +5055,9 @@
                            </valItem>
                            <valItem ident="#Juv_Keepsake">
                               <gloss>The Juvenile Keepsake | Gift book/annual for children. Mitford published her story "The Two Magpies" in </gloss>
+                           </valItem>
+                           <valItem ident="#La_Belle_Assemblee">
+                              <gloss>La Belle Assemblée, Or Bell's Court and Fashionable Magazine, Addressed Particularly to the Ladies | 1806—1832 | A general-interest miscellaneous periodical aimed at a female readership. Origin</gloss>
                            </valItem>
                            <valItem ident="#Ladys_Mag">
                               <gloss>The Lady's Magazine | 1770—1847 | A popular and influential monthly magazine for women that ran from 1756 until 18</gloss>
@@ -5022,6 +5209,9 @@
                            <valItem ident="#AllsWellTEW">
                               <gloss>All’s Well that Ends Well | Drama likely first performed around 1604 and first printed in 1623.</gloss>
                            </valItem>
+                           <valItem ident="#America_Birkbeck">
+                              <gloss>Notes on a Journey in America, from the Coast of Virginia to the Territory of Illinois | 1817 | Mitford likely read the second edition, published in London in 1818 by J. Ridgwa</gloss>
+                           </valItem>
                            <valItem ident="#AmStories_Above10">
                               <gloss>American Stories for Young People, Intended for Children above Ten Years of Age | 1832</gloss>
                            </valItem>
@@ -5069,6 +5259,9 @@
                            </valItem>
                            <valItem ident="#Belford_Regis">
                               <gloss>Belford Regis; or, Sketches of a Country Town | 1835</gloss>
+                           </valItem>
+                           <valItem ident="#Belinda_ME">
+                              <gloss>Belinda | 1801</gloss>
                            </valItem>
                            <valItem ident="#Belles_Ballroom1_Will_BR">
                               <gloss>Belles of the Ballroom, No. I - The Will | 1835 | This story was orginally published in the Forget Me Not for 1834 with the title </gloss>
@@ -5133,6 +5326,9 @@
                            <valItem ident="#Bonduca_play">
                               <gloss>Bonduca</gloss>
                            </valItem>
+                           <valItem ident="#BoR">
+                              <gloss>the Bill of Rights | 1689 | One of the basic instruments of the British constitution, the English Bill of Ri</gloss>
+                           </valItem>
                            <valItem ident="#Bramley_Maying_LM">
                               <gloss>Bramley Maying [Lady's Magazine version] | 1823-05 | This sketch was later collected in volume one of Our Village .</gloss>
                            </valItem>
@@ -5144,6 +5340,9 @@
                            </valItem>
                            <valItem ident="#Camilla_FB">
                               <gloss>Camilla, or a Picture of Young Lady | 1796</gloss>
+                           </valItem>
+                           <valItem ident="#CaptivityCaptKnox">
+                              <gloss>Account of the Captivity of Robert Knox and Other Englishmen, in the Island of Ceylon: And of the Captain’s Miraculous Escape and Return to England in September 1680, After Detention on the Island of Nineteen Years and a Half | 1818</gloss>
                            </valItem>
                            <valItem ident="#Carpenters_Daughter_BR">
                               <gloss>The Carpenter's Daughter | 1835 | This story was first published in the Friendship's Offering for 1834.</gloss>
@@ -5241,6 +5440,9 @@
                            <valItem ident="#Clarissa">
                               <gloss>Clarissa, or, The history of a young lady : comprehending the most important concerns of private life: and particularly shewing, the distresses that may attend the misconduct both of parents and children, in relation to marriage | 1748</gloss>
                            </valItem>
+                           <valItem ident="#ClarkesTravelsScand">
+                              <gloss>Travels in Various Countries of Europe, Asia and Africa. Part the third, section the first: Scandinavia | 1819 | Clarke began publishing a series of travel accounts in 1811 under the series tit</gloss>
+                           </valItem>
                            <valItem ident="#Claudias_Dr">
                               <gloss>Claudia’s Dream | One of Mitford’s dramatic sketches, appeared in Lady’s Magazine September 30, 18</gloss>
                            </valItem>
@@ -5249,6 +5451,12 @@
                            </valItem>
                            <valItem ident="#Coeur_de_Lion_poem">
                               <gloss>Coeur de Lion; or the Third Crusade. A Poem in 16 books. (historical epic, 1822)</gloss>
+                           </valItem>
+                           <valItem ident="#Collectanea">
+                              <gloss>Collectanea Curiosa, or Miscellaneous Tracts: Relating to the History and Antiquities of England and Ireland, the Universities of Oxford and Cambridge, and a Variety of Other Subjects | 1781</gloss>
+                           </valItem>
+                           <valItem ident="#Compl_Angler">
+                              <gloss>The Compleat Angler, or, The Contemplative Man’s Recreation: Being a Discourse of Rivers, and Fish-ponds, and Fish and Fishing: Not Unworthy the Perusal of Most Anglers | 1653 | First published in 1653, then expanded and republished in further editions in 16</gloss>
                            </valItem>
                            <valItem ident="#Confessions_OpiumEater_nonfict">
                               <gloss>Confessions of an English Opium-Eater</gloss>
@@ -5313,6 +5521,9 @@
                            <valItem ident="#Cymbeline_play">
                               <gloss>Cymbeline</gloss>
                            </valItem>
+                           <valItem ident="#Daniells">
+                              <gloss>Rural Sports | Printed in numerous editions between 1801-1817.</gloss>
+                           </valItem>
                            <valItem ident="#Deaf_Dumb_play">
                               <gloss>Deaf and Dumb</gloss>
                            </valItem>
@@ -5348,6 +5559,9 @@
                            </valItem>
                            <valItem ident="#Dora_Creswell_OV">
                               <gloss>Dora Creswell [Our Village version] | 1828 | This sketch appeared in volume three of Our Village in 1828. It also appeared as</gloss>
+                           </valItem>
+                           <valItem ident="#Douglas_play">
+                              <gloss>Douglas: A Tragedy | 1757 | First performed in 1756in Edinburgh, followed by a performance in London in 1757</gloss>
                            </valItem>
                            <valItem ident="#Dramatic_Works_of_MRM">
                               <gloss>The Dramatic Works of Mary Russell Mitford | 1854</gloss>
@@ -5417,6 +5631,9 @@
                            </valItem>
                            <valItem ident="#Emma_JA">
                               <gloss>Emma: A Novel | 1819</gloss>
+                           </valItem>
+                           <valItem ident="#Enc_Metr">
+                              <gloss>Encyclopedia Metropolitana; or, Universal Dictionary of Knowledge (30 vols., 1817-1845)</gloss>
                            </valItem>
                            <valItem ident="#Endymion">
                               <gloss>Endymion</gloss>
@@ -5568,6 +5785,9 @@
                            <valItem ident="#Hazlitt_LecDrama">
                               <gloss>Lectures on the Dramatic Literature of the Age of Elizabeth</gloss>
                            </valItem>
+                           <valItem ident="#Heart_of_Mid">
+                              <gloss>The Heart of Midlothian | 1822</gloss>
+                           </valItem>
                            <valItem ident="#Heiress_MRM">
                               <gloss>The Heiress | Projected novel by Mary Russell Mitford, apparently never completed. Coles posit</gloss>
                            </valItem>
@@ -5594,6 +5814,9 @@
                            </valItem>
                            <valItem ident="#HistEngland_Hume">
                               <gloss>The History of England | 1754—1761 | Hume wrote the six volumes of this monumental history in reverse chronological o</gloss>
+                           </valItem>
+                           <valItem ident="#History_Municipal_Church_St_Lawrence">
+                              <gloss>A History of the Municipal Church of St. Lawrence, Reading | 1883 publication used by Needham to establish local histories and identities of </gloss>
                            </valItem>
                            <valItem ident="#Holcroft_Mems">
                               <gloss>Memoirs of the Late Thomas Holcroft, Written by Himself and Continued to the Time of His Death | 1816</gloss>
@@ -5625,6 +5848,9 @@
                            <valItem ident="#Iliad">
                               <gloss>The Iliad | The author of this poem would have been presumed to be Homer in Mitford’s time.</gloss>
                            </valItem>
+                           <valItem ident="#Illinois_Birkbeck">
+                              <gloss>Letters from Illinois: Illustrated by a Map of the United States, Shewing Mr. Birkbeck’s Journey from Norfolk to Illinois and a Map of English Prairie and the Adjacent Country by John Melish | 1818 | Mitford likely read this edition, published in London; editions also appeared in</gloss>
+                           </valItem>
                            <valItem ident="#India_JournalResidence_Graham">
                               <gloss>Maria Graham |  | Another edition was published in 1813 in Edinburgh by A. Constable and Company, </gloss>
                            </valItem>
@@ -5636,6 +5862,9 @@
                            </valItem>
                            <valItem ident="#Inquisitive_Gent_OV">
                               <gloss>The Inquisitive Gentleman [Our Village version] | 1826 | This sketch appeared in volume two of Our Village in 1826.</gloss>
+                           </valItem>
+                           <valItem ident="#Intro_DW">
+                              <gloss>Introduction | 1854 | Introduction, first published in The Dramatic Works of Mary Russell Mitford; not</gloss>
                            </valItem>
                            <valItem ident="#Intro_Farewell_to_OV_v5">
                               <gloss>Introduction. Farewell to Our Village | 1832 | This sketch appeared as the introduction to the fifth and final volume of Our Vi</gloss>
@@ -5676,6 +5905,9 @@
                            <valItem ident="#JohnGospel_NewTest">
                               <gloss>The Gospel of John | Fourth Book of the New Testament of the Christian Bible, presumably (and contest</gloss>
                            </valItem>
+                           <valItem ident="#Johnson_Lives">
+                              <gloss>Lives of the English Poets | 1783</gloss>
+                           </valItem>
                            <valItem ident="#Julian_MRMplay">
                               <gloss>Julian; a Tragedy in Five Acts | 1823</gloss>
                            </valItem>
@@ -5706,8 +5938,17 @@
                            <valItem ident="#Lallegro">
                               <gloss>John Milton | 1645 | Poem found in Milton’s 1645 Poems of Mr. John Milton both English and Latin, Com</gloss>
                            </valItem>
+                           <valItem ident="#LecComic_WHaz">
+                              <gloss>Lectures on the English Comic Writers, delivered at the Surry Institution | 1819 | Spelled "Surry" on title page.</gloss>
+                           </valItem>
+                           <valItem ident="#LecDramatic_WHaz">
+                              <gloss>Lectures Chiefly on the Dramatic Literature of the Age of Elizabeth, Delivered at the Surry Institution | 1820</gloss>
+                           </valItem>
                            <valItem ident="#LegendGoodWomen">
                               <gloss>The Legend of Good Women | A collection of legends believed to be composed during the 1380s.</gloss>
+                           </valItem>
+                           <valItem ident="#Letters_Hearne_Aubrey">
+                              <gloss>Letters Written by Eminent Persons in the Seventeenth and Eighteenth Centuries: To Which are Added, Hearne’s Journeys to Reading, and to Whaddon Hall, the Seat of Browne Willis, Esq., and Lives of Eminent Men by John Aubrey, Esq., the Whole Now First Published from the Originals | 1813</gloss>
                            </valItem>
                            <valItem ident="#Letters_to_Heber">
                               <gloss>Letters to R[ichard] Heber, Esq., containing critical remarks on the series of novels beginning with "Waverley" and an attempt to ascertain their author | 1821</gloss>
@@ -5715,8 +5956,17 @@
                            <valItem ident="#LIEO_Poems">
                               <gloss>Lamia, Isabella, The Eve of St. Agnes, and Other Poems | 1820 | Lamia, Isabella, The Eve of St. Agnes, and Other Poems, published in July 1820, </gloss>
                            </valItem>
+                           <valItem ident="#Life_DukeofMarl_WC">
+                              <gloss>Memoirs of John Duke of Marlborough: With His Original Correspondence; Collected from the Family Records at Blenheim, and Other Authentic Sources. Illustrated with Portraits, Maps, and Military Plans. | 1818</gloss>
+                           </valItem>
+                           <valItem ident="#Life_LadyRussell">
+                              <gloss>Some Account of the Life of Rachael Wriothesley, Lady Russell, by the editor of Madam Du Deffand’s letters. Followed by a series of letters from Lady Russell to her husband, William, Lord Russell; from 1672 to 1682; together with some miscellaneous letters to and from Lady Russell. To which are added, eleven letters from Dorothy Sidney, Countess of Sunderland, to George Saville, Marquis of Hallifax, in the year 1680 | 1819 | Source: HathiTrust</gloss>
+                           </valItem>
                            <valItem ident="#Lights_Shadows">
                               <gloss>Lights and Shadows of American Life | 1832</gloss>
+                           </valItem>
+                           <valItem ident="#Lit_Pocket_Bk">
+                              <gloss>The Literary Pocket Book, or Companion for the Lover of Art and Nature | Literary almanac edited by Leigh Hunt that includes original poems by P. Shelley</gloss>
                            </valItem>
                            <valItem ident="#Little_Miss_Wren_OV">
                               <gloss>Little Miss Wren [Our Village version] Little Miss Wren: a Sketch [Gem Annual version] | 1830 | This sketch appeared in volume four of Our Village in 1830. It was also publishe</gloss>
@@ -5874,14 +6124,23 @@
                            <valItem ident="#MyGarden_MRM">
                               <gloss>My Garden: A Nineteenth-Century Writer on her English Cottage Garden | 1990</gloss>
                            </valItem>
+                           <valItem ident="#Napoleon_memoir_nonfict">
+                              <gloss>Mémoires pour servir à l’histoire de la vie privée, du retour, et du règne de Napoléon en 1815 | 1819—1820 | Two volume publication: the first volume was published in 1819 and the second in</gloss>
+                           </valItem>
                            <valItem ident="#NarrativePoems">
                               <gloss>Narrative Poems on the Female Character in the Various Relations of Human Life | 1813</gloss>
+                           </valItem>
+                           <valItem ident="#NaturalisHist">
+                              <gloss>Naturalis Historiæ | 0077—0079 | Encyclopedic work of thirty-seven books, organized in ten volumes. Source: LBT</gloss>
                            </valItem>
                            <valItem ident="#New_Married_Couple_OV">
                               <gloss>A New Married Couple [Our Village version] | 1828 | This sketch appeared in volume three of Our Village in 1828.</gloss>
                            </valItem>
                            <valItem ident="#NewTestament_Bible">
                               <gloss>The New Testament | The second half of the Christian Bible, containing scriptures composed in Greek </gloss>
+                           </valItem>
+                           <valItem ident="#NewWhigGuide">
+                              <gloss>The New Whig Guide | 1819 | Authorship attributed to Viscount Henry John Temple Palmerston John Wilson Croke</gloss>
                            </valItem>
                            <valItem ident="#NightmareAbbey">
                               <gloss>Nightmare Abbey | 1818 | First edition published anonymously as "by the Author of Headlong Hall."</gloss>
@@ -5942,6 +6201,9 @@
                            </valItem>
                            <valItem ident="#Otto">
                               <gloss>Otto of Wittelsbach: A Tragedy | 1854 | First published in The Dramatic Works of Mary Russell Mitford; not published sep</gloss>
+                           </valItem>
+                           <valItem ident="#Otto_Babo">
+                              <gloss>Otto von Wittelsbach | 1783 | First performed in 1782. German tragedy based on the life of Otto II of Wittelsb</gloss>
                            </valItem>
                            <valItem ident="#Our_Maying_OV">
                               <gloss>Our Maying | 1828 | This sketch appeared in volume three of Our Village in .</gloss>
@@ -6048,6 +6310,9 @@
                            <valItem ident="#Pattys_New_Hat_OV">
                               <gloss>Patty's New Hat [Our Village version] | 1830 | This sketch appeared in volume four of Our Village in 1830. It had been previous</gloss>
                            </valItem>
+                           <valItem ident="#Pendennis_WT">
+                              <gloss>The History of Pendennis: His Fortunes and Misfortunes, His Friends and His Greatest Enemy | 1849</gloss>
+                           </valItem>
                            <valItem ident="#Percy_Reliques">
                               <gloss>Reliques of Ancient English Poetry, consisting of Old Heroic Ballads, Songs, and other Pieces of our Earlier Poets, Together with Some of Later Date | 1765</gloss>
                            </valItem>
@@ -6080,6 +6345,12 @@
                            </valItem>
                            <valItem ident="#Pl_Friendship">
                               <gloss>The Pleasures of Friendship: A Poem, in two parts (1810, rpt. 1812, 1818)</gloss>
+                           </valItem>
+                           <valItem ident="#PO_BerkshireDir">
+                              <gloss>Post Office Directory of Berkshire, Northamptonshire, and Oxfordshire; with Bedfordshire, Buckinghamshire, and Huntingdonshire | 1847—1854 | Text and page images of the 1854 edition may be accessed through the University </gloss>
+                           </valItem>
+                           <valItem ident="#PO_Directory_Berkshire">
+                              <gloss>The Post Office Directory of Berkshire, Northamptonshire, Oxfordshire, with Bedfordshire, Buckinghamshire, and Huntingdonshire | A series of directories of local gentry and tradespeople in the counties of the </gloss>
                            </valItem>
                            <valItem ident="#Poems1645_Milton">
                               <gloss>John Milton | 1645</gloss>
@@ -6147,6 +6418,9 @@
                            <valItem ident="#Remarkable_Character_of_Old_School_LM">
                               <gloss>A Remarkable Character of the Old School [Lady's Magazine version] | 1824-01-31 | This sketch was published in the January 31, 1824 issue of The Lady's Magazine. </gloss>
                            </valItem>
+                           <valItem ident="#Remarks_Italy">
+                              <gloss>Remarks on Antiquities, Arts, and Letters, During an Excursion in Italy, in the Years 1802 and 1803. | 1816</gloss>
+                           </valItem>
                            <valItem ident="#Residuary_Legatee_OV">
                               <gloss>The Residuary Legatee. A True Story [Our Village version] | 1832 | This sketch appeared in volume five of Our Village in 1832. It had been publishe</gloss>
                            </valItem>
@@ -6201,14 +6475,26 @@
                            <valItem ident="#Self_Control">
                               <gloss>Self Control: A Novel | 1811 | First edition published anonymously.</gloss>
                            </valItem>
+                           <valItem ident="#Shakespeare_Times_nonfict">
+                              <gloss>Shakespeare and His Times: Including the Biography of the Poet; Criticisms on his Genius and Writings; A New Chronology of the Plays; A Disquisition on the Object of His Sonnets; And a History of the Manners, Customs, and Amusements, Superstitions, Poetry, and Elegant Literature of His Age | 1817</gloss>
+                           </valItem>
                            <valItem ident="#Sir_Fr_Darrell">
                               <gloss>Sir Francis Darrell; or, the Vortex. A Novel | </gloss>
                            </valItem>
                            <valItem ident="#SketchBook_WI">
                               <gloss>The Sketch Book of Geoffrey Crayon, Gent. | 1819</gloss>
                            </valItem>
+                           <valItem ident="#Sketches_of_America">
+                              <gloss>Sketches of America: a Narrative of a Journey of Five Thousand Miles Through the Eastern and Western States of America; Contained in Eight Reports Addressed to the Thirty-nine English Families by whom the Author was Deputed, in June 1817, to Ascertain Whether Any, and What Part of the United States Would be Suitable for Their Residence. With Remarks on Mr. Birkbeck’s Notes and Letters | 1818 | The work’s subtitle refers to to Morris Birkbeck’s Notes on a Journey in America</gloss>
+                           </valItem>
                            <valItem ident="#Specimen_Nat_poem">
                               <gloss>The Monks and the Giants: Prospectus and Specimen of an Intended National Work; Intended to Comprise the Most Interesting Particulars Relating to King Arthur and his Round Table, by William and Robert Whistlecraft of Stow-Market, in Suffolk, Harness and Collar Makers | 1818 | An ottava rima burlesque written by John Hookham Frere under the nom de plume "W</gloss>
+                           </valItem>
+                           <valItem ident="#Specimens_Dramatic_Poets">
+                              <gloss>Specimens of English Dramatic Poets, Who Lived About the Time of Shakespeare. With Notes | 1808</gloss>
+                           </valItem>
+                           <valItem ident="#SpencesAnec">
+                              <gloss>Anecdotes, Observations, and Characters of Books and Men. Collected from the Conversation of Mr. Pope, and Other Eminent Persons of His Time | 1820 | Spence’s Anecdotes were collected and published posthumously in 1820 by Edmund M</gloss>
                            </valItem>
                            <valItem ident="#St_Botany">
                               <gloss>Poetical Introduction to the Study of Botany (1801)</gloss>
@@ -6251,6 +6537,9 @@
                            </valItem>
                            <valItem ident="#Tenants_of_Beechgrove_OV">
                               <gloss>The Tenants of Beechgrove [Our Village version] The Lady of Beechgrove | 1826 | This sketch appeared as the second story in volume two of Our Village in 1826. I</gloss>
+                           </valItem>
+                           <valItem ident="#TenYearsatTripoli">
+                              <gloss>Miss Tully | 1816 | Mitford may have read the third edition, published in 1819.</gloss>
                            </valItem>
                            <valItem ident="#TestofLove">
                               <gloss>The Testament of Love | In Mitford’s time, believed to be the work of Chaucer. Now attributed to Thomas </gloss>
@@ -6306,8 +6595,17 @@
                            <valItem ident="#Touchy_Lady_OV">
                               <gloss>The Touchy Lady [Our Village version] | 1826 | This sketch appeared in volume two of Our Village in 1826.</gloss>
                            </valItem>
+                           <valItem ident="#Tour_Normandy">
+                              <gloss>Account of a tour in Normandy | 1820</gloss>
+                           </valItem>
                            <valItem ident="#Town_v_Country_CS">
                               <gloss>Town versus Country | 1835</gloss>
+                           </valItem>
+                           <valItem ident="#Travels_Acerbi">
+                              <gloss>Travels through Sweden, Finland, and Lapland to the North Cape, in the Years 1798 and 1799. | 1802</gloss>
+                           </valItem>
+                           <valItem ident="#Travels_Nile">
+                              <gloss>Travels to Discover the Source of the Nile, In the Years 1768, 1769, 1770, 1771 1772, and 1773 | 1790</gloss>
                            </valItem>
                            <valItem ident="#TwelfthNight_Shkspr">
                               <gloss>Twelfth Night | 1601 | A late dark romantic comedy in Shakespeare’s oeuvre, with first recorded product</gloss>
@@ -6356,6 +6654,9 @@
                            </valItem>
                            <valItem ident="#Virginius_play">
                               <gloss>Virginius</gloss>
+                           </valItem>
+                           <valItem ident="#Visit_Paris">
+                              <gloss>A Visit To Paris in 1814: Being a Review of the Moral, Political, Intellectual, and Social Condition of the French Capital | 2nd edition, corrected and with a new preface referring to late events, publishe</gloss>
                            </valItem>
                            <valItem ident="#Visit_to_Lucy_OV">
                               <gloss>A Visit to Lucy [Our Village version] | 1826 | This sketch appeared as the twelfth story in volume two of Our Village in 1826. </gloss>
@@ -6450,6 +6751,12 @@
                            <valItem ident="#Wallace_play">
                               <gloss>Wallace: an historical tragedy in five acts | 1820 | Performed at Covent Garden in November 1820; William Macready performed the titl</gloss>
                            </valItem>
+                           <valItem ident="#WalpoletoMontagu">
+                              <gloss>Letters from the Hon. Horace Walpole to George Montagu, Esq. from the year 1736, to the year 1770: Now First Published from the Originals in the Possession of the Editor | 1818 | A second edition appears in 1819.</gloss>
+                           </valItem>
+                           <valItem ident="#Walton_Lives">
+                              <gloss>The Lives of Dr. John Donne, Sir Henry Wotton, Mr. Richard Hooker, Mr. George Herbert and Dr. Robert Sanderson. | Walton had written biographical sketches ("Lives") of Donne, Wotton, Hooker and </gloss>
+                           </valItem>
                            <valItem ident="#Warbeck_Wolfstein_MH">
                               <gloss>Warbeck of Wolfstein | 1820</gloss>
                            </valItem>
@@ -6473,6 +6780,9 @@
                            </valItem>
                            <valItem ident="#Wheel_Fortune_play">
                               <gloss>Wheel of Fortune</gloss>
+                           </valItem>
+                           <valItem ident="#Whiteknights_Desc_TCH">
+                              <gloss>A Descriptive Account of the Mansion and Gardens of White-Knights: A Seat of His Grace the Duke of Marlborough. By Mrs. Hofland. Illustrated with twenty-three engravings, from pictures taken on the spot by T.C. Hofland | 1819 | Printed by T.C. Hofland for the 6th Duke of Marlbourough; publisher and printer </gloss>
                            </valItem>
                            <valItem ident="#WhitsunEve_OV">
                               <gloss>Whitsun-Eve [Our Village version] | 1828 | This sketch appeared in volume three of Our Village in 1828.</gloss>
@@ -6531,6 +6841,12 @@
                            <valItem ident="#Zaire_play">
                               <gloss>Zai’re (1732)</gloss>
                            </valItem>
+                           <valItem ident="#BannedThtr_Findlater">
+                              <gloss>Banned!: A Review of Theatrical Censorship in Britain | 1967</gloss>
+                           </valItem>
+                           <valItem ident="#CensorshipEnglDrama">
+                              <gloss>The Censorship of English Drama, 1824-1901 | 2010</gloss>
+                           </valItem>
                            <valItem ident="#coles_Thesis">
                               <gloss>William Allan Coles | 1956-08 | Coles’ doctoral dissertation presented to the Department of English at Harvard U</gloss>
                            </valItem>
@@ -6540,11 +6856,8 @@
                            <valItem ident="#Needham_PapersRCL">
                               <gloss>Francis Needham | Francis Needham’s extensive and unpublished handwritten papers, which we estimat</gloss>
                            </valItem>
-                           <valItem ident="#BannedThtr_Findlater">
-                              <gloss>Banned!: A Review of Theatrical Censorship in Britain | 1967</gloss>
-                           </valItem>
-                           <valItem ident="#CensorshipEnglDrama">
-                              <gloss>The Censorship of English Drama, 1824-1901 | 2010</gloss>
+                           <valItem ident="#OED">
+                              <gloss>The Oxford English Dictionary Online | 2016 | Multi-volume descriptive dictionary of the English language, first published in </gloss>
                            </valItem>
                            <valItem ident="#Review_55Days">
                               <gloss>Review: 55 Days | 2012-10-25</gloss>
@@ -6593,102 +6906,6 @@
                            <dataRef name="string"/>
                         </datatype>
                         <valList type="semi">
-                           <valItem ident="#America_Birkbeck">
-                              <gloss>Notes on a Journey in America, from the Coast of Virginia to the Territory of Illinois | 1817 | Mitford likely read the second edition, published in London in 1818 by J. Ridgwa</gloss>
-                           </valItem>
-                           <valItem ident="#BoR">
-                              <gloss>the Bill of Rights | 1689 | One of the basic instruments of the British constitution, the English Bill of Ri</gloss>
-                           </valItem>
-                           <valItem ident="#CaptivityCaptKnox">
-                              <gloss>Account of the Captivity of Robert Knox and Other Englishmen, in the Island of Ceylon: And of the Captain’s Miraculous Escape and Return to England in September 1680, After Detention on the Island of Nineteen Years and a Half | 1818</gloss>
-                           </valItem>
-                           <valItem ident="#ClarkesTravelsScand">
-                              <gloss>Travels in Various Countries of Europe, Asia and Africa. Part the third, section the first: Scandinavia | 1819 | Clarke began publishing a series of travel accounts in 1811 under the series tit</gloss>
-                           </valItem>
-                           <valItem ident="#Collectanea">
-                              <gloss>Collectanea Curiosa, or Miscellaneous Tracts: Relating to the History and Antiquities of England and Ireland, the Universities of Oxford and Cambridge, and a Variety of Other Subjects | 1781</gloss>
-                           </valItem>
-                           <valItem ident="#Compl_Angler">
-                              <gloss>The Compleat Angler, or, The Contemplative Man’s Recreation: Being a Discourse of Rivers, and Fish-ponds, and Fish and Fishing: Not Unworthy the Perusal of Most Anglers | 1653 | First published in 1653, then expanded and republished in further editions in 16</gloss>
-                           </valItem>
-                           <valItem ident="#Daniells">
-                              <gloss>Rural Sports | Printed in numerous editions between 1801-1817.</gloss>
-                           </valItem>
-                           <valItem ident="#Enc_Metr">
-                              <gloss>Encyclopedia Metropolitana; or, Universal Dictionary of Knowledge (30 vols., 1817-1845)</gloss>
-                           </valItem>
-                           <valItem ident="#History_Municipal_Church_St_Lawrence">
-                              <gloss>A History of the Municipal Church of St. Lawrence, Reading | 1883 publication used by Needham to establish local histories and identities of </gloss>
-                           </valItem>
-                           <valItem ident="#Illinois_Birkbeck">
-                              <gloss>Letters from Illinois: Illustrated by a Map of the United States, Shewing Mr. Birkbeck’s Journey from Norfolk to Illinois and a Map of English Prairie and the Adjacent Country by John Melish | 1818 | Mitford likely read this edition, published in London; editions also appeared in</gloss>
-                           </valItem>
-                           <valItem ident="#Johnson_Lives">
-                              <gloss>Lives of the English Poets | 1783</gloss>
-                           </valItem>
-                           <valItem ident="#LecComic_WHaz">
-                              <gloss>Lectures on the English Comic Writers, delivered at the Surry Institution | 1819 | Spelled "Surry" on title page.</gloss>
-                           </valItem>
-                           <valItem ident="#Letters_Hearne_Aubrey">
-                              <gloss>Letters Written by Eminent Persons in the Seventeenth and Eighteenth Centuries: To Which are Added, Hearne’s Journeys to Reading, and to Whaddon Hall, the Seat of Browne Willis, Esq., and Lives of Eminent Men by John Aubrey, Esq., the Whole Now First Published from the Originals | 1813</gloss>
-                           </valItem>
-                           <valItem ident="#Life_DukeofMarl_WC">
-                              <gloss>Memoirs of John Duke of Marlborough: With His Original Correspondence; Collected from the Family Records at Blenheim, and Other Authentic Sources. Illustrated with Portraits, Maps, and Military Plans. | 1818</gloss>
-                           </valItem>
-                           <valItem ident="#Life_LadyRussell">
-                              <gloss>Some Account of the Life of Rachael Wriothesley, Lady Russell, by the editor of Madam Du Deffand’s letters. Followed by a series of letters from Lady Russell to her husband, William, Lord Russell; from 1672 to 1682; together with some miscellaneous letters to and from Lady Russell. To which are added, eleven letters from Dorothy Sidney, Countess of Sunderland, to George Saville, Marquis of Hallifax, in the year 1680 | 1819 | Source: HathiTrust</gloss>
-                           </valItem>
-                           <valItem ident="#Lit_Pocket_Bk">
-                              <gloss>The Literary Pocket Book, or Companion for the Lover of Art and Nature | Literary almanac edited by Leigh Hunt that includes original poems by P. Shelley</gloss>
-                           </valItem>
-                           <valItem ident="#Napoleon_memoir_nonfict">
-                              <gloss>Mémoires pour servir à l’histoire de la vie privée, du retour, et du règne de Napoléon en 1815 | 1819—1820 | Two volume publication: the first volume was published in 1819 and the second in</gloss>
-                           </valItem>
-                           <valItem ident="#NaturalisHist">
-                              <gloss>Naturalis Historiæ | 0077—0079 | Encyclopedic work of thirty-seven books, organized in ten volumes. Source: LBT</gloss>
-                           </valItem>
-                           <valItem ident="#NewWhigGuide">
-                              <gloss>The New Whig Guide | 1819 | Authorship attributed to Viscount Henry John Temple Palmerston John Wilson Croke</gloss>
-                           </valItem>
-                           <valItem ident="#PO_BerkshireDir">
-                              <gloss>Post Office Directory of Berkshire, Northamptonshire, and Oxfordshire; with Bedfordshire, Buckinghamshire, and Huntingdonshire | 1847—1854 | Text and page images of the 1854 edition may be accessed through the University </gloss>
-                           </valItem>
-                           <valItem ident="#PO_Directory_Berkshire">
-                              <gloss>The Post Office Directory of Berkshire, Northamptonshire, Oxfordshire, with Bedfordshire, Buckinghamshire, and Huntingdonshire | A series of directories of local gentry and tradespeople in the counties of the </gloss>
-                           </valItem>
-                           <valItem ident="#Shakespeare_Times_nonfict">
-                              <gloss>Shakespeare and His Times: Including the Biography of the Poet; Criticisms on his Genius and Writings; A New Chronology of the Plays; A Disquisition on the Object of His Sonnets; And a History of the Manners, Customs, and Amusements, Superstitions, Poetry, and Elegant Literature of His Age | 1817</gloss>
-                           </valItem>
-                           <valItem ident="#Sketches_of_America">
-                              <gloss>Sketches of America: a Narrative of a Journey of Five Thousand Miles Through the Eastern and Western States of America; Contained in Eight Reports Addressed to the Thirty-nine English Families by whom the Author was Deputed, in June 1817, to Ascertain Whether Any, and What Part of the United States Would be Suitable for Their Residence. With Remarks on Mr. Birkbeck’s Notes and Letters | 1818 | The work’s subtitle refers to to Morris Birkbeck’s Notes on a Journey in America</gloss>
-                           </valItem>
-                           <valItem ident="#SpencesAnec">
-                              <gloss>Anecdotes, Observations, and Characters of Books and Men. Collected from the Conversation of Mr. Pope, and Other Eminent Persons of His Time | 1820 | Spence’s Anecdotes were collected and published posthumously in 1820 by Edmund M</gloss>
-                           </valItem>
-                           <valItem ident="#TenYearsatTripoli">
-                              <gloss>Miss Tully | 1816 | Mitford may have read the third edition, published in 1819.</gloss>
-                           </valItem>
-                           <valItem ident="#Tour_Normandy">
-                              <gloss>Account of a tour in Normandy | 1820</gloss>
-                           </valItem>
-                           <valItem ident="#Travels_Acerbi">
-                              <gloss>Travels through Sweden, Finland, and Lapland to the North Cape, in the Years 1798 and 1799. | 1802</gloss>
-                           </valItem>
-                           <valItem ident="#Travels_Nile">
-                              <gloss>Travels to Discover the Source of the Nile, In the Years 1768, 1769, 1770, 1771 1772, and 1773 | 1790</gloss>
-                           </valItem>
-                           <valItem ident="#Visit_Paris">
-                              <gloss>A Visit To Paris in 1814: Being a Review of the Moral, Political, Intellectual, and Social Condition of the French Capital | 2nd edition, corrected and with a new preface referring to late events, publishe</gloss>
-                           </valItem>
-                           <valItem ident="#WalpoletoMontagu">
-                              <gloss>Letters from the Hon. Horace Walpole to George Montagu, Esq. from the year 1736, to the year 1770: Now First Published from the Originals in the Possession of the Editor | 1818 | A second edition appears in 1819.</gloss>
-                           </valItem>
-                           <valItem ident="#Walton_Lives">
-                              <gloss>The Lives of Dr. John Donne, Sir Henry Wotton, Mr. Richard Hooker, Mr. George Herbert and Dr. Robert Sanderson. | Walton had written biographical sketches ("Lives") of Donne, Wotton, Hooker and </gloss>
-                           </valItem>
-                           <valItem ident="#Whiteknights_Desc_TCH">
-                              <gloss>A Descriptive Account of the Mansion and Gardens of White-Knights: A Seat of His Grace the Duke of Marlborough. By Mrs. Hofland. Illustrated with twenty-three engravings, from pictures taken on the spot by T.C. Hofland | 1819 | Printed by T.C. Hofland for the 6th Duke of Marlbourough; publisher and printer </gloss>
-                           </valItem>
                            <valItem ident="#Ackermans_Juv_ForgetMeNot">
                               <gloss>Ackermann's Juvenile Forget Me Not | 1830—1832 | Children's gift book/annual founded by Rudolf Ackermann and edited by Frederic S</gloss>
                            </valItem>
@@ -6757,6 +6974,9 @@
                            </valItem>
                            <valItem ident="#Juv_Keepsake">
                               <gloss>The Juvenile Keepsake | Gift book/annual for children. Mitford published her story "The Two Magpies" in </gloss>
+                           </valItem>
+                           <valItem ident="#La_Belle_Assemblee">
+                              <gloss>La Belle Assemblée, Or Bell's Court and Fashionable Magazine, Addressed Particularly to the Ladies | 1806—1832 | A general-interest miscellaneous periodical aimed at a female readership. Origin</gloss>
                            </valItem>
                            <valItem ident="#Ladys_Mag">
                               <gloss>The Lady's Magazine | 1770—1847 | A popular and influential monthly magazine for women that ran from 1756 until 18</gloss>
@@ -6908,6 +7128,9 @@
                            <valItem ident="#AllsWellTEW">
                               <gloss>All’s Well that Ends Well | Drama likely first performed around 1604 and first printed in 1623.</gloss>
                            </valItem>
+                           <valItem ident="#America_Birkbeck">
+                              <gloss>Notes on a Journey in America, from the Coast of Virginia to the Territory of Illinois | 1817 | Mitford likely read the second edition, published in London in 1818 by J. Ridgwa</gloss>
+                           </valItem>
                            <valItem ident="#AmStories_Above10">
                               <gloss>American Stories for Young People, Intended for Children above Ten Years of Age | 1832</gloss>
                            </valItem>
@@ -6955,6 +7178,9 @@
                            </valItem>
                            <valItem ident="#Belford_Regis">
                               <gloss>Belford Regis; or, Sketches of a Country Town | 1835</gloss>
+                           </valItem>
+                           <valItem ident="#Belinda_ME">
+                              <gloss>Belinda | 1801</gloss>
                            </valItem>
                            <valItem ident="#Belles_Ballroom1_Will_BR">
                               <gloss>Belles of the Ballroom, No. I - The Will | 1835 | This story was orginally published in the Forget Me Not for 1834 with the title </gloss>
@@ -7019,6 +7245,9 @@
                            <valItem ident="#Bonduca_play">
                               <gloss>Bonduca</gloss>
                            </valItem>
+                           <valItem ident="#BoR">
+                              <gloss>the Bill of Rights | 1689 | One of the basic instruments of the British constitution, the English Bill of Ri</gloss>
+                           </valItem>
                            <valItem ident="#Bramley_Maying_LM">
                               <gloss>Bramley Maying [Lady's Magazine version] | 1823-05 | This sketch was later collected in volume one of Our Village .</gloss>
                            </valItem>
@@ -7030,6 +7259,9 @@
                            </valItem>
                            <valItem ident="#Camilla_FB">
                               <gloss>Camilla, or a Picture of Young Lady | 1796</gloss>
+                           </valItem>
+                           <valItem ident="#CaptivityCaptKnox">
+                              <gloss>Account of the Captivity of Robert Knox and Other Englishmen, in the Island of Ceylon: And of the Captain’s Miraculous Escape and Return to England in September 1680, After Detention on the Island of Nineteen Years and a Half | 1818</gloss>
                            </valItem>
                            <valItem ident="#Carpenters_Daughter_BR">
                               <gloss>The Carpenter's Daughter | 1835 | This story was first published in the Friendship's Offering for 1834.</gloss>
@@ -7127,6 +7359,9 @@
                            <valItem ident="#Clarissa">
                               <gloss>Clarissa, or, The history of a young lady : comprehending the most important concerns of private life: and particularly shewing, the distresses that may attend the misconduct both of parents and children, in relation to marriage | 1748</gloss>
                            </valItem>
+                           <valItem ident="#ClarkesTravelsScand">
+                              <gloss>Travels in Various Countries of Europe, Asia and Africa. Part the third, section the first: Scandinavia | 1819 | Clarke began publishing a series of travel accounts in 1811 under the series tit</gloss>
+                           </valItem>
                            <valItem ident="#Claudias_Dr">
                               <gloss>Claudia’s Dream | One of Mitford’s dramatic sketches, appeared in Lady’s Magazine September 30, 18</gloss>
                            </valItem>
@@ -7135,6 +7370,12 @@
                            </valItem>
                            <valItem ident="#Coeur_de_Lion_poem">
                               <gloss>Coeur de Lion; or the Third Crusade. A Poem in 16 books. (historical epic, 1822)</gloss>
+                           </valItem>
+                           <valItem ident="#Collectanea">
+                              <gloss>Collectanea Curiosa, or Miscellaneous Tracts: Relating to the History and Antiquities of England and Ireland, the Universities of Oxford and Cambridge, and a Variety of Other Subjects | 1781</gloss>
+                           </valItem>
+                           <valItem ident="#Compl_Angler">
+                              <gloss>The Compleat Angler, or, The Contemplative Man’s Recreation: Being a Discourse of Rivers, and Fish-ponds, and Fish and Fishing: Not Unworthy the Perusal of Most Anglers | 1653 | First published in 1653, then expanded and republished in further editions in 16</gloss>
                            </valItem>
                            <valItem ident="#Confessions_OpiumEater_nonfict">
                               <gloss>Confessions of an English Opium-Eater</gloss>
@@ -7199,6 +7440,9 @@
                            <valItem ident="#Cymbeline_play">
                               <gloss>Cymbeline</gloss>
                            </valItem>
+                           <valItem ident="#Daniells">
+                              <gloss>Rural Sports | Printed in numerous editions between 1801-1817.</gloss>
+                           </valItem>
                            <valItem ident="#Deaf_Dumb_play">
                               <gloss>Deaf and Dumb</gloss>
                            </valItem>
@@ -7234,6 +7478,9 @@
                            </valItem>
                            <valItem ident="#Dora_Creswell_OV">
                               <gloss>Dora Creswell [Our Village version] | 1828 | This sketch appeared in volume three of Our Village in 1828. It also appeared as</gloss>
+                           </valItem>
+                           <valItem ident="#Douglas_play">
+                              <gloss>Douglas: A Tragedy | 1757 | First performed in 1756in Edinburgh, followed by a performance in London in 1757</gloss>
                            </valItem>
                            <valItem ident="#Dramatic_Works_of_MRM">
                               <gloss>The Dramatic Works of Mary Russell Mitford | 1854</gloss>
@@ -7303,6 +7550,9 @@
                            </valItem>
                            <valItem ident="#Emma_JA">
                               <gloss>Emma: A Novel | 1819</gloss>
+                           </valItem>
+                           <valItem ident="#Enc_Metr">
+                              <gloss>Encyclopedia Metropolitana; or, Universal Dictionary of Knowledge (30 vols., 1817-1845)</gloss>
                            </valItem>
                            <valItem ident="#Endymion">
                               <gloss>Endymion</gloss>
@@ -7454,6 +7704,9 @@
                            <valItem ident="#Hazlitt_LecDrama">
                               <gloss>Lectures on the Dramatic Literature of the Age of Elizabeth</gloss>
                            </valItem>
+                           <valItem ident="#Heart_of_Mid">
+                              <gloss>The Heart of Midlothian | 1822</gloss>
+                           </valItem>
                            <valItem ident="#Heiress_MRM">
                               <gloss>The Heiress | Projected novel by Mary Russell Mitford, apparently never completed. Coles posit</gloss>
                            </valItem>
@@ -7480,6 +7733,9 @@
                            </valItem>
                            <valItem ident="#HistEngland_Hume">
                               <gloss>The History of England | 1754—1761 | Hume wrote the six volumes of this monumental history in reverse chronological o</gloss>
+                           </valItem>
+                           <valItem ident="#History_Municipal_Church_St_Lawrence">
+                              <gloss>A History of the Municipal Church of St. Lawrence, Reading | 1883 publication used by Needham to establish local histories and identities of </gloss>
                            </valItem>
                            <valItem ident="#Holcroft_Mems">
                               <gloss>Memoirs of the Late Thomas Holcroft, Written by Himself and Continued to the Time of His Death | 1816</gloss>
@@ -7511,6 +7767,9 @@
                            <valItem ident="#Iliad">
                               <gloss>The Iliad | The author of this poem would have been presumed to be Homer in Mitford’s time.</gloss>
                            </valItem>
+                           <valItem ident="#Illinois_Birkbeck">
+                              <gloss>Letters from Illinois: Illustrated by a Map of the United States, Shewing Mr. Birkbeck’s Journey from Norfolk to Illinois and a Map of English Prairie and the Adjacent Country by John Melish | 1818 | Mitford likely read this edition, published in London; editions also appeared in</gloss>
+                           </valItem>
                            <valItem ident="#India_JournalResidence_Graham">
                               <gloss>Maria Graham |  | Another edition was published in 1813 in Edinburgh by A. Constable and Company, </gloss>
                            </valItem>
@@ -7522,6 +7781,9 @@
                            </valItem>
                            <valItem ident="#Inquisitive_Gent_OV">
                               <gloss>The Inquisitive Gentleman [Our Village version] | 1826 | This sketch appeared in volume two of Our Village in 1826.</gloss>
+                           </valItem>
+                           <valItem ident="#Intro_DW">
+                              <gloss>Introduction | 1854 | Introduction, first published in The Dramatic Works of Mary Russell Mitford; not</gloss>
                            </valItem>
                            <valItem ident="#Intro_Farewell_to_OV_v5">
                               <gloss>Introduction. Farewell to Our Village | 1832 | This sketch appeared as the introduction to the fifth and final volume of Our Vi</gloss>
@@ -7562,6 +7824,9 @@
                            <valItem ident="#JohnGospel_NewTest">
                               <gloss>The Gospel of John | Fourth Book of the New Testament of the Christian Bible, presumably (and contest</gloss>
                            </valItem>
+                           <valItem ident="#Johnson_Lives">
+                              <gloss>Lives of the English Poets | 1783</gloss>
+                           </valItem>
                            <valItem ident="#Julian_MRMplay">
                               <gloss>Julian; a Tragedy in Five Acts | 1823</gloss>
                            </valItem>
@@ -7592,8 +7857,17 @@
                            <valItem ident="#Lallegro">
                               <gloss>John Milton | 1645 | Poem found in Milton’s 1645 Poems of Mr. John Milton both English and Latin, Com</gloss>
                            </valItem>
+                           <valItem ident="#LecComic_WHaz">
+                              <gloss>Lectures on the English Comic Writers, delivered at the Surry Institution | 1819 | Spelled "Surry" on title page.</gloss>
+                           </valItem>
+                           <valItem ident="#LecDramatic_WHaz">
+                              <gloss>Lectures Chiefly on the Dramatic Literature of the Age of Elizabeth, Delivered at the Surry Institution | 1820</gloss>
+                           </valItem>
                            <valItem ident="#LegendGoodWomen">
                               <gloss>The Legend of Good Women | A collection of legends believed to be composed during the 1380s.</gloss>
+                           </valItem>
+                           <valItem ident="#Letters_Hearne_Aubrey">
+                              <gloss>Letters Written by Eminent Persons in the Seventeenth and Eighteenth Centuries: To Which are Added, Hearne’s Journeys to Reading, and to Whaddon Hall, the Seat of Browne Willis, Esq., and Lives of Eminent Men by John Aubrey, Esq., the Whole Now First Published from the Originals | 1813</gloss>
                            </valItem>
                            <valItem ident="#Letters_to_Heber">
                               <gloss>Letters to R[ichard] Heber, Esq., containing critical remarks on the series of novels beginning with "Waverley" and an attempt to ascertain their author | 1821</gloss>
@@ -7601,8 +7875,17 @@
                            <valItem ident="#LIEO_Poems">
                               <gloss>Lamia, Isabella, The Eve of St. Agnes, and Other Poems | 1820 | Lamia, Isabella, The Eve of St. Agnes, and Other Poems, published in July 1820, </gloss>
                            </valItem>
+                           <valItem ident="#Life_DukeofMarl_WC">
+                              <gloss>Memoirs of John Duke of Marlborough: With His Original Correspondence; Collected from the Family Records at Blenheim, and Other Authentic Sources. Illustrated with Portraits, Maps, and Military Plans. | 1818</gloss>
+                           </valItem>
+                           <valItem ident="#Life_LadyRussell">
+                              <gloss>Some Account of the Life of Rachael Wriothesley, Lady Russell, by the editor of Madam Du Deffand’s letters. Followed by a series of letters from Lady Russell to her husband, William, Lord Russell; from 1672 to 1682; together with some miscellaneous letters to and from Lady Russell. To which are added, eleven letters from Dorothy Sidney, Countess of Sunderland, to George Saville, Marquis of Hallifax, in the year 1680 | 1819 | Source: HathiTrust</gloss>
+                           </valItem>
                            <valItem ident="#Lights_Shadows">
                               <gloss>Lights and Shadows of American Life | 1832</gloss>
+                           </valItem>
+                           <valItem ident="#Lit_Pocket_Bk">
+                              <gloss>The Literary Pocket Book, or Companion for the Lover of Art and Nature | Literary almanac edited by Leigh Hunt that includes original poems by P. Shelley</gloss>
                            </valItem>
                            <valItem ident="#Little_Miss_Wren_OV">
                               <gloss>Little Miss Wren [Our Village version] Little Miss Wren: a Sketch [Gem Annual version] | 1830 | This sketch appeared in volume four of Our Village in 1830. It was also publishe</gloss>
@@ -7760,14 +8043,23 @@
                            <valItem ident="#MyGarden_MRM">
                               <gloss>My Garden: A Nineteenth-Century Writer on her English Cottage Garden | 1990</gloss>
                            </valItem>
+                           <valItem ident="#Napoleon_memoir_nonfict">
+                              <gloss>Mémoires pour servir à l’histoire de la vie privée, du retour, et du règne de Napoléon en 1815 | 1819—1820 | Two volume publication: the first volume was published in 1819 and the second in</gloss>
+                           </valItem>
                            <valItem ident="#NarrativePoems">
                               <gloss>Narrative Poems on the Female Character in the Various Relations of Human Life | 1813</gloss>
+                           </valItem>
+                           <valItem ident="#NaturalisHist">
+                              <gloss>Naturalis Historiæ | 0077—0079 | Encyclopedic work of thirty-seven books, organized in ten volumes. Source: LBT</gloss>
                            </valItem>
                            <valItem ident="#New_Married_Couple_OV">
                               <gloss>A New Married Couple [Our Village version] | 1828 | This sketch appeared in volume three of Our Village in 1828.</gloss>
                            </valItem>
                            <valItem ident="#NewTestament_Bible">
                               <gloss>The New Testament | The second half of the Christian Bible, containing scriptures composed in Greek </gloss>
+                           </valItem>
+                           <valItem ident="#NewWhigGuide">
+                              <gloss>The New Whig Guide | 1819 | Authorship attributed to Viscount Henry John Temple Palmerston John Wilson Croke</gloss>
                            </valItem>
                            <valItem ident="#NightmareAbbey">
                               <gloss>Nightmare Abbey | 1818 | First edition published anonymously as "by the Author of Headlong Hall."</gloss>
@@ -7828,6 +8120,9 @@
                            </valItem>
                            <valItem ident="#Otto">
                               <gloss>Otto of Wittelsbach: A Tragedy | 1854 | First published in The Dramatic Works of Mary Russell Mitford; not published sep</gloss>
+                           </valItem>
+                           <valItem ident="#Otto_Babo">
+                              <gloss>Otto von Wittelsbach | 1783 | First performed in 1782. German tragedy based on the life of Otto II of Wittelsb</gloss>
                            </valItem>
                            <valItem ident="#Our_Maying_OV">
                               <gloss>Our Maying | 1828 | This sketch appeared in volume three of Our Village in .</gloss>
@@ -7934,6 +8229,9 @@
                            <valItem ident="#Pattys_New_Hat_OV">
                               <gloss>Patty's New Hat [Our Village version] | 1830 | This sketch appeared in volume four of Our Village in 1830. It had been previous</gloss>
                            </valItem>
+                           <valItem ident="#Pendennis_WT">
+                              <gloss>The History of Pendennis: His Fortunes and Misfortunes, His Friends and His Greatest Enemy | 1849</gloss>
+                           </valItem>
                            <valItem ident="#Percy_Reliques">
                               <gloss>Reliques of Ancient English Poetry, consisting of Old Heroic Ballads, Songs, and other Pieces of our Earlier Poets, Together with Some of Later Date | 1765</gloss>
                            </valItem>
@@ -7966,6 +8264,12 @@
                            </valItem>
                            <valItem ident="#Pl_Friendship">
                               <gloss>The Pleasures of Friendship: A Poem, in two parts (1810, rpt. 1812, 1818)</gloss>
+                           </valItem>
+                           <valItem ident="#PO_BerkshireDir">
+                              <gloss>Post Office Directory of Berkshire, Northamptonshire, and Oxfordshire; with Bedfordshire, Buckinghamshire, and Huntingdonshire | 1847—1854 | Text and page images of the 1854 edition may be accessed through the University </gloss>
+                           </valItem>
+                           <valItem ident="#PO_Directory_Berkshire">
+                              <gloss>The Post Office Directory of Berkshire, Northamptonshire, Oxfordshire, with Bedfordshire, Buckinghamshire, and Huntingdonshire | A series of directories of local gentry and tradespeople in the counties of the </gloss>
                            </valItem>
                            <valItem ident="#Poems1645_Milton">
                               <gloss>John Milton | 1645</gloss>
@@ -8033,6 +8337,9 @@
                            <valItem ident="#Remarkable_Character_of_Old_School_LM">
                               <gloss>A Remarkable Character of the Old School [Lady's Magazine version] | 1824-01-31 | This sketch was published in the January 31, 1824 issue of The Lady's Magazine. </gloss>
                            </valItem>
+                           <valItem ident="#Remarks_Italy">
+                              <gloss>Remarks on Antiquities, Arts, and Letters, During an Excursion in Italy, in the Years 1802 and 1803. | 1816</gloss>
+                           </valItem>
                            <valItem ident="#Residuary_Legatee_OV">
                               <gloss>The Residuary Legatee. A True Story [Our Village version] | 1832 | This sketch appeared in volume five of Our Village in 1832. It had been publishe</gloss>
                            </valItem>
@@ -8087,14 +8394,26 @@
                            <valItem ident="#Self_Control">
                               <gloss>Self Control: A Novel | 1811 | First edition published anonymously.</gloss>
                            </valItem>
+                           <valItem ident="#Shakespeare_Times_nonfict">
+                              <gloss>Shakespeare and His Times: Including the Biography of the Poet; Criticisms on his Genius and Writings; A New Chronology of the Plays; A Disquisition on the Object of His Sonnets; And a History of the Manners, Customs, and Amusements, Superstitions, Poetry, and Elegant Literature of His Age | 1817</gloss>
+                           </valItem>
                            <valItem ident="#Sir_Fr_Darrell">
                               <gloss>Sir Francis Darrell; or, the Vortex. A Novel | </gloss>
                            </valItem>
                            <valItem ident="#SketchBook_WI">
                               <gloss>The Sketch Book of Geoffrey Crayon, Gent. | 1819</gloss>
                            </valItem>
+                           <valItem ident="#Sketches_of_America">
+                              <gloss>Sketches of America: a Narrative of a Journey of Five Thousand Miles Through the Eastern and Western States of America; Contained in Eight Reports Addressed to the Thirty-nine English Families by whom the Author was Deputed, in June 1817, to Ascertain Whether Any, and What Part of the United States Would be Suitable for Their Residence. With Remarks on Mr. Birkbeck’s Notes and Letters | 1818 | The work’s subtitle refers to to Morris Birkbeck’s Notes on a Journey in America</gloss>
+                           </valItem>
                            <valItem ident="#Specimen_Nat_poem">
                               <gloss>The Monks and the Giants: Prospectus and Specimen of an Intended National Work; Intended to Comprise the Most Interesting Particulars Relating to King Arthur and his Round Table, by William and Robert Whistlecraft of Stow-Market, in Suffolk, Harness and Collar Makers | 1818 | An ottava rima burlesque written by John Hookham Frere under the nom de plume "W</gloss>
+                           </valItem>
+                           <valItem ident="#Specimens_Dramatic_Poets">
+                              <gloss>Specimens of English Dramatic Poets, Who Lived About the Time of Shakespeare. With Notes | 1808</gloss>
+                           </valItem>
+                           <valItem ident="#SpencesAnec">
+                              <gloss>Anecdotes, Observations, and Characters of Books and Men. Collected from the Conversation of Mr. Pope, and Other Eminent Persons of His Time | 1820 | Spence’s Anecdotes were collected and published posthumously in 1820 by Edmund M</gloss>
                            </valItem>
                            <valItem ident="#St_Botany">
                               <gloss>Poetical Introduction to the Study of Botany (1801)</gloss>
@@ -8137,6 +8456,9 @@
                            </valItem>
                            <valItem ident="#Tenants_of_Beechgrove_OV">
                               <gloss>The Tenants of Beechgrove [Our Village version] The Lady of Beechgrove | 1826 | This sketch appeared as the second story in volume two of Our Village in 1826. I</gloss>
+                           </valItem>
+                           <valItem ident="#TenYearsatTripoli">
+                              <gloss>Miss Tully | 1816 | Mitford may have read the third edition, published in 1819.</gloss>
                            </valItem>
                            <valItem ident="#TestofLove">
                               <gloss>The Testament of Love | In Mitford’s time, believed to be the work of Chaucer. Now attributed to Thomas </gloss>
@@ -8192,8 +8514,17 @@
                            <valItem ident="#Touchy_Lady_OV">
                               <gloss>The Touchy Lady [Our Village version] | 1826 | This sketch appeared in volume two of Our Village in 1826.</gloss>
                            </valItem>
+                           <valItem ident="#Tour_Normandy">
+                              <gloss>Account of a tour in Normandy | 1820</gloss>
+                           </valItem>
                            <valItem ident="#Town_v_Country_CS">
                               <gloss>Town versus Country | 1835</gloss>
+                           </valItem>
+                           <valItem ident="#Travels_Acerbi">
+                              <gloss>Travels through Sweden, Finland, and Lapland to the North Cape, in the Years 1798 and 1799. | 1802</gloss>
+                           </valItem>
+                           <valItem ident="#Travels_Nile">
+                              <gloss>Travels to Discover the Source of the Nile, In the Years 1768, 1769, 1770, 1771 1772, and 1773 | 1790</gloss>
                            </valItem>
                            <valItem ident="#TwelfthNight_Shkspr">
                               <gloss>Twelfth Night | 1601 | A late dark romantic comedy in Shakespeare’s oeuvre, with first recorded product</gloss>
@@ -8242,6 +8573,9 @@
                            </valItem>
                            <valItem ident="#Virginius_play">
                               <gloss>Virginius</gloss>
+                           </valItem>
+                           <valItem ident="#Visit_Paris">
+                              <gloss>A Visit To Paris in 1814: Being a Review of the Moral, Political, Intellectual, and Social Condition of the French Capital | 2nd edition, corrected and with a new preface referring to late events, publishe</gloss>
                            </valItem>
                            <valItem ident="#Visit_to_Lucy_OV">
                               <gloss>A Visit to Lucy [Our Village version] | 1826 | This sketch appeared as the twelfth story in volume two of Our Village in 1826. </gloss>
@@ -8336,6 +8670,12 @@
                            <valItem ident="#Wallace_play">
                               <gloss>Wallace: an historical tragedy in five acts | 1820 | Performed at Covent Garden in November 1820; William Macready performed the titl</gloss>
                            </valItem>
+                           <valItem ident="#WalpoletoMontagu">
+                              <gloss>Letters from the Hon. Horace Walpole to George Montagu, Esq. from the year 1736, to the year 1770: Now First Published from the Originals in the Possession of the Editor | 1818 | A second edition appears in 1819.</gloss>
+                           </valItem>
+                           <valItem ident="#Walton_Lives">
+                              <gloss>The Lives of Dr. John Donne, Sir Henry Wotton, Mr. Richard Hooker, Mr. George Herbert and Dr. Robert Sanderson. | Walton had written biographical sketches ("Lives") of Donne, Wotton, Hooker and </gloss>
+                           </valItem>
                            <valItem ident="#Warbeck_Wolfstein_MH">
                               <gloss>Warbeck of Wolfstein | 1820</gloss>
                            </valItem>
@@ -8359,6 +8699,9 @@
                            </valItem>
                            <valItem ident="#Wheel_Fortune_play">
                               <gloss>Wheel of Fortune</gloss>
+                           </valItem>
+                           <valItem ident="#Whiteknights_Desc_TCH">
+                              <gloss>A Descriptive Account of the Mansion and Gardens of White-Knights: A Seat of His Grace the Duke of Marlborough. By Mrs. Hofland. Illustrated with twenty-three engravings, from pictures taken on the spot by T.C. Hofland | 1819 | Printed by T.C. Hofland for the 6th Duke of Marlbourough; publisher and printer </gloss>
                            </valItem>
                            <valItem ident="#WhitsunEve_OV">
                               <gloss>Whitsun-Eve [Our Village version] | 1828 | This sketch appeared in volume three of Our Village in 1828.</gloss>
@@ -8417,6 +8760,12 @@
                            <valItem ident="#Zaire_play">
                               <gloss>Zai’re (1732)</gloss>
                            </valItem>
+                           <valItem ident="#BannedThtr_Findlater">
+                              <gloss>Banned!: A Review of Theatrical Censorship in Britain | 1967</gloss>
+                           </valItem>
+                           <valItem ident="#CensorshipEnglDrama">
+                              <gloss>The Censorship of English Drama, 1824-1901 | 2010</gloss>
+                           </valItem>
                            <valItem ident="#coles_Thesis">
                               <gloss>William Allan Coles | 1956-08 | Coles’ doctoral dissertation presented to the Department of English at Harvard U</gloss>
                            </valItem>
@@ -8426,11 +8775,8 @@
                            <valItem ident="#Needham_PapersRCL">
                               <gloss>Francis Needham | Francis Needham’s extensive and unpublished handwritten papers, which we estimat</gloss>
                            </valItem>
-                           <valItem ident="#BannedThtr_Findlater">
-                              <gloss>Banned!: A Review of Theatrical Censorship in Britain | 1967</gloss>
-                           </valItem>
-                           <valItem ident="#CensorshipEnglDrama">
-                              <gloss>The Censorship of English Drama, 1824-1901 | 2010</gloss>
+                           <valItem ident="#OED">
+                              <gloss>The Oxford English Dictionary Online | 2016 | Multi-volume descriptive dictionary of the English language, first published in </gloss>
                            </valItem>
                            <valItem ident="#Review_55Days">
                               <gloss>Review: 55 Days | 2012-10-25</gloss>
