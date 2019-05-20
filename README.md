@@ -5,6 +5,7 @@ The following documentation files are available for consultation by the project 
 
 * **[Using Git through Command Line](Git_BasicCommands.md)** (a quick reading guide with the commands you need for working with project files in GitHub)
 * **[Updating the Project Schema Line](schemaUpdate.md)**: We have a new and improved TEI-ODD generated schema, and we need to change our schema association lines to work with it. Here's how to do that.
+* **[Digital Mitford ODD documentation](https://digitalmitford.github.io/DM_documentation/MitfordODD/mitfordODD.html)**: A searchable index of all elements and attributes and schematron rules customizing our project.
 
 * **[Site Index: Guide to Occupation Types and Subtypes](SI_Occupations_Guide.md)** (a guide to marking people's occupations for site index entries, listing standard values for `@type` and `@subtype`)
 
