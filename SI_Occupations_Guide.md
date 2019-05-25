@@ -46,6 +46,7 @@ Example with multiple white-space-separated subtypes:
     * priest (Use for Catholic clergy as well as Greek/Roman clergy. Do not use priestess.)
     * composer (for composers of religious music)
     * musician (for musical performers in church settings and religious contexts)
+    * churchAssist
 
 * **educator** 
 
@@ -86,6 +87,7 @@ Example with multiple white-space-separated subtypes:
     * recorder
     * judge (ex: Mr. Justice Talfourd)
     * magistrate (ex: George Mitford)
+    * enforcement (for constable, police, or sheriff, those involved in law enforcement)
 
                     
 * **literary** 
@@ -132,8 +134,10 @@ Example with multiple white-space-separated subtypes:
                                         
 * **benefactor** 
 
-    * philanthropist (use for benevolent activites outside of the arts)
+    * philanthropist (use for benevolent activites involving monetary donation outside of the arts)
     * patron (use for supporters of the arts, theatre, and writers) 
+    * volunteer (use for individual benevolent activities involving labor rather than money)
+    
 
                                   
 * **government** 
