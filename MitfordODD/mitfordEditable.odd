@@ -618,7 +618,7 @@
                 <valItem ident="carter"><gloss>with type="trade".</gloss></valItem>
                 <valItem ident="driver"><gloss>Broadly applicable to stage coach drivers, hired drivers, or those carrying chair lifts. With type="trade".</gloss></valItem>
                 <valItem ident="hunt"><gloss>For those employed in hunting activities (like trapping hares) as well as those trading in items involved with hunting. With type="trade".</gloss></valItem>
-                <valItem ident="magic"><gloss>with type="trade".</gloss></valItem>
+                <valItem ident="magic"><gloss>For street magicians, illusionists, fortune tellers, those making a living in magic arts. With type="trade".</gloss></valItem>
                 <valItem ident="poacher"><gloss>with type="trade".</gloss></valItem>
                 <valItem ident="broomMaker"><gloss>with type="trade".</gloss></valItem>
             </valList>      
