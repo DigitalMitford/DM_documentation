@@ -482,7 +482,7 @@
                 <valItem ident="priest"><gloss>with type="religious". Use for Catholic clergy as well as Greek/Roman clergy. Synonymous with priestess for the purposes of our encoding.</gloss></valItem>
                 <valItem ident="composer"><gloss>with type="religious". For composers of religious music.</gloss></valItem>
                 <valItem ident="musician"><gloss>with type="religious". For musical performers in church settings and religious contexts.</gloss></valItem>
-                <valItem ident="churchAssist"><gloss>with type="religious". For non-leadership roles serving the church (such as pew-opener).</gloss></valItem>
+                <valItem ident="churchAssist"><gloss>with type="religious". For non-leadership roles serving the church (such as pew-opener, sexton, or verger).</gloss></valItem>
                 
                 <valItem ident="teacher"><gloss>with type="educator".</gloss></valItem>
                 <valItem ident="schoolHead"><gloss>with type="educator". (for headmistress, schoolmaster, etc.)</gloss></valItem>
@@ -499,6 +499,7 @@
                 <valItem ident="inventor"><gloss>with type="scholar". </gloss></valItem>
                 <valItem ident="economist"><gloss>with type="scholar". </gloss></valItem>
                 <valItem ident="agronomist"><gloss>with type="scholar". For those who study agriculture.</gloss></valItem>
+                <valItem ident="supernatural"><gloss>For a powerful person who researches the supernatural or the spirit world, for example, Prospero or Dr. Faustus. With type="scholar".</gloss></valItem>
                  
                 <valItem ident="traveller"><gloss>with type="explorer".</gloss></valItem>
                 <valItem ident="navigator"><gloss>with type="explorer".</gloss></valItem>
@@ -539,6 +540,7 @@
                 <valItem ident="apothecary"><gloss>with type="medical". For pharmacy specialists.</gloss></valItem>
                 <valItem ident="midwife"><gloss>with type="medical". Includes, should we ever see one, a "man-midwife" or a male who assists with births and is not a physician or surgeon.</gloss></valItem>
                 <valItem ident="oculist"><gloss>with type="medical".</gloss></valItem>
+                <valItem ident="dentist"><gloss>with type="medical".</gloss></valItem>
                 
                 <valItem ident="army"><gloss>with type="military".</gloss></valItem>    
                 <valItem ident="navy"><gloss>with type="military".</gloss></valItem>
@@ -557,16 +559,23 @@
                 <valItem ident="clerk"><gloss>with type="government".</gloss></valItem>  
                 <valItem ident="taxCollector"><gloss>with type="government".</gloss></valItem>  
                 <valItem ident="post"><gloss>with type="government". For postal service occupations.</gloss></valItem>
+                <valItem ident="customs"><gloss>with type="government".</gloss></valItem>
+                <valItem ident="surveyor"><gloss>Appointed by Parliament or employed, for example, by a local government committee to survey roads or parks. With type="government".</gloss></valItem>
+                <valItem ident="alderman"><gloss>with type="government".</gloss></valItem>
                 
                 <valItem ident="butler"><gloss>with type="service".</gloss></valItem>
                 <valItem ident="coachman"><gloss>with type="service".</gloss></valItem>
                 <valItem ident="maid"><gloss>with type="service".</gloss></valItem>
                 <valItem ident="manservant"><gloss>with type="service".</gloss></valItem>
                 <valItem ident="valet"><gloss>with type="service".</gloss></valItem>
-                <valItem ident="footman"><gloss>with type="service".</gloss></valItem> 
+                <valItem ident="footman"><gloss>For male servants involved in tending the house; includes page. with type="service".</gloss></valItem> 
                 <valItem ident="cook"><gloss>with type="service".</gloss></valItem>
                 <valItem ident="housekeeper"><gloss>with type="service".</gloss></valItem>   
-                <valItem ident="gardener"><gloss>with type="service".</gloss></valItem>
+                <valItem ident="gardener"><gloss>with type="service": Use for one who tends a garden. If raising money from the garden, use instead type="trade" subtype="farmer".</gloss></valItem>
+                <valItem ident="nurse"><gloss>For a personal nurse attendant as member of a household. With type="service".</gloss></valItem>
+                <valItem ident="gamekeeper"><gloss>with type="service".</gloss></valItem>
+                <valItem ident="groom"><gloss>with type="service".</gloss></valItem>
+                <valItem ident="majordomo"><gloss>For the head servant who can speak and act on behalf of the household owners. With type="service".</gloss></valItem>
                 
                 <valItem ident="baker"><gloss>with type="trade".</gloss></valItem>
                 <valItem ident="butcher"><gloss>with type="trade".</gloss></valItem> 
@@ -583,8 +592,7 @@
                 <valItem ident="jeweller"><gloss>with type="trade".</gloss></valItem> 
                 <valItem ident="tanner"><gloss>with type="trade".</gloss></valItem> 
                 <valItem ident="saddler"><gloss>with type="trade".</gloss></valItem> 
-                <valItem ident="bootmaker"><gloss>with type="trade".</gloss></valItem> 
-                <valItem ident="shoemaker"><gloss>with type="trade".</gloss></valItem> 
+                <valItem ident="shoemaker"><gloss>Includes specialist work related to footgear, including patten makers, clog makers, and bootmakers. With type="trade".</gloss></valItem> 
                 <valItem ident="innkeeper"><gloss>with type="trade".</gloss></valItem> 
                 <valItem ident="liquor"><gloss>with type="trade". For a retailer of beer/wine.</gloss></valItem>  
                 <valItem ident="merchant"><gloss>with type="trade".</gloss></valItem>
@@ -595,6 +603,24 @@
                 <valItem ident="gambler"><gloss>with type="trade".</gloss></valItem>
                 <valItem ident="ropemaker"><gloss>with type="trade".</gloss></valItem>
                 <valItem ident="fisherman"><gloss>with type="trade".</gloss></valItem>
+                <valItem ident="factoryOwner"><gloss>with type="trade".</gloss></valItem>
+                <valItem ident="shopAssist"><gloss>with type="trade".</gloss></valItem>
+                <valItem ident="tailor"><gloss>Includes collar makers, those preparing garments for men. (For makers of women’s clothing use seamstress.) With type="trade".</gloss></valItem>
+                <valItem ident="hatter"><gloss>with type="trade".</gloss></valItem>
+                <valItem ident="seamstress"><gloss>Includes dressmakers. With type="trade".</gloss></valItem>
+                <valItem ident="laundry"><gloss>with type="trade".</gloss></valItem>
+                <valItem ident="char"><gloss>with type="trade".</gloss></valItem>
+                <valItem ident="thatcher"><gloss>with type="trade".</gloss></valItem>
+                <valItem ident="housePainter"><gloss>with type="trade".</gloss></valItem>
+                <valItem ident="glazier"><gloss>Cuts, installs, and removes glass from windows and doors. With type="trade".</gloss></valItem>
+                <valItem ident="construction"><gloss>with type="trade".</gloss></valItem>
+                <valItem ident="farmAssist"><gloss>with type="trade".</gloss></valItem>
+                <valItem ident="carter"><gloss>with type="trade".</gloss></valItem>
+                <valItem ident="driver"><gloss>Broadly applicable to stage coach drivers, hired drivers, or those carrying chair lifts. With type="trade".</gloss></valItem>
+                <valItem ident="hunt"><gloss>For those employed in hunting activities (like trapping hares) as well as those trading in items involved with hunting. With type="trade".</gloss></valItem>
+                <valItem ident="magic"><gloss>with type="trade".</gloss></valItem>
+                <valItem ident="poacher"><gloss>with type="trade".</gloss></valItem>
+                <valItem ident="broomMaker"><gloss>with type="trade".</gloss></valItem>
             </valList>      
         </attDef>
     </attList>
@@ -622,17 +648,17 @@
             <sch:let name="bookProducerSubtypes" value="('publisher', 'printer', 'binder', 'bookseller')"></sch:let>
             <sch:let name="religiousSubtypes" value="('clergy', 'prophet', 'vicar', 'curate', 'minister', 'rector', 'priest', 'musician', 'composer', 'churchAssist')"></sch:let>
             <sch:let name="educatorSubtypes" value="('teacher', 'schoolHead', 'governess', 'tutor', 'lecturer')"></sch:let>
-            <sch:let name="scholarSubtypes" value="('philosopher', 'naturalist', 'astronomer', 'curator', 'antiquarian', 'inventor', 'historian', 'economist', 'agronomist')"></sch:let>
+            <sch:let name="scholarSubtypes" value="('philosopher', 'naturalist', 'astronomer', 'curator', 'antiquarian', 'inventor', 'historian', 'economist', 'agronomist', 'supernatural')"></sch:let>
             <sch:let name="explorerSubtypes" value="('traveller', 'navigator', 'cartographer', 'seaCaptain')"></sch:let>
             <sch:let name="legalSubtypes" value="('barrister', 'solicitor', 'lawyer', 'recorder', 'magistrate', 'judge', 'enforcement')"></sch:let>
             <sch:let name="literarySubtypes" value="('novelist', 'poet', 'playwright', 'essayist', 'critic', 'journalist', 'editor', 'biographer', 'autobiographer', 'lexicographer', 'linguist', 'translator')"></sch:let>
             <sch:let name="theaterSubtypes" value="('actor', 'singer', 'manager', 'owner', 'designer', 'musician', 'composer')"></sch:let>
-            <sch:let name="medicalSubtypes" value="('physician', 'surgeon', 'apothecary', 'midwife', 'oculist')"></sch:let>
+            <sch:let name="medicalSubtypes" value="('physician', 'surgeon', 'apothecary', 'midwife', 'oculist', 'dentist')"></sch:let>
             <sch:let name="militarySubtypes" value="('army', 'navy')"></sch:let>
             <sch:let name="benefactorSubtypes" value="('philanthropist', 'patron', 'volunteer')"></sch:let>
-            <sch:let name="governmentSubtypes" value="('monarch', 'politician', 'orator', 'reformer', 'courtier', 'diplomat', 'administrator', 'clerk', 'taxCollector', 'post')"></sch:let>
-            <sch:let name="serviceSubtypes" value="('butler', 'coachman', 'valet', 'maid', 'manservant', 'footman', 'cook', 'housekeeper', 'gardener')"></sch:let>
-            <sch:let name="tradeSubtypes" value="('baker', 'butcher', 'farmer', 'bricklayer', 'mason', 'chandler', 'wheelwright', 'carpenter', 'watchmaker', 'miller', 'blacksmith', 'goldsmith', 'jeweller', 'tanner', 'saddler', 'bootmaker', 'shoemaker', 'innkeeper', 'liquor', 'merchant', 'clerk', 'banker', 'stockbroker', 'auctioneer', 'gambler','ropemaker', 'fisherman')"></sch:let>
+            <sch:let name="governmentSubtypes" value="('monarch', 'politician', 'orator', 'reformer', 'courtier', 'diplomat', 'administrator', 'clerk', 'taxCollector', 'post', 'customs', 'surveyor', 'alderman')"></sch:let>
+            <sch:let name="serviceSubtypes" value="('butler', 'coachman', 'valet', 'maid', 'manservant', 'footman', 'cook', 'housekeeper', 'gardener', 'nurse', 'gamekeeper', 'majordomo', 'groom')"></sch:let>
+            <sch:let name="tradeSubtypes" value="('baker', 'butcher', 'farmer', 'bricklayer', 'mason', 'chandler', 'wheelwright', 'carpenter', 'watchmaker', 'miller', 'blacksmith', 'goldsmith', 'jeweller', 'tanner', 'saddler', 'shoemaker', 'innkeeper', 'liquor', 'merchant', 'clerk', 'banker', 'stockbroker', 'auctioneer', 'gambler','ropemaker', 'fisherman', 'factoryOwner', 'shopAssist', 'tailor', 'hatter', 'seamstress', 'laundry', 'char', 'thatcher', 'housePainter', 'glazier', 'construction', 'farmAssist', 'pestControl', 'carter', 'driver', 'hunt', 'magic', 'poacher', 'broomMaker')"></sch:let>
             <sch:rule context="tei:occupation[@type='artist'][@subtype]">
                 <sch:let name="subtypes" value=" for $i in tokenize(@subtype, '\s+') return $i"></sch:let>
                 <sch:assert test="every $subtype in $subtypes satisfies $subtype = $artistSubtypes">Multiple subtypes are permitted, but these must be from the following list: <sch:value-of select="$artistSubtypes"></sch:value-of>.</sch:assert>
