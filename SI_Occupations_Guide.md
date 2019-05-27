@@ -70,6 +70,7 @@ Example with multiple white-space-separated subtypes:
     * historian
     * economist
     * agronomist (for those who study agriculture)
+    * supernatural (For a powerful person who researches the supernatural or the spirit world, for example, Prospero or Dr. Faustus.)
 
       
 * **explorer**  (includes occupations associated with travel, commerce, empire expansion) 
@@ -125,6 +126,7 @@ Example with multiple white-space-separated subtypes:
     * apothecary (use for pharmacy specialists)
     * midwife (includes, should we ever see one, a "man-midwife" or a male who assists with births and is not a physician or surgeon)
     * oculist
+    * dentist
 
                               
 * **military**  (Note: specific military titles belong in `<roleName>`.)
@@ -163,8 +165,11 @@ Example with multiple white-space-separated subtypes:
     * cook
     * housekeeper
     * gardener
-
-                                
+    * nurse (for private nurses employed by households)
+    * gamekeeper
+    * majordomo (for the head servant who speaks or acts on behalf of the household owners)
+    * groom
+                            
 * **trade**  
 
     * baker
@@ -182,8 +187,7 @@ Example with multiple white-space-separated subtypes:
     * jeweller
     * tanner
     * saddler
-    * bootmaker
-    * shoemaker
+    * shoemaker (includes all specialities in footgear, including bootmaking and patten or clog making. We have eliminated the bootmaker subtype) 
     * innkeeper
     * liquor (for a beer/alcohol retailer)
     * merchant
@@ -192,3 +196,22 @@ Example with multiple white-space-separated subtypes:
     * stockbroker
     * auctioneer
     * gambler
+    * factoryOwner
+    * shopAssist
+    * tailor (for makers of men's clothes. For women's clothes, including dressmakers, use seamstress.) 
+    * hatter
+    * seamstress (includes dressmaker) 
+    * laundry
+    * char
+    * thatcher
+    * housePainter
+    * glazier
+    * construction
+    * farmAssist
+    * pestControl (for rat catchers, etc.)
+    * carter
+    * driver
+    * hunt (for those hired in hunting as well as those trading in items associated with hunting)
+    * magic (for street magicians, illusionists, fortune tellers, those making a living in magic arts)
+    
+    
