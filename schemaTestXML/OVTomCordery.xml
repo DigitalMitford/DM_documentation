@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml"
+	schematypens="http://purl.oclc.org/dsdl/schematron"?>-->
+<!--<?xml-model href="http://ebeshero.github.io/MRMValidate.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>-->
+<!--
+<?xml-model href="https://digitalmitford.github.io/DM_documentation/MitfordODD/out/mitfordODD.rng"
+type="application/xml" 
+schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://digitalmitford.github.io/DM_documentation/MitfordODD/out/mitfordODD.rng" 
+type="application/xml" 
+schematypens="http://purl.oclc.org/dsdl/schematron"?>-->
+
+<?xml-model href="../MitfordODD/out/mitfordODD.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="../MitfordODD/out/mitfordODD.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+
+            <titleStmt>
+                <title>Our Village: Sketches of Rural Character and Scenery: Preface</title>
+                <author ref="#MRM">Mary Russell Mitford</author>
+                <editor ref="#ad">Alexandra Drayton</editor>
+                <editor ref="#scw">Samantha Webb</editor>
+
+
+                <sponsor><orgName>Mary Russell Mitford Society: Digital Mitford
+                    Project</orgName></sponsor>
+                <sponsor>University of Pittsburgh at Greensburg</sponsor>
+                <principal>Elisa Beshero-Bondar</principal>
+
+                <respStmt>
+                    <resp>Transcription and coding by</resp>
+                    <persName>Alexandra Drayton</persName>
+                    <persName ref="#scw">Samantha Webb</persName>
+                </respStmt>
+                <respStmt>
+                    <resp>Proofing and corrections by</resp>
+                    <persName ref="#ebb">Elisa Beshero-Bondar</persName>
+                    <persName ref="#bas">Brooke A. Stewart</persName>
+                </respStmt>
+            </titleStmt>
+            <editionStmt>
+                <edition>This is optional, used to describe this edition, and “should contain
+                    phrases describing the edition or version”: First digital edition in TEI, date:
+                    2 June 2013. P5.</edition>
+                <respStmt>
+                    <resp>We can include a respStmt here.</resp>
+                    <persName>Who?</persName>
+                </respStmt>
+
+            </editionStmt>
+
+
+
+            <publicationStmt>
+                <authority>Digital Mitford: The Mary Russell Mitford Archive</authority>
+                <pubPlace>Greensburg, PA, USA</pubPlace>
+                <date>2013</date>
+                <availability>
+                    <licence>Distributed under a Creative Commons Attribution-ShareAlike 3.0
+                        Unported License</licence>
+                </availability>
+
+            </publicationStmt>
+            <seriesStmt>
+                <title>Digital Mitford: The Mary Russell Mitford Archive</title>
+            </seriesStmt>
+
+
+
+            <sourceDesc>
+                <!--Notice, this is simpler than the sourceDesc we used in our Letters file.-->
+                <p>Our text is based on public domain, Google-digitized text<bibl>
+                        <title>Our Village: Sketches of Rural Character and
+                            Scenery</title><edition>Third Edition</edition> by <author>Mary Russell
+                            Mitford</author><pubPlace>London</pubPlace><publisher>Geo. B.
+                            Whittaker</publisher><placeName>Ave Maria
+                            Lane</placeName><date>1825</date>. </bibl> This text appears to be
+                    identical in pagination and content to the first edition published in 1824. </p>
+            </sourceDesc>
+        </fileDesc>
+
+        <encodingDesc>
+            <editorialDecl>
+                <p>Describes our editorial practice.</p>
+            </editorialDecl>
+        </encodingDesc>
+
+    </teiHeader>
+    <text>
+        <body>
+            <div type="sketch">
+                <head><title level="a" ref="#Tom_Cordery_OV">TOM CORDERY</title></head>        
+                    <p>There are certain things and persons that look as if they could never die: things
+                    of such vigour and hardiness, that they seem constituted for an interminable
+                    duration, a sort of immortality. An old <rs type="plant" ref="#pollard_oak">pollard oak</rs> of my acquaintance
+                    used to give me this impression. Never was tree so gnarled, so knotted, so full
+                        of crooked life. Garlanded with <rs type="plant" ref="#ivy">ivy</rs> and <rs type="plant" ref="#woodbine">woodbine</rs>,
+                    almost bending under the weight of its own rich leaves and <rs type="plant" ref="#acorns">acorns</rs>, tough,
+                    vigorous, lusty, concentrating as it were the very spirit of vitality into its
+                    own curtailed proportions,—could that tree ever die? <persName ref="#OVNarrator">I</persName> have asked myself twenty
+                    times, as I stood looking on the deep water over which it hung, and in which it
+                    seemed to live again—would that <rs type="plant" ref= "pollard_oak">strong dwarf</rs> ever fall? Alas! the question is
+                    answered. Walking by the spot to-day—this very day—there it lay prostrate; the
+                    <rs type="plant" ref="#ivy">ivy</rs> still clinging about it, 
+                    the twigs swelling with sap, and putting forth
+                    already the early buds. There it lay a victim to the taste and skill of some
+                    admirer <pb n="165"/> of British woods, who with the tact of <persName ref="#Ugo_Foscolo">Ugo Foscolo</persName> (that
+                    prince of amateurs) has discovered in the knots and gnarls of the exterior coat
+                    the leopard-like beauty which is concealed within the trunk. There it lies, a
+                    type of sylvan instability, fallen like an emperor. Another piece of strong
+                    nature in a human form used to convey to me exactly the same feeling—and he is
+                    gone too! <persName ref="#Cordery_Tom_OV">Tom Cordery</persName> is dead. 
+                    The bell is tolling for him at this very moment.
+                    <persName ref="#Cordery_Tom_OV">Tom Cordery</persName> dead! the words seem 
+                    almost a contradiction. One is tempted to send
+                    for the sexton and the undertaker, to undig the grave, to force open the
+                    coffin-lid—there must be some mistake. But, alas! it is too true; the typhus
+                    fever, that axe which levels the strong as the weak, has hewed him down at a
+                    blow. Poor <persName ref="#Cordery_Tom_OV">Tom Cordery</persName>!</p>
+                <p> This <rs type="person" ref="#Cordery_Tom_OV">human oak</rs> grew on the wild 
+                    <placeName ref="#Berkshire_county">North-of-Hampshire</placeName> country,<note resp="#scw">Some of the locations mentioned in this sketch place it in <placeName ref="#Mortimer_Comm">Mortimer Common</placeName> in Berkshire. The village had already featured in the sketch <title ref="#Bramley_Maying_OV">Bramley Maying</title>.</note> of which I have
+                    before made honourable mention; a country of <placeName ref="#heath">heath</placeName>, 
+                    and <placeName ref="#hill">hill</placeName>, and <placeName ref="#forest">forest</placeName>, partly
+                    reclaimed, inclosed, and planted by some of the <orgName ref="#TomC_greater_proprietors">>greater proprietors</orgName>, but for the
+                    most part uncultivated and uncivilised; a proper refuge for wild animals of
+                    every species. Of these the most notable was my friend <persName ref="#Cordery_Tom_OV">Tom Cordery</persName>, who
+                    presented in his own person no unfit emblem of the district in which he
+                        lived—the <rs type="person" ref="#Cordery_Tom_OV">gentlest of savages</rs>, 
+                    the <rs type="person" ref="#Cordery_Tom_OV">wildest of civilised men</rs>. He was by calling
+                    rat-catcher, hare-finder, and broom-<pb n="166"/>maker; a triad of trades
+                    which he had substituted for the one grand profession of poaching, which he had
+                    followed in his younger days with unrivalled talent and success, and would,
+                    undoubtedly, have pursued till his death, had not the bursting of an overloaded
+                    gun unluckily shot off his left hand. As it was, he still contrived to mingle a
+                    little of his old unlawful occupation with his honest callings; was a reference
+                    of high authority amongst the young aspirants, an adviser of undoubted honour
+                    and secresy—suspected, and more than suspected, as being one <quote>“who, though he
+                        played no more, o’erlooked the cards.”</quote><!--scw: unidentifed yet--> Yet he kept to windward of the law, and
+                    indeed contrived to be on such terms of social and even friendly intercourse
+                    with the <orgName type="person" ref="#M_common_keepers_OV">guardians of the game on M. Common</orgName>, as may be said to prevail between
+                        reputed thieves and the <rs type="org" ref="#Bow_Street_Runners"><persName ref="#myrmidons">myrmidons</persName> of justice in the neighbourhood of Bow-street</rs>.
+                    Indeed his especial crony, the <persName ref="#TomC_Mcommon_head_keeper_OV">head-keeper</persName>, 
+                    used sometimes to hint, when <persName ref="#Cordery_Tom_OV">Tom</persName>,
+                    elevated by ale, had provoked him by overcrowing, <said who="#TomC_Mcommon_head_keeper_OV" direct="true" aloud="true">“that a stump was no bad
+                    shield, and that to shoot off a hand and a bit of an arm for a blind, would be
+                    nothing to so daring a chap as <persName ref="#Cordery_Tom_OV">Tom Cordery</persName>.”</said> This conjecture, never broached
+                    till the <persName ref="#TomC_Mcommon_head_keeper)OV">keeper</persName> was warm with wrath and 
+                    liquor, and <persName ref="#Cordery_Tom_OV">Tom</persName> fairly out of hearing,
+                    always seemed to me a little super-subtle; but it is certain that 
+                    <persName ref="#Cordery_Tom_OV">Tom</persName>’s new
+                    professions did bear rather a suspicious analogy to the <pb n="167"/> old, and
+                        the <rs type="animal" ref="#ferret">ferrets</rs>, and <rs type="animal" ref="#terrier">terriers</rs>, and <rs type="animal" ref="#mongrel">mongrels</rs> by whom he was surrounded, 
+                    <said who="#TomC_Mcommon_head_keeper_OV" direct="true" aloud="true">“did really
+                        look,”</said> as the worthy <persName ref="#TomC_Mcommon_head_keeper_OV">keeper</persName> observed, <said who="#TomC_Mcommon_head_keeper_OV" direct="true" aloud="true">“fitter to find Christian <rs type="animal" ref="hare">hares</rs> and
+                            <rs type="animal" ref="#pheasant">pheasants</rs>, than <rs type="animal" ref="#rat">rats</rs> and such vermin.”</said> So in 
+                    good truth did <persName ref="#Cordery_Tom_OV">Tom</persName> himself. Never
+                    did any human being look more like that sort of sportsman commonly called a
+                    poacher. He was a tall, finely-built man, with a prodigious stride, that cleared
+                    the ground like a horse, and a power of continuing his slow and steady speed,
+                    that seemed nothing less than miraculous. Neither man, nor horse, nor dog, could
+                    out-tire him. He had a bold, undaunted presence, and an evident strength and
+                    power of bone and muscle. You might see by looking at him, that he did not know
+                    what fear meant. In his youth he had fought more battles than any man in the
+                    <rs type="place" ref="#forest">forest</rs>. He was as if born without nerves, totally insensible to the recoils and
+                    disgusts of humanity. <persName ref="#OVNarrator">I</persName> have known 
+                        him take up a huge <rs type="animal" ref="adder">adder</rs>, cut off its head,
+                    and then deposit the living and writhing body in his brimless hat, and walking with
+                    it coiling and wreathing about his head, like another <persName ref="#Medusa">Medusa</persName>, till the sport of
+                    the day was over, and he carried it home to secure the fat. With all this iron
+                    stubbornness of nature, he was of a most mild and gentle demeanour, had a fine
+                    placidity of countenance, and a quick blue eye beaming with good humour. His
+                    face was sunburnt into one general <pb n="168"/> pale vermilion hue that
+                    overspread all his features; his very hair was sunburnt too. His costume was
+                    generally a smock-frock of no doubtful complexion, dirt-coloured, which hung
+                    round him in tatters like fringe, rather augmenting than diminishing the
+                    freedom, and, if I may so say, the gallantry of his bearing. This frock was
+                    furnished with a huge inside pocket, in which to deposit the game killed by his
+                    patrons—for of his three employments, that which consisted of finding <rs type="animal" ref="#hare">hares</rs> for
+                    the <orgName ref="#TomC_great_farmers_OV">great farmers</orgName> and <orgName ref="#TomC_small_gentry_OV">small gentry</orgName>, who were wont to course on the <rs type="place" ref="M_common_OV">common</rs>, was
+                    by far the most profitable and most pleasing to him, and to them. Every body
+                    liked <persName ref="#Cordery_Tom_OV">Tom Cordery</persName>. 
+                    He had himself an aptness to like, which is almost certain to be
+                    repaid in kind—the very <rs type="animal" ref="#dog">dogs</rs> knew him, and loved him, and would beat for him
+                    almost as soon as for their master. Even <persName ref="#May-flower_OV">May</persName>, 
+                        <rs type="person" ref="#May-flower_OV">the most sagacious of greyhounds</rs>,
+                    appreciated his talents, and would almost as soon listen to 
+                    <persName ref="#Cordery_Tom_OV">Tom</persName> sohoing as to old 
+                    <persName ref="#TomC_Tray_OV">Tray</persName>
+                    giving tongue.</p>
+                <p>Nor was his conversation less agreeable to the other part of the company.
+                    <orgName type="person" ref="#TomC_servants_OV">Servants</orgName> and <orgName type="person" ref="#TomC_masters_OV">masters</orgName> 
+                    were equally desirous to secure <persName ref="#Cordery_Tom_OV">Tom</persName>. Besides his general
+                    and professional familiarity with beasts and birds, their ways and doings, a
+                    knowledge so minute and accurate, that it might have put to shame many a
+                    professed naturalist, he had no small acquaintance with the goings-on of that
+                    unfeathered biped called man; in short, he was, <pb n="169"/> next after <persName ref="#Lucy_fict_OV">Lucy</persName>,
+                    who recognised his rivalry by hating, decrying, and undervaluing him, by far the
+                    best news-gatherer of the country side. His news he of course picked up on the
+                    civilised side of the parish,<note resp="#scw">Although the setting of the story is concealed, if the location is <placeName ref="#Mortimer_Comm">Mortimer Common</placeName>, the parish would be Stratfield Mortimer.</note> (there is no gossiping in the <rs type="place" ref="#forest">forest</rs>,) partly at
+                    that well-frequented inn the <orgName ref="#Red_Lion_OV">Red Lion</orgName>, 
+                    of which <persName ref="#Cordery_Tom_OV">Tom</persName> was a regular and noted
+                    supporter—partly amongst his several employers, and partly by his own sagacity.
+                    In the matter of marriages, (pairings he was wont to call them,) he relied
+                    chiefly on his own skill in noting certain preliminary indications; and
+                    certainly for a guesser by profession and a very bold one, he was astonishingly
+                    often right. At the <orgName ref="#Red_Lion_OV">alehouse</orgName> especially, he was of the first authority. An air
+                    of mild importance, a diplomatic reserve on some points, great smoothness of
+                    speech, and that gentleness which is so often the result of conscious power,
+                    made him there an absolute ruler. Perhaps the effect of these causes might be a
+                    little aided by the latent dread which that power inspired in others. Many an
+                    exploit had proved that <persName ref="#Cordery_Tom_OV">Tom Cordery</persName>’s 
+                    one arm was fairly worth any two on <placeName ref="#M_common_OV">the
+                        common</placeName>. The pommelling of <persName ref="#Arlott_Bob_OV">Bob Arlott</persName>, and 
+                    the levelling of <persName ref="#Searle_Jem_OV">Jem Serle</persName> to the
+                    earth by one swing of a huge old <rs type="animal" ref="#hare">hare</rs>, (which unusual weapon was by the way the
+                    first-slain of <persName ref="#May-flower_OV">Mayflower</persName>, on its way home
+                    to us in that walking cupboard, his
+                    pocket, when the unlucky rencontre with <persName ref="#Searle_Jem_OV">Jem Serle</persName>
+                    broke two heads, <rs type="animal" ref="#hare">the dead</rs> <pb
+                        n="170"/> and <rs type="person" ref="#Searle_Jem_OV">the living</rs>,) arguments such as these might have some cogency
+                    at the <orgName ref="#Red_Lion_OV">Red Lion</orgName>.</p>
+                <p>But he managed every body, as your <rs type="person" ref="#Cordery_Tom_OV">gentle-mannered person</rs> is apt to do. Even the
+                    rude <orgName type="person" ref="#TomC_squires_OV">‘squires</orgName> and rough 
+                    <orgName type="person" ref="#TomC_farmers_OV">farmers</orgName>, his temporary masters, he managed, particularly
+                    as far as concerned the beat, and was sure to bring them round to his own
+                    peculiar fancies or prejudices, however strongly their own wishes might turn
+                    them aside from the direction indicated, and however often 
+                    <persName ref="#Cordery_Tom_OV">Tom</persName>’s sagacity in
+                    that instance might have been found at fault. Two spots in the 
+                    <rs type="place" ref="#inclosure">large wild
+                        inclosures</rs> into which the <rs type="place" ref="#heath">heath</rs> 
+                    had been divided were his especial favourites;
+                    <placeName ref="#Hundred_Acres">the Hundred Acres,</placeName> alias the <placeName ref="#Poor_Allotment" corresp="#Hundred_Acres">Poor Allotment</placeName>, 
+                        alias the <placeName ref="#Burnt_Common" corresp="#Hundred_Acres">Burnt Common</placeName>—
+                    (Do any or
+                    all of these titles convey any notion of the real destination of <rs type="place" ref="#Hundred_Acres">that many-named
+                        place</rs>? a piece of <rs type="place" ref="#moor">moor land</rs> portioned out to 
+                    serve for fuel to the poor of the
+                    parish)—this was one. Oh the barrenness of this miserable <rs type="place" ref="#Hundred_Acres">moor</rs>! Flat, marshy,
+                    dingy, bare. Here that piece of green treachery, 
+                    <rs type="place" ref="#bog">a bog</rs>; there parched, and
+                    pared, and shrivelled, and black with smoke and ashes; utterly desolate and
+                    wretched every where, except where amidst the desolation blossomed, as in
+                    mockery, the enamelled <rs type="plant" ref="#gentianella">gentianella</rs>. 
+                    No <rs type="animal" ref="#hare">hares</rs> ever came there; they had too much
+                    taste. Yet thither would <persName ref="#Cordery_Tom_OV">Tom</persName> 
+                    lead <rs type="person" ref="#TomC_squires_OV TomC_farmers_OV">his unwary employers</rs>; thither, however warned,
+                    or cautioned, or experienced, would he by reasoning or in<pb n="171"/>duction,
+                    or gentle persuasion, or actual fraud, 
+                    entice the hapless <rs type="person" ref="#TomC_squires_OV TomC_farmers_OV">gentlemen</rs>; and then to
+                    see him with his rabble of finders pacing up and down this precious
+                    <soCalled>“sitting-ground,”</soCalled> (for so was <persName ref="#Cordery_Tom_OV">Tom</persName>, thriftless liar, wont to call it,) pretending
+                    to look for game, counterfeiting a meuse; forging a form; and telling a story
+                    some ten years old of a famous <rs type="animal" ref="#hare">hare</rs> once killed in that spot by <rs type="person" ref="#TomC_hisHonor_OV">his honour</rs>’s
+                    favourite bitch <rs type="animal" ref="#Marygold_pet_OV">Marygold</rs>. I never could thoroughly understand whether it were
+                    design, a fear that too many <rs type="animal" ref="#hare">hares</rs> might be killed, or a real and honest
+                    mistake, a genuine prejudice in favour of <rs type="place" ref="#Hundred_Acre">the place</rs>, that influenced <persName ref="#Cordery_Tom_OV">Tom Cordery</persName>
+                    in this point. Half the one, perhaps, and half the other. Mixed motives, let
+                    <persName ref="#Pope_Alex">Pope</persName> and 
+                    his disciples say what they will, are by far the commonest in this
+                    parti-coloured world. Or he had shared the fate of greater men, and lied till he
+                    believed—a coursing <persName ref="#Cromwell">Cromwell</persName>, beginning in hypocrisy and ending in fanaticism.
+                    Another pet spot was <placeName ref="#Gallows_piece">the Gallows-piece</placeName>, an inclosure almost as large as the
+                    <placeName ref="#Hundred_Acres">Hundred Acres</placeName>, where a gibbet had once borne the bodies of <orgName type="person" ref="#TomC_two_murderers_OV">two murderers</orgName>, with
+                    the chains and bones, even in my remembrance, clanking and creaking in the wind.
+                    The gibbet was gone now; but the name remained, and the feeling, deep, sad, and
+                    shuddering. The <placeName ref="#Gallows_piece">place</placeName>, too, 
+                    was wild, awful, fearful; a heathy, furzy spot,
+                    sinking into broken hollows, 
+                    where murderers might lurk; a few <rs type="plant" ref="#pine">withered pines</rs> at
+                    the upper end, and <pb n="172"/> amongst them, half hidden by the <rs type="plant" ref="#bramble">brambles</rs>, the
+                    stone in which the gallows had been fixed;—the bones must have been mouldering
+                    beneath. All <persName ref="#Cordery_Tom_OV">Tom</persName>’s eloquence, 
+                    seconded by two capital courses, failed to drag me
+                    thither a second time.</p>
+                <p><persName ref="#Cordery_Tom_OV">Tom</persName> was not, however, 
+                    without that strong sense of natural beauty which they who
+                    live amongst the wildernesses and fastnesses of nature so often exhibit. One spot,
+                    where the <rs type="place" ref="#common">common</rs> trenches on the civilized world, 
+                    was scarcely less his
+                    admiration than mine. It is a <rs type="place" ref="#hill">high hill</rs>, 
+                    half covered with <rs type="plant" ref="#furze">furze</rs>, and <rs type="plant" ref="#heath">heath</rs>, and
+                    <rs type="plant" ref="#broom">broom</rs>, and sinking abruptly down to a <rs type="place" ref="#pond">large pond</rs>, almost a lake, covered with
+                    wild water fowl. The ground, richly clothed with <rs type="plant" ref="#wood">wood</rs>, 
+                    <rs type="plant" ref="#oak">oak</rs>, and <rs type="plant" ref="#beech">beech</rs>, and 
+                    <rs type="plant" ref="#elm">elm</rs>,
+                    rises on the other side with equal abruptness, as if shutting in those glassy
+                    waters from all but the sky, which shines so brightly in their clear bosom: just
+                    in the bottom peeps a small sheltered farm, whose wreaths of light smoke and the
+                    white glancing wings of the <rs type="animal" ref="#duck">wild ducks</rs>, as they flit across the lake, are all
+                    that give token of motion or of life. <persName ref="#OVNarrator">I</persName> 
+                    have stood there in utter oblivion of
+                    <rs type="animal" ref="#greyhound">greyhound</rs> or of <rs type="animal" ref="#hare">hare</rs>, till moments have swelled to minutes, and minutes to
+                    hours; and so has <persName ref="#Cordery_Tom_OV">Tom</persName>, conveying, 
+                    by his exclamations of delight at its
+                    <said who="#Cordery_Tom_OV" direct="true" aloud="true">“pleasantness,”</said> exactly the same feeling 
+                    which a poet or a painter (for it
+                    breathes the very spirit of calm and sunshiny beauty that a master-painter
+                    loves) would ex<pb n="173"/>press by different but not truer praise. He called
+                    his own home <quote><soCalled>“pleasant”</soCalled></quote> too; and there, <!--scw 5/27/19: STOPPED HERE. NEED TO REVIEW TAGGING OF LAND FORMATIONS IF WE'RE STILL DOING THEM AND BACKLIST ONLY PARTIALLY UPDATED AS PER CURRENT AND NOT COMPLETE.-->
+                    though one loves to hear any home so
+                    called—there, I must confess, that favourite phrase, which <persName ref="#OVNarrator">I</persName> like almost as well
+                    as they who have no other, did seem rather misapplied. And yet it was finely
+                    placed, very finely. It stood in a sort of <placeName type="land">defile</placeName>, 
+                    where a road almost
+                    perpendicular wound from the top of a <placeName type="land" ref="#hill">steep abrupt hill</placeName>, 
+                    crowned with a tuft of
+                        old <rs type="plant" ref="#Scottish_fir_tree">Scottish firs</rs>, 
+                    into a <placeName type="land" ref="#dingle">dingle of <rs type="plant" ref="#fern">fern</rs> and <rs type="plant" ref="#brushwood">wild brushwood</rs></placeName>. A <placeName type="land" ref="#stream">shallow, sullen
+                            stream oozed from the bank on one side, and, after forming a rude channel across
+                    the >road</placeName>, sank into a <placeName type="land" ref="#pool">dark, deep pool</placeName>, half hidden amongst the <placeName type="land" ref="#sallows">sallows</placeName>. Behind
+                    these <placeName type="land" ref="#sallows">sallows</placeName>, in a nook between them and 
+                    <placeName type="land" ref="#hill">the hill</placeName>, rose the uncouth and
+                    shapeless cottage of <persName ref="#Cordery_Tom_OV">Tom Cordery</persName>.  
+                    It is a scene which hangs upon the eye and the
+                    memory, striking, grand, almost sublime, and above all eminently foreign. No
+                    English painter would choose such a subject for an English landscape; no one in
+                    a picture would take it for English. It might pass for one of those scenes which
+                    have furnished models to <persName type="hist" ref="#Salvator_Rosa">Salvator Rosa</persName>. 
+                    <persName ref="#Cordery_Tom_OV">Tom</persName>’s cottage was, however, very
+                    thoroughly national and characteristic; a low, ruinous hovel, the door of which
+                    was fastened with a sedulous attention to security, that contrasted strangely
+                    with the tattered thatch of the roof, and the half broken windows. No garden, no
+                    pigsty, <pb n="174"/> no pens for geese, none of the usual signs of cottage
+                    habitation:—yet the house was covered with nondescript dwellings, and the very
+                    walls were animate with their extraordinary tenants; pheasants, partridges,
+                    rabbits, tame wild ducks, half tame hares, and their enemies by nature and
+                    education, the ferrets, terriers, and mongrels, of whom his retinue consisted.
+                    Great ingenuity had been evinced in keeping separate these jarring elements; and
+                    by dint of hutches, cages, fences, kennel, and half a dozen little hurdled
+                    inclosures resembling the sort of courts which children are apt to build round
+                    their card-houses, peace was in general tolerably well preserved. Frequent
+                    sounds, however, of fear or of anger, as their several instincts were aroused,
+                    gave token that it was but a forced and hollow truce, and at such times the
+                    clamour was prodigious. <persName ref="#Cordery_Tom_OV">Tom</persName> had the 
+                    remarkable tenderness for animals when
+                    domesticated, which is so often found in those whose sole vocation seems to be
+                    their destruction in the field; and the one long, straggling, unceiled,
+                    barn-like room, which served for kitchen, bed-chamber, and hall, was cumbered
+                    with bipeds and quadrupeds of all kinds and descriptions—the sick, the delicate,
+                    the newly caught, the lying-in. In the midst of this menagerie sate 
+                    <persName type="fict" subtype="int" ref="#Cordery_TomWife_OV">Tom’s wife</persName>,
+                    (for he was married, though without a family—married to a 
+                    <rs type="person" ref="#Cordery_TomWife_OV">woman lame of a leg</rs> as
+                    he himself was mi<pb n="175"/>nus an arm,) now trying to quiet her noisy
+                    inmates, now to outscold them. How long his friend 
+                    <persName ref="#head_keeper">the keeper</persName> would have
+                    continued to wink at this den of live game, none can say: the roof fairly fell
+                    in during the deep snow of last winter, killing, as poor 
+                    <persName ref="#Cordery_Tom_OV">Tom</persName> observed, two as
+                    fine litters of rabbits as ever were kittened. Remotely, I have no doubt that he
+                    himself fell a sacrifice to this misadventure. The 
+                    <persName type="fict" subtype="int" ref="#overseer">overseer</persName>, to whom he applied
+                    to re-instate his beloved habitation, decided that the walls would never bear
+                    another roof, and removed him and <persName ref="#Cordery_TomWife_OV">his wife</persName>, 
+                    as an especial favour, to a tidy,
+                    snug, comfortable room in the <orgName ref="#workhouse">workhouse</orgName>,
+                    The <orgName ref="#workhouse">workhouse</orgName>! From that hour poor 
+                    <persName ref="#Cordery_Tom_OV">Tom</persName>
+                    visibly altered. He lost his hilarity and independence. It was a change such as
+                    he had himself often inflicted, a complete change of habits, a transition from
+                    the wild to the tame. No labour was demanded of him; he went about as before,
+                    finding hares, killing rats, selling brooms, but the spirit of the man was
+                    departed. He talked of the quiet of his old abode, and the noise of the new;
+                    complained of <orgName type="person" ref="#workhouse_children">children</orgName> and other 
+                    bad company; and looked down on his neighbours
+                    with the sort of contempt with which a cock pheasant might regard a barn-door
+                    fowl. Most of all did he, braced into a gipsey-like defiance of wet and cold,
+                    grumble at the warmth and dryness of his apartment. He used to foretell that it
+                    would kill him, and <pb n="176"/> assuredly it did so. Never could the typhus
+                    fever have found out that <placeName type="land" ref="#hill">wild hill side</placeName>, 
+                    or have lurked under that broken roof. The free touch of the air 
+                    would have chased the daemon. Alas, poor <persName ref="#Cordery_Tom_OV">Tom</persName>! 
+                    warmth, and snugness,
+                    and comfort, whole windows, and an entire ceiling, 
+                    were the death of him. Alas, poor <persName ref="#Cordery_Tom_OV">Tom</persName>!<pb n="177"
+                    /></p>
+            </div>
+        </body>
+      
+        
+        <back>
+            <listPerson sortKey="fictPersons">
+                <person xml:id="Cordery_Tom_OV"/>
+                <person xml:id="Cordery_TomWife_OV"/>
+                <person xml:id="overseer"/>
+                <person xml:id="Tray"/>
+                <person xml:id="May-flower_OV"/>
+                <person xml:id="Lucy_fict_OV"/><!--scw: CHECK THIS-->
+                <person xml:id="head_keeper"/>
+                <person xml:id="Searle_Jem_OV"/>
+                <person xml:id="Arlott_Bob_OV"/>
+                
+            </listPerson>
+            <listPerson sortKey="histPersons">
+                <person xml:id="Ugo_Foscolo"/>
+                <person xml:id="Cromwell"/>
+                <person xml:id="Pope_Alex"/>
+                <person xml:id="Salvator_Rosa"/>
+            </listPerson>
+            
+           <listPerson sortKey="archPersons">
+               <person xml:id="myrmidons"/>
+               <person xml:id="Medusa"/>
+           </listPerson>
+           
+           <listPlace sortKey="fictPlaces">
+               <place xml:id="Hundred_Acres"></place><!--scw: 100 Acres, Burnt Common and Poor Allotment are the same space with 3 names. This should be shown in Site index. I have shown it in the tags with corresp.-->
+               <!--scw 5/27/19: These are places in Mortimer Common-->
+               <place xml:id="Burnt_Common"/>
+               <place xml:id="Poor_Allotment"/>
+               <place xml:id="M_Common"/>
+               <place xml:id="Gallows_Piece"/>
+               <place xml:id="heath"/>
+               <place xml:id="hill"/>
+               <place xml:id="forest"/>
+               <place xml:id="common"/>
+               <place xml:id="inclosure"/>
+               <place xml:id="moor"/>
+               <place xml:id="bog"/>
+               <place xml:id="hollows"/>
+               <place xml:id="pond"/>
+               <place xml:id="defile"/>
+               <place xml:id="dingle"/>
+               <place xml:id="stream"/>
+               <place xml:id="sallows"/>
+               <place xml:id="pool"/>
+               <!--scw: for mapping purposes, these tags may need to be distinguished more specifically.-->
+               
+               
+           </listPlace>
+            <listPlace sortKey="histPlaces">
+                <place xml:id="road">
+                    
+                </place>
+                
+            </listPlace>
+            
+            <listOrg sortKey="fictOrgs">
+                <org xml:id="greater_proprietors"/>
+                <org xml:id="guardians_of_game"/>
+                <org xml:id="great_farmers"/>
+                <org xml:id="small_gentry"/>
+                <org xml:id="servants"/>
+                <org xml:id="masters"/>
+                <org xml:id="squires"/>
+                <org xml:id="farmers"/><!--scw: the farmers, gentlemen & finders in this list are the groups of people TC takes on his hunting trips, so collectives of same.-->
+                <org xml:id="gentlemen"/>
+                <org xml:id="finders"/>
+                <org xml:id="two_murderers"/>
+                <org xml:id="workhouse_children"/>
+                
+               
+          </listOrg>
+            <listOrg sortKey="fictOrgs">
+                <org xml:id="Red_Lion"/>
+                <org xml:id="alehouse"/>
+                <org xml:id="workhouse"/>
+                
+            </listOrg>
+            <list sortKey="plants">
+                <item xml:id="pollard_oak"/>
+                <item xml:id="ivy"/>
+                <item xml:id="woodbine"/>
+                <item xml:id="acorns"/>
+                <item xml:id="gentianella"/>
+                <item xml:id="pine"/>
+                <item xml:id="bramble"/>
+                <item xml:id="furze"/>
+                <!--scw: there should be “heath” as a plant here, but I think it won’t let me add it because it is also a placeName.-->
+                <item xml:id="broom"/>
+                <item xml:id="wood"/>
+                <item xml:id="oak_tree"/>
+                <item xml:id="beech_tree"/>
+                <item xml:id="elm_tree"/>
+                <item xml:id="Scottish_fir_tree"/>
+                <item xml:id="fern"/>
+                <item xml:id="brushwood"/>
+                
+            </list>
+            <list sortKey="animals">
+                <item xml:id="hare"></item>
+            </list>
+            
+      
+   
+        
+    
+        </back>
+           
+                
+       
+      
+    </text>
+</TEI>

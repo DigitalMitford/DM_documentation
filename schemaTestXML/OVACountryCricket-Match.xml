@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://digitalmitford.github.io/DM_documentation/MitfordODD/out/mitfordODD.rng"
+<!--<?xml-model href="https://digitalmitford.github.io/DM_documentation/MitfordODD/out/mitfordODD.rng"
 type="application/xml" 
 schematypens="http://relaxng.org/ns/structure/1.0"?>
 <?xml-model href="https://digitalmitford.github.io/DM_documentation/MitfordODD/out/mitfordODD.rng" 
 type="application/xml" 
-schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<!-- <?xml-model href="../MitfordODD/out/mitfordODD.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="../MitfordODD/out/mitfordODD.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>-->
+schematypens="http://purl.oclc.org/dsdl/schematron"?>-->
+<?xml-model href="../MitfordODD/out/mitfordODD.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="../MitfordODD/out/mitfordODD.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
     <teiHeader>
         <fileDesc>
@@ -361,7 +361,8 @@ schematypens="http://purl.oclc.org/dsdl/schematron"?>
                     degree inconceivable to those who are accustomed to the punctual speed of the
                     post, and had taken ten days for its <measure quantity="12" unit="mi">twelve-miles</measure>’ journey. Have my readers any
                     wish to see this <emph rend="italic"><foreign xml:lang="fr">billet-doux</foreign></emph>? I can show them (but in strict
-                    confidence) a literal copy. It was addressed,</p><!--2017-01-31 ebb: To get floatingText to work, we needed to artifically close the paragraph element here. Ideally we'll close this paragraph after the floatingText element, but for now this will hold us. Check for an oXygen update to the TEI: I think this was something we patched after the latest release of the TEI-All schema. (Same with the second floatingText element below.--><!--2017-02-06: Filed ticket at TEI Council Meeting about floatingText nesting problem. This is a known issue. --><floatingText><body><opener><address><addrLine>“For <sic>mistur jem browne</sic></addrLine> <addrLine>“<sic>blaxmith</sic> by</addrLine> <addrLine>"<placeName ref="#S_town_OV">S.</placeName>"</addrLine></address></opener></body></floatingText> <!--scw: The foregoing text contains open-quotes at the beginning of each addrLine, but not close quotes. Adding any <quote> element brings a big error message.-->
+                    confidence) a literal copy. It was addressed,<!--2017-01-31 ebb: To get floatingText to work, we needed to artifically close the paragraph element here. Ideally we'll close this paragraph after the floatingText element, but for now this will hold us. Check for an oXygen update to the TEI: I think this was something we patched after the latest release of the TEI-All schema. (Same with the second floatingText element below.--><!--2017-02-06: Filed ticket at TEI Council Meeting about floatingText nesting problem. This is a known issue. --><floatingText><body><opener><address><addrLine>“For <sic>mistur jem browne</sic></addrLine> <addrLine>“<sic>blaxmith</sic> by</addrLine> <addrLine>"<placeName ref="#S_town_OV">S.</placeName>"</addrLine></address></opener></body></floatingText> <!--scw: The foregoing text contains open-quotes at the beginning of each addrLine, but not close quotes. Adding any <quote> element brings a big error message.-->
+                </p>
                 <p>The inside ran thus:—</p><floatingText><body><p>--“<sic>Mistur browne</sic> this is to <sic>Inform yew</sic> that <sic>oure</sic> parish <sic>playes</sic>
                     bramley men next <sic>monday is a week</sic>, i think we shall lose without <sic>yew</sic>. from your
                     <sic>humbell</sic> servant to command</p> <closer><signed>"<persName ref="#Allen_Mary_OV">Mary Allen</persName>.”</signed></closer></body></floatingText><pb n="159"/><!--scw: As above, MRM is using opening and closing quotes with abandon. Will have to come back to this passage to tag properly.-->
