@@ -2,14 +2,26 @@
 <?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_odds.rng" type="application/xml"
 	schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" version="2.9.1" xml:lang="en">
-   
+   <!-- 2018-08-08 ebb: BEGIN with mitfordPre-Editable.odd Canonicalize it to mitfordEditable.odd before beginning to edit. The full ODD file is mitfordODD.odd.
+      To make/edit/update the complete ODD: 
+      * Open mitfordPre-Editable.odd and run canonicalize in oXygen to pull in the latest rules on the <occupation> element encoding from the SI GitHub repo. Output as mitfordEditable.odd.
+      * Make any necessary edits to the document model (element modules from the TEI, general constraints, anything except Site Index updates) in the mitfordEditable.odd file.
+      * If updating the ODD because of new site index updates, 
+            1) be sure the new SI is posted at http://digitalmitford.org/si.xml. 
+            2) Generate elementSpecs for new named entity markup (persons, places, titles, etc) with attribute values for @ref and @corresp 
+      by running si-to-ODD.xsl over the current si.xml stored at http://digitalmitford.org/si.xml. Save the output file as MRMProsopRef.odd 
+     * Finally generate the full ODD file by running mitfordODD-Combiner.xsl on mitfordEditable.odd, which pulls in site index data stored in MRMProsopRef.odd. 
+     Save the output as mitfordODD.odd
+     * "Run the wrench" in oXygen to generate the new Relax-NG XML-syntax project schema and HTML documentation for the project.
+      2018-09-25 ebb: The canonical version of the Mitford ODD is stored in the DM_Documentation GitHub repo. Project schema lines should point to the ODD-generated Relax NG schema at https://digitalmitford.github.io/DM_documentation/MitfordODD/out/mitfordODD.rng 
+  -->
   <teiHeader>
       <fileDesc>
          <titleStmt>
             <title>Digital Mitford ODD for Project Edition Files</title>
             <author>Elisa Beshero-Bondar</author>
          </titleStmt>
-        
+        <!-- <xi:include href="MRMProsopRef.odd" xpointer="edition"/>-->
          <publicationStmt>
             <authority>Prepared in TEI P5 by Elisa Beshero-Bondar in the Digital Mitford GitHub repository: <ref target="https://github.com/DigitalMitford/DM_documentation"></ref>. Date last worked on: <date when="2019-05-18">18 May 2019</date></authority>
             <availability><licence>Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) approved for Free Cultural Works <ref target="https://creativecommons.org/licenses/by-sa/4.0/"></ref></licence></availability>
@@ -43,10 +55,10 @@
             <moduleRef key="linking"></moduleRef>
             <moduleRef except="lem " key="textcrit"></moduleRef>
             <moduleRef except="line zone path" key="transcr"></moduleRef>
-            <moduleRef key="figures"></moduleRef>
-            <moduleRef key="gaiji"></moduleRef>
+            <moduleRef key="figures"></moduleRef><!--ebb: We may want to make a table of postmark images correlated to IDs in its own file. -->
+            <moduleRef key="gaiji"></moduleRef><!--ebb: included for charDecl if we want to make a list of metamarks -->
             
-            
+            <!-- Checking general xml:id syntax and hashtags for referencing, plus checking witness attribute values where using critical apparatus (versioning) markup.-->
  <constraintSpec ident="xmlIDs" scheme="schematron">
                <constraint>
                   <sch:rule xmlns:sch="http://purl.oclc.org/dsdl/schematron" context="tei:TEI//@xml:id">
@@ -118,7 +130,7 @@
                   <sch:rule xmlns:sch="http://purl.oclc.org/dsdl/schematron" context="*/@resp">
                      <sch:let name="siFile" value="doc('https://digitalmitford.org/si.xml')"></sch:let>
                      <sch:let name="siAddColl" value="collection('https://digitalmitford.github.io/DM_SiteIndex/si_Add_Staged/catalogue.xml')"></sch:let>
-                     <sch:let name="backIDs" value="//tei:back//tei:person/@xml:id"></sch:let>
+                     <sch:let name="backIDs" value="//tei:back//tei:person/@xml:id"></sch:let><!--2019-05-19 ebb: Let's keep this one simple since people may not set the right divs in place in the backList -->
                      <sch:let name="siAddIDs" value="$siAddColl//tei:text//tei:listPerson[@sortKey='Mitford_Team']/@xml:id | $siAddColl//tei:text//tei:listPerson[starts-with(@sortKey, 'Past')]/@xml:id"></sch:let>
                      <sch:let name="siFileIDs" value="$siFile//tei:text//tei:listPerson[@sortKey='Mitford_Team']/@xml:id | $siAddColl//tei:text//tei:listPerson[starts-with(@sortKey, 'Past')]/@xml:id"></sch:let>
                      <sch:let name="tempIDs" value="($backIDs, $siAddIDs)"></sch:let>
@@ -286,10 +298,10 @@
                        <sch:let name="siAddIDs" value="$siAddColl//@xml:id"></sch:let>
                        <sch:let name="tempIDs" value="($backIDs, $siAddIDs)"></sch:let>
                         <sch:let name="refs" value="for $i in tokenize(., '\s+') return substring-after($i,'#')"></sch:let>
-                        
+                        <!-- ebb: formulated this way in case we have plural ref or corresp values.-->
                        <sch:let name="backRefs" value="some $ref in $refs satisfies $ref = $tempIDs"></sch:let>
                        <sch:let name="siRefs" value="some $ref in $refs satisfies $ref = $siFile//@xml:id"></sch:let>
-                       
+                       <!--2019-05-17 ebb: In the test attributes below, if the current value is $backRefs, it was in an earlier stage following perhaps poor advice on the oXygen-users list, not(empty($backRefs)); restoring to simpler original in case it's what's causing *everything* to fire to as backRef. -->
                        <sch:report role="info" test="$backRefs">
                           This referencing value, <sch:value-of select="."></sch:value-of>, points to &lt;back&gt; or to one of the temporary siAdd files. All is well, but the Digital Mitford prosopography team needs to review the proposed new entries.                
                        </sch:report>
@@ -339,7 +351,7 @@
                   </attDef>
                </attList>
             </elementSpec>
-            
+            <!-- Rules to help with writing "backlist" entries (or proposed new site index entries).-->
        <constraintSpec ident="backList_only" scheme="schematron">
           <constraint>
              <sch:p xmlns:sch="http://purl.oclc.org/dsdl/schematron">List elements holding sortKey attributes for proposed entries to the Site Index may only appear in the back portion of a Digital Mitford project TEI file.</sch:p>
@@ -348,8 +360,8 @@
              </sch:rule> 
           </constraint>
        </constraintSpec> 
-            
-            
+            <!-- The following rules (next ~400 lines or so) are drawn from the si_ODD.odd file. (Consider ODD chaining for this?) -->
+            <!--sortKey on SI list elements -->
 <elementSpec ident="listPerson" mode="change" module="namesdates">
    <attList>
       <attDef ident="sortKey" mode="replace" usage="req">
@@ -418,7 +430,7 @@
                </attList>
             </elementSpec> 
             
-                       
+            <!--sex codes on person element: m, f, m f, and u -->           
             <elementSpec ident="person" mode="change" module="namesdates">
                <attList>
                   <attDef ident="sex" mode="replace" usage="rec">
@@ -431,7 +443,7 @@
                   </attDef>
                </attList>
             </elementSpec>
-            
+            <!-- X-Include Here: for elementSpec occupation. Edit the occupation element specs in the ODD_Includes directory, and then run Canonicalize in oXygen to include it. -->
             <elementSpec ident="occupation" mode="change" module="namesdates" xml:base="../../DM_SiteIndex/schemas/ODD_includes/occupationsElem.xml" xml:lang="en">
     <content>
         <elementRef key="roleName" maxOccurs="unbounded" minOccurs="0"></elementRef>
@@ -459,7 +471,7 @@
         <attDef ident="subtype" mode="replace" usage="opt">
             <datatype><dataRef name="string"></dataRef></datatype>
             <valList type="semi">
-                
+                <!--Subtypes related to type="artist" -->
                 <valItem ident="painter"><gloss>with type="artist": Designate type of painter as appropriate in the note element.</gloss></valItem>
                 <valItem ident="printmaker"><gloss>with type="artist": this includes printmaking for books.</gloss></valItem>
                 <valItem ident="engraver"><gloss>with type="artist": this includes engravings for books.</gloss></valItem> 
@@ -467,12 +479,12 @@
                 <valItem ident="architect"><gloss>with type="artist". for designers of buildings.</gloss></valItem>
                 <valItem ident="landscape"><gloss>with type="artist". for designers and planners of gardens. The occupation of gardener, for one who helps maintain a garden, goes with @type="service" </gloss></valItem>
                 <valItem ident="illustrator"><gloss>with type="artist". This includes book illustrators.</gloss></valItem>
-                
+                <!--Subtypes related to type="bookProducer" -->
                 <valItem ident="publisher"><gloss>with type="bookProducer".</gloss></valItem>
                 <valItem ident="printer"><gloss>with type="bookProducer". Do not use for art printing. For that, use one of the subtypes associated with type="artist".</gloss></valItem>
                 <valItem ident="binder"><gloss>with type="bookProducer".</gloss></valItem>
                 <valItem ident="bookseller"><gloss>with type="bookProducer".</gloss></valItem>
-                
+                <!--Subtypes related to type="religious" -->
                 <valItem ident="clergy"><gloss>with type="religious".</gloss></valItem>
                 <valItem ident="prophet"><gloss>with type="religious".</gloss></valItem>
                 <valItem ident="vicar"><gloss>with type="religious".</gloss></valItem>
@@ -483,13 +495,13 @@
                 <valItem ident="composer"><gloss>with type="religious". For composers of religious music.</gloss></valItem>
                 <valItem ident="musician"><gloss>with type="religious". For musical performers in church settings and religious contexts.</gloss></valItem>
                 <valItem ident="churchAssist"><gloss>with type="religious". For non-leadership roles serving the church (such as pew-opener, sexton, or verger).</gloss></valItem>
-                
+                <!--Subtypes related to type="educator" -->
                 <valItem ident="teacher"><gloss>with type="educator".</gloss></valItem>
                 <valItem ident="schoolHead"><gloss>with type="educator". (for headmistress, schoolmaster, etc.)</gloss></valItem>
                 <valItem ident="governess"><gloss>with type="educator".</gloss></valItem>
                 <valItem ident="tutor"><gloss>with type="educator".</gloss></valItem>
                 <valItem ident="lecturer"><gloss>with type="educator". For public lecturers on educational topics.</gloss></valItem>
-                
+                <!--Subtypes related to type="scholar" -->
                 <valItem ident="philosopher"><gloss>with type="scholar". Distinct from natural philosopher.</gloss></valItem> 
                 <valItem ident="naturalist"><gloss>with type="scholar". Covers the natural sciences and earth sciences, and includes biologist, botanist, ornithologist, geologist, etc.</gloss></valItem>
                 <valItem ident="astronomer"><gloss>with type="scholar".</gloss></valItem> 
@@ -500,12 +512,12 @@
                 <valItem ident="economist"><gloss>with type="scholar". </gloss></valItem>
                 <valItem ident="agronomist"><gloss>with type="scholar". For those who study agriculture.</gloss></valItem>
                 <valItem ident="supernatural"><gloss>For a powerful person who researches the supernatural or the spirit world, for example, Prospero or Dr. Faustus. With type="scholar".</gloss></valItem>
-                 
+                <!--Subtypes related to type="explorer" --> 
                 <valItem ident="traveller"><gloss>with type="explorer".</gloss></valItem>
                 <valItem ident="navigator"><gloss>with type="explorer".</gloss></valItem>
                 <valItem ident="cartographer"><gloss>with type="explorer".</gloss></valItem>
                 <valItem ident="seaCaptain"><gloss>with type="explorer". Commands a ship, distinct from military post.</gloss></valItem>
-                 
+                <!--Subtypes related to type="legal" --> 
                 <valItem ident="barrister"><gloss>with type="legal". British lawyers who can plead in court.</gloss></valItem>
                 <valItem ident="solicitor"><gloss>with type="legal". British lawyers who do not plead in court.</gloss></valItem>
                 <valItem ident="lawyer"><gloss>with type="legal". ONLY appropriate if law practitioner from the United States.</gloss></valItem> 
@@ -513,7 +525,7 @@
                 <valItem ident="judge"><gloss>with type="legal". ex: Mr. Justice Talfourd</gloss></valItem>  
                 <valItem ident="magistrate"><gloss>with type="legal". ex: George Mitford</gloss></valItem>  
                 <valItem ident="enforcement"><gloss>with type="legal". For constable, police, or sheriff, those involved in law enforcement.</gloss></valItem>
-                
+                <!--Subtypes related to type="literary" -->
                 <valItem ident="novelist"><gloss>with type="literary". </gloss></valItem> 
                 <valItem ident="poet"><gloss>with type="literary". </gloss></valItem> 
                 <valItem ident="playwright"><gloss>with type="literary". </gloss></valItem> 
@@ -526,7 +538,7 @@
                 <valItem ident="lexicographer"><gloss>with type="literary". </gloss></valItem> 
                 <valItem ident="linguist"><gloss>with type="literary". For those who systemically study languages, not simply translators.</gloss></valItem> 
                 <valItem ident="translator"><gloss>with type="literary". </gloss></valItem> 
-                  
+                <!--Subtypes related to type="theater" -->  
                 <valItem ident="actor"><gloss>with type="theater". General term for all sexes; do not use "actress".</gloss></valItem> 
                 <valItem ident="singer"><gloss>with type="theater". Includes opera singers in performing roles. </gloss></valItem> 
                 <valItem ident="manager"><gloss>with type="theater". For actor-managers and theater managers like William Macready.</gloss></valItem> 
@@ -534,21 +546,21 @@
                 <valItem ident="designer"><gloss>with type="theater". For production designers, costume-makers, makers of stage sets and props.</gloss></valItem> 
                 <valItem ident="musician"><gloss>with type="theater". For pit players of music supporting the stage.</gloss></valItem>   
                 <valItem ident="composer"><gloss>with type="theater". For writers of instrumental and vocal music for the stage, including lyricists and librettists.</gloss></valItem>
-                
+                <!--Subtypes related to type="medical" -->
                 <valItem ident="physician"><gloss>with type="medical".</gloss></valItem>
                 <valItem ident="surgeon"><gloss>with type="medical". Includes barbers and others who do surgery and bloodletting.</gloss></valItem>
                 <valItem ident="apothecary"><gloss>with type="medical". For pharmacy specialists.</gloss></valItem>
                 <valItem ident="midwife"><gloss>with type="medical". Includes, should we ever see one, a "man-midwife" or a male who assists with births and is not a physician or surgeon.</gloss></valItem>
                 <valItem ident="oculist"><gloss>with type="medical".</gloss></valItem>
                 <valItem ident="dentist"><gloss>with type="medical".</gloss></valItem>
-                
+                <!--Subtypes related to type="military" -->
                 <valItem ident="army"><gloss>with type="military".</gloss></valItem>    
                 <valItem ident="navy"><gloss>with type="military".</gloss></valItem>
-                
+                <!--Subtypes related to type="benefactor" -->
                 <valItem ident="philanthropist"><gloss>with type="benefactor". For doers of benevolent activities outside of the arts</gloss></valItem>
                 <valItem ident="patron"><gloss>with type="benefactor". For supporters of the arts, theatre, and writers</gloss></valItem>
                 <valItem ident="volunteer"><gloss>with type="benefactor". For individual benevolent activities involving labor rather than money</gloss></valItem>
-                
+                <!--Subtypes related to type="government" -->
                 <valItem ident="monarch"><gloss>with type="government". Titles like King, Queen, Princess are coded in &lt;roleName&gt;, not &lt;occupation&gt;.</gloss></valItem> 
                 <valItem ident="politician"><gloss>with type="government". Use for elected officials and those running for election or who are in office by reason of political party or affiliation. Code their official title (such as "Member of Parliament for Westminster) with &lt;roleName&gt;.</gloss></valItem>  
                 <valItem ident="orator"><gloss>with type="government". For political or reformist orators who are not clergy, actors, or prophets.</gloss></valItem>  
@@ -562,7 +574,7 @@
                 <valItem ident="customs"><gloss>with type="government".</gloss></valItem>
                 <valItem ident="surveyor"><gloss>Appointed by Parliament or employed, for example, by a local government committee to survey roads or parks. With type="government".</gloss></valItem>
                 <valItem ident="alderman"><gloss>with type="government".</gloss></valItem>
-                
+                <!--Subtypes related to type="service" -->
                 <valItem ident="butler"><gloss>with type="service".</gloss></valItem>
                 <valItem ident="coachman"><gloss>with type="service".</gloss></valItem>
                 <valItem ident="maid"><gloss>with type="service".</gloss></valItem>
@@ -576,7 +588,7 @@
                 <valItem ident="gamekeeper"><gloss>with type="service".</gloss></valItem>
                 <valItem ident="groom"><gloss>with type="service".</gloss></valItem>
                 <valItem ident="majordomo"><gloss>For the head servant who can speak and act on behalf of the household owners. With type="service".</gloss></valItem>
-                
+                <!--Subtypes related to type="trade" -->
                 <valItem ident="baker"><gloss>with type="trade".</gloss></valItem>
                 <valItem ident="butcher"><gloss>with type="trade".</gloss></valItem> 
                 <valItem ident="farmer"><gloss>with type="trade".</gloss></valItem> 
@@ -639,8 +651,8 @@
         </egXML>
     </exemplum>
 </elementSpec>
-            
-            
+            <!--Occupation coding: binding appropriate subtypes with types and permitting plural subtype values. Edit the occupation Schematron constraint specs in the ODD_Includes directory, and then run Canonicalize in oXygen to include it. -->
+            <!-- X-Include Here: for occupation Schematron constraints -->
             <constraintSpec ident="occupation" scheme="schematron" xml:base="../../DM_SiteIndex/schemas/ODD_includes/occupationsSchem.xml" xml:lang="en">
     <constraint>
         <sch:pattern xmlns:sch="http://purl.oclc.org/dsdl/schematron">
@@ -722,9 +734,9 @@
         </sch:pattern>
     </constraint>
 </constraintSpec>
-            
+         <!--Occupation coding: binding appropriate subtypes with types and permitting plural subtype values. -->   
            
-        
+        <!--    <xi:include href="MRMProsopRef.odd" xpointer="prosop"/>-->
          </schemaSpec>
       </body>
   </text>
