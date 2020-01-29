@@ -5,7 +5,9 @@
 To make/edit/update the complete ODD: 
 
       * Open mitfordPre-Editable.odd and run canonicalize in oXygen to pull in the latest rules on the <occupation> element encoding from the SI GitHub repo. Output as mitfordEditable.odd.
+      
       * Make any necessary edits to the document model (element modules from the TEI, general constraints, anything except Site Index updates) in the mitfordEditable.odd file.
+      
       * If updating the ODD because of new site index updates, 
            
            1) be sure the new SI is posted at http://digitalmitford.org/si.xml. 
