@@ -141,7 +141,7 @@
                <constraint>
                   <sch:p>Ensure that the @resp values on note and other elements point to members of the Mitford Team or to Past Editors</sch:p>
                   <sch:rule context="*/@resp">
-                     <sch:let name="siFile" value="doc('https://digitalmitford.org/si.xml')"/>
+                     <sch:let name="siFile" value="doc('../../DM_SiteIndex/si_Full_Staged/si.xml')"/>
                      <sch:let name="siAddColl"
                               value="collection('https://digitalmitford.github.io/DM_SiteIndex/si_Add_Staged/catalogue.xml')"/>
                      <sch:let name="backIDs" value="//tei:back//tei:person/@xml:id"/>
@@ -174,7 +174,7 @@
                         <sch:p>Ensure that the @ref values on rs of type event point to event site index entries across the project.</sch:p>
                         <sch:rule context="tei:rs[@type='event'] | tei:name[@type='event']">
 
-                     <sch:let name="siFile" value="doc('https://digitalmitford.org/si.xml')"/>
+                     <sch:let name="siFile" value="doc('../../DM_SiteIndex/si_Full_Staged/si.xml')"/>
                      <sch:let name="siAddColl"
                               value="collection('https://digitalmitford.github.io/DM_SiteIndex/si_Add_Staged/catalogue.xml')"/>
                         <sch:let name="backIDs" value="//tei:back//tei:event/@xml:id"/>
@@ -194,7 +194,7 @@
                <constraint>
                   <sch:p>Ensure that the @ref values on rs of type title point to bibl site index entries across the project.</sch:p>
                   <sch:rule context="tei:rs[@type='title'] | tei:name[@type='title']">
-                     <sch:let name="siFile" value="doc('https://digitalmitford.org/si.xml')"/>
+                     <sch:let name="siFile" value="doc('../../DM_SiteIndex/si_Full_Staged/si.xml')"/>
                      <sch:let name="siAddColl"
                               value="collection('https://digitalmitford.github.io/DM_SiteIndex/si_Add_Staged/catalogue.xml')"/>
                      <sch:let name="backIDs" value="//tei:back//tei:bibl/@xml:id"/>
@@ -214,7 +214,7 @@
                <constraint>
                   <sch:p>Ensure that the @ref values on rs of type place point to place site index entries across the project.</sch:p>
                   <sch:rule context="tei:rs[@type='place'] | tei:name[@type='place']">
-                     <sch:let name="siFile" value="doc('https://digitalmitford.org/si.xml')"/>
+                     <sch:let name="siFile" value="doc('../../DM_SiteIndex/si_Full_Staged/si.xml')"/>
                      <sch:let name="siAddColl"
                               value="collection('https://digitalmitford.github.io/DM_SiteIndex/si_Add_Staged/catalogue.xml')"/>
                      <sch:let name="backIDs" value="//tei:back//tei:place/@xml:id"/>
@@ -234,7 +234,7 @@
                <constraint>
                   <sch:p>Ensure that the @ref values on rs of type org (organization) point to org site index entries across the project.</sch:p>
                   <sch:rule context="tei:rs[@type='org'] | tei:name[@type='org']">
-                     <sch:let name="siFile" value="doc('https://digitalmitford.org/si.xml')"/>
+                     <sch:let name="siFile" value="doc('../../DM_SiteIndex/si_Full_Staged/si.xml')"/>
                      <sch:let name="siAddColl"
                               value="collection('https://digitalmitford.github.io/DM_SiteIndex/si_Add_Staged/catalogue.xml')"/>
                      <sch:let name="backIDs" value="//tei:back//tei:org/@xml:id"/>
@@ -254,7 +254,7 @@
                <constraint>
                   <sch:p>Ensure that the @ref values on rs of type person point to person site index entries across the project.</sch:p>
                   <sch:rule context="tei:rs[@type='person'] | tei:name[@type='person']">
-                     <sch:let name="siFile" value="doc('https://digitalmitford.org/si.xml')"/>
+                     <sch:let name="siFile" value="doc('../../DM_SiteIndex/si_Full_Staged/si.xml')"/>
                      <sch:let name="siAddColl"
                               value="collection('https://digitalmitford.github.io/DM_SiteIndex/si_Add_Staged/catalogue.xml')"/>
                      <sch:let name="backIDs" value="//tei:back//tei:person/@xml:id"/>
@@ -274,7 +274,7 @@
                <constraint>
                   <sch:p>Ensure that the @ref values on rs of type plant point to plant site index entries across the project.</sch:p>
                   <sch:rule context="tei:rs[@type='plant'] | tei:name[@type='plant']">
-                     <sch:let name="siFile" value="doc('https://digitalmitford.org/si.xml')"/>
+                     <sch:let name="siFile" value="doc('../../DM_SiteIndex/si_Full_Staged/si.xml')"/>
                      <sch:let name="siAddColl"
                               value="collection('https://digitalmitford.github.io/DM_SiteIndex/si_Add_Staged/catalogue.xml')"/>
                      <sch:let name="backIDs"
@@ -297,7 +297,7 @@
                      <constraint>
                         <sch:p>Ensure that the @ref values on rs of type animal point to animal site index entries across the project.</sch:p>
                   <sch:rule context="tei:rs[@type='animal'] | tei:name[@type='animal']">
-                     <sch:let name="siFile" value="doc('https://digitalmitford.org/si.xml')"/>
+                     <sch:let name="siFile" value="doc('../../DM_SiteIndex/si_Full_Staged/si.xml')"/>
                      <sch:let name="siAddColl"
                               value="collection('https://digitalmitford.github.io/DM_SiteIndex/si_Add_Staged/catalogue.xml')"/>
                      <sch:let name="backIDs"
@@ -320,7 +320,7 @@
                <constraint>
                   <sch:p>Ensure that the @ref values on rs of type art point to art site index entries across the project.</sch:p>
                   <sch:rule context="tei:rs[@type='art'] | tei:name[@type='art']">
-                     <sch:let name="siFile" value="doc('https://digitalmitford.org/si.xml')"/>
+                     <sch:let name="siFile" value="doc('../../DM_SiteIndex/si_Full_Staged/si.xml')"/>
                      <sch:let name="siAddColl"
                               value="collection('https://digitalmitford.github.io/DM_SiteIndex/si_Add_Staged/catalogue.xml')"/>
                      <sch:let name="backIDs" value="//tei:back//tei:list[@sortKey='art']//*/@xml:id"/>
@@ -343,7 +343,7 @@
                  <sch:pattern>
                     <sch:p>Check whether ids point to &lt;back&gt; or to one of the temporary siAdd files.</sch:p>
                     <sch:rule context="@ref | @corresp">
-                       <sch:let name="siFile" value="doc('https://digitalmitford.org/si.xml')"/>
+                       <sch:let name="siFile" value="doc('../../DM_SiteIndex/si_Full_Staged/si.xml')"/>
                        <sch:let name="siAddColl"
                                  value="collection('https://digitalmitford.github.io/DM_SiteIndex/si_Add_Staged/catalogue.xml')"/>
                        <sch:let name="backIDs" value="//tei:back//@xml:id"/>
