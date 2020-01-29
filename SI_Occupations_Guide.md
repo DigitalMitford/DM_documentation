@@ -213,5 +213,8 @@ Example with multiple white-space-separated subtypes:
     * driver
     * hunt (for those hired in hunting as well as those trading in items associated with hunting)
     * magic (for street magicians, illusionists, fortune tellers, those making a living in magic arts)
+    * poacher
+    * broomMaker
+    * sailor
     
     
