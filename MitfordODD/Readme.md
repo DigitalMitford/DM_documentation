@@ -1,4 +1,4 @@
-# Stages of Updating the Mitford SI-ODD and Project ODD
+# Stages of Updating the Digital Mitford Project ODD
 
  BEGIN with mitfordPre-Editable.odd. Canonicalize it to mitfordEditable.odd before beginning to edit. The full ODD file is mitfordODD.odd.
       
