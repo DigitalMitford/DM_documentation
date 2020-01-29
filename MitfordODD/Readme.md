@@ -12,7 +12,7 @@ To make/edit/update the complete ODD:
            
      1) Be sure the new SI is posted at http://digitalmitford.org/si.xml. 
             
-     2) Generate elementSpecs for new named entity markup (persons, places, titles, etc) with attribute values for @ref and @corresp 
+     1) Generate elementSpecs for new named entity markup (persons, places, titles, etc) with attribute values for @ref and @corresp 
       by running si-to-ODD.xsl over the current si.xml stored at http://digitalmitford.org/si.xml. Save the output file as MRMProsopRef.odd 
       
 * Finally generate the full ODD file by running mitfordODD-Combiner.xsl on mitfordEditable.odd, which pulls in site index data stored in MRMProsopRef.odd. Save the output as mitfordODD.odd
