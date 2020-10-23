@@ -5,10 +5,10 @@
          xmlns="http://relaxng.org/ns/structure/1.0"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.tei-c.org/ns/1.0"><!--
-Schema generated from ODD source 2020-08-08T03:22:27Z. .
-TEI Edition: Version 4.0.0. Last updated on
-	13th February 2020, revision ccd19b0ba
-TEI Edition Location: http://www.tei-c.org/Vault/P5/Version 4.0.0/
+Schema generated from ODD source 2020-10-23T03:05:17Z. .
+TEI Edition: Version 4.1.0. Last updated on
+	19th August 2020, revision b414ba550
+TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.1.0/
   
 --><!--Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) approved for Free Cultural Works  -->
    <define name="teimacro.paraContent">
@@ -38,7 +38,7 @@ TEI Edition Location: http://www.tei-c.org/Vault/P5/Version 4.0.0/
          <choice>
             <text/>
             <ref name="teimodel.gLike"/>
-            <ref name="teimodel.qLike"/>
+            <ref name="teimodel.attributable"/>
             <ref name="teimodel.phrase"/>
             <ref name="teimodel.global"/>
          </choice>
@@ -1030,19 +1030,7 @@ Suggested values include: 1] internal; 2] external; 3] conjecture</a:documentati
       </attribute>
    </define>
    <define name="teiatt.interpLike.attributes">
-      <ref name="teiatt.interpLike.attribute.type"/>
       <ref name="teiatt.interpLike.attribute.inst"/>
-   </define>
-   <define name="teiatt.interpLike.attribute.type">
-      <optional>
-         <attribute name="type">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">indicates what kind of phenomenon is being noted in the passage.
-Sample values include: 1] image; 2] character; 3] theme; 4] allusion</a:documentation>
-            <data type="token">
-               <param name="pattern">[^\p{C}\p{Z}]+</param>
-            </data>
-         </attribute>
-      </optional>
    </define>
    <define name="teiatt.interpLike.attribute.inst">
       <optional>
@@ -1697,29 +1685,41 @@ Suggested values include: 1] volume; 2] issue; 3] page; 4] line; 5] chapter; 6] 
    <define name="teimodel.hiLike">
       <choice>
          <ref name="teihi"/>
+         <ref name="teiq"/>
       </choice>
    </define>
    <define name="teimodel.hiLike_alternation">
       <choice>
          <ref name="teihi"/>
+         <ref name="teiq"/>
       </choice>
    </define>
    <define name="teimodel.hiLike_sequence">
       <ref name="teihi"/>
+      <ref name="teiq"/>
    </define>
    <define name="teimodel.hiLike_sequenceOptional">
       <optional>
          <ref name="teihi"/>
+      </optional>
+      <optional>
+         <ref name="teiq"/>
       </optional>
    </define>
    <define name="teimodel.hiLike_sequenceOptionalRepeatable">
       <zeroOrMore>
          <ref name="teihi"/>
       </zeroOrMore>
+      <zeroOrMore>
+         <ref name="teiq"/>
+      </zeroOrMore>
    </define>
    <define name="teimodel.hiLike_sequenceRepeatable">
       <oneOrMore>
          <ref name="teihi"/>
+      </oneOrMore>
+      <oneOrMore>
+         <ref name="teiq"/>
       </oneOrMore>
    </define>
    <define name="teimodel.emphLike">
@@ -3277,29 +3277,26 @@ Suggested values include: 1] volume; 2] issue; 3] page; 4] line; 5] chapter; 6] 
          <ref name="teicit"/>
       </oneOrMore>
    </define>
-   <define name="teimodel.qLike">
+   <define name="teimodel.attributable">
       <choice>
          <ref name="teimodel.quoteLike"/>
          <ref name="teisaid"/>
-         <ref name="teiq"/>
          <ref name="teifloatingText"/>
       </choice>
    </define>
-   <define name="teimodel.qLike_alternation">
+   <define name="teimodel.attributable_alternation">
       <choice>
          <ref name="teimodel.quoteLike_alternation"/>
          <ref name="teisaid"/>
-         <ref name="teiq"/>
          <ref name="teifloatingText"/>
       </choice>
    </define>
-   <define name="teimodel.qLike_sequence">
+   <define name="teimodel.attributable_sequence">
       <ref name="teimodel.quoteLike_sequence"/>
       <ref name="teisaid"/>
-      <ref name="teiq"/>
       <ref name="teifloatingText"/>
    </define>
-   <define name="teimodel.qLike_sequenceOptional">
+   <define name="teimodel.attributable_sequenceOptional">
       <optional>
          <ref name="teimodel.quoteLike_sequenceOptional"/>
       </optional>
@@ -3307,13 +3304,10 @@ Suggested values include: 1] volume; 2] issue; 3] page; 4] line; 5] chapter; 6] 
          <ref name="teisaid"/>
       </optional>
       <optional>
-         <ref name="teiq"/>
-      </optional>
-      <optional>
          <ref name="teifloatingText"/>
       </optional>
    </define>
-   <define name="teimodel.qLike_sequenceOptionalRepeatable">
+   <define name="teimodel.attributable_sequenceOptionalRepeatable">
       <zeroOrMore>
          <ref name="teimodel.quoteLike_sequenceOptionalRepeatable"/>
       </zeroOrMore>
@@ -3321,21 +3315,15 @@ Suggested values include: 1] volume; 2] issue; 3] page; 4] line; 5] chapter; 6] 
          <ref name="teisaid"/>
       </zeroOrMore>
       <zeroOrMore>
-         <ref name="teiq"/>
-      </zeroOrMore>
-      <zeroOrMore>
          <ref name="teifloatingText"/>
       </zeroOrMore>
    </define>
-   <define name="teimodel.qLike_sequenceRepeatable">
+   <define name="teimodel.attributable_sequenceRepeatable">
       <oneOrMore>
          <ref name="teimodel.quoteLike_sequenceRepeatable"/>
       </oneOrMore>
       <oneOrMore>
          <ref name="teisaid"/>
-      </oneOrMore>
-      <oneOrMore>
-         <ref name="teiq"/>
       </oneOrMore>
       <oneOrMore>
          <ref name="teifloatingText"/>
@@ -3704,7 +3692,7 @@ Suggested values include: 1] volume; 2] issue; 3] page; 4] line; 5] chapter; 6] 
          <ref name="teimodel.labelLike"/>
          <ref name="teimodel.listLike"/>
          <ref name="teimodel.stageLike"/>
-         <ref name="teimodel.qLike"/>
+         <ref name="teimodel.attributable"/>
          <ref name="teicastList"/>
       </choice>
    </define>
@@ -3712,6 +3700,7 @@ Suggested values include: 1] volume; 2] issue; 3] page; 4] line; 5] chapter; 6] 
       <choice>
          <ref name="teimodel.divPart"/>
          <ref name="teimodel.inter"/>
+         <ref name="teiq"/>
       </choice>
    </define>
    <define name="teimodel.phrase">
@@ -3751,6 +3740,19 @@ Suggested values include: 1] volume; 2] issue; 3] page; 4] line; 5] chapter; 6] 
    </define>
    <define name="teimodel.div1Like">
       <notAllowed/>
+   </define>
+   <define name="teimodel.annotationLike">
+      <choice>
+         <ref name="teinote"/>
+         <ref name="teiannotation"/>
+      </choice>
+   </define>
+   <define name="teimodel.annotationPart.body">
+      <choice>
+         <ref name="teiptr"/>
+         <ref name="teiref"/>
+         <ref name="teinote"/>
+      </choice>
    </define>
    <define name="teimodel.applicationLike">
       <choice>
@@ -3814,9 +3816,11 @@ Suggested values include: 1] volume; 2] issue; 3] page; 4] line; 5] chapter; 6] 
          <ref name="teimodel.global.meta"/>
          <ref name="teimodel.biblLike"/>
          <ref name="teimodel.listLike"/>
+         <ref name="teimodel.annotationLike"/>
          <ref name="teilistChange"/>
          <ref name="teicastList"/>
          <ref name="teiseg"/>
+         <ref name="teilistAnnotation"/>
       </choice>
    </define>
    <define name="teiatt.formula.attributes">
@@ -4133,12 +4137,15 @@ Suggested values include: 1] spoken; 2] thought; 3] written; 4] soCalled; 5] for
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(cited quotation) contains a quotation from some other document, together with a bibliographic reference to its source. In a dictionary it may contain an example text with at least one occurrence of the word form, used in the sense being described, or a translation of the headword, or an example. [3.3.3. Quotation 4.3.1. Grouped Texts 9.3.5.1. Examples]</a:documentation>
          <oneOrMore>
             <choice>
-               <ref name="teimodel.qLike"/>
-               <ref name="teimodel.egLike"/>
                <ref name="teimodel.biblLike"/>
-               <ref name="teimodel.ptrLike"/>
-               <ref name="teimodel.global"/>
+               <ref name="teimodel.egLike"/>
                <ref name="teimodel.entryPart"/>
+               <ref name="teimodel.global"/>
+               <ref name="teimodel.graphicLike"/>
+               <ref name="teimodel.ptrLike"/>
+               <ref name="teimodel.attributable"/>
+               <ref name="teipc"/>
+               <ref name="teiq"/>
             </choice>
          </oneOrMore>
          <ref name="teiatt.global.attributes"/>
@@ -4762,13 +4769,13 @@ Suggested values include: 1] #Act_of_Union (The Act of Union | The unification o
       </element>
    </define>
    <define name="teirs">
-      <element name="rs" ns="http://www.tei-c.org/ns/1.0">
+      <element name="rs">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(referencing string) contains a general purpose name or referring string. [13.2.1. Personal Names 3.5.1. Referring Strings]</a:documentation>
          <ref name="teimacro.phraseSeq"/>
          <ref name="teiatt.global.attributes"/>
          <ref name="teiatt.naming.attributes"/>
          <ref name="teiatt.typed.attribute.subtype"/>
-         <attribute name="type" ns="http://www.tei-c.org/ns/1.0">
+         <attribute name="type">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
             <choice>
                <value>person</value>
@@ -5023,12 +5030,12 @@ Sample values include: 1] suspension; 2] contraction; 3] brevigraph; 4] superscr
 attributes @target and @cRef may be supplied on <name/>.</report>
             </rule>
          </pattern>
-         <ref name="teiatt.global.attributes"/>
-         <ref name="teiatt.pointing.attributes"/>
-         <ref name="teiatt.internetMedia.attributes"/>
-         <ref name="teiatt.typed.attributes"/>
-         <ref name="teiatt.declaring.attributes"/>
          <ref name="teiatt.cReferencing.attributes"/>
+         <ref name="teiatt.declaring.attributes"/>
+         <ref name="teiatt.global.attributes"/>
+         <ref name="teiatt.internetMedia.attributes"/>
+         <ref name="teiatt.pointing.attributes"/>
+         <ref name="teiatt.typed.attributes"/>
          <empty/>
       </element>
    </define>
@@ -5047,17 +5054,17 @@ attributes @target and @cRef may be supplied on <name/>.</report>
                </report>
             </rule>
          </pattern>
-         <ref name="teiatt.global.attributes"/>
-         <ref name="teiatt.pointing.attributes"/>
-         <ref name="teiatt.internetMedia.attributes"/>
-         <ref name="teiatt.typed.attributes"/>
-         <ref name="teiatt.declaring.attributes"/>
          <ref name="teiatt.cReferencing.attributes"/>
+         <ref name="teiatt.declaring.attributes"/>
+         <ref name="teiatt.global.attributes"/>
+         <ref name="teiatt.internetMedia.attributes"/>
+         <ref name="teiatt.pointing.attributes"/>
+         <ref name="teiatt.typed.attributes"/>
          <empty/>
       </element>
    </define>
    <define name="teilist">
-      <element name="list" ns="http://www.tei-c.org/ns/1.0">
+      <element name="list">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">contains any sequence of items organized as a list. [3.7. Lists]</a:documentation>
          <group>
             <zeroOrMore>
@@ -5120,7 +5127,7 @@ attributes @target and @cRef may be supplied on <name/>.</report>
          </pattern>
          <ref name="teiatt.global.attributes"/>
          <ref name="teiatt.typed.attribute.subtype"/>
-         <attribute name="sortKey" ns="http://www.tei-c.org/ns/1.0">
+         <attribute name="sortKey">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
             <choice>
                <value>plants</value>
@@ -8944,7 +8951,7 @@ Suggested values include: 1] #Ackermans_Juv_ForgetMeNot (Ackermann's Juvenile Fo
       </element>
    </define>
    <define name="teilistBibl">
-      <element name="listBibl" ns="http://www.tei-c.org/ns/1.0">
+      <element name="listBibl">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(citation list) contains a list of bibliographic citations of any kind. [3.11.1. Methods of Encoding Bibliographic References and Lists of References 2.2.7. The Source Description 15.3.2. Declarable Elements]</a:documentation>
          <group>
             <zeroOrMore>
@@ -8969,7 +8976,7 @@ Suggested values include: 1] #Ackermans_Juv_ForgetMeNot (Ackermann's Juvenile Fo
          <ref name="teiatt.global.attributes"/>
          <ref name="teiatt.declarable.attributes"/>
          <ref name="teiatt.typed.attributes"/>
-         <attribute name="sortKey" ns="http://www.tei-c.org/ns/1.0">
+         <attribute name="sortKey">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
             <choice>
                <value>work_MRM</value>
@@ -9135,11 +9142,14 @@ relatedItem element must be empty</sch:report>
                      <ref name="teimodel.pLike"/>
                      <ref name="teimodel.listLike"/>
                      <ref name="teimodel.stageLike"/>
-                     <ref name="teimodel.qLike"/>
+                     <ref name="teimodel.attributable"/>
                   </choice>
-                  <zeroOrMore>
-                     <ref name="teimodel.global"/>
-                  </zeroOrMore>
+                  <choice>
+                     <zeroOrMore>
+                        <ref name="teimodel.global"/>
+                     </zeroOrMore>
+                     <ref name="teiq"/>
+                  </choice>
                </group>
             </oneOrMore>
          </group>
@@ -9325,9 +9335,9 @@ Sample values include: 1] index; 2] toc; 3] figlist; 4] tablist</a:documentation
                   <ref name="teiextent"/>
                </optional>
                <ref name="teipublicationStmt"/>
-               <optional>
+               <zeroOrMore>
                   <ref name="teiseriesStmt"/>
-               </optional>
+               </zeroOrMore>
                <optional>
                   <ref name="teinotesStmt"/>
                </optional>
@@ -9561,6 +9571,7 @@ Suggested values include: 1] ISBN; 2] ISSN; 3] DOI; 4] URI; 5] VIAF; 6] ESTC; 7]
             </group>
          </choice>
          <ref name="teiatt.global.attributes"/>
+         <ref name="teiatt.declarable.attributes"/>
          <empty/>
       </element>
    </define>
@@ -9611,9 +9622,9 @@ Suggested values include: 1] ISBN; 2] ISSN; 3] DOI; 4] URI; 5] VIAF; 6] ESTC; 7]
                      <ref name="teiextent"/>
                   </optional>
                   <ref name="teipublicationStmt"/>
-                  <optional>
+                  <zeroOrMore>
                      <ref name="teiseriesStmt"/>
-                  </optional>
+                  </zeroOrMore>
                   <optional>
                      <ref name="teinotesStmt"/>
                   </optional>
@@ -10021,7 +10032,7 @@ Sample values include: 1] first-line; 2] first-letter; 3] before; 4] after</a:do
    </define>
    <define name="teiprefixDef">
       <element name="prefixDef">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(prefix definition) defines a prefixing scheme used in data.pointer values, showing how abbreviated URIs using the scheme may be expanded into full URIs. [16.2.3. Using Abbreviated Pointers]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(prefix definition) defines a prefixing scheme used in teidata.pointer values, showing how abbreviated URIs using the scheme may be expanded into full URIs. [16.2.3. Using Abbreviated Pointers]</a:documentation>
          <zeroOrMore>
             <ref name="teimodel.pLike"/>
          </zeroOrMore>
@@ -10038,7 +10049,7 @@ Sample values include: 1] first-line; 2] first-letter; 3] before; 4] after</a:do
    </define>
    <define name="teilistPrefixDef">
       <element name="listPrefixDef">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(list of prefix definitions) contains a list of definitions of prefixing schemes used in data.pointer values, showing how abbreviated URIs using each scheme may be expanded into full URIs. [16.2.3. Using Abbreviated Pointers]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(list of prefix definitions) contains a list of definitions of prefixing schemes used in teidata.pointer values, showing how abbreviated URIs using each scheme may be expanded into full URIs. [16.2.3. Using Abbreviated Pointers]</a:documentation>
          <group>
             <zeroOrMore>
                <ref name="teidesc"/>
@@ -10557,7 +10568,7 @@ Suggested values include: 1] sent; 2] received; 3] transmitted; 4] redirected; 5
    </define>
    <define name="teichange">
       <element name="change">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">documents a change or set of changes made during the production of a source document, or during the revision of an electronic file. [2.6. The Revision Description 2.4.1. Creation 11.7. Identifying Changes and Revisions]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">documents a change or set of changes made during the production of a source document, or during the revision of an electronic file. [2.6. The Revision Description 2.4.1. Creation 11.6. Identifying Changes and Revisions]</a:documentation>
          <ref name="teimacro.specialPara"/>
          <ref name="teiatt.ascribed.attributes"/>
          <ref name="teiatt.datable.attributes"/>
@@ -10588,7 +10599,7 @@ Suggested values include: 1] sent; 2] received; 3] transmitted; 4] redirected; 5
    </define>
    <define name="teilistChange">
       <element name="listChange">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">groups a number of change descriptions associated with either the creation of a source text or the revision of an encoded text. [2.6. The Revision Description 11.7. Identifying Changes and Revisions]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">groups a number of change descriptions associated with either the creation of a source text or the revision of an encoded text. [2.6. The Revision Description 11.6. Identifying Changes and Revisions]</a:documentation>
          <group>
             <zeroOrMore>
                <ref name="teidesc"/>
@@ -16039,7 +16050,7 @@ Sample values include: 1] listening; 2] speaking; 3] reading; 4] writing</a:docu
       </element>
    </define>
    <define name="teilistOrg">
-      <element name="listOrg" ns="http://www.tei-c.org/ns/1.0">
+      <element name="listOrg">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(list of organizations) contains a list of elements, each of which provides information about an identifiable organization. [13.2.2. Organizational Names]</a:documentation>
          <group>
             <zeroOrMore>
@@ -16064,7 +16075,7 @@ Sample values include: 1] listening; 2] speaking; 3] reading; 4] writing</a:docu
          <ref name="teiatt.global.attributes"/>
          <ref name="teiatt.typed.attributes"/>
          <ref name="teiatt.declarable.attributes"/>
-         <attribute name="sortKey" ns="http://www.tei-c.org/ns/1.0">
+         <attribute name="sortKey">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
             <choice>
                <value>archives</value>
@@ -16081,7 +16092,7 @@ Sample values include: 1] listening; 2] speaking; 3] reading; 4] writing</a:docu
       </element>
    </define>
    <define name="teilistEvent">
-      <element name="listEvent" ns="http://www.tei-c.org/ns/1.0">
+      <element name="listEvent">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(list of events) contains a list of descriptions, each of which provides information about an identifiable event. [13.3.1. Basic Principles]</a:documentation>
          <group>
             <zeroOrMore>
@@ -16103,7 +16114,7 @@ Sample values include: 1] listening; 2] speaking; 3] reading; 4] writing</a:docu
          <ref name="teiatt.global.attributes"/>
          <ref name="teiatt.typed.attributes"/>
          <ref name="teiatt.declarable.attributes"/>
-         <attribute name="sortKey" ns="http://www.tei-c.org/ns/1.0">
+         <attribute name="sortKey">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
             <choice>
                <value>histEvents</value>
@@ -16114,7 +16125,7 @@ Sample values include: 1] listening; 2] speaking; 3] reading; 4] writing</a:docu
       </element>
    </define>
    <define name="teilistPerson">
-      <element name="listPerson" ns="http://www.tei-c.org/ns/1.0">
+      <element name="listPerson">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(list of persons) contains a list of descriptions, each of which provides information about an identifiable person or a group of people, for example the participants in a language interaction, or the people referred to in a historical source. [13.3.2. The Person Element 15.2. Contextual Information 2.4. The Profile Description 15.3.2. Declarable Elements]</a:documentation>
          <group>
             <zeroOrMore>
@@ -16139,7 +16150,7 @@ Sample values include: 1] listening; 2] speaking; 3] reading; 4] writing</a:docu
          <ref name="teiatt.global.attributes"/>
          <ref name="teiatt.typed.attributes"/>
          <ref name="teiatt.declarable.attributes"/>
-         <attribute name="sortKey" ns="http://www.tei-c.org/ns/1.0">
+         <attribute name="sortKey">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
             <choice>
                <value>Mitford_Team</value>
@@ -16160,7 +16171,7 @@ Sample values include: 1] listening; 2] speaking; 3] reading; 4] writing</a:docu
       </element>
    </define>
    <define name="teilistPlace">
-      <element name="listPlace" ns="http://www.tei-c.org/ns/1.0">
+      <element name="listPlace">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(list of places) contains a list of places, optionally followed by a list of relationships (other than containment) defined amongst them. [2.2.7. The Source Description 13.3.4. Places]</a:documentation>
          <group>
             <zeroOrMore>
@@ -16185,7 +16196,7 @@ Sample values include: 1] listening; 2] speaking; 3] reading; 4] writing</a:docu
          <ref name="teiatt.global.attributes"/>
          <ref name="teiatt.typed.attributes"/>
          <ref name="teiatt.declarable.attributes"/>
-         <attribute name="sortKey" ns="http://www.tei-c.org/ns/1.0">
+         <attribute name="sortKey">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
             <choice>
                <value>histPlaces</value>
@@ -16606,7 +16617,7 @@ Suggested values include: 1] painter (with type="artist": Designate type of pain
    </define>
    <define name="teiorg">
       <element name="org">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(organization) provides information about an identifiable organization such as a business, a tribe, or any other grouping of people. [13.2.2. Organizational Names]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(organization) provides information about an identifiable organization such as a business, a tribe, or any other grouping of people. [13.3.3. Organizational Data]</a:documentation>
          <group>
             <zeroOrMore>
                <ref name="teimodel.headLike"/>
@@ -16684,7 +16695,7 @@ Suggested values include: 1] painter (with type="artist": Designate type of pain
       </element>
    </define>
    <define name="teiperson">
-      <element name="person" ns="http://www.tei-c.org/ns/1.0">
+      <element name="person">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">provides information about an identifiable individual, for example a participant in a language interaction, or a person referred to in a historical source. [13.3.2. The Person Element 15.2.2. The Participant Description]</a:documentation>
          <choice>
             <oneOrMore>
@@ -16702,7 +16713,7 @@ Suggested values include: 1] painter (with type="artist": Designate type of pain
          <ref name="teiatt.editLike.attributes"/>
          <ref name="teiatt.sortable.attributes"/>
          <optional>
-            <attribute name="sex" ns="http://www.tei-c.org/ns/1.0">
+            <attribute name="sex">
                <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
                <choice>
                   <value>m</value>
@@ -17393,7 +17404,28 @@ Sample values include: 1] atBirth; 2] atDeath; 3] dependent; 4] inherited; 5] in
          <empty/>
       </element>
    </define>
+   <define name="teiatt.lexicographic.normalized.attributes">
+      <ref name="teiatt.lexicographic.normalized.attribute.norm"/>
+      <ref name="teiatt.lexicographic.normalized.attribute.orig"/>
+   </define>
+   <define name="teiatt.lexicographic.normalized.attribute.norm">
+      <optional>
+         <attribute name="norm">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(normalized) provides the normalized/standardized form of information present in the source text in a non-normalized form</a:documentation>
+            <data type="string"/>
+         </attribute>
+      </optional>
+   </define>
+   <define name="teiatt.lexicographic.normalized.attribute.orig">
+      <optional>
+         <attribute name="orig">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(original) gives the original string or is the empty string when the element does not appear in the source text.</a:documentation>
+            <data type="string"/>
+         </attribute>
+      </optional>
+   </define>
    <define name="teiatt.linguistic.attributes">
+      <ref name="teiatt.lexicographic.normalized.attributes"/>
       <ref name="teiatt.linguistic.attribute.lemma"/>
       <ref name="teiatt.linguistic.attribute.lemmaRef"/>
       <ref name="teiatt.linguistic.attribute.pos"/>
@@ -17671,6 +17703,7 @@ The attributes @to and @from on <name/> may each contain only a single value</re
          <ref name="teiatt.global.attributes"/>
          <ref name="teiatt.interpLike.attributes"/>
          <ref name="teiatt.pointing.attributes"/>
+         <ref name="teiatt.typed.attributes"/>
          <optional>
             <attribute name="from">
                <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">gives the identifier of the node which is the starting point of the span of text being annotated; if not accompanied by a <code xmlns="http://www.w3.org/1999/xhtml">@to</code> attribute, gives the identifier of the node of the entire span of text being annotated.</a:documentation>
@@ -17694,6 +17727,7 @@ The attributes @to and @from on <name/> may each contain only a single value</re
          </zeroOrMore>
          <ref name="teiatt.global.attributes"/>
          <ref name="teiatt.interpLike.attributes"/>
+         <ref name="teiatt.typed.attributes"/>
          <empty/>
       </element>
    </define>
@@ -17710,6 +17744,7 @@ The attributes @to and @from on <name/> may each contain only a single value</re
          </zeroOrMore>
          <ref name="teiatt.global.attributes"/>
          <ref name="teiatt.interpLike.attributes"/>
+         <ref name="teiatt.typed.attributes"/>
          <empty/>
       </element>
    </define>
@@ -17726,6 +17761,7 @@ The attributes @to and @from on <name/> may each contain only a single value</re
          </group>
          <ref name="teiatt.global.attributes"/>
          <ref name="teiatt.interpLike.attributes"/>
+         <ref name="teiatt.typed.attributes"/>
          <empty/>
       </element>
    </define>
@@ -18804,9 +18840,12 @@ Suggested values include: 1] main; 2] sub (subordinate); 3] alt (alternate); 4] 
 Sample values include: 1] L (left); 2] R (right); 3] C (center)</a:documentation>
                <list>
                   <oneOrMore>
-                     <data type="token">
-                        <param name="pattern">[^\p{C}\p{Z}]+</param>
-                     </data>
+                     <choice>
+                        <data type="token">
+                           <param name="pattern">[^\p{C}\p{Z}]+</param>
+                        </data>
+                        <data type="anyURI"/>
+                     </choice>
                   </oneOrMore>
                </list>
             </attribute>
@@ -19121,7 +19160,7 @@ Suggested values include: 1] d (days); 2] h (hours); 3] min (minutes); 4] s (sec
          </optional>
          <optional>
             <attribute name="interval">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">specifies a time interval either as a number or as one of the keywords defined by the datatype data.interval</a:documentation>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">specifies a time interval either as a number or as one of the keywords defined by the datatype teidata.interval</a:documentation>
                <choice>
                   <data type="float"/>
                   <choice>
@@ -19365,6 +19404,123 @@ You must supply at least two values for @target on <name/>
          <empty/>
       </element>
    </define>
+   <define name="teilistAnnotation">
+      <element name="listAnnotation">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">contains a list of annotations, typically encoded as <code xmlns="http://www.w3.org/1999/xhtml">&lt;annotation&gt;</code>, <code xmlns="http://www.w3.org/1999/xhtml">&lt;annotationBlock&gt;</code>, or <code xmlns="http://www.w3.org/1999/xhtml">&lt;note&gt;</code>, possibly organized with nested <code xmlns="http://www.w3.org/1999/xhtml">&lt;listAnnotation&gt;</code> elements. [16.10. The standOff Container]</a:documentation>
+         <group>
+            <zeroOrMore>
+               <ref name="teimodel.headLike"/>
+            </zeroOrMore>
+            <zeroOrMore>
+               <ref name="teimodel.labelLike"/>
+            </zeroOrMore>
+            <oneOrMore>
+               <choice>
+                  <ref name="teimodel.annotationLike"/>
+                  <ref name="teilistAnnotation"/>
+               </choice>
+            </oneOrMore>
+         </group>
+         <ref name="teiatt.global.attributes"/>
+         <ref name="teiatt.typed.attributes"/>
+         <ref name="teiatt.notated.attributes"/>
+         <ref name="teiatt.declaring.attributes"/>
+         <empty/>
+      </element>
+   </define>
+   <define name="teiannotation">
+      <element name="annotation">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">represents an annotation following the <a xmlns="http://www.w3.org/1999/xhtml" href="#WADM">Web
+      Annotation Data Model</a>. [16.10. The standOff Container]</a:documentation>
+         <group>
+            <zeroOrMore>
+               <ref name="teirespStmt"/>
+            </zeroOrMore>
+            <zeroOrMore>
+               <ref name="teirevisionDesc"/>
+            </zeroOrMore>
+            <zeroOrMore>
+               <ref name="teilicence"/>
+            </zeroOrMore>
+            <zeroOrMore>
+               <ref name="teimodel.annotationPart.body"/>
+            </zeroOrMore>
+         </group>
+         <ref name="teiatt.global.attribute.n"/>
+         <ref name="teiatt.global.attribute.xmllang"/>
+         <ref name="teiatt.global.attribute.xmlbase"/>
+         <ref name="teiatt.global.attribute.xmlspace"/>
+         <ref name="teiatt.global.rendition.attribute.rend"/>
+         <ref name="teiatt.global.rendition.attribute.style"/>
+         <ref name="teiatt.global.rendition.attribute.rendition"/>
+         <ref name="teiatt.global.linking.attribute.corresp"/>
+         <ref name="teiatt.global.linking.attribute.synch"/>
+         <ref name="teiatt.global.linking.attribute.sameAs"/>
+         <ref name="teiatt.global.linking.attribute.copyOf"/>
+         <ref name="teiatt.global.linking.attribute.next"/>
+         <ref name="teiatt.global.linking.attribute.prev"/>
+         <ref name="teiatt.global.linking.attribute.exclude"/>
+         <ref name="teiatt.global.linking.attribute.select"/>
+         <ref name="teiatt.global.analytic.attribute.ana"/>
+         <ref name="teiatt.global.facs.attribute.facs"/>
+         <ref name="teiatt.global.change.attribute.change"/>
+         <ref name="teiatt.global.responsibility.attribute.cert"/>
+         <ref name="teiatt.global.responsibility.attribute.resp"/>
+         <ref name="teiatt.global.source.attribute.source"/>
+         <ref name="teiatt.pointing.attribute.targetLang"/>
+         <ref name="teiatt.pointing.attribute.evaluate"/>
+         <attribute name="xml:id">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(identifier) provides a unique identifier for the element bearing the attribute.</a:documentation>
+            <data type="ID"/>
+         </attribute>
+         <attribute name="target">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">specifies the destination of the reference by supplying one or more URI References</a:documentation>
+            <list>
+               <oneOrMore>
+                  <data type="anyURI"/>
+               </oneOrMore>
+            </list>
+         </attribute>
+         <optional>
+            <attribute name="motivation">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+               <list>
+                  <oneOrMore>
+                     <choice>
+                        <value>assessing</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">intent is to assess the target resource in some way, rather than simply make a comment about it</a:documentation>
+                        <value>bookmarking</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">intent is to create a bookmark to the target or part thereof</a:documentation>
+                        <value>classifying</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">intent is to classify the target in some way</a:documentation>
+                        <value>commenting</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">intent is to comment about the target</a:documentation>
+                        <value>describing</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">intent is to describe the target, rather than (for example) comment on it</a:documentation>
+                        <value>editing</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">intent is to request an edit or a change to the target resource</a:documentation>
+                        <value>highlighting</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">intent is to highlight the target resource or a segment thereof</a:documentation>
+                        <value>identifying</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">intent is to assign an identity to the target</a:documentation>
+                        <value>linking</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">intent is to link to a resource related to the target</a:documentation>
+                        <value>moderating</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">intent is to assign some value or quality to the target</a:documentation>
+                        <value>questioning</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">intent is to ask a question about the target</a:documentation>
+                        <value>replying</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">intent is to reply to a previous statement, either an annotation or another resource</a:documentation>
+                        <value>tagging</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">intent is to associate a tag with the target</a:documentation>
+                     </choice>
+                  </oneOrMore>
+               </list>
+            </attribute>
+         </optional>
+         <empty/>
+      </element>
+   </define>
    <define name="teimodel.rdgLike">
       <choice>
          <ref name="teirdg"/>
@@ -19542,6 +19698,21 @@ Sample values include: 1] homeoteleuton; 2] homeoarchy; 3] paleographicConfusion
                <text/>
                <ref name="teimodel.divLike"/>
                <ref name="teimodel.divPart"/>
+               <ref name="teititlePage"/>
+               <ref name="teiargument"/>
+               <ref name="teibyline"/>
+               <ref name="teidocAuthor"/>
+               <ref name="teidocDate"/>
+               <ref name="teidocEdition"/>
+               <ref name="teidocImprint"/>
+               <ref name="teidocTitle"/>
+               <ref name="teiepigraph"/>
+               <ref name="teiimprimatur"/>
+               <ref name="teititlePart"/>
+               <ref name="teiepilogue"/>
+               <ref name="teiperformance"/>
+               <ref name="teiprologue"/>
+               <ref name="teiset"/>
                <ref name="teimodel.gLike"/>
                <ref name="teimodel.phrase"/>
                <ref name="teimodel.inter"/>
@@ -20082,7 +20253,7 @@ The @spanTo attribute of <name/> is required.</assert>
    </define>
    <define name="teifw">
       <element name="fw">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(forme work) contains a running head (e.g. a header, footer), catchword, or similar material appearing on the current page. [11.6. Headers, Footers, and Similar Matter]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(forme work) contains a running head (e.g. a header, footer), catchword, or similar material appearing on the current page. [11.5. Headers, Footers, and Similar Matter]</a:documentation>
          <ref name="teimacro.phraseSeq"/>
          <ref name="teiatt.global.attributes"/>
          <ref name="teiatt.typed.attribute.subtype"/>
@@ -20153,7 +20324,7 @@ The @spanTo attribute of <name/> is required.</assert>
    </define>
    <define name="teispace">
       <element name="space">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">indicates the location of a significant space in the text. [11.5.1. Space]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">indicates the location of a significant space in the text. [11.4.1. Space]</a:documentation>
          <zeroOrMore>
             <choice>
                <ref name="teimodel.descLike"/>
@@ -20209,10 +20380,11 @@ The @spanTo attribute of <name/> is required.</assert>
    </define>
    <define name="teisubst">
       <element name="subst">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(substitution) groups one or more deletions with one or more additions when the combination is to be regarded as a single intervention in the text. [11.3.1.5. Substitutions]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(substitution) groups one or more deletions (or surplus text) with one or more additions when the combination is to be regarded as a single intervention in the text. [11.3.1.5. Substitutions]</a:documentation>
          <oneOrMore>
             <choice>
                <ref name="teiadd"/>
+               <ref name="teisurplus"/>
                <ref name="teidel"/>
                <ref name="teimodel.milestoneLike"/>
             </choice>
@@ -20223,8 +20395,8 @@ The @spanTo attribute of <name/> is required.</assert>
                <assert xmlns:rng="http://relaxng.org/ns/structure/1.0"
                        xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                        xmlns:xi="http://www.w3.org/2001/XInclude"
-                       test="child::tei:add and child::tei:del">
-                  <name/> must have at least one child add and at least one child del</assert>
+                       test="child::tei:add and (child::tei:del or child::tei:surplus)">
+                  <name/> must have at least one child add and at least one child del or surplus</assert>
             </rule>
          </pattern>
          <ref name="teiatt.global.attributes"/>
@@ -20235,7 +20407,7 @@ The @spanTo attribute of <name/> is required.</assert>
    </define>
    <define name="teisubstJoin">
       <element name="substJoin">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(substitution join) identifies a series of possibly fragmented additions, deletions or other revisions on a manuscript that combine to make up a single intervention in the text [11.3.1.5. Substitutions]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(substitution join) identifies a series of possibly fragmented additions, deletions, or other revisions on a manuscript that combine to make up a single intervention in the text [11.3.1.5. Substitutions]</a:documentation>
          <zeroOrMore>
             <choice>
                <ref name="teimodel.descLike"/>
@@ -20407,9 +20579,10 @@ The @spanTo attribute of <name/> is required.</assert>
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">describes a single textual transposition as an ordered list of at least two pointers specifying the order in which the elements indicated should be re-combined. [11.3.4.5. Transpositions]</a:documentation>
          <group>
             <ref name="teiptr"/>
-            <oneOrMore>
+            <ref name="teiptr"/>
+            <zeroOrMore>
                <ref name="teiptr"/>
-            </oneOrMore>
+            </zeroOrMore>
          </group>
          <ref name="teiatt.global.attributes"/>
          <empty/>
