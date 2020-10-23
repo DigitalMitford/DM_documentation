@@ -23,27 +23,27 @@
          </titleStmt>
         <!-- <xi:include href="MRMProsopRef.odd" xpointer="edition"/>-->
          <publicationStmt>
-            <authority>Prepared in TEI P5 by Elisa Beshero-Bondar in the Digital Mitford GitHub repository: <ref target="https://github.com/DigitalMitford/DM_documentation"></ref>. Date last worked on: <date instant="false" when="2019-05-18">18 May 2019</date></authority>
-            <availability default="false"><licence>Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) approved for Free Cultural Works <ref target="https://creativecommons.org/licenses/by-sa/4.0/"></ref></licence></availability>
+            <authority>Prepared in TEI P5 by Elisa Beshero-Bondar in the Digital Mitford GitHub repository: <ref target="https://github.com/DigitalMitford/DM_documentation"></ref>. Date last worked on: <date when="2019-05-18">18 May 2019</date></authority>
+            <availability><licence>Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) approved for Free Cultural Works <ref target="https://creativecommons.org/licenses/by-sa/4.0/"></ref></licence></availability>
          </publicationStmt>
-         <seriesStmt default="false">
-            <p part="N">This ODD customizes the TEI P5 for use in edition files, including drama, letters, poetry, plays. It indicates the modules and customizations of TEI encoding for manuscript transcription, and versioning and prosopography references for all files in the project except for the prosopography index file known as our <q>Site Index</q>, which holds a narrower range of elements. The elements of the site index are available here in the <q>back lists</q> of our files for proposing new entries to be added, but according to this ODD, only a narrow range of person, place, and document referencing are permitted in edition files in order to enforce consistent prosopography markup across all files. </p>
+         <seriesStmt>
+            <p>This ODD customizes the TEI P5 for use in edition files, including drama, letters, poetry, plays. It indicates the modules and customizations of TEI encoding for manuscript transcription, and versioning and prosopography references for all files in the project except for the prosopography index file known as our <q>Site Index</q>, which holds a narrower range of elements. The elements of the site index are available here in the <q>back lists</q> of our files for proposing new entries to be added, but according to this ODD, only a narrow range of person, place, and document referencing are permitted in edition files in order to enforce consistent prosopography markup across all files. </p>
          </seriesStmt>
-         <sourceDesc default="false">
-            <p part="N">Born digital, based on information presented in the Digital Mitford Codebook at <ref target="http://codebook.mitford.pitt.edu"></ref></p>
+         <sourceDesc>
+            <p>Born digital, based on information presented in the Digital Mitford Codebook at <ref target="http://codebook.mitford.pitt.edu"></ref></p>
          </sourceDesc>
       </fileDesc>
-     <revisionDesc status="draft">
-        <listChange ordered="true">
-           <change status="draft" when="2018-09-25" who="#ebb">Moved official location of this ODD and generated Relax NG schema files to the DM_documentation GitHub repository. Refined Schematron constraints for checking bibl and bibl/title elements.</change>
-           <change status="draft" when="2018-08-08" who="#ebb">Built Site Index Ids into this ODD, with si-to-ODD.xsl to build elementSpecs and attDef lists.</change>
-           <change status="draft" when="2018-08-06" who="#ebb">Prepared this ODD file, working with the Digital Mitford Schematron files in place to this point, and the Digital Mitford codebook.</change>
+     <revisionDesc>
+        <listChange>
+           <change when="2018-09-25" who="#ebb">Moved official location of this ODD and generated Relax NG schema files to the DM_documentation GitHub repository. Refined Schematron constraints for checking bibl and bibl/title elements.</change>
+           <change when="2018-08-08" who="#ebb">Built Site Index Ids into this ODD, with si-to-ODD.xsl to build elementSpecs and attDef lists.</change>
+           <change when="2018-08-06" who="#ebb">Prepared this ODD file, working with the Digital Mitford Schematron files in place to this point, and the Digital Mitford codebook.</change>
         </listChange>
      </revisionDesc>
   </teiHeader>
   <text>
       <body>
-         <schemaSpec defaultExceptions="http://www.tei-c.org/ns/1.0 teix:egXML" ident="mitfordODD" mode="add" ns="http://www.tei-c.org/ns/1.0" predeclare="false" prefix="tei" start="TEI teiCorpus" status="draft">
+         <schemaSpec ident="mitfordODD" prefix="tei" start="TEI teiCorpus">
             <moduleRef key="tei"></moduleRef>
             <moduleRef key="core"></moduleRef>
             <moduleRef key="header"></moduleRef> 
@@ -59,7 +59,7 @@
             <moduleRef key="gaiji"></moduleRef><!--ebb: included for charDecl if we want to make a list of metamarks -->
             
             <!-- Checking general xml:id syntax and hashtags for referencing, plus checking witness attribute values where using critical apparatus (versioning) markup.-->
- <constraintSpec ident="xmlIDs" mode="add" predeclare="false" scheme="schematron">
+ <constraintSpec ident="xmlIDs" scheme="schematron">
                <constraint>
                   <sch:rule context="tei:TEI//@xml:id">
                      <sch:report role="fatal" test="matches(., '\s+')">
@@ -68,7 +68,7 @@
                   </sch:rule>
                </constraint>
             </constraintSpec>
-            <constraintSpec ident="quotes" mode="add" predeclare="false" scheme="schematron">
+            <constraintSpec ident="quotes" scheme="schematron">
                <constraint>
                   <sch:rule context="*/text()[matches(., '[A-z]+')]">
                      <sch:let name="regexQuote" value="'&quot;'"></sch:let>
@@ -76,7 +76,7 @@
                   </sch:rule>
                </constraint>
             </constraintSpec>
-            <constraintSpec ident="refsReq" mode="add" predeclare="false" scheme="schematron">
+            <constraintSpec ident="refsReq" scheme="schematron">
                <constraint>
                   <sch:rule context="tei:text//tei:persName[not(ancestor::tei:back)] | tei:text//tei:rs[not(ancestor::tei:back)] | tei:text//tei:placeName[not(ancestor::tei:back)] | tei:text//tei:orgName[not(ancestor::tei:back)] | tei:text//tei:name[not(ancestor::tei:back)] | tei:text//tei:title[not(ancestor::tei:back)][not(ancestor::tei:bibl)]">
                      <sch:assert role="warning" test="@ref">
@@ -86,7 +86,7 @@
                   </sch:rule>
                </constraint>
             </constraintSpec>
-            <constraintSpec ident="correspReq" mode="add" predeclare="false" scheme="schematron">
+            <constraintSpec ident="correspReq" scheme="schematron">
                <constraint>
                   <sch:rule context="tei:text//tei:bibl[not(ancestor::tei:back)]">
                      <sch:assert role="warning" test="@corresp">
@@ -95,7 +95,7 @@
                   </sch:rule>
                </constraint>
             </constraintSpec>
-            <constraintSpec ident="hashtaggery" mode="add" predeclare="false" scheme="schematron">
+            <constraintSpec ident="hashtaggery" scheme="schematron">
                  <constraint>
                     <sch:rule context="tei:TEI//@ref | tei:TEI//@who | tei:TEI//@corresp | tei:TEI//@wit">
                        <sch:assert role="fatal" test="starts-with(., '#')">
@@ -104,7 +104,7 @@
                     </sch:rule>
                  </constraint>
               </constraintSpec>
-            <constraintSpec ident="listWitCheck" mode="add" predeclare="false" scheme="schematron">
+            <constraintSpec ident="listWitCheck" scheme="schematron">
                <constraint>
                   <sch:rule context="tei:TEI//@wit">
                      <sch:let name="tokens" value="for $w in tokenize(., '\s+') return substring-after($w, '#')"></sch:let>
@@ -114,7 +114,7 @@
                   </sch:rule>
                </constraint>
             </constraintSpec>
-            <constraintSpec ident="namedEntityRefencing" mode="add" predeclare="false" scheme="schematron">
+            <constraintSpec ident="namedEntityRefencing" scheme="schematron">
               <constraint>
                  <sch:p>Many elements from the TEI names and places module are only permitted in back lists for proposed entries to the Digital Mitford site index.</sch:p>
                  <sch:rule context="tei:text/tei:front//* | tei:text/tei:body//*">
@@ -124,7 +124,7 @@
                  </sch:rule>
               </constraint>
            </constraintSpec>
-            <constraintSpec ident="respCheck" mode="add" predeclare="false" scheme="schematron">
+            <constraintSpec ident="respCheck" scheme="schematron">
                <constraint>
                   <sch:p>Ensure that the @resp values on note and other elements point to members of the Mitford Team or to Past Editors</sch:p>
                   <sch:rule context="*/@resp">
@@ -140,7 +140,7 @@
       A resp attribute must refer to a member of the Mitford team, past assistants, or past editors of MRM in the site index entries.
                      </sch:assert>
                   </sch:rule></constraint></constraintSpec>
-            <constraintSpec ident="rsReferencing" mode="add" predeclare="false" scheme="schematron">
+            <constraintSpec ident="rsReferencing" scheme="schematron">
                <constraint>
                   <sch:p>Ensure that there are @ref values on rs</sch:p>
                   <sch:rule context="tei:rs | tei:name">
@@ -148,7 +148,7 @@
                   </sch:rule>
                </constraint>
             </constraintSpec>
-                  <constraintSpec ident="rsEventcheck" mode="add" predeclare="false" scheme="schematron">
+                  <constraintSpec ident="rsEventcheck" scheme="schematron">
                      <constraint>
                         <sch:p>Ensure that the @ref values on rs of type event point to event site index entries across the project.</sch:p>
                         <sch:rule context="tei:rs[@type='event'] | tei:name[@type='event']">
@@ -165,7 +165,7 @@
                         An rs with type="event" must refer to an xml:id on an event element.
                      </sch:assert>
                   </sch:rule></constraint></constraintSpec>
-            <constraintSpec ident="rsTitlecheck" mode="add" predeclare="false" scheme="schematron">
+            <constraintSpec ident="rsTitlecheck" scheme="schematron">
                <constraint>
                   <sch:p>Ensure that the @ref values on rs of type title point to bibl site index entries across the project.</sch:p>
                   <sch:rule context="tei:rs[@type='title'] | tei:name[@type='title']">
@@ -183,7 +183,7 @@
       </sch:rule>
                </constraint>
             </constraintSpec>
-            <constraintSpec ident="rsPlacecheck" mode="add" predeclare="false" scheme="schematron">
+            <constraintSpec ident="rsPlacecheck" scheme="schematron">
                <constraint>
                   <sch:p>Ensure that the @ref values on rs of type place point to place site index entries across the project.</sch:p>
                   <sch:rule context="tei:rs[@type='place'] | tei:name[@type='place']">
@@ -201,7 +201,7 @@
                   </sch:rule>
                </constraint>
             </constraintSpec>
-            <constraintSpec ident="rsOrgcheck" mode="add" predeclare="false" scheme="schematron">
+            <constraintSpec ident="rsOrgcheck" scheme="schematron">
                <constraint>
                   <sch:p>Ensure that the @ref values on rs of type org (organization) point to org site index entries across the project.</sch:p>
                   <sch:rule context="tei:rs[@type='org'] | tei:name[@type='org']">
@@ -218,7 +218,7 @@
                      </sch:assert> 
                   </sch:rule>
                </constraint></constraintSpec>
-            <constraintSpec ident="rsPersoncheck" mode="add" predeclare="false" scheme="schematron">
+            <constraintSpec ident="rsPersoncheck" scheme="schematron">
                <constraint>
                   <sch:p>Ensure that the @ref values on rs of type person point to person site index entries across the project.</sch:p>
                   <sch:rule context="tei:rs[@type='person'] | tei:name[@type='person']">
@@ -235,7 +235,7 @@
                      </sch:assert>
                   </sch:rule>
                </constraint></constraintSpec>
-            <constraintSpec ident="rsPlantcheck" mode="add" predeclare="false" scheme="schematron">
+            <constraintSpec ident="rsPlantcheck" scheme="schematron">
                <constraint>
                   <sch:p>Ensure that the @ref values on rs of type plant point to plant site index entries across the project.</sch:p>
                   <sch:rule context="tei:rs[@type='plant'] | tei:name[@type='plant']">
@@ -252,7 +252,7 @@
                      </sch:assert>      
                   </sch:rule>
                </constraint></constraintSpec>
-                  <constraintSpec ident="rsAnimalcheck" mode="add" predeclare="false" scheme="schematron">
+                  <constraintSpec ident="rsAnimalcheck" scheme="schematron">
                      <constraint>
                         <sch:p>Ensure that the @ref values on rs of type animal point to animal site index entries across the project.</sch:p>
                   <sch:rule context="tei:rs[@type='animal'] | tei:name[@type='animal']">
@@ -269,7 +269,7 @@
                      </sch:assert> 
                   </sch:rule>
                      </constraint></constraintSpec>
-            <constraintSpec ident="rsArtcheck" mode="add" predeclare="false" scheme="schematron">
+            <constraintSpec ident="rsArtcheck" scheme="schematron">
                <constraint>
                   <sch:p>Ensure that the @ref values on rs of type art point to art site index entries across the project.</sch:p>
                   <sch:rule context="tei:rs[@type='art'] | tei:name[@type='art']">
@@ -287,7 +287,7 @@
                   </sch:rule>
                </constraint>
             </constraintSpec>
-            <constraintSpec ident="backListReferencing" mode="add" predeclare="false" scheme="schematron">
+            <constraintSpec ident="backListReferencing" scheme="schematron">
               <constraint>
                  <sch:pattern>
                     <sch:p>Check whether ids point to &lt;back&gt; or to one of the temporary siAdd files.</sch:p>
@@ -316,35 +316,35 @@
                  </sch:pattern>
               </constraint>
            </constraintSpec>
-            <elementSpec ident="rs" mode="change" module="core" ns="http://www.tei-c.org/ns/1.0" predeclare="false">
-               <attList org="group">
-                  <attDef ident="type" mode="replace" ns="http://www.tei-c.org/ns/1.0" predeclare="false" usage="req">
-                     <valList mode="add" type="closed">
-                        <valItem ident="person" mode="add">
+            <elementSpec ident="rs" mode="change" module="core">
+               <attList>
+                  <attDef ident="type" mode="replace" usage="req">
+                     <valList type="closed">
+                        <valItem ident="person">
                            <gloss>Use only when you need to disambiguate unnamed references to people. When there is a name, use the persName element.</gloss>
                         </valItem>
-                        <valItem ident="org" mode="add">
+                        <valItem ident="org">
                            <gloss>Use only when you need to disambiguate unnamed references to organizations, families, collectives of people. When there is a name, use the orgName element.</gloss>
                         </valItem>
-                        <valItem ident="place" mode="add">
+                        <valItem ident="place">
                            <gloss>Use only when you need to disambiguate unnamed references to places. When there is a name, use the placeName element.</gloss>
                         </valItem>
-                        <valItem ident="event" mode="add">
+                        <valItem ident="event">
                            <gloss>Use only when you need to disambiguate unnamed references to events. When there is a name, use the name element with type="event".</gloss>
                         </valItem>
-                        <valItem ident="letter" mode="add">
+                        <valItem ident="letter">
                            <gloss>Use to mark references to correspondence.</gloss>
                         </valItem>
-                        <valItem ident="plant" mode="add">
+                        <valItem ident="plant">
                            <gloss>Use to mark references to plants by kind, variety, genus, and/or species. If you see a kind, variety, genus, and/or species name, use the name element with type="plant".</gloss>
                         </valItem>
-                        <valItem ident="animal" mode="add">
+                        <valItem ident="animal">
                            <gloss>Use to mark references to animal types when they are unnamed by kind, variety, genus, and/or species. If you see a kind, variety, genus, and/or species name, use the name element with type="animal". </gloss>
                         </valItem>
-                        <valItem ident="title" mode="add">
+                        <valItem ident="title">
                            <gloss>Use only where necessary to mark unnamed references to documents, readings, texts in the absence of a title. If this is a title, use the title element with an @ref. If there is mention of an author, date, or other bibliographic information all together, like Scott's Midlothian, use a bibl element with @corresp around the full span of referencing text, wrapping the parts as you can with author and title elements (no @ref attributes needed inside, just @corresp on the outer bibl) .</gloss>
                         </valItem>
-                        <valItem ident="art" mode="add">
+                        <valItem ident="art">
                            <gloss>Use only where necessary to mark unnamed references to works of art in the absence of a title. If you have a title, use the title element with type="art".</gloss>
                         </valItem>
                      </valList>
@@ -352,7 +352,7 @@
                </attList>
             </elementSpec>
             <!-- Rules to help with writing "backlist" entries (or proposed new site index entries).-->
-       <constraintSpec ident="backList_only" mode="add" predeclare="false" scheme="schematron">
+       <constraintSpec ident="backList_only" scheme="schematron">
           <constraint>
              <sch:p>List elements holding sortKey attributes for proposed entries to the Site Index may only appear in the back portion of a Digital Mitford project TEI file.</sch:p>
              <sch:rule context="*[@sortKey]">
@@ -362,83 +362,83 @@
        </constraintSpec> 
             <!-- The following rules (next ~400 lines or so) are drawn from the si_ODD.odd file. (Consider ODD chaining for this?) -->
             <!--sortKey on SI list elements -->
-<elementSpec ident="listPerson" mode="change" module="namesdates" ns="http://www.tei-c.org/ns/1.0" predeclare="false">
-   <attList org="group">
-      <attDef ident="sortKey" mode="replace" ns="http://www.tei-c.org/ns/1.0" predeclare="false" usage="req">
-         <valList mode="add" type="closed">
-            <valItem ident="Mitford_Team" mode="add"></valItem>
-            <valItem ident="Past_Assistants" mode="add"></valItem>
-            <valItem ident="Past_Editors" mode="add"></valItem>
-            <valItem ident="histPersons" mode="add"></valItem>
-            <valItem ident="archPersons" mode="add"></valItem>
-            <valItem ident="fictPersons" mode="add"></valItem>
+<elementSpec ident="listPerson" mode="change" module="namesdates">
+   <attList>
+      <attDef ident="sortKey" mode="replace" usage="req">
+         <valList type="closed">
+            <valItem ident="Mitford_Team"></valItem>
+            <valItem ident="Past_Assistants"></valItem>
+            <valItem ident="Past_Editors"></valItem>
+            <valItem ident="histPersons"></valItem>
+            <valItem ident="archPersons"></valItem>
+            <valItem ident="fictPersons"></valItem>
          </valList>
       </attDef>
    </attList>
 </elementSpec>
-<elementSpec ident="listPlace" mode="change" module="namesdates" ns="http://www.tei-c.org/ns/1.0" predeclare="false">
-     <attList org="group">
-         <attDef ident="sortKey" mode="replace" ns="http://www.tei-c.org/ns/1.0" predeclare="false" usage="req">
-             <valList mode="add" type="closed">
-                 <valItem ident="histPlaces" mode="add"></valItem>
-                 <valItem ident="fictPlaces" mode="add"></valItem>
+<elementSpec ident="listPlace" mode="change" module="namesdates">
+     <attList>
+         <attDef ident="sortKey" mode="replace" usage="req">
+             <valList type="closed">
+                 <valItem ident="histPlaces"></valItem>
+                 <valItem ident="fictPlaces"></valItem>
               </valList>
            </attDef>
        </attList>
 </elementSpec>
-            <elementSpec ident="listOrg" mode="change" module="namesdates" ns="http://www.tei-c.org/ns/1.0" predeclare="false">
-               <attList org="group">
-                  <attDef ident="sortKey" mode="replace" ns="http://www.tei-c.org/ns/1.0" predeclare="false" usage="req">
-                     <valList mode="add" type="closed">
-                        <valItem ident="archives" mode="add"></valItem>
-                        <valItem ident="histOrgs" mode="add"></valItem>
-                        <valItem ident="fictOrgs" mode="add"></valItem>
-                        <valItem ident="archOrgs" mode="add"></valItem>
+            <elementSpec ident="listOrg" mode="change" module="namesdates">
+               <attList>
+                  <attDef ident="sortKey" mode="replace" usage="req">
+                     <valList type="closed">
+                        <valItem ident="archives"></valItem>
+                        <valItem ident="histOrgs"></valItem>
+                        <valItem ident="fictOrgs"></valItem>
+                        <valItem ident="archOrgs"></valItem>
                      </valList>
                   </attDef>
                </attList>
             </elementSpec>
-            <elementSpec ident="listEvent" mode="change" module="namesdates" ns="http://www.tei-c.org/ns/1.0" predeclare="false">
-               <attList org="group">
-                  <attDef ident="sortKey" mode="replace" ns="http://www.tei-c.org/ns/1.0" predeclare="false" usage="req">
-                     <valList mode="add" type="closed">
-                        <valItem ident="histEvents" mode="add"></valItem>
+            <elementSpec ident="listEvent" mode="change" module="namesdates">
+               <attList>
+                  <attDef ident="sortKey" mode="replace" usage="req">
+                     <valList type="closed">
+                        <valItem ident="histEvents"></valItem>
                      </valList>
                   </attDef>
                </attList>
             </elementSpec>
-            <elementSpec ident="listBibl" mode="change" module="core" ns="http://www.tei-c.org/ns/1.0" predeclare="false">
-               <attList org="group">
-                  <attDef ident="sortKey" mode="replace" ns="http://www.tei-c.org/ns/1.0" predeclare="false" usage="req">
-                     <valList mode="add" type="closed">
-                        <valItem ident="work_MRM" mode="add"></valItem>
-                        <valItem ident="serial_MRM" mode="add"></valItem>
-                        <valItem ident="schol" mode="add"></valItem>
+            <elementSpec ident="listBibl" mode="change" module="core">
+               <attList>
+                  <attDef ident="sortKey" mode="replace" usage="req">
+                     <valList type="closed">
+                        <valItem ident="work_MRM"></valItem>
+                        <valItem ident="serial_MRM"></valItem>
+                        <valItem ident="schol"></valItem>
                      </valList>
                   </attDef>
                </attList>
             </elementSpec> 
-            <elementSpec ident="list" mode="change" module="core" ns="http://www.tei-c.org/ns/1.0" predeclare="false">
-               <attList org="group">
-                  <attDef ident="sortKey" mode="replace" ns="http://www.tei-c.org/ns/1.0" predeclare="false" usage="req">
-                     <valList mode="add" type="closed">
-                        <valItem ident="plants" mode="add"></valItem>
-                        <valItem ident="animals" mode="add"></valItem>
-                        <valItem ident="art" mode="add"></valItem>
+            <elementSpec ident="list" mode="change" module="core">
+               <attList>
+                  <attDef ident="sortKey" mode="replace" usage="req">
+                     <valList type="closed">
+                        <valItem ident="plants"></valItem>
+                        <valItem ident="animals"></valItem>
+                        <valItem ident="art"></valItem>
                      </valList>
                   </attDef>
                </attList>
             </elementSpec> 
             
             <!--sex codes on person element: m, f, m f, and u -->           
-            <elementSpec ident="person" mode="change" module="namesdates" ns="http://www.tei-c.org/ns/1.0" predeclare="false">
-               <attList org="group">
-                  <attDef ident="sex" mode="replace" ns="http://www.tei-c.org/ns/1.0" predeclare="false" usage="rec">
-                     <valList mode="add" type="closed">
-                        <valItem ident="m" mode="add"><gloss>for persons identified as male.</gloss></valItem>
-                        <valItem ident="f" mode="add"><gloss>for persons identified as female.</gloss></valItem>
-                        <valItem ident="m f" mode="add"><gloss>for persons identified as of transitional or multiple sexual identities.</gloss></valItem>
-                        <valItem ident="u" mode="add"><gloss>for persons with unidentified or unknown sexual identity.</gloss></valItem>  
+            <elementSpec ident="person" mode="change" module="namesdates">
+               <attList>
+                  <attDef ident="sex" mode="replace" usage="rec">
+                     <valList type="closed">
+                        <valItem ident="m"><gloss>for persons identified as male.</gloss></valItem>
+                        <valItem ident="f"><gloss>for persons identified as female.</gloss></valItem>
+                        <valItem ident="m f"><gloss>for persons identified as of transitional or multiple sexual identities.</gloss></valItem>
+                        <valItem ident="u"><gloss>for persons with unidentified or unknown sexual identity.</gloss></valItem>  
                      </valList>
                   </attDef>
                </attList>
@@ -639,7 +639,7 @@
     </attList>
     <exemplum>
         <p>The <gi>occupation</gi> element in lists of editors and assistants on the Digital Mitford project should contain a roleName to contain institutional roles and affiliation:</p>
-        <egXML xmlns="http://www.tei-c.org/ns/Examples" valid="true">
+        <egXML xmlns="http://www.tei-c.org/ns/Examples">
             <occupation type="scholar"><roleName>Assistant Professor of English <affiliation>Missouri Southern State
                 University</affiliation></roleName>
             </occupation>
@@ -647,7 +647,7 @@
     </exemplum>
     <exemplum>
         <p>When the <gi>occupation</gi> element appears in other lists (for historical or fictional persons) in the site index, it is an empty element, and must hold attributes for typing and subtyping:</p>
-        <egXML xmlns="http://www.tei-c.org/ns/Examples" valid="true">
+        <egXML xmlns="http://www.tei-c.org/ns/Examples">
             <occupation subtype="playwright" type="literary"></occupation>
         </egXML>
     </exemplum>
