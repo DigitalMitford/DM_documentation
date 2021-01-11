@@ -1,14 +1,12 @@
-from typing import List, Any, Tuple
-
+# from typing import List, Any, Tuple
 from boxsdk import OAuth2
 from boxsdk import Client
-# Not using these. Authenticate using the developer token which needs to be updated hourly.
+# Not using the libraries below. Authenticate using the developer token which needs to be updated hourly.
 # from boxsdk import DevelopmentClient
 # from boxsdk import JWTAuth
 # ebb: Try setting this up for JWT auth to use the Developer token https://github.com/box/box-python-sdk#server-to-server-auth-with-jwt
 import requests
 # import tarfile
-
 
 def recurfolders(getFolder):
     if getFolder.description:
