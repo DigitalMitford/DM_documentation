@@ -23,8 +23,17 @@ response = requests.get("https://account.box.com/api/oauth2/authorize/")
 # print(response.status_code)
 client = Client(oauth)
 # client: object = requests.get("https://api.box.com/2.0/folders/:9dj7qs0aimiaywmxm2mo/").folder.get()
-folder = client.folder(folder_id='907565446').get()
-print('Folder "{0}" has {1} items in it'.format(
+# Mitford_Digital_Archives folder = client.folder(folder_id='907565446').get()
+sampleFolder = client.folder(folder_id='907771552')
+folder = sampleFolder.get()
+print('Folder "{0}" with id {1} has {2} items in it'.format(
     folder.name,
+    folder.id,
     folder.item_collection['total_count'],
+))
+folder_metadata = sampleFolder.get_all_metadata()
+print('Folder "{0}" has this metadata: "{1}" and this description: "{2}".'.format(
+    folder.name,
+    folder.metadata,
+    folder.description
 ))
