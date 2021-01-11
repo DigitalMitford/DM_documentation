@@ -1,4 +1,5 @@
 # from typing import List, Any, Tuple
+# import tarfile
 from boxsdk import OAuth2
 from boxsdk import Client
 # Not using the libraries below. Authenticate using the developer token which needs to be updated hourly.
@@ -6,7 +7,7 @@ from boxsdk import Client
 # from boxsdk import JWTAuth
 # ebb: Try setting this up for JWT auth to use the Developer token https://github.com/box/box-python-sdk#server-to-server-auth-with-jwt
 import requests
-# import tarfile
+
 
 def recurfolders(getFolder):
     if getFolder.description:
@@ -21,6 +22,7 @@ def recurfolders(getFolder):
                 # print(innerFolder.description)
                 # if innerFolder.item_collection["total_count"] > 1:
                 recurfolders(innerFolder)
+
 
 oauth = OAuth2(
     client_id='37zh1wo00w7h8qphpviwjkia7ng8g1j4',
