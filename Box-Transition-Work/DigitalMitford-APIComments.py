@@ -30,7 +30,7 @@ def recurfolders(getFolder):
                 itemname = i.name
                 itemnamecorr = itemname.replace('?', '')
                 itemid = i.id
-                commentfilename = "comments_" + foldernamecorr + "_" + itemnamecorr + "-" + itemid + ".txt"
+                commentfilename = "comments_F_" + foldernamecorr + "_" + itemnamecorr + "-" + itemid + ".txt"
                 pathway = os.path.join(projectPath, commentfilename)
                 commentList = []
                 for c in i.get_comments():
