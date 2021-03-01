@@ -24,7 +24,7 @@ def recurfolders(getFolder):
     foldernamecorr = foldername.replace('?', '')
     folderid = getFolder.id
     for i in getFolder.get_items():
-        print(str(i.type))
+        # print(str(i.type))
         if "file" in str(i.type):
             itemname = i.name
             itemnamecorr = itemname.replace('?', '')
@@ -33,18 +33,17 @@ def recurfolders(getFolder):
             pathway = os.path.join(projectPath, commentfilename)
             commentList = []
             for c in i.get_comments():
-                sstring = "Comment"
-                if sstring in str(c):
                     content = 'Comment was left by {0} at {1}: {2}'.format(c.created_by.name, c.created_at, c.message)
                     print(content)
                     commentList.append(content)
-                    separator = '\n'
-                    commentFileContents = separator.join(commentList)
-                    commentfile = open(pathway, 'w', encoding='utf-8')
-                    commentfile.write(commentFileContents)
-                    commentfile.close()
-                    commentfileupload = client.folder(folderid).upload(pathway)
-                    print('File "{0}" uploaded to Box with file ID {1}'.format(commentfileupload.name, commentfileupload.id))
+            if len(str(commentList)) > 0:
+                separator = '\n'
+                commentFileContents = separator.join(commentList)
+                commentfile = open(pathway, 'w', encoding='utf-8')
+                commentfile.write(commentFileContents)
+                commentfile.close()
+                commentfileupload = client.folder(folderid).upload(pathway)
+                print('File "{0}" uploaded to Box with file ID {1}'.format(commentfileupload.name, commentfileupload.id))
         substring = "Folder"
         if substring in str(i):
             innerids = i.id.split()
@@ -59,7 +58,7 @@ def recurfolders(getFolder):
 oauth = OAuth2(
     client_id='37zh1wo00w7h8qphpviwjkia7ng8g1j4',
     client_secret='YKatTFXOH1icNc9uxD3K2TMLCiulQJ0M',
-    access_token='4LRBwlFlGC4eFTc1ip5g0GiDC6WOc3oU'
+    access_token='fXgiAVtwJbM0GC52GmNSzntXxYwxVBKe'
     # store_tokens=your_store_tokens_callback_method,
 )
 
