@@ -61,7 +61,7 @@ def recurfolders(getFolder):
 oauth = OAuth2(
     client_id='37zh1wo00w7h8qphpviwjkia7ng8g1j4',
     client_secret='YKatTFXOH1icNc9uxD3K2TMLCiulQJ0M',
-    access_token='2w9yInFbPEbA5Vh41qqoNRgrw38Ry5FG'
+    access_token='JexhFXtJbDnUVB7Rk4eD92ut0br8bCs7'
     # store_tokens=your_store_tokens_callback_method,
 )
 
@@ -79,9 +79,15 @@ comments = sampleFile.get_comments()
 type = sampleFile.get().type
 print(str(comments))
 print(str(type))
+commentsall = []
 for comment in comments:
-    print(str(comment))
-    print('Comment was left by {0} at {1}: {2}'.format(comment.created_by.name, comment.created_at, comment.message))
+    # print(str(comment))
+    contents = 'Comment was left by {0} at {1}: {2}'.format(comment.created_by.name, comment.created_at, comment.message)
+    # print(contents)
+    commentsall.append(contents)
+commentsComp = '\n'.join(commentsall)
+if len(commentsComp) > 0:
+    print(str(commentsComp))
 
 sampleFolder = client.folder(folder_id='907771552')
 folder = sampleFolder.get()

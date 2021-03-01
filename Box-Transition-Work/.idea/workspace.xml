@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26c7c902-56b4-4acb-bef2-9a8a28f6161e" name="Default Changelist" comment="scratch file to write directories and eventually files">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DigitalMitford-APIComments.py" beforeDir="false" afterPath="$PROJECT_DIR$/DigitalMitford-APIComments.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
