@@ -25,15 +25,18 @@ def recurfolders(getFolder):
     folderid = getFolder.id
     for i in getFolder.get_items():
         if "file" in i.type:
-            if i.get_comments():
+            sstring = "comment"
+            if sstring in str(i.get_comments()):
                 itemname = i.name
                 itemnamecorr = itemname.replace('?', '')
                 itemid = i.id
-                commentfilename = "comments_" + itemnamecorr + "-" + itemid + ".txt"
+                commentfilename = "comments_" + foldernamecorr + "_" + itemnamecorr + "-" + itemid + ".txt"
                 pathway = os.path.join(projectPath, commentfilename)
                 commentList = []
                 for c in i.get_comments():
-                    commentList.append(c)
+                    content = 'Comment was left by {0} at {1}: {3}'.format(comment.created_by.name, comment.created_at, comment.message)
+                    print(content)
+                    commentList.append(content)
                 separator = '\n'
                 commentFileContents = separator.join(commentList)
                 commentfile = open(pathway, 'w', encoding='utf-8')
