@@ -36,14 +36,17 @@ def recurfolders(getFolder):
                     content = 'Comment was left by {0} at {1}: {2}'.format(c.created_by.name, c.created_at, c.message)
                     print(content)
                     commentList.append(content)
-            if len(str(commentList)) > 0:
-                separator = '\n'
-                commentFileContents = separator.join(commentList)
-                commentfile = open(pathway, 'w', encoding='utf-8')
-                commentfile.write(commentFileContents)
-                commentfile.close()
-                commentfileupload = client.folder(folderid).upload(pathway)
-                print('File "{0}" uploaded to Box with file ID {1}'.format(commentfileupload.name, commentfileupload.id))
+            commentListWhole = '\n'.join(commentList)
+            if len(commentListWhole) > 0:
+                print(str(commentListWhole))
+            # if len(str(commentList)) > 0:
+            #    separator = '\n'
+            #    commentFileContents = separator.join(commentList)
+            #    commentfile = open(pathway, 'w', encoding='utf-8')
+            #    commentfile.write(commentFileContents)
+            #    commentfile.close()
+            #    commentfileupload = client.folder(folderid).upload(pathway)
+            #   print('File "{0}" uploaded to Box with file ID {1}'.format(commentfileupload.name, commentfileupload.id))
         substring = "Folder"
         if substring in str(i):
             innerids = i.id.split()
