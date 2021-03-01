@@ -24,20 +24,23 @@ def recurfolders(getFolder):
     foldernamecorr = foldername.replace('?', '')
     folderid = getFolder.id
     for i in getFolder.get_items():
-        if i.get_comments["total_count"] > 0:
-            itemname = i.name
-            itemnamecorr = itemname.replace('?', '')
-            itemid = i.id
-            commentfilename = itemnamecorr + "-" + itemid + ".txt"
-            pathway = os.path.join(projectPath, commentfilename)
-            commentFileContents = []
-            for c in i.get_comments():
-                commentFileContents.append(c)
-            commentfile = open(pathway, 'w', encoding='utf-8')
-            commentfile.write(commentFileContents)
-            commentfile.close()
-            commentfileupload = client.folder(folderid).upload(pathway)
-            print('File "{0}" uploaded to Box with file ID {1}'.format(commentfileupload.name, commentfileupload.id))
+        if "file" in i.type:
+            if i.get_comments():
+                itemname = i.name
+                itemnamecorr = itemname.replace('?', '')
+                itemid = i.id
+                commentfilename = "comments_" + itemnamecorr + "-" + itemid + ".txt"
+                pathway = os.path.join(projectPath, commentfilename)
+                commentList = []
+                for c in i.get_comments():
+                    commentList.append(c)
+                separator = '\n'
+                commentFileContents = separator.join(commentList)
+                commentfile = open(pathway, 'w', encoding='utf-8')
+                commentfile.write(commentFileContents)
+                commentfile.close()
+                commentfileupload = client.folder(folderid).upload(pathway)
+                print('File "{0}" uploaded to Box with file ID {1}'.format(commentfileupload.name, commentfileupload.id))
         substring = "Folder"
         if substring in str(i):
             innerids = i.id.split()
@@ -52,7 +55,7 @@ def recurfolders(getFolder):
 oauth = OAuth2(
     client_id='37zh1wo00w7h8qphpviwjkia7ng8g1j4',
     client_secret='YKatTFXOH1icNc9uxD3K2TMLCiulQJ0M',
-    access_token='AzoJ2PXouN7iOS3Sk0kkIf6GuovPtXn0'
+    access_token='ueJGXldEhtldjC7kDsLjBw6CiK7I2K4g'
     # store_tokens=your_store_tokens_callback_method,
 )
 
