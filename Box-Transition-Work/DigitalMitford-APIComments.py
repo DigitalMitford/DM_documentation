@@ -24,7 +24,8 @@ def recurfolders(getFolder):
     foldernamecorr = foldername.replace('?', '')
     folderid = getFolder.id
     for i in getFolder.get_items():
-        if "file" in i.type:
+        print(str(i.type))
+        if "file" in str(i.type):
             itemname = i.name
             itemnamecorr = itemname.replace('?', '')
             itemid = i.id
@@ -73,7 +74,9 @@ client = Client(oauth)
 # Mitford_Digital_Archives folder = client.folder(folder_id='907565446').get()
 sampleFile = client.file(file_id='33034276995')
 comments = sampleFile.get_comments()
+type = sampleFile.get().type
 print(str(comments))
+print(str(type))
 for comment in comments:
     print(str(comment))
     print('Comment was left by {0} at {1}: {2}'.format(comment.created_by.name, comment.created_at, comment.message))
