@@ -25,25 +25,25 @@ def recurfolders(getFolder):
     folderid = getFolder.id
     for i in getFolder.get_items():
         if "file" in i.type:
-            sstring = "comment"
-            if sstring in str(i.get_comments()):
-                itemname = i.name
-                itemnamecorr = itemname.replace('?', '')
-                itemid = i.id
-                commentfilename = "comments_F_" + foldernamecorr + "_" + itemnamecorr + "-" + itemid + ".txt"
-                pathway = os.path.join(projectPath, commentfilename)
-                commentList = []
-                for c in i.get_comments():
-                    content = 'Comment was left by {0} at {1}: {3}'.format(comment.created_by.name, comment.created_at, comment.message)
+            itemname = i.name
+            itemnamecorr = itemname.replace('?', '')
+            itemid = i.id
+            commentfilename = "comments_F_" + foldernamecorr + "_" + itemnamecorr + "-" + itemid + ".txt"
+            pathway = os.path.join(projectPath, commentfilename)
+            commentList = []
+            for c in i.get_comments():
+                sstring = "Comment"
+                if sstring in str(c):
+                    content = 'Comment was left by {0} at {1}: {2}'.format(c.created_by.name, c.created_at, c.message)
                     print(content)
                     commentList.append(content)
-                separator = '\n'
-                commentFileContents = separator.join(commentList)
-                commentfile = open(pathway, 'w', encoding='utf-8')
-                commentfile.write(commentFileContents)
-                commentfile.close()
-                commentfileupload = client.folder(folderid).upload(pathway)
-                print('File "{0}" uploaded to Box with file ID {1}'.format(commentfileupload.name, commentfileupload.id))
+                    separator = '\n'
+                    commentFileContents = separator.join(commentList)
+                    commentfile = open(pathway, 'w', encoding='utf-8')
+                    commentfile.write(commentFileContents)
+                    commentfile.close()
+                    commentfileupload = client.folder(folderid).upload(pathway)
+                    print('File "{0}" uploaded to Box with file ID {1}'.format(commentfileupload.name, commentfileupload.id))
         substring = "Folder"
         if substring in str(i):
             innerids = i.id.split()
@@ -58,7 +58,7 @@ def recurfolders(getFolder):
 oauth = OAuth2(
     client_id='37zh1wo00w7h8qphpviwjkia7ng8g1j4',
     client_secret='YKatTFXOH1icNc9uxD3K2TMLCiulQJ0M',
-    access_token='ueJGXldEhtldjC7kDsLjBw6CiK7I2K4g'
+    access_token='4LRBwlFlGC4eFTc1ip5g0GiDC6WOc3oU'
     # store_tokens=your_store_tokens_callback_method,
 )
 
@@ -71,6 +71,13 @@ response = requests.get("https://account.box.com/api/oauth2/authorize/")
 client = Client(oauth)
 # client: object = requests.get("https://api.box.com/2.0/folders/:9dj7qs0aimiaywmxm2mo/").folder.get()
 # Mitford_Digital_Archives folder = client.folder(folder_id='907565446').get()
+sampleFile = client.file(file_id='33034276995')
+comments = sampleFile.get_comments()
+print(str(comments))
+for comment in comments:
+    print(str(comment))
+    print('Comment was left by {0} at {1}: {2}'.format(comment.created_by.name, comment.created_at, comment.message))
+
 sampleFolder = client.folder(folder_id='907771552')
 folder = sampleFolder.get()
 print('Folder "{0}" with id {1} has {2} items in it'.format(
