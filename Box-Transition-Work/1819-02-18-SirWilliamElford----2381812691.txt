@@ -1,0 +1,1 @@
+mco: proofed TEI headers and body, adding tags and SI at back to si-add-mco. updated header & tags. LMW 2015-10-14. Still needs cf with og ms. KDC proofing 2017-06

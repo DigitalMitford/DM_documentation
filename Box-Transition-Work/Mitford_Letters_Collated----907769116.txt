@@ -1,0 +1,1 @@
+All DATED letters are now sorted by DATE, and then by ARCHIVE.
