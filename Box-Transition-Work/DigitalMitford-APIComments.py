@@ -13,7 +13,7 @@ from os import mkdir
 # ebb: Try setting this up for JWT auth to use the Developer token https://github.com/box/box-python-sdk#server-to-server-auth-with-jwt
 import requests
 
-projectPath = Path('E:/Users/Lisa Documents/Documents/GitHub/Digital-Mitford-Organization/DM_documentation/Box-Transition-Work')
+projectPath = Path('E:/Users/Lisa Documents/Documents/GitHub/Digital-Mitford-Organization/DM_documentation/Box-Transition-Work/BoxCommentFiles')
 
 def recurfolders(getFolder):
     # ebb: What if instead we filed the description files inside the actual downloaded Box directories that share the same name as the folder.name?
@@ -29,7 +29,7 @@ def recurfolders(getFolder):
             itemname = i.name
             itemnamecorr = itemname.replace('?', '')
             itemid = i.id
-            commentfilename = "comments_F_" + foldernamecorr + "_" + itemnamecorr + "-" + itemid + ".txt"
+            commentfilename = "comments_" + foldernamecorr + "_" + itemnamecorr + "-" + itemid + ".txt"
             pathway = os.path.join(projectPath, commentfilename)
             commentList = []
             for c in i.get_comments():
@@ -39,14 +39,11 @@ def recurfolders(getFolder):
             commentListWhole = '\n'.join(commentList)
             if len(commentListWhole) > 0:
                 print(str(commentListWhole))
-            # if len(str(commentList)) > 0:
-            #    separator = '\n'
-            #    commentFileContents = separator.join(commentList)
-            #    commentfile = open(pathway, 'w', encoding='utf-8')
-            #    commentfile.write(commentFileContents)
-            #    commentfile.close()
-            #    commentfileupload = client.folder(folderid).upload(pathway)
-            #   print('File "{0}" uploaded to Box with file ID {1}'.format(commentfileupload.name, commentfileupload.id))
+            commentfile = open(pathway, 'w', encoding='utf-8')
+            commentfile.write(commentListWhole)
+            commentfile.close()
+            commentfileupload = client.folder(folderid).upload(pathway)
+            print('File "{0}" uploaded to Box with file ID {1} with these comments: {2}'.format(commentfileupload.name, commentfileupload.id, commentListWhole))
         substring = "Folder"
         if substring in str(i):
             innerids = i.id.split()
@@ -61,7 +58,7 @@ def recurfolders(getFolder):
 oauth = OAuth2(
     client_id='37zh1wo00w7h8qphpviwjkia7ng8g1j4',
     client_secret='YKatTFXOH1icNc9uxD3K2TMLCiulQJ0M',
-    access_token='JexhFXtJbDnUVB7Rk4eD92ut0br8bCs7'
+    access_token='W8PeTR4cgnYIRYI6L5Q7HeU35g4dMqwl'
     # store_tokens=your_store_tokens_callback_method,
 )
 
@@ -105,4 +102,4 @@ print('Folder "{0}" has this metadata: "{1}" and this description: "{2}".'.forma
 MitfordDigitalArchives = client.folder(folder_id='907565446').get()
 lettersOuterFolder = client.folder(folder_id='907769116').get()
 testingOuterFolder = client.folder(folder_id='132569588068').get()
-recurfolders(MitfordDigitalArchives)
+recurfolders(lettersOuterFolder)
