@@ -1,6 +1,6 @@
 # Site Index: Guide to Occupation Types and Subtypes 
 
-We will tag `<occupation>` elements as self-closed with `@type` and `@subtype` attributes. We will required the `@type` attribute and make `@subtype` optional, and keyed to specific types. There should be no whitespaces in any of these values.
+We will tag `<occupation>` elements as self-closed with `@type` and `@subtype` attributes. We will require the `@type` attribute and make `@subtype` optional, and keyed to specific types. There should be no whitespaces in any of these values.
 
 An example entry: 
 
