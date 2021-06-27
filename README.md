@@ -15,3 +15,4 @@ The following documentation files are available for consultation by the project 
 
 * **[Agenda and notes for August 2018 Digital Mitford GitHub Workflow meeting](Meeting_2018-08.md)**  (Elisa, Lisa, and Greg) 
 * **[Project Notes / Roadmap from Sustaining DH Institute, Pittsburgh 10-11 December 2018](sustainingDH_notes.md)**
+* **[Agenda for Digital Mitford Pandemic Reboot Meeting: 28 June 2021]](2021-06-28-Meeting-Agenda.md)**
