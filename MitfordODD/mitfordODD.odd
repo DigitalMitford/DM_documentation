@@ -28,30 +28,30 @@
             <author>Elisa Beshero-Bondar</author>
          </titleStmt>
          <editionStmt xml:id="edition">
-            <edition>Generated on 2020-08-07T23:17:47.562-04:00 from updates to the Site Index for the Digital Mitford project. Date: 2020-07-31T11:34:55.271-04:00. 
+            <edition>Generated on 2021-07-03T23:27:23.006-04:00 from updates to the Site Index for the Digital Mitford project. Date: 2021-07-03T23:18:14.196-04:00. 
         Count of all @xml:ids in the current file: 2565. First digital edition in TEI P5, launched on 19 August 2013.</edition>
          </editionStmt>
          <publicationStmt>
-            <authority>Prepared in TEI P5 by Elisa Beshero-Bondar in the Digital Mitford GitHub repository: <ref target="https://github.com/DigitalMitford/DM_documentation"/>. Date last worked on: <date instant="false" when="2019-05-18">18 May 2019</date>
+            <authority>Prepared in TEI P5 by Elisa Beshero-Bondar in the Digital Mitford GitHub repository: <ref target="https://github.com/DigitalMitford/DM_documentation"/>. Date last worked on: <date when="2019-05-18">18 May 2019</date>
             </authority>
-            <availability default="false">
+            <availability>
                <licence>Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) approved for Free Cultural Works <ref target="https://creativecommons.org/licenses/by-sa/4.0/"/>
                </licence>
             </availability>
          </publicationStmt>
          <seriesStmt>
-            <p part="N">This ODD customizes the TEI P5 for use in edition files, including drama, letters, poetry, plays. It indicates the modules and customizations of TEI encoding for manuscript transcription, and versioning and prosopography references for all files in the project except for the prosopography index file known as our <q>Site Index</q>, which holds a narrower range of elements. The elements of the site index are available here in the <q>back lists</q> of our files for proposing new entries to be added, but according to this ODD, only a narrow range of person, place, and document referencing are permitted in edition files in order to enforce consistent prosopography markup across all files. </p>
+            <p>This ODD customizes the TEI P5 for use in edition files, including drama, letters, poetry, plays. It indicates the modules and customizations of TEI encoding for manuscript transcription, and versioning and prosopography references for all files in the project except for the prosopography index file known as our <q>Site Index</q>, which holds a narrower range of elements. The elements of the site index are available here in the <q>back lists</q> of our files for proposing new entries to be added, but according to this ODD, only a narrow range of person, place, and document referencing are permitted in edition files in order to enforce consistent prosopography markup across all files. </p>
          </seriesStmt>
-         <sourceDesc default="false">
-            <p part="N">Born digital, based on information presented in the Digital Mitford Codebook at <ref target="http://codebook.mitford.pitt.edu"/>
+         <sourceDesc>
+            <p>Born digital, based on information presented in the Digital Mitford Codebook at <ref target="http://codebook.mitford.pitt.edu"/>
             </p>
          </sourceDesc>
       </fileDesc>
-      <revisionDesc status="draft">
-         <listChange ordered="true">
-            <change status="draft" when="2018-09-25" who="#ebb">Moved official location of this ODD and generated Relax NG schema files to the DM_documentation GitHub repository. Refined Schematron constraints for checking bibl and bibl/title elements.</change>
-            <change status="draft" when="2018-08-08" who="#ebb">Built Site Index Ids into this ODD, with si-to-ODD.xsl to build elementSpecs and attDef lists.</change>
-            <change status="draft" when="2018-08-06" who="#ebb">Prepared this ODD file, working with the Digital Mitford Schematron files in place to this point, and the Digital Mitford codebook.</change>
+      <revisionDesc>
+         <listChange>
+            <change when="2018-09-25" who="#ebb">Moved official location of this ODD and generated Relax NG schema files to the DM_documentation GitHub repository. Refined Schematron constraints for checking bibl and bibl/title elements.</change>
+            <change when="2018-08-08" who="#ebb">Built Site Index Ids into this ODD, with si-to-ODD.xsl to build elementSpecs and attDef lists.</change>
+            <change when="2018-08-06" who="#ebb">Prepared this ODD file, working with the Digital Mitford Schematron files in place to this point, and the Digital Mitford codebook.</change>
          </listChange>
       </revisionDesc>
    </teiHeader>
@@ -5597,7 +5597,7 @@
                            <gloss>Hampstead Theatre, Swiss Cottage, Camden, London, England | Theater in the Swiss Cottage area near Hampstead, in the London Borough of Camde</gloss>
                         </valItem>
                         <valItem ident="#Hampton_Court">
-                           <gloss>Hampton Court Palace, Surrey, England | Built in the early sixteenth century by Cardinal Wolseley, then, after Wolseley'</gloss>
+                           <gloss>Hampton Court Palace, Surrey, England | Built in the early sixteenth century by Cardinal Wolsey, then, after Wolsey’s fa</gloss>
                         </valItem>
                         <valItem ident="#Hardwick_Hall">
                            <gloss>Hardwick Hall, Derbyshire, England | Palatial Elizabethan country house in Derbyshire in the north Midlands of Englan</gloss>
@@ -5942,7 +5942,7 @@
                            <gloss>Palace of Westminster, Westminster, London, England | Located in Westminster, London, along the Thames River. This is the meeting plac</gloss>
                         </valItem>
                         <valItem ident="#Westmnstr">
-                           <gloss>City of Westminster, London, England | In Mitford's time, a district of Greater London and the location of St. James's </gloss>
+                           <gloss>City of Westminster, London, England | In Mitford’s time, a district of Greater London and the location of St. James's </gloss>
                         </valItem>
                         <valItem ident="#Whitehall">
                            <gloss>Whitehall, Westminster, London, England | The word Whitehall, used without specific reference to the palace, refers metony</gloss>
