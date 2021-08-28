@@ -3,7 +3,7 @@ a repo for working on our documentation and templates explaining project methods
 
 The following documentation files are available for consultation by the project team:
 
-* **[original Digital Mitford Codebook](https://docs.google.com/document/d/1r-8NGPJL1pZ20pnfvoX5OT0DkcDi-NBp5urJiZwx1sY/edit)
+* **[original Digital Mitford Codebook](https://docs.google.com/document/d/1r-8NGPJL1pZ20pnfvoX5OT0DkcDi-NBp5urJiZwx1sY/edit)**
 * **[Using Git through Command Line](Git_BasicCommands.md)** (a quick reading guide with the commands you need for working with project files in GitHub)
 * **[Updating the Project Schema Line](schemaUpdate.md)**: We have a new and improved TEI-ODD generated schema, and we need to change our schema association lines to work with it. Here's how to do that.
 * **[Digital Mitford ODD documentation](https://digitalmitford.github.io/DM_documentation/MitfordODD/mitfordODD.html)**: A searchable index of all elements and attributes and schematron rules customizing our project.
