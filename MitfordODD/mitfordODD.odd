@@ -3,6 +3,7 @@
 <?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_odds.rng" type="application/xml"
 	schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" version="2.9.1" xml:lang="en">
+   <!-- 2022-08-17 ebb: Leaving this comment because GitHub Pages isn't building the documentation repo. Adding this to make a change and push again. -->
    <!-- 2018-08-08 ebb: BEGIN with mitfordPre-Editable.odd Canonicalize it to mitfordEditable.odd before beginning to edit. The full ODD file is mitfordODD.odd.
       To make/edit/update the complete ODD: 
       * Open mitfordPre-Editable.odd and run canonicalize in oXygen to pull in the latest rules on the <occupation> element encoding from the SI GitHub repo. Output as mitfordEditable.odd.
