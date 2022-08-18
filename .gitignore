@@ -8,3 +8,9 @@
 ehthumbs.db
 Thumbs.db
 .idea
+pythonProject/
+.idea/workspace.xml
+.env/
+.idea/
+venv/
+__pycache__/
