@@ -2,8 +2,12 @@
 <?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_odds.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_odds.rng" type="application/xml"
 	schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" version="2.9.1" xml:lang="en">
-   <!-- 2022-08-17 ebb: Leaving this comment because GitHub Pages isn't building the documentation repo. Adding this to make a change and push again. -->
+<TEI xmlns="http://www.tei-c.org/ns/1.0"
+     xmlns:rng="http://relaxng.org/ns/structure/1.0"
+     xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+     xmlns:xi="http://www.w3.org/2001/XInclude"
+     version="2.9.1"
+     xml:lang="en">
    <!-- 2018-08-08 ebb: BEGIN with mitfordPre-Editable.odd Canonicalize it to mitfordEditable.odd before beginning to edit. The full ODD file is mitfordODD.odd.
       To make/edit/update the complete ODD: 
       * Open mitfordPre-Editable.odd and run canonicalize in oXygen to pull in the latest rules on the <occupation> element encoding from the SI GitHub repo. Output as mitfordEditable.odd.
@@ -17,9 +21,7 @@
      * "Run the wrench" in oXygen to generate the new Relax-NG XML-syntax project schema and HTML documentation for the project.
       2018-09-25 ebb: The canonical version of the Mitford ODD is stored in the DM_Documentation GitHub repo. Project schema lines should point to the ODD-generated Relax NG schema at https://digitalmitford.github.io/DM_documentation/MitfordODD/out/mitfordODD.rng 
   -->
-   <teiHeader xmlns:rng="http://relaxng.org/ns/structure/1.0"
-              xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-              xmlns:xi="http://www.w3.org/2001/XInclude">
+   <teiHeader>
       <fileDesc>
          <titleStmt>
             <title>Digital Mitford ODD for Project Edition Files</title>
@@ -54,8 +56,7 @@
       </revisionDesc>
    </teiHeader>
    <text>
-      <body xmlns:rng="http://relaxng.org/ns/structure/1.0"
-            xmlns:sch="http://purl.oclc.org/dsdl/schematron">
+      <body>
          <schemaSpec ident="mitfordODD" start="TEI teiCorpus" prefix="tei">
             <moduleRef key="tei"/>
             <moduleRef key="core"/>
@@ -82,10 +83,8 @@
             <constraintSpec ident="quotes" scheme="schematron">
                <constraint>
                   <sch:rule context="*/text()[matches(., '[A-z]+')]">
-                     <sch:let name="straightDoubleQuote" value="'&#34;'"/>
-                     <sch:let name="curlyDoubleQuote" value="'[“”]'"/>
-                     <sch:report role="warning"
-                                 test="matches(., $straightDoubleQuote) or matches(., $curlyDoubleQuote)">We see you’re typing in quotation marks. Please use a meaningful TEI element for these, instead, and do not duplicate quotation marks with a TEI element, because this may result in multiple sets of quotation marks on the website. If this is a cited quotation, use the cit and quote elements together (or just the quote element for an uncited quotation). If it is a spoken aloud passage, use the said element. If it is a title of a poem or other short work, use &lt;title level="a"&gt;. If it is a string of words in quotation marks and you are not sure what it is, use the q element.</sch:report>
+                     <sch:let name="regexQuote" value="'&#34;'"/>
+                     <sch:report role="warning" test="matches(., $regexQuote)">We see you’re typing in quotation marks. Please use a meaningful TEI element for these, instead, and do not duplicate quotation marks with a TEI element, because this may result in multiple sets of quotation marks on the website. If this is a cited quotation, use the cit and quote elements together (or just the quote element for an uncited quotation). If it is a spoken aloud passage, use the said element. If it is a title of a poem or other short work, use &lt;title level="a"&gt;. If it is a string of words in quotation marks and you are not sure what it is, use the q element.</sch:report>
                   </sch:rule>
                </constraint>
             </constraintSpec>
@@ -165,12 +164,12 @@
                </constraint>
             </constraintSpec>
             <constraintSpec ident="rsReferencing" scheme="schematron">
-               <constraint>
+             <!-- 2023-04-04 ebb: I think we don't need this now as we are handling the ref check as a warning elsewhere on the constraintSpec id="refsReq"  <constraint>
                   <sch:p>Ensure that there are @ref values on rs</sch:p>
                   <sch:rule context="tei:rs | tei:name">
                      <sch:assert test="@ref">An @ref attribute is required on this element!</sch:assert>
                   </sch:rule>
-               </constraint>
+               </constraint>-->
             </constraintSpec>
             <constraintSpec ident="rsEventcheck" scheme="schematron">
                <constraint>
@@ -195,7 +194,7 @@
             <constraintSpec ident="rsTitlecheck" scheme="schematron">
                <constraint>
                   <sch:p>Ensure that the @ref values on rs of type title point to bibl site index entries across the project.</sch:p>
-                  <sch:rule context="tei:rs[@type='title'] | tei:name[@type='title']">
+                  <sch:rule context="tei:rs[@type='title'] | tei:name[@type='title'] | tei:rs[@type='art']">
                      <sch:let name="siFile" value="doc('https://digitalmitford.org/si.xml')"/>
                      <sch:let name="siAddColl"
                               value="collection('https://digitalmitford.github.io/DM_SiteIndex/si_Add_Staged/catalogue.xml')"/>
@@ -1113,10 +1112,7 @@
                   </egXML>
                </exemplum>
             </elementSpec>
-            <elementSpec xmlns:xi="http://www.w3.org/2001/XInclude"
-                         ident="persName"
-                         module="namesdates"
-                         mode="change">
+            <elementSpec ident="persName" module="namesdates" mode="change">
                <attList>
                   <attDef ident="ref" mode="replace" usage="rec">
                      <datatype>
@@ -4796,10 +4792,7 @@
                   </attDef>
                </attList>
             </elementSpec>
-            <elementSpec xmlns:xi="http://www.w3.org/2001/XInclude"
-                         ident="orgName"
-                         module="namesdates"
-                         mode="change">
+            <elementSpec ident="orgName" module="namesdates" mode="change">
                <attList>
                   <attDef ident="ref" mode="replace" usage="rec">
                      <datatype>
@@ -5383,10 +5376,7 @@
                   </attDef>
                </attList>
             </elementSpec>
-            <elementSpec xmlns:xi="http://www.w3.org/2001/XInclude"
-                         ident="placeName"
-                         module="namesdates"
-                         mode="change">
+            <elementSpec ident="placeName" module="namesdates" mode="change">
                <attList>
                   <attDef ident="ref" mode="replace" usage="rec">
                      <datatype>
@@ -6009,10 +5999,7 @@
                   </attDef>
                </attList>
             </elementSpec>
-            <elementSpec xmlns:xi="http://www.w3.org/2001/XInclude"
-                         ident="title"
-                         module="core"
-                         mode="change">
+            <elementSpec ident="title" module="core" mode="change">
                <attList>
                   <attDef ident="ref" mode="replace" usage="rec">
                      <datatype>
@@ -8402,10 +8389,7 @@
                   </attDef>
                </attList>
             </elementSpec>
-            <elementSpec xmlns:xi="http://www.w3.org/2001/XInclude"
-                         ident="bibl"
-                         module="core"
-                         mode="change">
+            <elementSpec ident="bibl" module="core" mode="change">
                <attList>
                   <attDef ident="corresp" mode="replace" usage="rec">
                      <datatype>
@@ -10762,10 +10746,7 @@
                   </attDef>
                </attList>
             </elementSpec>
-            <elementSpec xmlns:xi="http://www.w3.org/2001/XInclude"
-                         ident="name"
-                         module="core"
-                         mode="change">
+            <elementSpec ident="name" module="core" mode="change">
                <attList>
                   <attDef ident="type" mode="replace" usage="rec">
                      <valList type="closed">
