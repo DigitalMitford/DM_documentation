@@ -6,7 +6,7 @@
      xmlns:rng="http://relaxng.org/ns/structure/1.0"
      xmlns:sch="http://purl.oclc.org/dsdl/schematron"
      xmlns:xi="http://www.w3.org/2001/XInclude"
-     version="2.9.1"
+     version="4.6.0"
      xml:lang="en">
    <!-- 2018-08-08 ebb: BEGIN with mitfordPre-Editable.odd Canonicalize it to mitfordEditable.odd before beginning to edit. The full ODD file is mitfordODD.odd.
       To make/edit/update the complete ODD: 
