@@ -6,8 +6,11 @@
      xmlns:rng="http://relaxng.org/ns/structure/1.0"
      xmlns:sch="http://purl.oclc.org/dsdl/schematron"
      xmlns:xi="http://www.w3.org/2001/XInclude"
-     version="4.6.0"
+     
      xml:lang="en">
+   <!-- ebb: Removing @version from TEI element to see if it always pulls in the current?
+   version="4.6.0"
+   -->
    <!-- 2018-08-08 ebb: BEGIN with mitfordPre-Editable.odd Canonicalize it to mitfordEditable.odd before beginning to edit. The full ODD file is mitfordODD.odd.
       To make/edit/update the complete ODD: 
       * Open mitfordPre-Editable.odd and run canonicalize in oXygen to pull in the latest rules on the <occupation> element encoding from the SI GitHub repo. Output as mitfordEditable.odd.
@@ -49,6 +52,7 @@
       </fileDesc>
       <revisionDesc>
          <listChange>
+            <change when="2023-05-27" who="#ebb">Updated the version of this ODD to the current version of TEI: 4.6.0</change>
             <change when="2018-09-25" who="#ebb">Moved official location of this ODD and generated Relax NG schema files to the DM_documentation GitHub repository. Refined Schematron constraints for checking bibl and bibl/title elements.</change>
             <change when="2018-08-08" who="#ebb">Built Site Index Ids into this ODD, with si-to-ODD.xsl to build elementSpecs and attDef lists.</change>
             <change when="2018-08-06" who="#ebb">Prepared this ODD file, working with the Digital Mitford Schematron files in place to this point, and the Digital Mitford codebook.</change>
@@ -164,12 +168,12 @@
                </constraint>
             </constraintSpec>
             <constraintSpec ident="rsReferencing" scheme="schematron">
-             <!-- 2023-04-04 ebb: I think we don't need this now as we are handling the ref check as a warning elsewhere on the constraintSpec id="refsReq"  <constraint>
+               <constraint>
                   <sch:p>Ensure that there are @ref values on rs</sch:p>
                   <sch:rule context="tei:rs | tei:name">
                      <sch:assert test="@ref">An @ref attribute is required on this element!</sch:assert>
                   </sch:rule>
-               </constraint>-->
+               </constraint>
             </constraintSpec>
             <constraintSpec ident="rsEventcheck" scheme="schematron">
                <constraint>
@@ -194,7 +198,7 @@
             <constraintSpec ident="rsTitlecheck" scheme="schematron">
                <constraint>
                   <sch:p>Ensure that the @ref values on rs of type title point to bibl site index entries across the project.</sch:p>
-                  <sch:rule context="tei:rs[@type='title'] | tei:name[@type='title'] | tei:rs[@type='art']">
+                  <sch:rule context="tei:rs[@type='title'] | tei:name[@type='title']">
                      <sch:let name="siFile" value="doc('https://digitalmitford.org/si.xml')"/>
                      <sch:let name="siAddColl"
                               value="collection('https://digitalmitford.github.io/DM_SiteIndex/si_Add_Staged/catalogue.xml')"/>
