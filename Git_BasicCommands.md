@@ -50,6 +50,9 @@ Then to pull in any changes from the remote "mothership" repo, type:
 ````
 git pull
 ```` 
+Watch your shell (Git Bash or Terminal) and make sure the pull completes: It should show you lots of lines and indication that new files or changes are coming in. You'll see plus signs marking additions to files, and - signs marking deletions in files or of whole files—all of these are changes you can expect to see. Alternatively if there are not changes, you'll see a message about that, too.
+
+**If something is wrong**, GitHub may alert you that pulling in changes will **overwrite** your local changes to particular files. If this happens, you should add and commit your changes to your files (following instructions below), and then afterwards `git pull`. (You will still need to `git pull` any changes before you `git push` your local changes up. )
 
 3) When you want to share you local changes to the repo with the remote mothership and other collaborators, you need to **add**, **commit**, and **push** those changes. Here's how you do it:
 
