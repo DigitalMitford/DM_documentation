@@ -15,6 +15,10 @@
 
 1) The key thing to working with Git is **always knowing where to find your files in the Finder (on Mac) / File Explorer (on Windows) and in the Terminal/Command Line Shell**. So you need to save them in a place where you can easily see them. 
 * In the Finder/File Explorer, make yourself a "GitHub" directory that lives inside "Documents" (or on your desktop if that is a more logical place for you). Inside the "GitHub" directory you will clone each of your project repositories.
+* **If you are on Windows and your file directory structure is at all confusing (such as, if you have ever had OneDrive on your computer)**: 
+    * Shut off OneDrive syncing whereever you intend to be saving GitHub repos.
+    * Browse to find your GitHub folder in your File Manager, and right-click on it. In the dropdown menu, look for `Git Bash Here`: Select it, and Git Bash will open in that location. 
+    
 * In the Terminal/Command Line Shell), you can navigate to your "GitHub" directory from the computer's root by typing:
 `cd Documents/GitHub/` if stored in documents or `cd Desktop/GitHub/` if stored on your desktop
 **`cd` means "change directories"** and in the above command you are *stepping down* into Documents (or Desktop) and into the GitHub folder. Use **`ls`** to list out the contents of the directory you have stepped down into.
