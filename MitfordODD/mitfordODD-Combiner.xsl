@@ -19,7 +19,8 @@
   <body>  
       <schemaSpec ident="mitfordODD" start="TEI teiCorpus" prefix="tei">
          <xsl:copy-of select="descendant::moduleRef"/>
-        <xsl:copy-of select="descendant::constraintSpec"/>
+          <xsl:copy-of select="descendant::classRef"/>
+        <xsl:copy-of select="descendant::constraintSpec[not(ancestor::elementSpec)]"/>
         <xsl:copy-of select="descendant::elementSpec"/>
         <xsl:apply-templates select="$MRMProsopRef//specGrp/*"/>
     </schemaSpec>

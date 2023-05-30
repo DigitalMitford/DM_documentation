@@ -5,7 +5,7 @@
          xmlns:xlink="http://www.w3.org/1999/xlink"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.tei-c.org/ns/1.0"><!--
-Schema generated from ODD source 2023-05-27T19:34:21Z. .
+Schema generated from ODD source 2023-05-30T04:54:20Z. .
 TEI Edition: Version 4.4.0. Last updated on
         19th April 2022, revision ff9cc28b0
 TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.4.0/
@@ -16769,40 +16769,722 @@ Sample values include: 1] birth; 2] naturalised; 3] self-assigned</a:documentati
    </define>
    <define name="teioccupation">
       <element name="occupation">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(occupation) contains an informal description of a person's trade, profession or occupation. [15.2.2. The Participant Description]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(occupation) describes a person's trade, profession or occupation.</a:documentation>
          <zeroOrMore>
             <ref name="teiroleName"/>
          </zeroOrMore>
+         <sch:pattern xmlns="http://www.tei-c.org/ns/1.0"
+                      xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                      xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                      xmlns:xi="http://www.w3.org/2001/XInclude">
+            <sch:let name="artistSubtypes"
+                     value="('painter', 'printmaker', 'engraver', 'sculptor', 'architect', 'landscape', 'illustrator')"/>
+            <sch:let name="bookProducerSubtypes"
+                     value="('publisher', 'printer', 'binder', 'bookseller')"/>
+            <sch:let name="religiousSubtypes"
+                     value="('clergy', 'prophet', 'vicar', 'curate', 'minister', 'rector', 'priest', 'musician', 'composer', 'churchAssist')"/>
+            <sch:let name="educatorSubtypes"
+                     value="('teacher', 'schoolHead', 'governess', 'tutor', 'lecturer')"/>
+            <sch:let name="scholarSubtypes"
+                     value="('philosopher', 'naturalist', 'astronomer', 'curator', 'antiquarian', 'inventor', 'historian', 'economist', 'agronomist', 'supernatural')"/>
+            <sch:let name="explorerSubtypes"
+                     value="('traveller', 'navigator', 'cartographer', 'seaCaptain')"/>
+            <sch:let name="legalSubtypes"
+                     value="('barrister', 'solicitor', 'lawyer', 'recorder', 'magistrate', 'judge', 'enforcement')"/>
+            <sch:let name="literarySubtypes"
+                     value="('novelist', 'poet', 'playwright', 'essayist', 'critic', 'journalist', 'editor', 'biographer', 'autobiographer', 'lexicographer', 'linguist', 'translator')"/>
+            <sch:let name="theaterSubtypes"
+                     value="('actor', 'singer', 'manager', 'owner', 'designer', 'musician', 'composer')"/>
+            <sch:let name="medicalSubtypes"
+                     value="('physician', 'surgeon', 'apothecary', 'midwife', 'oculist', 'dentist')"/>
+            <sch:let name="militarySubtypes" value="('army', 'navy')"/>
+            <sch:let name="benefactorSubtypes"
+                     value="('philanthropist', 'patron', 'volunteer')"/>
+            <sch:let name="governmentSubtypes"
+                     value="('monarch', 'politician', 'orator', 'reformer', 'courtier', 'diplomat', 'administrator', 'clerk', 'taxCollector', 'post', 'customs', 'surveyor', 'alderman')"/>
+            <sch:let name="serviceSubtypes"
+                     value="('butler', 'coachman', 'valet', 'maid', 'manservant', 'footman', 'cook', 'housekeeper', 'gardener', 'nurse', 'gamekeeper', 'majordomo', 'groom')"/>
+            <sch:let name="tradeSubtypes"
+                     value="('baker', 'butcher', 'farmer', 'bricklayer', 'mason', 'chandler', 'wheelwright', 'carpenter', 'watchmaker', 'miller', 'blacksmith', 'goldsmith', 'jeweller', 'tanner', 'saddler', 'shoemaker', 'innkeeper', 'liquor', 'merchant', 'clerk', 'banker', 'stockbroker', 'auctioneer', 'gambler','ropemaker', 'fisherman', 'factoryOwner', 'shopAssist', 'tailor', 'hatter', 'seamstress', 'laundry', 'char', 'thatcher', 'housePainter', 'glazier', 'construction', 'farmAssist', 'pestControl', 'carter', 'driver', 'hunt', 'magic', 'poacher', 'broomMaker', 'sailor')"/>
+            <sch:rule context="tei:occupation[@type='artist'][@subtype]">
+               <sch:let name="subtypes" value=" for $i in tokenize(@subtype, '\s+') return $i"/>
+               <sch:assert test="every $subtype in $subtypes satisfies $subtype = $artistSubtypes">Multiple subtypes are permitted, but these must be from the following list: <sch:value-of select="$artistSubtypes"/>.</sch:assert>
+            </sch:rule>
+            <sch:rule context="tei:occupation[@type='bookProducer'][@subtype]">
+               <sch:let name="subtypes" value=" for $i in tokenize(@subtype, '\s+') return $i"/>
+               <sch:assert test="every $subtype in $subtypes satisfies $subtype = $bookProducerSubtypes">Multiple subtypes are permitted, but these must be from the following list: <sch:value-of select="$bookProducerSubtypes"/>.</sch:assert>
+            </sch:rule>
+            <sch:rule context="tei:occupation[@type='religious'][@subtype]">
+               <sch:let name="subtypes" value=" for $i in tokenize(@subtype, '\s+') return $i"/>
+               <sch:assert test="every $subtype in $subtypes satisfies $subtype = $religiousSubtypes">Multiple subtypes are permitted, but these must be from the following list: <sch:value-of select="$religiousSubtypes"/>.</sch:assert>
+            </sch:rule>
+            <sch:rule context="tei:occupation[@type='educator'][@subtype]">
+               <sch:let name="subtypes" value=" for $i in tokenize(@subtype, '\s+') return $i"/>
+               <sch:assert test="every $subtype in $subtypes satisfies $subtype = $educatorSubtypes">Multiple subtypes are permitted, but these must be from the following list: <sch:value-of select="$educatorSubtypes"/>.</sch:assert>
+            </sch:rule>
+            <sch:rule context="tei:occupation[@type='scholar'][@subtype]">
+               <sch:let name="subtypes" value=" for $i in tokenize(@subtype, '\s+') return $i"/>
+               <sch:assert test="every $subtype in $subtypes satisfies $subtype = $scholarSubtypes">Multiple subtypes are permitted, but these must be from the following list: <sch:value-of select="$scholarSubtypes"/>.</sch:assert>
+            </sch:rule>
+            <sch:rule context="tei:occupation[@type='explorer'][@subtype]">
+               <sch:let name="subtypes" value=" for $i in tokenize(@subtype, '\s+') return $i"/>
+               <sch:assert test="every $subtype in $subtypes satisfies $subtype = $explorerSubtypes">Multiple subtypes are permitted, but these must be from the following list: <sch:value-of select="$explorerSubtypes"/>.</sch:assert>
+            </sch:rule>
+            <sch:rule context="tei:occupation[@type='legal'][@subtype]">
+               <sch:let name="subtypes" value=" for $i in tokenize(@subtype, '\s+') return $i"/>
+               <sch:assert test="every $subtype in $subtypes satisfies $subtype = $legalSubtypes">Multiple subtypes are permitted, but these must be from the following list: <sch:value-of select="$legalSubtypes"/>.</sch:assert>
+            </sch:rule>
+            <sch:rule context="tei:occupation[@type='literary'][@subtype]">
+               <sch:let name="subtypes" value=" for $i in tokenize(@subtype, '\s+') return $i"/>
+               <sch:assert test="every $subtype in $subtypes satisfies $subtype = $literarySubtypes">Multiple subtypes are permitted, but these must be from the following list: <sch:value-of select="$literarySubtypes"/>.</sch:assert>
+            </sch:rule>
+            <sch:rule context="tei:occupation[@type='theater'][@subtype]">
+               <sch:let name="subtypes" value=" for $i in tokenize(@subtype, '\s+') return $i"/>
+               <sch:assert test="every $subtype in $subtypes satisfies $subtype = $theaterSubtypes">Multiple subtypes are permitted, but these must be from the following list: <sch:value-of select="$theaterSubtypes"/>.</sch:assert>
+            </sch:rule>
+            <sch:rule context="tei:occupation[@type='medical'][@subtype]">
+               <sch:let name="subtypes" value=" for $i in tokenize(@subtype, '\s+') return $i"/>
+               <sch:assert test="every $subtype in $subtypes satisfies $subtype = $medicalSubtypes">Multiple subtypes are permitted, but these must be from the following list: <sch:value-of select="$medicalSubtypes"/>.</sch:assert>
+            </sch:rule>
+            <sch:rule context="tei:occupation[@type='military'][@subtype]">
+               <sch:let name="subtypes" value=" for $i in tokenize(@subtype, '\s+') return $i"/>
+               <sch:assert test="every $subtype in $subtypes satisfies $subtype = $militarySubtypes">Multiple subtypes are permitted, but these must be from the following list: <sch:value-of select="$militarySubtypes"/>.</sch:assert>
+            </sch:rule>
+            <sch:rule context="tei:occupation[@type='benefactor'][@subtype]">
+               <sch:let name="subtypes" value=" for $i in tokenize(@subtype, '\s+') return $i"/>
+               <sch:assert test="every $subtype in $subtypes satisfies $subtype = $benefactorSubtypes">Multiple subtypes are permitted, but these must be from the following list: <sch:value-of select="$benefactorSubtypes"/>.</sch:assert>
+            </sch:rule>
+            <sch:rule context="tei:occupation[@type='government'][@subtype]">
+               <sch:let name="subtypes" value=" for $i in tokenize(@subtype, '\s+') return $i"/>
+               <sch:assert test="every $subtype in $subtypes satisfies $subtype = $governmentSubtypes">Multiple subtypes are permitted, but these must be from the following list: <sch:value-of select="$governmentSubtypes"/>.</sch:assert>
+            </sch:rule>
+            <sch:rule context="tei:occupation[@type='service'][@subtype]">
+               <sch:let name="subtypes" value=" for $i in tokenize(@subtype, '\s+') return $i"/>
+               <sch:assert test="every $subtype in $subtypes satisfies $subtype = $serviceSubtypes">Multiple subtypes are permitted, but these must be from the following list: <sch:value-of select="$serviceSubtypes"/>
+               </sch:assert>
+            </sch:rule>
+            <sch:rule context="tei:occupation[@type='trade'][@subtype]">
+               <sch:let name="subtypes" value=" for $i in tokenize(@subtype, '\s+') return $i"/>
+               <sch:assert test="every $subtype in $subtypes satisfies $subtype = $tradeSubtypes">Multiple subtypes are permitted, but these must be from the following list: <sch:value-of select="$tradeSubtypes"/>
+               </sch:assert>
+            </sch:rule>
+         </sch:pattern>
          <ref name="teiatt.global.attributes"/>
          <ref name="teiatt.datable.attributes"/>
          <ref name="teiatt.editLike.attributes"/>
          <ref name="teiatt.naming.attributes"/>
-         <ref name="teiatt.typed.attribute.subtype"/>
-         <optional>
-            <attribute name="type">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">characterizes the element in some sense, using any convenient classification scheme or typology.
-Sample values include: 1] primary; 2] other; 3] paid; 4] unpaid</a:documentation>
-               <data type="token">
-                  <param name="pattern">[^\p{C}\p{Z}]+</param>
-               </data>
-            </attribute>
-         </optional>
-         <optional>
-            <attribute name="scheme">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">indicates the classification system or taxonomy in use, for example by supplying the identifier of a <code xmlns="http://www.w3.org/1999/xhtml">&lt;taxonomy&gt;</code> element, or pointing to some other resource.</a:documentation>
-               <data type="anyURI">
-                  <param name="pattern">\S+</param>
-               </data>
-            </attribute>
-         </optional>
-         <optional>
-            <attribute name="code">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">identifies an occupation code defined within the classification system or taxonomy defined by the <code xmlns="http://www.w3.org/1999/xhtml">@scheme</code> attribute.</a:documentation>
-               <data type="anyURI">
-                  <param name="pattern">\S+</param>
-               </data>
-            </attribute>
-         </optional>
+         <choice>
+            <group>
+               <attribute name="type">
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <choice>
+                     <value>artist</value>
+                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  </choice>
+               </attribute>
+               <optional>
+                  <attribute name="subtype">
+                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+Suggested values include: 1] painter (with type="artist": Designate type of painter as appropriate in the note element.); 2] printmaker (with type="artist": this includes printmaking for books.); 3] engraver (with type="artist": this includes engravings for books.); 4] sculptor (with type="artist".); 5] architect (with type="artist". for designers of buildings.); 6] landscape (with type="artist". for designers and planners of gardens. The occupation of gardener, for one who helps maintain a garden, goes with @type="service" ); 7] illustrator (with type="artist". This includes book illustrators.)</a:documentation>
+                     <choice>
+                        <value>painter</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="artist": Designate type of painter as appropriate in the note element.) </a:documentation>
+                        <value>printmaker</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="artist": this includes printmaking for books.) </a:documentation>
+                        <value>engraver</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="artist": this includes engravings for books.) </a:documentation>
+                        <value>sculptor</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="artist".) </a:documentation>
+                        <value>architect</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="artist". for designers of buildings.) </a:documentation>
+                        <value>landscape</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="artist". for designers and planners of gardens. The occupation of gardener, for one who helps maintain a garden, goes with @type="service" ) </a:documentation>
+                        <value>illustrator</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="artist". This includes book illustrators.) </a:documentation>
+                        <data type="string"/>
+                     </choice>
+                  </attribute>
+               </optional>
+            </group>
+            <group>
+               <attribute name="type">
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <choice>
+                     <value>bookProducer</value>
+                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  </choice>
+               </attribute>
+               <optional>
+                  <attribute name="subtype">
+                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+Suggested values include: 1] publisher (with type="bookProducer".); 2] printer (with type="bookProducer". Do not use for art printing. For that, use one of the subtypes associated with type="artist".); 3] binder (with type="bookProducer".); 4] bookseller (with type="bookProducer".)</a:documentation>
+                     <choice>
+                        <value>publisher</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="bookProducer".) </a:documentation>
+                        <value>printer</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="bookProducer". Do not use for art printing. For that, use one of the subtypes associated with type="artist".) </a:documentation>
+                        <value>binder</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="bookProducer".) </a:documentation>
+                        <value>bookseller</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="bookProducer".) </a:documentation>
+                        <data type="string"/>
+                     </choice>
+                  </attribute>
+               </optional>
+            </group>
+            <group>
+               <attribute name="type">
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <choice>
+                     <value>religious</value>
+                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  </choice>
+               </attribute>
+               <optional>
+                  <attribute name="subtype">
+                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+Suggested values include: 1] clergy (with type="religious".); 2] prophet (with type="religious".); 3] vicar (with type="religious".); 4] curate (with type="religious".); 5] minister (with type="religious".); 6] rector (with type="religious".); 7] priest (with type="religious". Use for Catholic clergy as well as Greek/Roman clergy. Synonymous with priestess for the purposes of our encoding.); 8] composer (with type="religious". For composers of religious music.); 9] musician (with type="religious". For musical performers in church settings and religious contexts.); 10] churchAssist (with type="religious". For non-leadership roles serving the church (such as pew-opener, sexton, or verger).)</a:documentation>
+                     <choice>
+                        <value>clergy</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="religious".) </a:documentation>
+                        <value>prophet</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="religious".) </a:documentation>
+                        <value>vicar</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="religious".) </a:documentation>
+                        <value>curate</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="religious".) </a:documentation>
+                        <value>minister</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="religious".) </a:documentation>
+                        <value>rector</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="religious".) </a:documentation>
+                        <value>priest</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="religious". Use for Catholic clergy as well as Greek/Roman clergy. Synonymous with priestess for the purposes of our encoding.) </a:documentation>
+                        <value>composer</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="religious". For composers of religious music.) </a:documentation>
+                        <value>musician</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="religious". For musical performers in church settings and religious contexts.) </a:documentation>
+                        <value>churchAssist</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="religious". For non-leadership roles serving the church (such as pew-opener, sexton, or verger).) </a:documentation>
+                        <data type="string"/>
+                     </choice>
+                  </attribute>
+               </optional>
+            </group>
+            <group>
+               <attribute name="type">
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <choice>
+                     <value>educator</value>
+                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  </choice>
+               </attribute>
+               <optional>
+                  <attribute name="subtype">
+                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+Suggested values include: 1] teacher (with type="educator".); 2] schoolHead (with type="educator". (for headmistress, schoolmaster, etc.)); 3] governess (with type="educator".); 4] tutor (with type="educator".); 5] lecturer (with type="educator". For public lecturers on educational topics.)</a:documentation>
+                     <choice>
+                        <value>teacher</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="educator".) </a:documentation>
+                        <value>schoolHead</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="educator". (for headmistress, schoolmaster, etc.)) </a:documentation>
+                        <value>governess</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="educator".) </a:documentation>
+                        <value>tutor</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="educator".) </a:documentation>
+                        <value>lecturer</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="educator". For public lecturers on educational topics.) </a:documentation>
+                        <data type="string"/>
+                     </choice>
+                  </attribute>
+               </optional>
+            </group>
+            <group>
+               <attribute name="type">
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <choice>
+                     <value>scholar</value>
+                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  </choice>
+               </attribute>
+               <optional>
+                  <attribute name="subtype">
+                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+Suggested values include: 1] philosopher (with type="scholar". Distinct from natural philosopher.); 2] naturalist (with type="scholar". Covers the natural sciences and earth sciences, and includes biologist, botanist, ornithologist, geologist, etc.); 3] astronomer (with type="scholar".); 4] curator (with type="scholar". for antiquarian collectors and those working in libraries and museums.); 5] antiquarian (with type="scholar". For those who research artifacts rather than collect them.); 6] historian (with type="scholar". ); 7] inventor (with type="scholar". ); 8] economist (with type="scholar". ); 9] agronomist (with type="scholar". For those who study agriculture.); 10] supernatural (For a powerful person who researches the supernatural or the spirit world, for example, Prospero or Dr. Faustus. With type="scholar".)</a:documentation>
+                     <choice>
+                        <value>philosopher</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="scholar". Distinct from natural philosopher.) </a:documentation>
+                        <value>naturalist</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="scholar". Covers the natural sciences and earth sciences, and includes biologist, botanist, ornithologist, geologist, etc.) </a:documentation>
+                        <value>astronomer</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="scholar".) </a:documentation>
+                        <value>curator</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="scholar". for antiquarian collectors and those working in libraries and museums.) </a:documentation>
+                        <value>antiquarian</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="scholar". For those who research artifacts rather than collect them.) </a:documentation>
+                        <value>historian</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="scholar". ) </a:documentation>
+                        <value>inventor</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="scholar". ) </a:documentation>
+                        <value>economist</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="scholar". ) </a:documentation>
+                        <value>agronomist</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="scholar". For those who study agriculture.) </a:documentation>
+                        <value>supernatural</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(For a powerful person who researches the supernatural or the spirit world, for example, Prospero or Dr. Faustus. With type="scholar".) </a:documentation>
+                        <data type="string"/>
+                     </choice>
+                  </attribute>
+               </optional>
+            </group>
+            <group>
+               <attribute name="type">
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <choice>
+                     <value>explorer</value>
+                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  </choice>
+               </attribute>
+               <optional>
+                  <attribute name="subtype">
+                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+Suggested values include: 1] traveller (with type="explorer".); 2] navigator (with type="explorer".); 3] cartographer (with type="explorer".); 4] seaCaptain (with type="explorer". Commands a ship, distinct from military post.)</a:documentation>
+                     <choice>
+                        <value>traveller</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="explorer".) </a:documentation>
+                        <value>navigator</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="explorer".) </a:documentation>
+                        <value>cartographer</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="explorer".) </a:documentation>
+                        <value>seaCaptain</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="explorer". Commands a ship, distinct from military post.) </a:documentation>
+                        <data type="string"/>
+                     </choice>
+                  </attribute>
+               </optional>
+            </group>
+            <group>
+               <attribute name="type">
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <choice>
+                     <value>legal</value>
+                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  </choice>
+               </attribute>
+               <optional>
+                  <attribute name="subtype">
+                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+Suggested values include: 1] barrister (with type="legal". British lawyers who can plead in court.); 2] solicitor (with type="legal". British lawyers who do not plead in court.); 3] lawyer (with type="legal". ONLY appropriate if law practitioner from the United States.); 4] recorder (with type="legal". ); 5] judge (with type="legal". ex: Mr. Justice Talfourd); 6] magistrate (with type="legal". ex: George Mitford); 7] enforcement (with type="legal". For constable, police, or sheriff, those involved in law enforcement.)</a:documentation>
+                     <choice>
+                        <value>barrister</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="legal". British lawyers who can plead in court.) </a:documentation>
+                        <value>solicitor</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="legal". British lawyers who do not plead in court.) </a:documentation>
+                        <value>lawyer</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="legal". ONLY appropriate if law practitioner from the United States.) </a:documentation>
+                        <value>recorder</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="legal". ) </a:documentation>
+                        <value>judge</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="legal". ex: Mr. Justice Talfourd) </a:documentation>
+                        <value>magistrate</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="legal". ex: George Mitford) </a:documentation>
+                        <value>enforcement</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="legal". For constable, police, or sheriff, those involved in law enforcement.) </a:documentation>
+                        <data type="string"/>
+                     </choice>
+                  </attribute>
+               </optional>
+            </group>
+            <group>
+               <attribute name="type">
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <choice>
+                     <value>literary</value>
+                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  </choice>
+               </attribute>
+               <optional>
+                  <attribute name="subtype">
+                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+Suggested values include: 1] novelist (with type="literary". ); 2] poet (with type="literary". ); 3] playwright (with type="literary". ); 4] essayist (with type="literary". For essayists who are not primarily writing specific literary/art reviews, but more broad-ranging philosophical or aesthetic writings.); 5] critic (with type="literary". For literary, theatre / art critics and reviewers.); 6] journalist (with type="literary". ); 7] editor (with type="literary". ); 8] biographer (with type="literary". ); 9] autobiographer (with type="literary". ); 10] lexicographer (with type="literary". ); 11] linguist (with type="literary". For those who systemically study languages, not simply translators.); 12] translator (with type="literary". )</a:documentation>
+                     <choice>
+                        <value>novelist</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="literary". ) </a:documentation>
+                        <value>poet</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="literary". ) </a:documentation>
+                        <value>playwright</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="literary". ) </a:documentation>
+                        <value>essayist</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="literary". For essayists who are not primarily writing specific literary/art reviews, but more broad-ranging philosophical or aesthetic writings.) </a:documentation>
+                        <value>critic</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="literary". For literary, theatre / art critics and reviewers.) </a:documentation>
+                        <value>journalist</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="literary". ) </a:documentation>
+                        <value>editor</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="literary". ) </a:documentation>
+                        <value>biographer</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="literary". ) </a:documentation>
+                        <value>autobiographer</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="literary". ) </a:documentation>
+                        <value>lexicographer</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="literary". ) </a:documentation>
+                        <value>linguist</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="literary". For those who systemically study languages, not simply translators.) </a:documentation>
+                        <value>translator</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="literary". ) </a:documentation>
+                        <data type="string"/>
+                     </choice>
+                  </attribute>
+               </optional>
+            </group>
+            <group>
+               <attribute name="type">
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <choice>
+                     <value>theater</value>
+                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  </choice>
+               </attribute>
+               <optional>
+                  <attribute name="subtype">
+                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+Suggested values include: 1] actor (with type="theater". General term for all sexes; do not use "actress".); 2] singer (with type="theater". Includes opera singers in performing roles. ); 3] manager (with type="theater". For actor-managers and theater managers like William Macready.); 4] owner (with type="theater". ); 5] designer (with type="theater". For production designers, costume-makers, makers of stage sets and props.); 6] musician (with type="theater". For pit players of music supporting the stage.); 7] composer (with type="theater". For writers of instrumental and vocal music for the stage, including lyricists and librettists.)</a:documentation>
+                     <choice>
+                        <value>actor</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="theater". General term for all sexes; do not use "actress".) </a:documentation>
+                        <value>singer</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="theater". Includes opera singers in performing roles. ) </a:documentation>
+                        <value>manager</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="theater". For actor-managers and theater managers like William Macready.) </a:documentation>
+                        <value>owner</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="theater". ) </a:documentation>
+                        <value>designer</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="theater". For production designers, costume-makers, makers of stage sets and props.) </a:documentation>
+                        <value>musician</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="theater". For pit players of music supporting the stage.) </a:documentation>
+                        <value>composer</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="theater". For writers of instrumental and vocal music for the stage, including lyricists and librettists.) </a:documentation>
+                        <data type="string"/>
+                     </choice>
+                  </attribute>
+               </optional>
+            </group>
+            <group>
+               <attribute name="type">
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <choice>
+                     <value>medical</value>
+                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  </choice>
+               </attribute>
+               <optional>
+                  <attribute name="subtype">
+                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+Suggested values include: 1] physician (with type="medical".); 2] surgeon (with type="medical". Includes barbers and others who do surgery and bloodletting.); 3] apothecary (with type="medical". For pharmacy specialists.); 4] midwife (with type="medical". Includes, should we ever see one, a "man-midwife" or a male who assists with births and is not a physician or surgeon.); 5] oculist (with type="medical".); 6] dentist (with type="medical".)</a:documentation>
+                     <choice>
+                        <value>physician</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="medical".) </a:documentation>
+                        <value>surgeon</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="medical". Includes barbers and others who do surgery and bloodletting.) </a:documentation>
+                        <value>apothecary</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="medical". For pharmacy specialists.) </a:documentation>
+                        <value>midwife</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="medical". Includes, should we ever see one, a "man-midwife" or a male who assists with births and is not a physician or surgeon.) </a:documentation>
+                        <value>oculist</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="medical".) </a:documentation>
+                        <value>dentist</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="medical".) </a:documentation>
+                        <data type="string"/>
+                     </choice>
+                  </attribute>
+               </optional>
+            </group>
+            <group>
+               <attribute name="type">
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <choice>
+                     <value>military</value>
+                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  </choice>
+               </attribute>
+               <optional>
+                  <attribute name="subtype">
+                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+Suggested values include: 1] army (with type="military".); 2] navy (with type="military".)</a:documentation>
+                     <choice>
+                        <value>army</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="military".) </a:documentation>
+                        <value>navy</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="military".) </a:documentation>
+                        <data type="string"/>
+                     </choice>
+                  </attribute>
+               </optional>
+            </group>
+            <group>
+               <attribute name="type">
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <choice>
+                     <value>benefactor</value>
+                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  </choice>
+               </attribute>
+               <optional>
+                  <attribute name="subtype">
+                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+Suggested values include: 1] philanthropist (with type="benefactor". For doers of benevolent activities outside of the arts); 2] patron (with type="benefactor". For supporters of the arts, theatre, and writers); 3] volunteer (with type="benefactor". For individual benevolent activities involving labor rather than money)</a:documentation>
+                     <choice>
+                        <value>philanthropist</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="benefactor". For doers of benevolent activities outside of the arts) </a:documentation>
+                        <value>patron</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="benefactor". For supporters of the arts, theatre, and writers) </a:documentation>
+                        <value>volunteer</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="benefactor". For individual benevolent activities involving labor rather than money) </a:documentation>
+                        <data type="string"/>
+                     </choice>
+                  </attribute>
+               </optional>
+            </group>
+            <group>
+               <attribute name="type">
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <choice>
+                     <value>government</value>
+                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  </choice>
+               </attribute>
+               <optional>
+                  <attribute name="subtype">
+                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+Suggested values include: 1] monarch (with type="government". Titles like King, Queen, Princess are coded in &lt;roleName&gt;, not &lt;occupation&gt;.); 2] politician (with type="government". Use for elected officials and those running for election or who are in office by reason of political party or affiliation. Code their official title (such as "Member of Parliament for Westminster) with &lt;roleName&gt;.); 3] orator (with type="government". For political or reformist orators who are not clergy, actors, or prophets.); 4] reformer (with type="government". Any public advocate for political or social reform.); 5] courtier (with type="government". For aristocracy and others whose job is to serve at court in some capacity.); 6] diplomat (with type="government". Ambassadors and other diplomatists. Roles like “Ambassador to the Court of St. James” are coded in &lt;roleName&gt;.); 7] administrator (with type="government". For management positions, high-ranking civil service positions within the British empire, etc. Lower-ranking positions should be coded as subtype="clerk".); 8] clerk (with type="government".); 9] taxCollector (with type="government".); 10] post (with type="government". For postal service occupations.); 11] customs (with type="government".); 12] surveyor (Appointed by Parliament or employed, for example, by a local government committee to survey roads or parks. With type="government".); 13] alderman (with type="government".)</a:documentation>
+                     <choice>
+                        <value>monarch</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="government". Titles like King, Queen, Princess are coded in &lt;roleName&gt;, not &lt;occupation&gt;.) </a:documentation>
+                        <value>politician</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="government". Use for elected officials and those running for election or who are in office by reason of political party or affiliation. Code their official title (such as "Member of Parliament for Westminster) with &lt;roleName&gt;.) </a:documentation>
+                        <value>orator</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="government". For political or reformist orators who are not clergy, actors, or prophets.) </a:documentation>
+                        <value>reformer</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="government". Any public advocate for political or social reform.) </a:documentation>
+                        <value>courtier</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="government". For aristocracy and others whose job is to serve at court in some capacity.) </a:documentation>
+                        <value>diplomat</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="government". Ambassadors and other diplomatists. Roles like “Ambassador to the Court of St. James” are coded in &lt;roleName&gt;.) </a:documentation>
+                        <value>administrator</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="government". For management positions, high-ranking civil service positions within the British empire, etc. Lower-ranking positions should be coded as subtype="clerk".) </a:documentation>
+                        <value>clerk</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="government".) </a:documentation>
+                        <value>taxCollector</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="government".) </a:documentation>
+                        <value>post</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="government". For postal service occupations.) </a:documentation>
+                        <value>customs</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="government".) </a:documentation>
+                        <value>surveyor</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(Appointed by Parliament or employed, for example, by a local government committee to survey roads or parks. With type="government".) </a:documentation>
+                        <value>alderman</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="government".) </a:documentation>
+                        <data type="string"/>
+                     </choice>
+                  </attribute>
+               </optional>
+            </group>
+            <group>
+               <attribute name="type">
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <choice>
+                     <value>service</value>
+                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  </choice>
+               </attribute>
+               <optional>
+                  <attribute name="subtype">
+                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+Suggested values include: 1] butler (with type="service".); 2] coachman (with type="service".); 3] maid (with type="service".); 4] manservant (with type="service".); 5] valet (with type="service".); 6] footman (For male servants involved in tending the house; includes page. with type="service".); 7] cook (with type="service".); 8] housekeeper (with type="service".); 9] gardener (with type="service": Use for one who tends a garden. If raising money from the garden, use instead type="trade" subtype="farmer".); 10] nurse (For a personal nurse attendant as member of a household. With type="service".); 11] gamekeeper (with type="service".); 12] groom (with type="service".); 13] majordomo (For the head servant who can speak and act on behalf of the household owners. With type="service".)</a:documentation>
+                     <choice>
+                        <value>butler</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="service".) </a:documentation>
+                        <value>coachman</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="service".) </a:documentation>
+                        <value>maid</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="service".) </a:documentation>
+                        <value>manservant</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="service".) </a:documentation>
+                        <value>valet</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="service".) </a:documentation>
+                        <value>footman</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(For male servants involved in tending the house; includes page. with type="service".) </a:documentation>
+                        <value>cook</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="service".) </a:documentation>
+                        <value>housekeeper</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="service".) </a:documentation>
+                        <value>gardener</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="service": Use for one who tends a garden. If raising money from the garden, use instead type="trade" subtype="farmer".) </a:documentation>
+                        <value>nurse</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(For a personal nurse attendant as member of a household. With type="service".) </a:documentation>
+                        <value>gamekeeper</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="service".) </a:documentation>
+                        <value>groom</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="service".) </a:documentation>
+                        <value>majordomo</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(For the head servant who can speak and act on behalf of the household owners. With type="service".) </a:documentation>
+                        <data type="string"/>
+                     </choice>
+                  </attribute>
+               </optional>
+            </group>
+            <group>
+               <attribute name="type">
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <choice>
+                     <value>service</value>
+                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  </choice>
+               </attribute>
+               <optional>
+                  <attribute name="subtype">
+                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+Suggested values include: 1] butler (with type="service".); 2] coachman (with type="service".); 3] maid (with type="service".); 4] manservant (with type="service".); 5] valet (with type="service".); 6] footman (For male servants involved in tending the house; includes page. with type="service".); 7] cook (with type="service".); 8] housekeeper (with type="service".); 9] gardener (with type="service": Use for one who tends a garden. If raising money from the garden, use instead type="trade" subtype="farmer".); 10] nurse (For a personal nurse attendant as member of a household. With type="service".); 11] gamekeeper (with type="service".); 12] groom (with type="service".); 13] majordomo (For the head servant who can speak and act on behalf of the household owners. With type="service".)</a:documentation>
+                     <choice>
+                        <value>butler</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="service".) </a:documentation>
+                        <value>coachman</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="service".) </a:documentation>
+                        <value>maid</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="service".) </a:documentation>
+                        <value>manservant</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="service".) </a:documentation>
+                        <value>valet</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="service".) </a:documentation>
+                        <value>footman</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(For male servants involved in tending the house; includes page. with type="service".) </a:documentation>
+                        <value>cook</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="service".) </a:documentation>
+                        <value>housekeeper</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="service".) </a:documentation>
+                        <value>gardener</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="service": Use for one who tends a garden. If raising money from the garden, use instead type="trade" subtype="farmer".) </a:documentation>
+                        <value>nurse</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(For a personal nurse attendant as member of a household. With type="service".) </a:documentation>
+                        <value>gamekeeper</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="service".) </a:documentation>
+                        <value>groom</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="service".) </a:documentation>
+                        <value>majordomo</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(For the head servant who can speak and act on behalf of the household owners. With type="service".) </a:documentation>
+                        <data type="string"/>
+                     </choice>
+                  </attribute>
+               </optional>
+            </group>
+            <group>
+               <attribute name="type">
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <choice>
+                     <value>trade</value>
+                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  </choice>
+               </attribute>
+               <optional>
+                  <attribute name="subtype">
+                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+Suggested values include: 1] baker (with type="trade".); 2] butcher (with type="trade".); 3] farmer (with type="trade".); 4] bricklayer (with type="trade".); 5] mason (with type="trade".); 6] chandler (with type="trade".); 7] wheelwright (with type="trade".); 8] carpenter (with type="trade".); 9] watchmaker (with type="trade".); 10] miller (with type="trade".); 11] blacksmith (with type="trade".); 12] goldsmith (with type="trade".); 13] jeweller (with type="trade".); 14] tanner (with type="trade".); 15] saddler (with type="trade".); 16] shoemaker (Includes specialist work related to footgear, including patten makers, clog makers, and bootmakers. With type="trade".); 17] innkeeper (with type="trade".); 18] liquor (with type="trade". For a retailer of beer/wine.); 19] merchant (with type="trade".); 20] clerk (with type="trade". For an employee in a shop.); 21] banker (with type="trade".); 22] stockbroker (with type="trade".); 23] auctioneer (with type="trade".); 24] gambler (with type="trade".); 25] ropemaker (with type="trade".); 26] fisherman (with type="trade".); 27] factoryOwner (with type="trade".); 28] shopAssist (with type="trade".); 29] tailor (Includes collar makers, those preparing garments for men. (For makers of women’s clothing use seamstress.) With type="trade".); 30] hatter (Includes milliners. With type="trade".); 31] seamstress (Includes dressmakers. With type="trade".); 32] laundry (with type="trade".); 33] char (with type="trade".); 34] thatcher (with type="trade".); 35] housePainter (with type="trade".); 36] glazier (Cuts, installs, and removes glass from windows and doors. With type="trade".); 37] construction (with type="trade".); 38] farmAssist (with type="trade".); 39] carter (with type="trade".); 40] driver (Broadly applicable to stage coach drivers, hired drivers, or those carrying chair lifts. With type="trade".); 41] hunt (For those employed in hunting activities (like trapping hares) as well as those trading in items involved with hunting. With type="trade".); 42] magic (For street magicians, illusionists, fortune tellers, those making a living in magic arts. With type="trade".); 43] poacher (with type="trade".); 44] broomMaker (with type="trade".); 45] sailor (with type="trade".)</a:documentation>
+                     <choice>
+                        <value>baker</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="trade".) </a:documentation>
+                        <value>butcher</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="trade".) </a:documentation>
+                        <value>farmer</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="trade".) </a:documentation>
+                        <value>bricklayer</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="trade".) </a:documentation>
+                        <value>mason</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="trade".) </a:documentation>
+                        <value>chandler</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="trade".) </a:documentation>
+                        <value>wheelwright</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="trade".) </a:documentation>
+                        <value>carpenter</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="trade".) </a:documentation>
+                        <value>watchmaker</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="trade".) </a:documentation>
+                        <value>miller</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="trade".) </a:documentation>
+                        <value>blacksmith</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="trade".) </a:documentation>
+                        <value>goldsmith</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="trade".) </a:documentation>
+                        <value>jeweller</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="trade".) </a:documentation>
+                        <value>tanner</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="trade".) </a:documentation>
+                        <value>saddler</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="trade".) </a:documentation>
+                        <value>shoemaker</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(Includes specialist work related to footgear, including patten makers, clog makers, and bootmakers. With type="trade".) </a:documentation>
+                        <value>innkeeper</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="trade".) </a:documentation>
+                        <value>liquor</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="trade". For a retailer of beer/wine.) </a:documentation>
+                        <value>merchant</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="trade".) </a:documentation>
+                        <value>clerk</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="trade". For an employee in a shop.) </a:documentation>
+                        <value>banker</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="trade".) </a:documentation>
+                        <value>stockbroker</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="trade".) </a:documentation>
+                        <value>auctioneer</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="trade".) </a:documentation>
+                        <value>gambler</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="trade".) </a:documentation>
+                        <value>ropemaker</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="trade".) </a:documentation>
+                        <value>fisherman</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="trade".) </a:documentation>
+                        <value>factoryOwner</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="trade".) </a:documentation>
+                        <value>shopAssist</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="trade".) </a:documentation>
+                        <value>tailor</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(Includes collar makers, those preparing garments for men. (For makers of women’s clothing use seamstress.) With type="trade".) </a:documentation>
+                        <value>hatter</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(Includes milliners. With type="trade".) </a:documentation>
+                        <value>seamstress</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(Includes dressmakers. With type="trade".) </a:documentation>
+                        <value>laundry</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="trade".) </a:documentation>
+                        <value>char</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="trade".) </a:documentation>
+                        <value>thatcher</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="trade".) </a:documentation>
+                        <value>housePainter</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="trade".) </a:documentation>
+                        <value>glazier</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(Cuts, installs, and removes glass from windows and doors. With type="trade".) </a:documentation>
+                        <value>construction</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="trade".) </a:documentation>
+                        <value>farmAssist</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="trade".) </a:documentation>
+                        <value>carter</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="trade".) </a:documentation>
+                        <value>driver</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(Broadly applicable to stage coach drivers, hired drivers, or those carrying chair lifts. With type="trade".) </a:documentation>
+                        <value>hunt</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(For those employed in hunting activities (like trapping hares) as well as those trading in items involved with hunting. With type="trade".) </a:documentation>
+                        <value>magic</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(For street magicians, illusionists, fortune tellers, those making a living in magic arts. With type="trade".) </a:documentation>
+                        <value>poacher</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="trade".) </a:documentation>
+                        <value>broomMaker</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="trade".) </a:documentation>
+                        <value>sailor</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(with type="trade".) </a:documentation>
+                        <data type="string"/>
+                     </choice>
+                  </attribute>
+               </optional>
+            </group>
+         </choice>
          <empty/>
       </element>
    </define>
@@ -17155,7 +17837,7 @@ Sample values include: 1] e (e); 2] he (he); 3] she (she); 4] they (they)</a:doc
             <ref name="teidesc"/>
          </optional>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="mitfordODD-relation-reforkeyorname-constraint-assert-18">
+                  id="mitfordODD-relation-reforkeyorname-constraint-assert-33">
             <rule context="tei:relation">
                <assert xmlns:rng="http://relaxng.org/ns/structure/1.0"
                        xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -19321,7 +20003,7 @@ Suggested values include: 1] light; 2] sound; 3] prop; 4] block</a:documentation
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(link) defines an association or hypertextual link among elements or passages, of some type not more precisely specifiable by other elements. [16.1. Links]</a:documentation>
          <empty/>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="mitfordODD-link-linkTargets3-constraint-assert-19">
+                  id="mitfordODD-link-linkTargets3-constraint-assert-34">
             <rule context="tei:link">
                <sch:assert xmlns="http://www.tei-c.org/ns/1.0"
                            xmlns:rng="http://relaxng.org/ns/structure/1.0"
@@ -19546,7 +20228,7 @@ Suggested values include: 1] d (days); 2] h (hours); 3] min (minutes); 4] s (sec
             </choice>
          </zeroOrMore>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="mitfordODD-join-joinTargets3-constraint-assert-20">
+                  id="mitfordODD-join-joinTargets3-constraint-assert-35">
             <rule context="tei:join">
                <assert xmlns:rng="http://relaxng.org/ns/structure/1.0"
                        xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -19700,7 +20382,7 @@ You must supply at least two values for @target on <name/>
             <ref name="teimodel.standOffPart"/>
          </oneOrMore>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="mitfordODD-standOff-nested_standOff_should_be_typed-constraint-assert-21">
+                  id="mitfordODD-standOff-nested_standOff_should_be_typed-constraint-assert-36">
             <rule context="tei:standOff">
                <sch:assert xmlns="http://www.tei-c.org/ns/1.0"
                            xmlns:rng="http://relaxng.org/ns/structure/1.0"
@@ -20067,7 +20749,7 @@ Sample values include: 1] homeoteleuton; 2] homeoarchy; 3] paleographicConfusion
             </zeroOrMore>
          </group>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="mitfordODD-rdgGrp-only1lem-constraint-assert-22">
+                  id="mitfordODD-rdgGrp-only1lem-constraint-assert-37">
             <rule context="tei:rdgGrp">
                <sch:assert xmlns="http://www.tei-c.org/ns/1.0"
                            xmlns:rng="http://relaxng.org/ns/structure/1.0"
@@ -20228,7 +20910,7 @@ Sample values include: 1] homeoteleuton; 2] homeoarchy; 3] paleographicConfusion
             </choice>
          </attribute>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="mitfordODD-variantEncoding-location-variantEncodingLocation-constraint-rule-16">
+                  id="mitfordODD-variantEncoding-location-variantEncodingLocation-constraint-rule-31">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -20478,7 +21160,7 @@ Sample values include: 1] glued; 2] pinned; 3] sewn</a:documentation>
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(added span of text) marks the beginning of a longer sequence of text added by an author, scribe, annotator or corrector (see also <code xmlns="http://www.w3.org/1999/xhtml">&lt;add&gt;</code>). [11.3.1.4. Additions and Deletions]</a:documentation>
          <empty/>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="mitfordODD-addSpan-addSpan-requires-spanTo-constraint-assert-24">
+                  id="mitfordODD-addSpan-addSpan-requires-spanTo-constraint-assert-39">
             <rule context="tei:addSpan">
                <sch:assert xmlns="http://www.tei-c.org/ns/1.0"
                            xmlns:rng="http://relaxng.org/ns/structure/1.0"
@@ -20488,7 +21170,7 @@ Sample values include: 1] glued; 2] pinned; 3] sewn</a:documentation>
             </rule>
          </pattern>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="mitfordODD-addSpan-addSpan-requires-spanTo-fr-constraint-assert-25">
+                  id="mitfordODD-addSpan-addSpan-requires-spanTo-fr-constraint-assert-40">
             <rule context="tei:addSpan">
                <sch:assert xmlns="http://www.tei-c.org/ns/1.0"
                            xmlns:rng="http://relaxng.org/ns/structure/1.0"
@@ -20521,7 +21203,7 @@ Sample values include: 1] glued; 2] pinned; 3] sewn</a:documentation>
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(damaged span of text) marks the beginning of a longer sequence of text which is damaged in some way but still legible. [11.3.3.1. Damage, Illegibility, and Supplied Text]</a:documentation>
          <empty/>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="mitfordODD-damageSpan-damageSpan-requires-spanTo-constraint-assert-26">
+                  id="mitfordODD-damageSpan-damageSpan-requires-spanTo-constraint-assert-41">
             <rule context="tei:damageSpan">
                <sch:assert xmlns="http://www.tei-c.org/ns/1.0"
                            xmlns:rng="http://relaxng.org/ns/structure/1.0"
@@ -20531,7 +21213,7 @@ Sample values include: 1] glued; 2] pinned; 3] sewn</a:documentation>
             </rule>
          </pattern>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="mitfordODD-damageSpan-damageSpan-requires-spanTo-fr-constraint-assert-27">
+                  id="mitfordODD-damageSpan-damageSpan-requires-spanTo-fr-constraint-assert-42">
             <rule context="tei:damageSpan">
                <sch:assert xmlns="http://www.tei-c.org/ns/1.0"
                            xmlns:rng="http://relaxng.org/ns/structure/1.0"
@@ -20552,7 +21234,7 @@ Sample values include: 1] glued; 2] pinned; 3] sewn</a:documentation>
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(deleted span of text) marks the beginning of a longer sequence of text deleted, marked as deleted, or otherwise signaled as superfluous or spurious by an author, scribe, annotator, or corrector. [11.3.1.4. Additions and Deletions]</a:documentation>
          <empty/>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="mitfordODD-delSpan-delSpan-requires-spanTo-constraint-assert-28">
+                  id="mitfordODD-delSpan-delSpan-requires-spanTo-constraint-assert-43">
             <rule context="tei:delSpan">
                <sch:assert xmlns="http://www.tei-c.org/ns/1.0"
                            xmlns:rng="http://relaxng.org/ns/structure/1.0"
@@ -20562,7 +21244,7 @@ Sample values include: 1] glued; 2] pinned; 3] sewn</a:documentation>
             </rule>
          </pattern>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="mitfordODD-delSpan-delSpan-requires-spanTo-fr-constraint-assert-29">
+                  id="mitfordODD-delSpan-delSpan-requires-spanTo-fr-constraint-assert-44">
             <rule context="tei:delSpan">
                <sch:assert xmlns="http://www.tei-c.org/ns/1.0"
                            xmlns:rng="http://relaxng.org/ns/structure/1.0"
@@ -20733,7 +21415,7 @@ Sample values include: 1] header; 2] footer; 3] pageNum (page number); 4] lineNu
             </choice>
          </oneOrMore>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="mitfordODD-subst-substContents1-constraint-assert-30">
+                  id="mitfordODD-subst-substContents1-constraint-assert-45">
             <rule context="tei:subst">
                <assert xmlns:rng="http://relaxng.org/ns/structure/1.0"
                        xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -21987,7 +22669,7 @@ Suggested values include: 1] 1.0.1; 2] 1.1; 3] 2.0; 4] 2.1; 5] 3.0; 6] 3.1; 7] 3
       </choice>
    </start>
    <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-            id="mitfordODD-xmlIDs-constraint-rule-17">
+            id="mitfordODD-xmlIDs-constraint-rule-32">
       <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                 xmlns:rng="http://relaxng.org/ns/structure/1.0"
                 xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -21999,7 +22681,7 @@ Suggested values include: 1] 1.0.1; 2] 1.1; 3] 2.0; 4] 2.1; 5] 3.0; 6] 3.1; 7] 3
       </sch:rule>
    </pattern>
    <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-            id="mitfordODD-quotes-constraint-rule-18">
+            id="mitfordODD-quotes-constraint-rule-33">
       <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                 xmlns:rng="http://relaxng.org/ns/structure/1.0"
                 xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -22010,7 +22692,7 @@ Suggested values include: 1] 1.0.1; 2] 1.1; 3] 2.0; 4] 2.1; 5] 3.0; 6] 3.1; 7] 3
       </sch:rule>
    </pattern>
    <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-            id="mitfordODD-refsReq-constraint-rule-19">
+            id="mitfordODD-refsReq-constraint-rule-34">
       <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                 xmlns:rng="http://relaxng.org/ns/structure/1.0"
                 xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -22023,7 +22705,7 @@ Suggested values include: 1] 1.0.1; 2] 1.1; 3] 2.0; 4] 2.1; 5] 3.0; 6] 3.1; 7] 3
       </sch:rule>
    </pattern>
    <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-            id="mitfordODD-correspReq-constraint-rule-20">
+            id="mitfordODD-correspReq-constraint-rule-35">
       <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                 xmlns:rng="http://relaxng.org/ns/structure/1.0"
                 xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -22035,7 +22717,7 @@ Suggested values include: 1] 1.0.1; 2] 1.1; 3] 2.0; 4] 2.1; 5] 3.0; 6] 3.1; 7] 3
       </sch:rule>
    </pattern>
    <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-            id="mitfordODD-hashtaggery-constraint-rule-21">
+            id="mitfordODD-hashtaggery-constraint-rule-36">
       <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                 xmlns:rng="http://relaxng.org/ns/structure/1.0"
                 xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -22047,7 +22729,7 @@ Suggested values include: 1] 1.0.1; 2] 1.1; 3] 2.0; 4] 2.1; 5] 3.0; 6] 3.1; 7] 3
       </sch:rule>
    </pattern>
    <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-            id="mitfordODD-listWitCheck-constraint-rule-22">
+            id="mitfordODD-listWitCheck-constraint-rule-37">
       <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                 xmlns:rng="http://relaxng.org/ns/structure/1.0"
                 xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -22066,7 +22748,7 @@ Suggested values include: 1] 1.0.1; 2] 1.1; 3] 2.0; 4] 2.1; 5] 3.0; 6] 3.1; 7] 3
           xmlns:sch="http://purl.oclc.org/dsdl/schematron"
           xmlns:xi="http://www.w3.org/2001/XInclude">Many elements from the TEI names and places module are only permitted in back lists for proposed entries to the Digital Mitford site index.</sch:p>
    <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-            id="mitfordODD-namedEntityRefencing-constraint-rule-23">
+            id="mitfordODD-namedEntityRefencing-constraint-rule-38">
       <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                 xmlns:rng="http://relaxng.org/ns/structure/1.0"
                 xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -22083,7 +22765,7 @@ Suggested values include: 1] 1.0.1; 2] 1.1; 3] 2.0; 4] 2.1; 5] 3.0; 6] 3.1; 7] 3
           xmlns:sch="http://purl.oclc.org/dsdl/schematron"
           xmlns:xi="http://www.w3.org/2001/XInclude">Ensure that the @resp values on note and other elements point to members of the Mitford Team or to Past Editors</sch:p>
    <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-            id="mitfordODD-respCheck-constraint-rule-24">
+            id="mitfordODD-respCheck-constraint-rule-39">
       <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                 xmlns:rng="http://relaxng.org/ns/structure/1.0"
                 xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -22112,13 +22794,13 @@ Suggested values include: 1] 1.0.1; 2] 1.1; 3] 2.0; 4] 2.1; 5] 3.0; 6] 3.1; 7] 3
           xmlns:sch="http://purl.oclc.org/dsdl/schematron"
           xmlns:xi="http://www.w3.org/2001/XInclude">Ensure that there are @ref values on rs</sch:p>
    <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-            id="mitfordODD-rsReferencing-constraint-rule-25">
+            id="mitfordODD-rsReferencing-constraint-rule-40">
       <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                 xmlns:rng="http://relaxng.org/ns/structure/1.0"
                 xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 context="tei:rs | tei:name">
-         <sch:assert test="@ref">An @ref attribute is required on this element!</sch:assert>
+         <sch:assert role="warning" test="@ref">The rs element should have an @ref attribute. Fill it in when ready.</sch:assert>
       </sch:rule>
    </pattern>
    <sch:p xmlns="http://www.tei-c.org/ns/1.0"
@@ -22126,7 +22808,7 @@ Suggested values include: 1] 1.0.1; 2] 1.1; 3] 2.0; 4] 2.1; 5] 3.0; 6] 3.1; 7] 3
           xmlns:sch="http://purl.oclc.org/dsdl/schematron"
           xmlns:xi="http://www.w3.org/2001/XInclude">Ensure that the @ref values on rs of type event point to event site index entries across the project.</sch:p>
    <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-            id="mitfordODD-rsEventcheck-constraint-rule-26">
+            id="mitfordODD-rsEventcheck-constraint-rule-41">
       <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                 xmlns:rng="http://relaxng.org/ns/structure/1.0"
                 xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -22152,7 +22834,7 @@ Suggested values include: 1] 1.0.1; 2] 1.1; 3] 2.0; 4] 2.1; 5] 3.0; 6] 3.1; 7] 3
           xmlns:sch="http://purl.oclc.org/dsdl/schematron"
           xmlns:xi="http://www.w3.org/2001/XInclude">Ensure that the @ref values on rs of type title point to bibl site index entries across the project.</sch:p>
    <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-            id="mitfordODD-rsTitlecheck-constraint-rule-27">
+            id="mitfordODD-rsTitlecheck-constraint-rule-42">
       <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                 xmlns:rng="http://relaxng.org/ns/structure/1.0"
                 xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -22178,7 +22860,7 @@ Suggested values include: 1] 1.0.1; 2] 1.1; 3] 2.0; 4] 2.1; 5] 3.0; 6] 3.1; 7] 3
           xmlns:sch="http://purl.oclc.org/dsdl/schematron"
           xmlns:xi="http://www.w3.org/2001/XInclude">Ensure that the @ref values on rs of type place point to place site index entries across the project.</sch:p>
    <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-            id="mitfordODD-rsPlacecheck-constraint-rule-28">
+            id="mitfordODD-rsPlacecheck-constraint-rule-43">
       <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                 xmlns:rng="http://relaxng.org/ns/structure/1.0"
                 xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -22204,7 +22886,7 @@ Suggested values include: 1] 1.0.1; 2] 1.1; 3] 2.0; 4] 2.1; 5] 3.0; 6] 3.1; 7] 3
           xmlns:sch="http://purl.oclc.org/dsdl/schematron"
           xmlns:xi="http://www.w3.org/2001/XInclude">Ensure that the @ref values on rs of type org (organization) point to org site index entries across the project.</sch:p>
    <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-            id="mitfordODD-rsOrgcheck-constraint-rule-29">
+            id="mitfordODD-rsOrgcheck-constraint-rule-44">
       <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                 xmlns:rng="http://relaxng.org/ns/structure/1.0"
                 xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -22230,7 +22912,7 @@ Suggested values include: 1] 1.0.1; 2] 1.1; 3] 2.0; 4] 2.1; 5] 3.0; 6] 3.1; 7] 3
           xmlns:sch="http://purl.oclc.org/dsdl/schematron"
           xmlns:xi="http://www.w3.org/2001/XInclude">Ensure that the @ref values on rs of type person point to person site index entries across the project.</sch:p>
    <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-            id="mitfordODD-rsPersoncheck-constraint-rule-30">
+            id="mitfordODD-rsPersoncheck-constraint-rule-45">
       <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                 xmlns:rng="http://relaxng.org/ns/structure/1.0"
                 xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -22256,7 +22938,7 @@ Suggested values include: 1] 1.0.1; 2] 1.1; 3] 2.0; 4] 2.1; 5] 3.0; 6] 3.1; 7] 3
           xmlns:sch="http://purl.oclc.org/dsdl/schematron"
           xmlns:xi="http://www.w3.org/2001/XInclude">Ensure that the @ref values on rs of type plant point to plant site index entries across the project.</sch:p>
    <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-            id="mitfordODD-rsPlantcheck-constraint-rule-31">
+            id="mitfordODD-rsPlantcheck-constraint-rule-46">
       <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                 xmlns:rng="http://relaxng.org/ns/structure/1.0"
                 xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -22285,7 +22967,7 @@ Suggested values include: 1] 1.0.1; 2] 1.1; 3] 2.0; 4] 2.1; 5] 3.0; 6] 3.1; 7] 3
           xmlns:sch="http://purl.oclc.org/dsdl/schematron"
           xmlns:xi="http://www.w3.org/2001/XInclude">Ensure that the @ref values on rs of type animal point to animal site index entries across the project.</sch:p>
    <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-            id="mitfordODD-rsAnimalcheck-constraint-rule-32">
+            id="mitfordODD-rsAnimalcheck-constraint-rule-47">
       <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                 xmlns:rng="http://relaxng.org/ns/structure/1.0"
                 xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -22314,7 +22996,7 @@ Suggested values include: 1] 1.0.1; 2] 1.1; 3] 2.0; 4] 2.1; 5] 3.0; 6] 3.1; 7] 3
           xmlns:sch="http://purl.oclc.org/dsdl/schematron"
           xmlns:xi="http://www.w3.org/2001/XInclude">Ensure that the @ref values on rs of type art point to art site index entries across the project.</sch:p>
    <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-            id="mitfordODD-rsArtcheck-constraint-rule-33">
+            id="mitfordODD-rsArtcheck-constraint-rule-48">
       <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                 xmlns:rng="http://relaxng.org/ns/structure/1.0"
                 xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -22370,7 +23052,7 @@ Suggested values include: 1] 1.0.1; 2] 1.1; 3] 2.0; 4] 2.1; 5] 3.0; 6] 3.1; 7] 3
           xmlns:sch="http://purl.oclc.org/dsdl/schematron"
           xmlns:xi="http://www.w3.org/2001/XInclude">List elements holding sortKey attributes for proposed entries to the Site Index may only appear in the back portion of a Digital Mitford project TEI file.</sch:p>
    <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-            id="mitfordODD-backList_only-constraint-rule-35">
+            id="mitfordODD-backList_only-constraint-rule-50">
       <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                 xmlns:rng="http://relaxng.org/ns/structure/1.0"
                 xmlns:sch="http://purl.oclc.org/dsdl/schematron"
