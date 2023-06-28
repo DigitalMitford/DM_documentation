@@ -36,6 +36,7 @@
       </fileDesc>
       <revisionDesc>
          <listChange>
+            <change when="2023-06-28" who="#ebb">Updating ODD with latest Site Index release.</change>
             <change when="2023-05-30" who="#ebb">Cooled off the Schematron test of <att>ref</att> on the <gi>rs</gi> element so it is simply a caution, not fatal.</change>
             <change when="2023-05-28" who="#ebb">Updated the version of this ODD to the current version of TEI: 4.6.0, added the att.duration class so we can use the <att>dur</att> attribute on datable elements, and updated the occuptation includes file to properly group types and subtypes in ODD and incorporate the same Schematron to permit multiple subtypes.</change>
             <change when="2018-09-25" who="#ebb">Moved official location of this ODD and generated Relax NG schema files to the DM_documentation GitHub repository. Refined Schematron constraints for checking bibl and bibl/title elements.</change>
