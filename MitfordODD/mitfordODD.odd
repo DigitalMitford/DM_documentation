@@ -28,8 +28,8 @@
             <author>Elisa Beshero-Bondar</author>
          </titleStmt>
          <editionStmt xml:id="edition">
-            <edition>Generated on 2023-08-08T20:11:27.695292-04:00 from updates to the Site Index for the Digital Mitford project. Date: 2023-08-08T19:52:07.495484-04:00. 
-        Count of all @xml:ids in the current file: 3222. First digital edition in TEI P5, launched on 19 August 2013.</edition>
+            <edition>Generated on 2024-09-03T02:02:57.402582-04:00 from updates to the Site Index for the Digital Mitford project. Date: 2024-09-03T01:47:59.042979-04:00. 
+        Count of all @xml:ids in the current file: 3329. First digital edition in TEI P5, launched on 19 August 2013.</edition>
          </editionStmt>
          <publicationStmt>
             <authority>Prepared in TEI P5 by Elisa Beshero-Bondar in the Digital Mitford GitHub repository: <ref target="https://github.com/DigitalMitford/DM_documentation"/>. Date last worked on: <date when="2019-05-18">18 May 2019</date>
@@ -49,7 +49,6 @@
       </fileDesc>
       <revisionDesc>
          <listChange>
-            <change when="2023-08-08" who="#ebb">Updating ODD with 433 new Site Index entries since June 2023.</change>
             <change when="2023-06-28" who="#ebb">Updating ODD with latest Site Index release.</change>
             <change when="2023-05-30" who="#ebb">Cooled off the Schematron test of <att>ref</att> on the <gi>rs</gi> element so it is simply a caution, not fatal.</change>
             <change when="2023-05-28" who="#ebb">Updated the version of this ODD to the current version of TEI: 4.6.0, added the att.duration class so we can use the <att>dur</att> attribute on datable elements, and updated the occuptation includes file to properly group types and subtypes in ODD and incorporate the same Schematron to permit multiple subtypes.</change>
@@ -1356,10 +1355,13 @@
                      </datatype>
                      <valList type="semi">
                         <valItem ident="#ab">
-                           <gloss>Booth Alison Advisory Board | Professor of English, Booth directs the Collective Biographies of Women (CBW) pr</gloss>
+                           <gloss>Booth Alison Advisory Board | Brown-Forman Professor of English and Faculty Director of the Digital Humanities</gloss>
                         </valItem>
                         <valItem ident="#ad">
                            <gloss>Drayton Alexandra Ph.D. Consultant | One of the Digital Mitford project’s founding editors, Alexandra Drayton earned </gloss>
+                        </valItem>
+                        <valItem ident="#adi">
+                           <gloss>Dia Aliou Research Assistant | Ali Dia graduates in 2025 with a B.A. in Communication from the State University</gloss>
                         </valItem>
                         <valItem ident="#ahm">
                            <gloss>Algee-Hewitt Mark Consultant: Data Visualization Group Advisory Board</gloss>
@@ -1367,11 +1369,14 @@
                         <valItem ident="#ajc">
                            <gloss>Colombo Amy Consultant</gloss>
                         </valItem>
+                        <valItem ident="#ajn">
+                           <gloss>Normington Alyssa Research Assistant | Alyssa Normington graduates in 2025 with a B.F.A. in Creative Writing from the S</gloss>
+                        </valItem>
                         <valItem ident="#alg">
                            <gloss>Gates Amy L. Ph.D. Editor | Amy L. Gates is an Assistant Professor in the Department of English and Philosop</gloss>
                         </valItem>
                         <valItem ident="#aol">
-                           <gloss>Longmuir Anne Editor | Anne Longmuir is Associate Professor of English at Kansas State University. Anne</gloss>
+                           <gloss>Longmuir Anne Editor | Anne Longmuir is Professor of English at Kansas State University. Anne specializ</gloss>
                         </valItem>
                         <valItem ident="#cjb">
                            <gloss>Bolton Carol Advisory Board</gloss>
@@ -1404,16 +1409,19 @@
                            <gloss>Parsons Elaine Frantz Consultant</gloss>
                         </valItem>
                         <valItem ident="#err">
-                           <gloss>Raisanen Elizabeth Ph.D. Drama Founding Editor | Elizabeth Raisanen is the Director of Undergraduate Advising and an Instructor o</gloss>
+                           <gloss>Raisanen Elizabeth Ph.D. Drama Founding Editor | Elizabeth Raisanen is the Assistant Dean of Advising &amp; Strategic Partnerships an</gloss>
                         </valItem>
                         <valItem ident="#ghb">
                            <gloss>Bondar Gregory Manuscript Archaeology Founding Editor | Greg Bondar has photographed over 800 of Mitford’s letters in the Reading Centra</gloss>
                         </valItem>
                         <valItem ident="#had">
-                           <gloss>Denis Hayley Research Assistant | Hayley Denis graduates in 2025 with a B.A. in Creative Writing from the State Un</gloss>
+                           <gloss>Denis Hayley Research Assistant | Hayley Denis graduates in 2025 with a B.A. in Creative Writing and a minor in Fi</gloss>
                         </valItem>
-                        <valItem ident="#hmk">
-                           <gloss>Kellogg Hannah Research Assistant | Hannah Kellogg graduates in 2025 with a B.S. in Biology from LeMoyne College. Sh</gloss>
+                        <valItem ident="#ham">
+                           <gloss>Hammer Nathan Louis Research Assistant | Nathan Hammer is a student at Penn State Behrend. Started working on Mitford’s J</gloss>
+                        </valItem>
+                        <valItem ident="#hjb">
+                           <gloss>Bills Hadleigh Jae Research Assistant | Hadleigh Jae Bills is a student at Penn State Behrend. Started working on Mitfor</gloss>
                         </valItem>
                         <valItem ident="#jb">
                            <gloss>Bawden John Ph.D Associate Professor of History Consultant | John Bawden is Associate Professor of History at the University of Montevallo. H</gloss>
@@ -1425,22 +1433,25 @@
                            <gloss>Horanic Jonathan Michael Consultant | Jonathan M. Horanic completed a bachelor’s degree with double majors in English </gloss>
                         </valItem>
                         <valItem ident="#kab">
-                           <gloss>Bourrier Karen Consultant | Karen Bourrier is an assistant professor at the University of Calgary. She is cu</gloss>
+                           <gloss>Bourrier Karen Consultant | Karen Bourrier is a professor at the University of Calgary. She is working on a </gloss>
                         </valItem>
                         <valItem ident="#kdc">
                            <gloss>Donovan-Condron Kellie Ph.D. Founding Editor Advisory Board | Kellie Donovan-Condron writes primarily about the intersection of urban literatu</gloss>
                         </valItem>
                         <valItem ident="#lmw">
-                           <gloss>Wilson Lisa M. Managing Editor Bibliography and Correspondence Founding Editor | Lisa M. Wilson is Professor in the Department of English and Communication at SU</gloss>
+                           <gloss>Wilson Lisa M. Managing Editor Bibliography and Correspondence Founding Editor | Lisa M. Wilson is Professor in the Department of English at SUNY Potsdam, where </gloss>
                         </valItem>
                         <valItem ident="#mah">
                            <gloss>Hughes Megan Abigail Consultant | Megan Hughes was Elisa Beshero-Bondar’s Green Scholar (or research assistant) be</gloss>
                         </valItem>
                         <valItem ident="#mc">
-                           <gloss>Creech Melinda Consultant | PhD in progress at Baylor University, Graduate Assistant at the Armstrong Browni</gloss>
+                           <gloss>Creech Melinda Consultant | Independent scholar with PhD in English and MA in Museum Studies at Baylor Unive</gloss>
                         </valItem>
                         <valItem ident="#mez">
-                           <gloss>Zimmer Mary Erica Consultant: Data Visualization Group | Mary Erica Zimmer comes to Digital Mitford through her interests in scholarly ed</gloss>
+                           <gloss>Zimmer Mary Erica Consultant: Data Visualization Group | Mary Erica Zimmer is Lecturer in the Massachusetts Institute of Technology Conco</gloss>
+                        </valItem>
+                        <valItem ident="#mms">
+                           <gloss>Spaulding Meghan Research Assistant | Meghan Spaulding graduates in 2025 with a B.S. in Childhood Education/Early Chil</gloss>
                         </valItem>
                         <valItem ident="#mns">
                            <gloss>Smith Martha Nell Advisory Board | The founding Director of the Maryland Institute for Technology in the Humanities</gloss>
@@ -1461,7 +1472,7 @@
                            <gloss>Parker Rebecca Jeanne Editor | Rebecca Parker completed an M.A. in Digital Humanities at Loyola University in C</gloss>
                         </valItem>
                         <valItem ident="#scw">
-                           <gloss>Webb Samantha Ph.D Professor of English Founding Editor Fiction | Samantha Webb is Professor of English, specializing in British Romantic literatu</gloss>
+                           <gloss>Webb Samantha Ph.D Professor Emeritus of English Founding Editor Fiction | Samantha Webb is Professor Emritus of English, specializing in British Romantic </gloss>
                         </valItem>
                         <valItem ident="#slc">
                            <gloss>Cantwell Sara Active Consultant | Sara Cantwell received her M.F.A. in Creative Writing from the Vermont College o</gloss>
@@ -1555,6 +1566,9 @@
                         </valItem>
                         <valItem ident="#hl">
                            <gloss>Long Heather Research Assistant | Heather Long completed a B.A. in English and was enrolled in the M.S.T. program </gloss>
+                        </valItem>
+                        <valItem ident="#hmk">
+                           <gloss>Kellogg Hannah Research Assistant | Hannah Kellogg graduates in 2025 with a B.S. in Biology from LeMoyne College. Sh</gloss>
                         </valItem>
                         <valItem ident="#hsar">
                            <gloss>Sarsfield Heather Research Assistant | Heather Sarsfield received her B.A. in English Literature from the State Univers</gloss>
@@ -1680,13 +1694,16 @@
                            <gloss>A. G. K. L’Estrange | b. 1832 | d. 1915 | L’Estrange was a curate working for William Harness, and assisted him with the f</gloss>
                         </valItem>
                         <valItem ident="#Needham_Francis">
-                           <gloss>Francis Needham | Francis R. Needham was librarian and secretary to the Duke Wellington (based at </gloss>
+                           <gloss>Francis Needham | Francis R. Needham was librarian and secretary to the Duke Wellington, while bas</gloss>
                         </valItem>
                         <valItem ident="#penAnnot_RCL">
                            <gloss>unknown | Someone, apparently other than Mitford, who occasionally left notes in a spidery</gloss>
                         </valItem>
                         <valItem ident="#pencil">
                            <gloss>unknown | Someone, apparently other than Mitford who left grey pencil marks on her letters</gloss>
+                        </valItem>
+                        <valItem ident="#pencil_Yale">
+                           <gloss>unknown | Someone, apparently other than Mitford, perhaps cataloging letters and describin</gloss>
                         </valItem>
                         <valItem ident="#pencilRy">
                            <gloss>unknown | Someone, apparently other than Mitford, perhaps cataloging letters and describin</gloss>
@@ -1716,7 +1733,7 @@
                            <gloss>Mr. Addison | Actor who appeared in Mitford's play, Charles I at the Victoria Theatre in 1834.</gloss>
                         </valItem>
                         <valItem ident="#Adolphus_JL">
-                           <gloss>John Leycester Adolphus | b. 1795 | d. 1862 | Barrister, historian, and author of a literary essay in which he speculates on t</gloss>
+                           <gloss>John Leycester Adolphus | b. 1795 | d. 1862 | Author of a literary essay in which he speculates on the identity of the author </gloss>
                         </valItem>
                         <valItem ident="#Aeschylus">
                            <gloss>Aeschylus | b. -0525 | d. -0455 | Ancient writer of tragedies, the earliest of the three celebrated progenitors of</gloss>
@@ -1740,7 +1757,7 @@
                            <gloss>Prince Albert of Saxe-Coburg and Gotha | b. 1819-08-26 | d. 1861-12-14 | Queen Victoria's first cousin and spouse, whose death at the age of forty-eight </gloss>
                         </valItem>
                         <valItem ident="#Alexander_I_Rus">
-                           <gloss>Alexander I of Russia | b. 1777-12-12 | d. 1825-12-01 | Emperor of Russia, 1801-25</gloss>
+                           <gloss>Alexander I of Russia | b. 1777-12-12 | d. 1825-12-01 | Emperor of Russia, 1801-1825.</gloss>
                         </valItem>
                         <valItem ident="#Alfieri_Vittorio">
                            <gloss>Count Alfieri Vittorio | b. 1749-01-16 | d. 1803-10-08 | Credited with reviving Italian tragedy in the eighteenth century, Alfieri's play</gloss>
@@ -1785,10 +1802,13 @@
                            <gloss>Annie | A correspondent of Mary Russell Mitford, date unknown. Surname unknown. Dates un</gloss>
                         </valItem>
                         <valItem ident="#Anstruther_Col">
-                           <gloss>Colonel Anstruther | Mitford corresponded with him in 1819 and visited his daughter, Miss Anstruther,</gloss>
+                           <gloss>Colonel Anstruther | b. 1750 | d. 1825 | </gloss>
                         </valItem>
                         <valItem ident="#Anstruther_Miss">
                            <gloss>Miss Anstruther | Daughter of Colonel Anstruther. Mitford visited her in Reading in 1819. Forename</gloss>
+                        </valItem>
+                        <valItem ident="#Anstruther_Mrs">
+                           <gloss>Mary Donaldson | b. 1760 | d. 1827-07-20 | </gloss>
                         </valItem>
                         <valItem ident="#Antinous">
                            <gloss>Antinous | b. 0111-11-27 | d. 0130-10-30 | Beautiful young man who was a court favorite of the Roman emperor Hadrian. Hadri</gloss>
@@ -1886,6 +1906,9 @@
                         <valItem ident="#Bellamy_John">
                            <gloss>John Bellamy | b. 1755 | d. 1842 | Hebraicist and author of The Holy Bible newly translated from the original Hebre</gloss>
                         </valItem>
+                        <valItem ident="#Belzoni_Gio">
+                           <gloss>Giovanni Battista Belzoni | b. 1778-11-05 | d. 1823-12-03 | An Italian explorer and archaeologist. Wrote Narrative of the Operations and Rec</gloss>
+                        </valItem>
                         <valItem ident="#Bender_Mr">
                            <gloss>Mr. Bender | Actor who appeared in Mitford's play, Charles I at the Victoria Theatre in 1834.</gloss>
                         </valItem>
@@ -1908,7 +1931,7 @@
                            <gloss>William Cox Bennett | b. 1820-10-14 | d. 1895-03-04 | Friend of Mitford's late in her life, William Cox Bennett addressed a sonnet to </gloss>
                         </valItem>
                         <valItem ident="#Bennoch_Fr">
-                           <gloss>Francis Bennoch | b. 1812 | d. 1890 | Scottish silk merchant, amateur poet, and literary and art patron. Dedicatee of </gloss>
+                           <gloss>Francis Bennoch | b. 1812 | d. 1890 | Scottish wholesale silk merchant, amateur poet, and literary and art patron. Ded</gloss>
                         </valItem>
                         <valItem ident="#Bennoch_M">
                            <gloss>Margaret Bennoch | Spouse of Francis Bennoch. A correspondent of Mary Russell Mitford in 1855. Date</gloss>
@@ -1917,7 +1940,7 @@
                            <gloss>Richard Bentley | b. 1794-10-24 | d. 1871-09-10 | Publisher and founder of the publishing firm R. Bentley and partner in the firm </gloss>
                         </valItem>
                         <valItem ident="#Benwell_M">
-                           <gloss>Mary Benwell Valpy | b. 1760 | d. 1816 | Second wife of of Dr. Richard Valpy. They were married on 22 July 1781.</gloss>
+                           <gloss>Mary Benwell Valpy | b. 1760 | d. 1816 | Second wife of of Dr. Richard Valpy. They were married on July 22, 1781.</gloss>
                         </valItem>
                         <valItem ident="#Benyon_R">
                            <gloss>Richard Benyon | b. 1769-04-28 | d. 1854-03-22 | One of the wealthiest commoners in Berkshire and a major landowner and philanthr</gloss>
@@ -1944,7 +1967,7 @@
                            <gloss>William Bewick | b. 1795-10-20 | d. 1866-06-08 | Pupil of the painter Benjamin Robert Haydon for about three years and attended t</gloss>
                         </valItem>
                         <valItem ident="#Bickerstaff_Is">
-                           <gloss>Isaac Bickerstaffe | b. 1733-09-26 | d. 1808 | Irish librettist and writer of musical theater and comic opera in London and for</gloss>
+                           <gloss>Isaac Bickerstaffe | b. 1733-09-26 | d. 1808 | Irish librettist and writer of musical theater and comic operas in London and fo</gloss>
                         </valItem>
                         <valItem ident="#Biggs_Miss">
                            <gloss>Miss Biggs | Associated with Mr. Johnson and Miss Johnson. Mitford dined with them at Seymour</gloss>
@@ -1977,7 +2000,7 @@
                            <gloss>Octavian Blewitt | b. 1810-10-03 | d. 1884-11 | Travel writer, essayist, and Secretary of the Royal Literary Fund after 1839. A </gloss>
                         </valItem>
                         <valItem ident="#Body_Ann">
-                           <gloss>Ann Body | A local farmer of Shinfield, farmed at Hyde end farm. Listed among the traders o</gloss>
+                           <gloss>Ann Body | A local farmer of Shinfield, farmed at Hyde End farm. Listed among the traders o</gloss>
                         </valItem>
                         <valItem ident="#Body_Richard">
                            <gloss>Richard Body | b. 1776-11-17 | d. 1842 | Needham tentatively identifies him as Mitford's landlord. Listed in 1841 census </gloss>
@@ -2013,7 +2036,7 @@
                            <gloss>Thomas Edward Bowdich | b. 1791-06-20 | d. 1824-01-20 | Mitford read his Mission from Cape Coast Castle to Ashantee.</gloss>
                         </valItem>
                         <valItem ident="#Bowles_Wm">
-                           <gloss>William Lisles Bowles | b. 1762-09-24 | d. 1850-04-07 | Clergyman and poet, known for his sonnets as well as for his long poems includin</gloss>
+                           <gloss>William Lisles Bowles | b. 1762-09-24 | d. 1850-04-07 | Known for his sonnets as well as for his long poems including The Missionary pub</gloss>
                         </valItem>
                         <valItem ident="#Boyd_Mrs">
                            <gloss>Mrs. Boyd | Lived in Reading, where Mitford called upon her in 1819. Forename unknown. Dates</gloss>
@@ -2034,7 +2057,7 @@
                            <gloss>Howard Brenton | b. 1942-12-13 | English playwright. Brenton's plays include The Romans in Britain, Anne Boleyn, </gloss>
                         </valItem>
                         <valItem ident="#Bridgwater_Mr">
-                           <gloss>Mr. Bridgwater | Local owner of meadows in Shinfield parish. Forename unknown. Dates unknown.</gloss>
+                           <gloss>Mr. Bridgwater | Local owner of a meadows in Shinfield parish. Forename unknown. Dates unknown. S</gloss>
                         </valItem>
                         <valItem ident="#Brightwell_CL">
                            <gloss>Lucy Brightwell | b. 1811-02-27 | d. 1875-04-17 | Sketcher and lithographer; author of Memorials of the Life of Amelia Opie, as we</gloss>
@@ -2064,7 +2087,7 @@
                            <gloss>Mrs. Brooke | Forename unknown. Dates unknown. Possibly the mother of Miss Brooke and spouse o</gloss>
                         </valItem>
                         <valItem ident="#BrookeFrances">
-                           <gloss>Frances Moore Brooke | b. 1724-01-12 | d. 1789-01-23 | Mitford read her Manners: A Novel. Not related to the Brooke family who were non</gloss>
+                           <gloss>Frances Moore Brooke | b. 1724-01-12 | d. 1789-01-23 | Mitford read her Manners: A Novel. Not related to the Brooke family, who were no</gloss>
                         </valItem>
                         <valItem ident="#Brooks_Miss">
                            <gloss>Miss Brooks | A correspondent of Mary Russell Mitford, date unknown. Forename unknown. Dates u</gloss>
@@ -2124,7 +2147,7 @@
                            <gloss>Edward Bulwer-Lytton | b. 1803-05-25 | d. 1873-01-18 | Whig and reformist Member of Parliament between 1831 and 1841 for constituencies</gloss>
                         </valItem>
                         <valItem ident="#Burckhardt_JL">
-                           <gloss>Johann Ludwig Burckhardt | b. 1784-11-24 | d. 1817-10-15 | Travelled throughout the near East studying Muslim culture, languages, and archa</gloss>
+                           <gloss>Johann Ludwig Burckhardt | b. 1784-11-24 | d. 1817-10-15 | Travelled throughout the near East under a variety of pseudonyms, studying Musli</gloss>
                         </valItem>
                         <valItem ident="#Burdett_F">
                            <gloss>Sir Francis Burdett | b. 1770-01-25 | d. 1844-01-23 | Famous and frequently-caricatured radical and reformist politician, and member o</gloss>
@@ -2133,7 +2156,7 @@
                            <gloss>William Burdon | b. 1764 | d. 1818-05-30 | Wealthy mine owner and writer on political, moral, and literary subjects. Mitfor</gloss>
                         </valItem>
                         <valItem ident="#Burgess">
-                           <gloss>Mr. Burgess | Forename unknown. The person who recommended to Mitford a particular volume ofSo</gloss>
+                           <gloss>Mr. Burgess | Forename unknown. Dates unknown. The person who recommended to Mitford a particu</gloss>
                         </valItem>
                         <valItem ident="#Burke_E">
                            <gloss>Edmund Burke | b. 1729-12-01 | d. 1797-09-07 | Member of Parliament within the conservative wing of the Whig Party, he supporte</gloss>
@@ -2142,7 +2165,7 @@
                            <gloss>J. Burke | A correspondent of Mary Russell Mitford in 1834. Forename unknown. Dates unknown</gloss>
                         </valItem>
                         <valItem ident="#Burnet_Gil">
-                           <gloss>Gilbert Burnet | b. 1643-09-18 | d. 1716-03-17 | 17th-century Whig clergyman and scholar who became Bishop of Salisbury and advis</gloss>
+                           <gloss>Gilbert Burnet | b. 1643-09-18 | d. 1716-03-17 | Whig clergyman and scholar who became Bishop of Salisbury and advisor to William</gloss>
                         </valItem>
                         <valItem ident="#Burney_F">
                            <gloss>Frances Burney d' Arblay | b. 1752-06-13 | d. 1840-01-06 | Author of satirical comedies, blank verse tragedies, and novels of manners as we</gloss>
@@ -2204,6 +2227,9 @@
                         <valItem ident="#Chalmers_Alex">
                            <gloss>Alexander Chalmers | b. 1759-03-29 | d. 1834-12-29 | An important nineteenth-century editor of collections of literary works from the</gloss>
                         </valItem>
+                        <valItem ident="#Chalmers_T">
+                           <gloss>Thamas Chalmers | b. 1780-03-17 | d. 1847-05-31 | Evangelical Presybterian minister of the Church of Scotland who sought reform of</gloss>
+                        </valItem>
                         <valItem ident="#Chamberlaine_Jeremy">
                            <gloss>Chamberlaine Jeremy | Brought Mitford wildflowers in pots in 1819. Dates unknown. Source: Journal.</gloss>
                         </valItem>
@@ -2221,6 +2247,9 @@
                         </valItem>
                         <valItem ident="#CharlesSpencer">
                            <gloss>Charles Spencer | b. 1955-03-04 | Since 1991, Charles Spencer has been a theater critic for the conservative Londo</gloss>
+                        </valItem>
+                        <valItem ident="#Charlotte_Duchess">
+                           <gloss>Friederike Charlotte Ulrike Katharina, Duchess of York and Albany | b. 1767-05-07 | d. 1820-08-06 | Mitford mentions that she was working on a black gown for the death of the Duche</gloss>
                         </valItem>
                         <valItem ident="#Chas_SpencerChurchill">
                            <gloss>Lord Charles Spencer-Churchill | b. 1794-12-03 | d. 1840-04-28 | Second son of George Spencer-Churchill. Army officer and Member of Parliament fo</gloss>
@@ -2356,6 +2385,9 @@
                         </valItem>
                         <valItem ident="#Crabbe">
                            <gloss>George Crabbe | b. 1754-12-24 | d. 1832-02-03 | Mentored by Edmund Burke and friend of Scott and Wordsworth. Mitford read his Ta</gloss>
+                        </valItem>
+                        <valItem ident="#Crawfurd_J">
+                           <gloss>John Crawfurd | b. 1783-08-13 | d. 1868-05-11 | British colonial administrator to Southeast Asia, where he studied Malaysian lan</gloss>
                         </valItem>
                         <valItem ident="#Cripps_JM">
                            <gloss>John Marten Cripps | b. 1780 | d. 1853 | E.D. Clarke was his tutor; Clarke accompanied Cripps on his travels. Both attend</gloss>
@@ -2522,6 +2554,9 @@
                         <valItem ident="#Dobbs_Mrs">
                            <gloss>Mrs. Dobbs | An associate of both Mitford and Miss James, presumably older than both. The spo</gloss>
                         </valItem>
+                        <valItem ident="#Dodd_Anne">
+                           <gloss>Anne Dodd | b. 1800-06-27 | Married Henry Hayward on December 27, 1819, which is mentioned by Mitford in her</gloss>
+                        </valItem>
                         <valItem ident="#DoddCE">
                            <gloss>Charles Dodd | Legal writer, active in the 1830s. Mitford read his An Autumn Near the Rhine. Da</gloss>
                         </valItem>
@@ -2566,6 +2601,9 @@
                         </valItem>
                         <valItem ident="#Dryden">
                            <gloss>John Dryden | b. 1631-08-09 | d. 1700-05-01 | Named Poet Laureate in 1668 , Dryden authored Annus mirabilis: the Year of Wonde</gloss>
+                        </valItem>
+                        <valItem ident="#Dubois_JA">
+                           <gloss>Jean-Antoine Dubois | b. 1765-01 | d. 1848-02-17 | A French Catholic Missionary in India. Member of the Missions Etrangères de Pari</gloss>
                         </valItem>
                         <valItem ident="#Duke_Montrose">
                            <gloss>James Graham, Duke of Montrose | b. 1755-09-08 | d. 1836-12-30 | Lord Chamberlain who appointed George Colman the Younger to be the Examiner of p</gloss>
@@ -2630,6 +2668,12 @@
                         <valItem ident="#ElizI">
                            <gloss>Elizabeth I | b. 1533-09-07 | d. 1603-03-24 | The last of the Tudor monarchs, and defender of father’s instition of a Protesta</gloss>
                         </valItem>
+                        <valItem ident="#Elliott_John">
+                           <gloss>John Elliott | Son of Mr. Elliot, mentioned by Mitford as coming to look at their home at Bertr</gloss>
+                        </valItem>
+                        <valItem ident="#Elliott_Mr">
+                           <gloss>Mr. Elliott | Father of John Elliot, mentioned by Mitford as coming to look at their home at B</gloss>
+                        </valItem>
                         <valItem ident="#Ellis_Hen">
                            <gloss>Sir Henry Ellis | b. 1788-09-01 | d. 1855-09-28 | A commissioner in Lord Amherst’s embassy to China 1816-17. Author of Journal of </gloss>
                         </valItem>
@@ -2693,6 +2737,9 @@
                         <valItem ident="#Fieschi_GL">
                            <gloss>Giovanni Luigi Fieschi | b. 1522 | d. 1547-01-02 | Giovanni Luigi Fieschi (or Fiesco), count of Lavagna was a nobleman of Genoa and</gloss>
                         </valItem>
+                        <valItem ident="#Filleul_A">
+                           <gloss>Adélaïde-Émilie Filleul, Marquise de Souza-Botelho | b. 1761-05-14 | d. 1836-04-19 | Author of Mademoiselle de Tournon which Mitford mentions reading in her Journal </gloss>
+                        </valItem>
                         <valItem ident="#Finden_Ed">
                            <gloss>Edward Finden | b. 1791 | d. 1857-02-09 | Engraver and printmaker, younger brother and partner to William Finden in his en</gloss>
                         </valItem>
@@ -2746,6 +2793,9 @@
                         </valItem>
                         <valItem ident="#Foscari_son_hist">
                            <gloss>Jacopo Foscari | b. 1416 | d. 1457 | Historical personage on whom Mitford based the character of Francesco Foscari in</gloss>
+                        </valItem>
+                        <valItem ident="#Foscolo_Ugo">
+                           <gloss>Ugo Foscolo | b. 1778-02-06 | d. 1827-09-27 | Venetian author and playwright who spent the last years of his life in England i</gloss>
                         </valItem>
                         <valItem ident="#Fox_ChasJ">
                            <gloss>Charles James Fox | b. 1749-01-24 | d. 1806-09-13 | Whig politician and leader of the House of Commons. Fox was an outspoken opponen</gloss>
@@ -2831,8 +2881,14 @@
                         <valItem ident="#Glenny_Geo">
                            <gloss>George Glenny | b. 1793-11-01 | d. 1874-05-17 | A correspondent of Mary Russell Mitford between 1831 and 1832. Writer, editor an</gloss>
                         </valItem>
+                        <valItem ident="#Goddard_Mr">
+                           <gloss>Mr. Goddard | Gave Lucy Hill away at wedding.</gloss>
+                        </valItem>
                         <valItem ident="#Godwin_Wm">
                            <gloss>William Godwin | b. 1756-03-03 | d. 1836-04-07 | Political philosopher and novelist, married to Mary Wollstonecraft and biographe</gloss>
+                        </valItem>
+                        <valItem ident="#Goethe">
+                           <gloss>Johann Wolfgang von Goethe | b. 1749-08-28 | d. 1832-03-22 | Highly influential 18th-century novelist and dramatist, the author of Faust and </gloss>
                         </valItem>
                         <valItem ident="#Goldsmid_AM">
                            <gloss>Anna Maria Goldsmid | b. 1805-09-17 | d. 1889-02-08 | Expert linguist and translator in Italian, French, German, and Hebrew. Founded t</gloss>
@@ -2945,6 +3001,9 @@
                         <valItem ident="#Hawkes_Miss">
                            <gloss>Miss Hawkes | Lived in Reading, where Mitford visits her in 1819. Forename unknown. Dates unkn</gloss>
                         </valItem>
+                        <valItem ident="#Hawkins_L">
+                           <gloss>Laetitia Matilda Hawkins | b. 1759 | d. 1835-11-22 | Author of Heraline; or, Opposite Proceedings.</gloss>
+                        </valItem>
                         <valItem ident="#Hawley_GeneralSr">
                            <gloss>General Hawley | Possibly Lieutenant General Henry Hawley (c. 1679 to 24 March 1759), British arm</gloss>
                         </valItem>
@@ -2972,17 +3031,23 @@
                         <valItem ident="#Hayward_Abraham">
                            <gloss>Abraham Hayward | b. 1801-11-22 | d. 1884-02-02 | Solicitor and prolific editor, translator, and essayist. A correspondent of Mitf</gloss>
                         </valItem>
+                        <valItem ident="#Hayward_da">
+                           <gloss>Mrs. Hayward’s little girl | b. 1820-01-02 | Likely the hild of Mrs. Hayward and William Hayward. Mentioned by Mitford in her</gloss>
+                        </valItem>
+                        <valItem ident="#Hayward_H">
+                           <gloss>Henry Hayward | b. 1795 | d. 1875-01 | Married Anne Dodd on December 27, 1819, which is mentioned by Mitford in her jou</gloss>
+                        </valItem>
                         <valItem ident="#Hayward_John">
                            <gloss>John Hayward | A Watlington brewer, the brother of William Hayward.</gloss>
                         </valItem>
                         <valItem ident="#Hayward_MrsW">
-                           <gloss>Mrs. Hayward | Likely the spouse of William Hayward the elder. Lived in Watlington and and moth</gloss>
+                           <gloss>Mary Ann Hayward | b. 1762 | Likely the spouse of William Hayward the elder. Lived in Watlington. Mother of H</gloss>
                         </valItem>
                         <valItem ident="#Hayward_Wm_father">
-                           <gloss>William Hayward | A Watlington brewer, the spouse of Mrs. Hayward and father of William Hayward.</gloss>
+                           <gloss>William Hayward | b. 1761-03-05 | d. 1822-12-26 | A Watlington brewer, the spouse of Mrs. Hayward and father of William Hayward an</gloss>
                         </valItem>
                         <valItem ident="#Hayward_Wm_son">
-                           <gloss>William Hayward | With his father, a Watlington brewer, and later the spouse of Jane Webb. They ha</gloss>
+                           <gloss>William Hayward | b. 1794 | d. 1863 | With his father, he ran a brewing establishment in Watlington. He married Jane W</gloss>
                         </valItem>
                         <valItem ident="#Hazlitt_Wm">
                            <gloss>William Hazlitt | b. 1778-04-10 | d. 1830-09-18 | Essayist and critic, acquaintance of Mary Russell Mitford. Author of Table Talk </gloss>
@@ -3066,7 +3131,7 @@
                            <gloss>Thomas Hodgskin | b. 1787-12-12 | d. 1869-08-21 | Mitford read his Travels in the North of Germany. Anti-capitalist and utilitaria</gloss>
                         </valItem>
                         <valItem ident="#Hofland_B">
-                           <gloss>Barbara Wreaks Hofland | b. 1770 | d. 1844-11-04 | Novelist and writer of children’s books popular in England and America, Barbara </gloss>
+                           <gloss>Barbara Wreaks Hofland | b. 1770 | d. 1844-11-04 | Frequent correspondent of Mitford's, mentioned often in her Journal of 1819-1823</gloss>
                         </valItem>
                         <valItem ident="#Hofland_TC">
                            <gloss>Thomas Christopher Hofland | b. 1777-12-25 | d. 1843-01-03 | Landscape painter, and second husband of the author Barbara Hofland.</gloss>
@@ -3085,6 +3150,12 @@
                         </valItem>
                         <valItem ident="#Holden_Henry">
                            <gloss>Henry Holden | b. 1596 | d. 1662-03 | Roman Catholic Doctor of Divinity, theologian and professor at the Sorbonne. Whe</gloss>
+                        </valItem>
+                        <valItem ident="#Holden_John">
+                           <gloss>John Holden | Mitford sent him a puppy that she got from Mr. Webb on July 1 1819.</gloss>
+                        </valItem>
+                        <valItem ident="#Holden_Miss">
+                           <gloss>Miss Holden | Potentially related to John Holden. Mitford sent poems to her on July 1 1819.</gloss>
                         </valItem>
                         <valItem ident="#Holford_Marg_younger">
                            <gloss>Margaret Holford Hodgson | b. 1778-06-01 | d. 1852-09-11 | Associated with Joanna Baillie and Robert Southey. Her mother, also named Margar</gloss>
@@ -3131,6 +3202,12 @@
                         <valItem ident="#Howard_Tho">
                            <gloss>Thomas Howard, Duke of Norfolk | b. 1538-03-10 | d. 1572-06-02 | Convicted of treason and executed for the charge of involvement in the Ridolfi p</gloss>
                         </valItem>
+                        <valItem ident="#Howell_Mrs">
+                           <gloss>Mrs. Howell | Likely a neighbor of Mitford either at Bertram House or Three Mile Cross, where </gloss>
+                        </valItem>
+                        <valItem ident="#Howell_W">
+                           <gloss>Will Howell | Mitford mentions Will Howell in her Journal on August 13, 1820, and he appears t</gloss>
+                        </valItem>
                         <valItem ident="#Howitt_Mary">
                            <gloss>Mary Howitt | b. 1799-03-12 | d. 1888-01-30 | Prolific poet, short story writer, translator, editor, and memoirist; her husban</gloss>
                         </valItem>
@@ -3155,6 +3232,9 @@
                         <valItem ident="#Hunt">
                            <gloss>Leigh Hunt | b. 1784-10-19 | d. 1859-08-28 | One of the founders and editors of The Examiner.</gloss>
                         </valItem>
+                        <valItem ident="#Hunt_Mrs">
+                           <gloss>Hannah Cooper | </gloss>
+                        </valItem>
                         <valItem ident="#Hunt_Robert">
                            <gloss>Robert Hunt | Brother of Leigh Hunt and John Hunt who founded The Examiner. One of the earlies</gloss>
                         </valItem>
@@ -3178,6 +3258,9 @@
                         </valItem>
                         <valItem ident="#Hyde_Henry">
                            <gloss>Henry Hyde, Second Earl of Clarendon | b. 1638-06-02 | d. 1709-10-31 | Spent much of his childhood in Belgium and the Netherlands because of his father</gloss>
+                        </valItem>
+                        <valItem ident="#Inchbald_E">
+                           <gloss>Elizabeth Inchbald | b. 1753-10-15 | d. 1821-08-01 | Author of A Simple Story, which Mitford mentions reading in her Journal on Octob</gloss>
                         </valItem>
                         <valItem ident="#Ingoldsby">
                            <gloss>Sir Richard Ingoldsby | b. 1617-08-10 | d. 1685-09-09 | A Colonel in the New Model Army, Member of Parliament representing Buckinghamshi</gloss>
@@ -3260,6 +3343,9 @@
                         <valItem ident="#Johnstone_Jack">
                            <gloss>John (Jack) Johnstone | b. 1749-08-01 | d. 1828-12-26 | Irish actor, primarily a comedian; also a singer of tenors parts, called Jack or</gloss>
                         </valItem>
+                        <valItem ident="#Joliffe_Mrs">
+                           <gloss>Mrs. Joliffe | Mitford mentions in her Journal on February 10, 1820 that she corrected some poo</gloss>
+                        </valItem>
                         <valItem ident="#Jolliffe_Mr">
                            <gloss>Mr. Jolliffe | Friend of the Mitford family, who offered the family lumber to build a cottage i</gloss>
                         </valItem>
@@ -3310,6 +3396,9 @@
                         </valItem>
                         <valItem ident="#Keep_William">
                            <gloss>William Keep | Last name is supplied byNeedham; name appears among other local tradespeople, ta</gloss>
+                        </valItem>
+                        <valItem ident="#Kelly_FH">
+                           <gloss>Miss Kelly | b. 1805-06-30 | d. 1887-03-19 | Mitford mentions traveling to London to see Miss Kelly perform in her Journal on</gloss>
                         </valItem>
                         <valItem ident="#Kemble_C">
                            <gloss>Charles Kemble | b. 1775-11-25 | d. 1854-11-12 | British actor, the younger brother of John Phillip Kemble and Sarah Siddons. Alt</gloss>
@@ -3502,6 +3591,9 @@
                         </valItem>
                         <valItem ident="#Macauley_C">
                            <gloss>Catharine Macauley | b. 1731-03-21 | d. 1791-06-22 | Important English historian during the eighteenth century, celebrated and vilifi</gloss>
+                        </valItem>
+                        <valItem ident="#Macfarlane_Chas">
+                           <gloss>Charles MacFarlane | b. 1799 | d. 1858 | Scottish writer and correspondent of Mitford’s. In her Journal of May and June 1</gloss>
                         </valItem>
                         <valItem ident="#Machiavelli">
                            <gloss>Niccoló di Bernardo dei Machiavelli | b. 1469-05-03 | d. 1527-06-21 | One of the figures whose birthdate is printed in The Literary Pocket Book, owned</gloss>
@@ -3794,6 +3886,9 @@
                         <valItem ident="#Napoleon">
                            <gloss>Napoleon I | b. 1769-08-15 | d. 1821-05-05 | Military commander and political leader. During the French Revolution and Revolu</gloss>
                         </valItem>
+                        <valItem ident="#Nares_Mr">
+                           <gloss>Mr. Nares | In her Journal on June 7 1820 Mitford mentions seeing him and Mr. MacFarlane the</gloss>
+                        </valItem>
                         <valItem ident="#Nelly_pet">
                            <gloss>Nelly | One of Mitford's greyhounds at Bertram House in 1819.</gloss>
                         </valItem>
@@ -3805,6 +3900,9 @@
                         </valItem>
                         <valItem ident="#Newbery_Mrs">
                            <gloss>Mrs. Newbery | Spouse of Jacob Newbery. Name variously spelled Newbery and Newberry. Forename u</gloss>
+                        </valItem>
+                        <valItem ident="#Newell_Mr">
+                           <gloss>Mr. Newell | Associated with William Hayward.Married to Mrs. Newell.</gloss>
                         </valItem>
                         <valItem ident="#Newell_Mrs">
                            <gloss>Mrs. Newell | Mitford called on her at Wokingham. Forename unknown. Dates unknown.</gloss>
@@ -3955,6 +4053,12 @@
                         </valItem>
                         <valItem ident="#Percy_Thos">
                            <gloss>Thomas Percy | b. 1729-04-13 | d. 1811-09-30 | Author and antiquarian, Thomas Percy collected and edited Reliques of Ancient En</gloss>
+                        </valItem>
+                        <valItem ident="#Perry_Horatia">
+                           <gloss>Horatia Anne Perry | b. 1793-07-05 | d. 1861-09-22 | Daughter of James Perry, who invited Mitford to a dinner party in London in Dece</gloss>
+                        </valItem>
+                        <valItem ident="#Perry_James">
+                           <gloss>James Perry | b. 1756-10-30 | d. 1821-12-04 | Born as James Pirie in Scotland, he presumably anglicized his name on moving to </gloss>
                         </valItem>
                         <valItem ident="#Peters_Hugh">
                            <gloss>Hugh Peters | b. 1598-06-29 | d. 1660-10-16 | Chaplain to the New Model Army. Executed as a regicide for his role in the trial</gloss>
@@ -4111,6 +4215,9 @@
                         </valItem>
                         <valItem ident="#Rapley_Betty">
                            <gloss>Betty Rapley | Dates unknown.</gloss>
+                        </valItem>
+                        <valItem ident="#Rapley_Ha">
+                           <gloss>Hannah Rapley | Mitford mentions in her Journal on 24 January 1820 that Hannah Rapley had begun </gloss>
                         </valItem>
                         <valItem ident="#Rapley_John1">
                            <gloss>John (Jack) Rapley | b. 1809-10-25 | Son of William and Sarah Rapley. Baptismal data as noted by Needham along with o</gloss>
@@ -4298,6 +4405,9 @@
                         <valItem ident="#Schimmelpenninck_MA">
                            <gloss>Mary Anne Galton Schimmelpennick | b. 1778-11-25 | d. 1856-08-29 | Mitford read her A Tour to Alet and La Grande Chartreuse.</gloss>
                         </valItem>
+                        <valItem ident="#Schlegel_AW">
+                           <gloss>August Wilhelm von Schlegel | b. 1767-09-08 | d. 1845-05-12 | Brother of Friedrich Wilhelm von Schlegel, advisor to Madame de Staël and tutor </gloss>
+                        </valItem>
                         <valItem ident="#SchlegelF">
                            <gloss>Friedrich von Schlegel | b. 1771-03-10 | d. 1829-01-12 | Important figure in Jena Romanticism, the first wave of German Romantic literatu</gloss>
                         </valItem>
@@ -4352,6 +4462,9 @@
                         <valItem ident="#Sharpe_CK">
                            <gloss>Charles Kirkpatrick Sharpe | b. 1781-05-15 | d. 1851-03-17 | Editor of Criminal Trials Illustrative of the Tale Entitled The Heart of Mid-Lot</gloss>
                         </valItem>
+                        <valItem ident="#Shaw_Sam">
+                           <gloss>Sam Shaw | Coauthor with James Bruce of An Interesting Narrative of the Travels of James Br</gloss>
+                        </valItem>
                         <valItem ident="#ShawLefevre_C1">
                            <gloss>Charles Shaw Lefevre | b. 1759-09-20 | d. 1823-04-27 | A correspondent of Mary Russell Mitford in 1805 and a moderate Tory Member of Pa</gloss>
                         </valItem>
@@ -4385,6 +4498,15 @@
                         <valItem ident="#Sidmouth_Lady2">
                            <gloss>Mary Anne Scott Townshend Addington, Lady Sidmouth | d. 1842-04-26 | A correspondent of Mary Russell Mitford in 1830. Second wife of Henry Addington,</gloss>
                         </valItem>
+                        <valItem ident="#Simonds_H">
+                           <gloss>Henry Simonds | b. 1785 | d. 1874 | Potentially the H. Symonds mentioned in Mitford’s Journal on November 2 1820. So</gloss>
+                        </valItem>
+                        <valItem ident="#Simonds_MrB">
+                           <gloss>William Blackall Simonds | b. 1762 | d. 1843 | Potentially the Monsieur Simon mentioned in Mitford’s Journal on November 2 1820</gloss>
+                        </valItem>
+                        <valItem ident="#Simonds_MrsB">
+                           <gloss>Elizabeth Blackall Simonds | b. 1764 | d. 1842 | Potentially the Mrs. Blackall Symonds mentioned in Mitford’s Journal on December</gloss>
+                        </valItem>
                         <valItem ident="#Sinclair_SrJohn">
                            <gloss>Sir John Sinclair | b. 1754-05-10 | d. 1835-12-21 | Sir John Sinclair was perhaps most politically active in the 1780s and 1790s whe</gloss>
                         </valItem>
@@ -4408,6 +4530,9 @@
                         </valItem>
                         <valItem ident="#Smith_Dora">
                            <gloss>Dora Smith | A correspondent of Mary Russell Mitford in 1847. Dates unknown.</gloss>
+                        </valItem>
+                        <valItem ident="#Smith_Farmer">
+                           <gloss>Farmer Smith | b. 1801 | </gloss>
                         </valItem>
                         <valItem ident="#Smith_Horace">
                            <gloss>Horace Smith | b. 1779-12-31 | d. 1849-07-12 | Born Horatio Smith. Co-author with his brother James of the literary parody coll</gloss>
@@ -4604,11 +4729,23 @@
                         <valItem ident="#Tuppen_Mrs">
                            <gloss>Mrs. Tuppen | Spouse of William Tuppen. Forename unknown. Dates unknown.</gloss>
                         </valItem>
+                        <valItem ident="#TwissH">
+                           <gloss>Horace Twiss | b. 1787-02-28 | d. 1849-05 | </gloss>
+                        </valItem>
+                        <valItem ident="#Ude_L">
+                           <gloss>Louis Eustache Ude | b. 1769 | d. 1846 | Served as cook to Louis XVI, as maître d’hôtel to the Earl of Sefton, as chef to</gloss>
+                        </valItem>
+                        <valItem ident="#Valpy_Anne">
+                           <gloss>Anne Valpy | b. 1765-09-14 | d. 1835-04-15 | </gloss>
+                        </valItem>
                         <valItem ident="#Valpy_Ant">
                            <gloss>Anthony Blagrave Valpy | b. 1791-02-10 | d. 1871-03-30 | Son of Dr. Richard Valpy and Mary Benwell. Spouse of Anna Harris Valpy. They had</gloss>
                         </valItem>
                         <valItem ident="#Valpy_Catherine">
                            <gloss>Catherine Valpy French | b. 1795-08-04 | d. 1873 | One of four daughters of Dr. Richard Valpy and his second wife, Mary Benwell; sh</gloss>
+                        </valItem>
+                        <valItem ident="#Valpy_Ed">
+                           <gloss>Mr. Edward Valpy | b. 1764-04 | d. 1832-04-15 | </gloss>
                         </valItem>
                         <valItem ident="#Valpy_John">
                            <gloss>A. J. (John) Valpy | b. 1786-10-30 | d. 1854-11-19 | Abraham John Valpy, called John or A.J. Dr. Richard Valpy’s second son, Abraham </gloss>
@@ -4768,6 +4905,9 @@
                         </valItem>
                         <valItem ident="#Wheeler_James">
                            <gloss>James Wheeler | A friend of Mitford in 1819-1823. Mitford visited him in Wokingham, along with t</gloss>
+                        </valItem>
+                        <valItem ident="#Wheeler_John">
+                           <gloss>John Wheeler | Spouse of Mrs. John Wheeler.</gloss>
                         </valItem>
                         <valItem ident="#Wheeler_Kate">
                            <gloss>Kate Wheeler | Friend of Miss James. Mitford refers to her as providing home remedies and advic</gloss>
@@ -5046,7 +5186,7 @@
                            <gloss>Annaly Miss | Daughter of Lady Annaly in Maria Edgeworth’s Ormond.</gloss>
                         </valItem>
                         <valItem ident="#Antigone_A">
-                           <gloss>Antigone | Title character in Antigone</gloss>
+                           <gloss>Antigone | Title character in Antigone.</gloss>
                         </valItem>
                         <valItem ident="#ArchBishop_Jul">
                            <gloss>Archbishop | Character of an unnamed Archbishop in Julian.</gloss>
@@ -5330,6 +5470,9 @@
                         <valItem ident="#Goodwin_Mabel">
                            <gloss>Mabel Goodwin | Title character in The Roundhead's Daughter.</gloss>
                         </valItem>
+                        <valItem ident="#Great_Farmhouse_farmer_OV">
+                           <gloss> | Unnamed farmer, who lives with his wife at M. farmhouse and raises greyhounds, f</gloss>
+                        </valItem>
                         <valItem ident="#Grisildi">
                            <gloss>Grisildi | Character in The Clerk's Tale from Canterbury Tales, also called Griselda or Pat</gloss>
                         </valItem>
@@ -5359,6 +5502,9 @@
                         </valItem>
                         <valItem ident="#Helen_H">
                            <gloss>Helen | character in Helen</gloss>
+                        </valItem>
+                        <valItem ident="#Helen_pet_OV">
+                           <gloss>Helen | Favorite greyhound of the farmer, who lives with his wife at M. farmhouse, featu</gloss>
                         </valItem>
                         <valItem ident="#Hengo_B">
                            <gloss>Hengo | character in Bonduca</gloss>
@@ -5882,7 +6028,7 @@
                            <gloss>Berkshire Record Office | Holds 11 letters, as well as transcripts of Mitford papers--possibly of material</gloss>
                         </valItem>
                         <valItem ident="#BL">
-                           <gloss>British Library | Holds around 125 letters, as well as manuscripts of Mitford’s plays submitted to</gloss>
+                           <gloss>British Library | After 1973, the British Library formally separated from the British Museum, but </gloss>
                         </valItem>
                         <valItem ident="#BostonPL">
                            <gloss>Boston Public Library | Holds 17 letters.</gloss>
@@ -5966,7 +6112,7 @@
                            <gloss>AMS Press | AMS Press is a publishing firm located in New York. Publisher of a facsimile rep</gloss>
                         </valItem>
                         <valItem ident="#Anstruthers">
-                           <gloss>the Anstruther family | The family of Col. Anstruther. Associated with Reading.</gloss>
+                           <gloss>the Anstruther family | The family of Col. Anstruther. Associated with Reading. Includes Colonel Anstrut</gloss>
                         </valItem>
                         <valItem ident="#Baldwin_Cradock_Joy_pub">
                            <gloss>Baldwin, Cradock, and Joy | Baldwin, Cradock, and Joy was a publishing firm founded by publisher, printer, a</gloss>
@@ -5998,6 +6144,9 @@
                         <valItem ident="#Bluestockings">
                            <gloss>Bluestockings | A circle of female writers and intellectuals formed around the salons hosted by </gloss>
                         </valItem>
+                        <valItem ident="#Bodys">
+                           <gloss>the Body family | Mitford mentions the Bodys as a family in her Journal of 1819 - 1823. She visits</gloss>
+                        </valItem>
                         <valItem ident="#Bohn_pub">
                            <gloss>Henry G. Bohn | Henry G. Bohn was a publishing firm located in London and founded by George Henr</gloss>
                         </valItem>
@@ -6012,6 +6161,9 @@
                         </valItem>
                         <valItem ident="#Bow_Street_Runners">
                            <gloss>Bow Street Runners | Considered the first professional police force in London, and a precursor to the</gloss>
+                        </valItem>
+                        <valItem ident="#Brent_family_hist">
+                           <gloss>Brent family | Includes Joel, Lucy, and Lizzy.</gloss>
                         </valItem>
                         <valItem ident="#British_Army">
                            <gloss>British Army | The principal land warfare force of the United Kingdom.</gloss>
@@ -6088,11 +6240,17 @@
                         <valItem ident="#Crissy_pub">
                            <gloss>James Crissy | James Crissy was a publishing firm located in Philadelphia with premises at 4 Mi</gloss>
                         </valItem>
+                        <valItem ident="#Crowthers">
+                           <gloss>the Crowthers | Contains Mr. Crowther and Mrs. Crowther</gloss>
+                        </valItem>
                         <valItem ident="#Dearsleys">
                            <gloss>the Dearsley family | A family who lived at Moore House, Shinfield.</gloss>
                         </valItem>
                         <valItem ident="#Dent_pub">
                            <gloss>J. M. Dent | J. M. Dent was a publishing firm located in London, founded in 1888 by Joseph Ma</gloss>
+                        </valItem>
+                        <valItem ident="#Dickinsons">
+                           <gloss>the Dickinsons | Contains Charles Dickinson and Mrs. Dickinson.</gloss>
                         </valItem>
                         <valItem ident="#Drovers">
                            <gloss>the Drover family | A family who, according to Francis Needham’s notes, lived on Minster Street in R</gloss>
@@ -6151,6 +6309,9 @@
                         <valItem ident="#High_Court_of_Justice">
                            <gloss>High Court of Justice | he Commissioners of the High Court of Justice tried Charles I for treason. Those</gloss>
                         </valItem>
+                        <valItem ident="#Holdens">
+                           <gloss>the Holdens | Potentially includes Miss Holden, John Holden, and Henry Holden. Mentioned by Mi</gloss>
+                        </valItem>
                         <valItem ident="#Holland_House_set">
                            <gloss>Holland House circle | In Mitford's time, Holland House in Kensington was the home of Henry Richard Vas</gloss>
                         </valItem>
@@ -6169,6 +6330,9 @@
                         <valItem ident="#Hurst_pub">
                            <gloss>Hurst and Co. | Hurst and Co. was a publishing firm located in New York. Flourished 1870s to 191</gloss>
                         </valItem>
+                        <valItem ident="#Ilsley-Coursing-Soc">
+                           <gloss>Ilsley Coursing Society | Hunting club frequented by George Mitford and friends, presumably located in Ils</gloss>
+                        </valItem>
                         <valItem ident="#ISIS_pub">
                            <gloss>ISIS Publishing, Ltd. | ISIS Publishing, Ltd. is a publishing firm located in London, specializing in la</gloss>
                         </valItem>
@@ -6177,6 +6341,9 @@
                         </valItem>
                         <valItem ident="#Jacobites">
                            <gloss>Jacobites | Supporters of the Stuart cause. Named after the line of Jacob, that is, the desc</gloss>
+                        </valItem>
+                        <valItem ident="#James_Fam">
+                           <gloss>the James Family</gloss>
                         </valItem>
                         <valItem ident="#JBLippincott_pub">
                            <gloss>J. B. Lippincott | J. B. Lippincott was a publishing firm located in Philadelphia. Publisher of a 1</gloss>
@@ -6259,6 +6426,9 @@
                         <valItem ident="#Newberys">
                            <gloss>the Newbery family | The family of Jacob Newbery. Surname variously spelled Newbery and Newberry, alt</gloss>
                         </valItem>
+                        <valItem ident="#Newells">
+                           <gloss>the Newells | Includes Mr. Newell and Mrs. Newell.</gloss>
+                        </valItem>
                         <valItem ident="#Nimmo_pub">
                            <gloss>William P. Nimmo &amp; Co. | William P. Nimmo &amp; Co. was a publishing firm located in Edinburgh; flourished 18</gloss>
                         </valItem>
@@ -6279,6 +6449,9 @@
                         </valItem>
                         <valItem ident="#Penguin_pub">
                            <gloss>Penguin Books | Penguin Books is a publishing firm with offices in London, New York, and through</gloss>
+                        </valItem>
+                        <valItem ident="#Perrys">
+                           <gloss>the Perrys | Likely includes James Perry and, before November 1821, his daughter Horatia Perr</gloss>
                         </valItem>
                         <valItem ident="#Pius7_Court">
                            <gloss>Court of Pope Pius VII | Pope Pius VII and his Cardinals, from 1800 to 1823. The court was driven to exil</gloss>
@@ -6352,6 +6525,9 @@
                         <valItem ident="#Simms_MIntyre_pub">
                            <gloss>Simms and M'Intyre | Simms and M'Intyre was a publishing firm located in London. Publisher of an 1850</gloss>
                         </valItem>
+                        <valItem ident="#Simonds">
+                           <gloss>the Simonds | Potentially the Symonds mentioned on December 19 1820. Containing Elizabeth Blac</gloss>
+                        </valItem>
                         <valItem ident="#Slades">
                            <gloss>the Slades | Mitford mentions the Slades in her letter to Thomas Noon Talfourd of June 21, 18</gloss>
                         </valItem>
@@ -6379,6 +6555,9 @@
                         <valItem ident="#Tory">
                            <gloss>Tory Party | Originally, a 17th-century insulting nickname for those who supported James II’s</gloss>
                         </valItem>
+                        <valItem ident="#Tuppens">
+                           <gloss>the Tuppen Family | The Tuppens include Captain William Tuppen and his spouse Mrs. Tuppen.</gloss>
+                        </valItem>
                         <valItem ident="#Twickenham_Coach">
                            <gloss>Twickenham Coach | Stage coach that travelled to Twickenham.</gloss>
                         </valItem>
@@ -6402,6 +6581,9 @@
                         </valItem>
                         <valItem ident="#Webbs">
                            <gloss>the Webbs</gloss>
+                        </valItem>
+                        <valItem ident="#Westbrooks">
+                           <gloss>the Westbrooks | As recorded in her Journal, Mitford met the Westbrooks on 26 July 1820, and dine</gloss>
                         </valItem>
                         <valItem ident="#Weylandite">
                            <gloss>Weylandites | Weyland supporters. On March 16, 1820, an election in Reading was held. There we</gloss>
@@ -6573,6 +6755,9 @@
                         <valItem ident="#Antwerp_city">
                            <gloss>Antwerp, Belgium | The capital city of Antwerp Province in the Flemish Region, known colloquially a</gloss>
                         </valItem>
+                        <valItem ident="#Arborfield">
+                           <gloss>Arborfield | A village in England. Mitford mentions in her Journal visiting Arborfield on Mar</gloss>
+                        </valItem>
                         <valItem ident="#Ashmolean_Old">
                            <gloss>Ashmolean | In Mitford's time, the Ashmolean collection was housed in the 1683 Old Ashmolean</gloss>
                         </valItem>
@@ -6720,6 +6905,9 @@
                         <valItem ident="#Chippenham">
                            <gloss>Chippenham, Wiltshire, England | Market town in Wiltshire, east of Bath. Founded on the River Avon and served by </gloss>
                         </valItem>
+                        <valItem ident="#Church_StMary">
+                           <gloss>St Mary's Church | </gloss>
+                        </valItem>
                         <valItem ident="#Cincinnati">
                            <gloss>Cincinnati, Ohio, USA | City in south west Ohio, settled in 1788 at the confluence of the Licking and Oh</gloss>
                         </valItem>
@@ -6762,6 +6950,9 @@
                         <valItem ident="#Edinburgh">
                            <gloss>Edinburgh, Lothian, Scotland | The capital and second-largest city in Scotland, located on the Firth of Forth. </gloss>
                         </valItem>
+                        <valItem ident="#Egham">
+                           <gloss>Egham | According to her Journal, Mitford rode through Egham on June 27, 1820.</gloss>
+                        </valItem>
                         <valItem ident="#EgyptianHall">
                            <gloss>Egyptian Hall, Piccadilly, London, England | A London building in Piccadilly, designed in the Egyptian style, Egyptian Hall w</gloss>
                         </valItem>
@@ -6802,7 +6993,7 @@
                            <gloss>Fields at Bertram House | Fields belonging to the Bertram House estate. One location where Mitford goes vi</gloss>
                         </valItem>
                         <valItem ident="#field_Body">
-                           <gloss>Mr. Body's fields | Fields belonging to the ichard Body. One location where Mitford goes violetting </gloss>
+                           <gloss>Mr. Body's fields | Fields belonging to Richard Body. One location mentioned in her Journal where Mi</gloss>
                         </valItem>
                         <valItem ident="#field_Davies">
                            <gloss>Mr. Davies's fields | Fields belonging to Mr. Davies.</gloss>
@@ -6915,6 +7106,9 @@
                         <valItem ident="#Hyde_Park">
                            <gloss/>
                         </valItem>
+                        <valItem ident="#Ilsley">
+                           <gloss>Ilsley | Unknown if this is either East or West Ilsey. George Mitford often visited, as M</gloss>
+                        </valItem>
                         <valItem ident="#India">
                            <gloss>India | In Mitford’s time, the East India Company and its private armies controlled Indi</gloss>
                         </valItem>
@@ -6999,6 +7193,9 @@
                         <valItem ident="#Magdalen_Coll">
                            <gloss>Magdalen College, Oxford University, Oxford, Oxfordshire, England | One of the constituent colleges of Oxford University.</gloss>
                         </valItem>
+                        <valItem ident="#Manchester">
+                           <gloss>Manchester | Mitford mentions this place on November 15 1819</gloss>
+                        </valItem>
                         <valItem ident="#ManchesterHouse">
                            <gloss>Manchester House, 29 Imperial Road, Exmouth, Devon, England | Mitford dates her opening poem in the Journal from this location in January 1819</gloss>
                         </valItem>
@@ -7053,6 +7250,9 @@
                         <valItem ident="#New_York_city">
                            <gloss>New York City, New York, USA | Most populous city in the United States, founded as a trading post by the Dutch </gloss>
                         </valItem>
+                        <valItem ident="#Newbery_house_St_Queen33">
+                           <gloss>33 Great Queen Street | A specific address on Great Queen Street. Most likely owned by Mr. Newbery. Ment</gloss>
+                        </valItem>
                         <valItem ident="#Newbury">
                            <gloss>Newbury, Berkshire, England | Market town on the River Kennet in Berkshire. Horseracing took place between 180</gloss>
                         </valItem>
@@ -7064,6 +7264,12 @@
                         </valItem>
                         <valItem ident="#Oakhampton_House">
                            <gloss>Oakhampton House, Dunley, Worcestershire, England | Oakhampton House is a country estate in Dunley, owned by the descendants of Roya</gloss>
+                        </valItem>
+                        <valItem ident="#Odiham">
+                           <gloss>Odiham | </gloss>
+                        </valItem>
+                        <valItem ident="#Opera_House">
+                           <gloss>English Opera House | </gloss>
                         </valItem>
                         <valItem ident="#Overton">
                            <gloss>Overton | Large parish. In 1831, the Hundred of Overton contained Ashe, Bradley, Deane, La</gloss>
@@ -7090,10 +7296,13 @@
                            <gloss>Pamber Forest, Hampshire, England | Forest in north Hampshire, near Silchester. Today, Pamber Forest and Silchester </gloss>
                         </valItem>
                         <valItem ident="#PaperMill_Marlow">
-                           <gloss>Paper mill on the Thames</gloss>
+                           <gloss>Paper mill on the Thames | </gloss>
                         </valItem>
                         <valItem ident="#Paris">
                            <gloss>Paris, France | Capital of France and important center of trade, banking, publishing, fashion, a</gloss>
+                        </valItem>
+                        <valItem ident="#Park_Windsor">
+                           <gloss>Windsor Park | Mitford rode through on June 27, 1820.</gloss>
                         </valItem>
                         <valItem ident="#Philadelphia">
                            <gloss>Philadelphia, Pennsylvania, USA | Founded in the seventeenth century as the capital of the Pennsylvania colony and</gloss>
@@ -7151,6 +7360,9 @@
                         </valItem>
                         <valItem ident="#S_city_OV">
                            <gloss> | Town described in the Our Village story, Lucy as a beautiful, Roman-walled town,</gloss>
+                        </valItem>
+                        <valItem ident="#Saint_Amand">
+                           <gloss>Saint-Amand-Montrond | Commune in France.</gloss>
                         </valItem>
                         <valItem ident="#Savona">
                            <gloss>Savona, Italy | Seaport in northern Italy. Pope Pius VII and his Cardinals were driven to exile </gloss>
@@ -7227,6 +7439,12 @@
                         <valItem ident="#St_Michaels_Church_St_Albans">
                            <gloss>St. Michael’s Church, St. Albans, Hertfordshire, England | A parish church in St. Albans, a city in Hertfordshire, England.</gloss>
                         </valItem>
+                        <valItem ident="#St_QueenG">
+                           <gloss>Great Queen Street | Mentioned in Mitford’s Journal during a visit to London on 27 June 1820, 28 June</gloss>
+                        </valItem>
+                        <valItem ident="#Staffordshire">
+                           <gloss>Staffordshire | </gloss>
+                        </valItem>
                         <valItem ident="#StJamesSt">
                            <gloss>St. James’s Street, Westminster, London, England | The main thoroughfare in the district of St James’s in central London which runs</gloss>
                         </valItem>
@@ -7262,6 +7480,9 @@
                         </valItem>
                         <valItem ident="#Switzerland">
                            <gloss>Switzerland | A country located in western-Central Europe.</gloss>
+                        </valItem>
+                        <valItem ident="#Tadley">
+                           <gloss>Tadley | Village that Mitford travels to with her father and the dogs while coursing on 1</gloss>
                         </valItem>
                         <valItem ident="#Temple">
                            <gloss>Temple, London, England | District in central London, traditional location for barristers’ chambers and ot</gloss>
@@ -7649,6 +7870,9 @@
                         <valItem ident="#Account_GeoMathews">
                            <gloss>Account of the Extraordinary and Shocking Case of George Mathews | 1819 | Full title: Account of the Extraordinary and Shocking Case of George Mathews: Wh</gloss>
                         </valItem>
+                        <valItem ident="#AccountOfIndia">
+                           <gloss>Description of the character, manners, and customs of the people of India : and of their institutions, religious and civils | 1818 | </gloss>
+                        </valItem>
                         <valItem ident="#Acct_Knox">
                            <gloss>Account of the captivity of Capt. Robert Knox and other Englishmen, in the island of Ceylon | 1818 | Full title: Account of the Captivity of Capt. Robert Knox and other Englishmen, </gloss>
                         </valItem>
@@ -7660,6 +7884,9 @@
                         </valItem>
                         <valItem ident="#Admiral_on_Shore_OV">
                            <gloss>An Admiral on Shore [Our Village version] | 1828 | This sketch appeared in volume three of Our Village in 1828.</gloss>
+                        </valItem>
+                        <valItem ident="#Advice_Julia">
+                           <gloss>Advice to Julia: A Letter in Rhyme | 1820 | A poem that Mitford mentions reading in her Journal on October 7 1820.</gloss>
                         </valItem>
                         <valItem ident="#Aeneid_CP">
                            <gloss>The Works of Virgil, in Latin and English. The original Text correctly printed from the most authentic Editions, collated for this Purpose. The Æneid Translated By the Rev. Mr. Christopher Pitt, The Eclogues and Georgics, with Notes on the Whole, By the Rev. Mr. Joseph Warton. With several New Observations By Mr. Holdsworth, Mr. Spence, and Others. Also, A Dissertation on the Sixth Book of the Æneid, by Mr. Warburton. On the Shield of Æneas, by Mr. W. Whitehead. On the Character of Japis, by the late Dr. Atterbury, Bishop of Rochester. And, Three Essays on Pastoral, Didactic and Epic Poetry, by the Editor | 1753</gloss>
@@ -7681,6 +7908,9 @@
                         </valItem>
                         <valItem ident="#Agamemnon_play">
                            <gloss>Agamemnon | Athenian tragedy attributed to Aeschylus; the first play of the Oresteia</gloss>
+                        </valItem>
+                        <valItem ident="#Age_Elizabeth">
+                           <gloss>Lectures Chiefly on the Dramatic Literature of the Age of Elizabeth | 1820 | Mitford indicated that she read Hazlitt’s Lectures in her Journal on October 22,</gloss>
                         </valItem>
                         <valItem ident="#Aladdin_panto">
                            <gloss>Aladdin | There were many pantomimes under this name on the English stage, many combining </gloss>
@@ -7762,6 +7992,9 @@
                         </valItem>
                         <valItem ident="#Beacon_FT">
                            <gloss>The Beacon | 1839 | A short story by Mary Russell Mitford. Also collected in Finden's Tableaux of Na</gloss>
+                        </valItem>
+                        <valItem ident="#Beau_Fletch">
+                           <gloss>The Works of Beaumont and Fletcher, in Fourteen Volumes: With an Introduction and Explanatory Notes | 1812 | </gloss>
                         </valItem>
                         <valItem ident="#BeautifulWoman_1827">
                            <gloss>On a Beautiful Woman [1827 version] | 1827 | Sonnet 7 in the 1827 collection (page 300) . Also appeared in the 1822 New Month</gloss>
@@ -7871,6 +8104,9 @@
                         <valItem ident="#BoR">
                            <gloss>Bill of Rights | 1689 | One of the basic instruments of the British constitution, the English Bill of Ri</gloss>
                         </valItem>
+                        <valItem ident="#BowlesPamphletWar_1820">
+                           <gloss>A reply to the charges brought by the reviewer of Spence's Anecdotes in the Quarterly review for October 1820 against the last editor of Pope's works, and author of A letter to Mr. Campbell on The invariable principles of poetry | 1820 | Bowles' riposte of 1820 in the midst of a pamphlet war over Alexander Pope’s wri</gloss>
+                        </valItem>
                         <valItem ident="#Bramley_Maying_LM">
                            <gloss>Bramley Maying [Lady's Magazine version] | 1823-05 | This sketch was later collected in volume one of Our Village .</gloss>
                         </valItem>
@@ -7910,6 +8146,9 @@
                         <valItem ident="#Camilla_FB">
                            <gloss>Camilla, or a Picture of Young Lady | 1796</gloss>
                         </valItem>
+                        <valItem ident="#CanonsCriticism">
+                           <gloss>The canons of criticism, and glossary, being a supplement to Mr. Warburton's edition of Shakespear. | 1765 | Mitford mentions reading Edwards' Canons of Criticism in her Journal on 12 June </gloss>
+                        </valItem>
                         <valItem ident="#CanterburyTales">
                            <gloss>The Canterbury Tales | 1400 | Collection of 23 tales and a prologue frame story, written over a period of year</gloss>
                         </valItem>
@@ -7918,6 +8157,9 @@
                         </valItem>
                         <valItem ident="#CaptivityCaptKnox">
                            <gloss>Account of the Captivity of Robert Knox and Other Englishmen, in the Island of Ceylon: And of the Captain’s Miraculous Escape and Return to England in September 1680, After Detention on the Island of Nineteen Years and a Half | 1818</gloss>
+                        </valItem>
+                        <valItem ident="#CaribCh">
+                           <gloss>The Carib Chief: A Tragedy, in Five Acts | 1819 | </gloss>
                         </valItem>
                         <valItem ident="#Carpenters_Daughter_BR">
                            <gloss>The Carpenter's Daughter | 1835 | This story was first published in the Friendship's Offering for 1834.</gloss>
@@ -8411,6 +8653,9 @@
                         <valItem ident="#Flirtation_Extraordinary_BR">
                            <gloss>Flirtation Extraordinary | 1835 | This story was also published in the English Annual for 1837 with the title A Se</gloss>
                         </valItem>
+                        <valItem ident="#Flora_Fest">
+                           <gloss>Festival of Flora | 1818 | </gloss>
+                        </valItem>
                         <valItem ident="#Florence_Macarthy_SO">
                            <gloss>Florence Macarthy: An Irish Tale | 1818 | Mitford records that she was very much amused by it. Later, she writes that she </gloss>
                         </valItem>
@@ -8452,6 +8697,9 @@
                         </valItem>
                         <valItem ident="#GaySummerMorn_1827">
                            <gloss>'Tis a gay summer morn, and the sunbeams dance | 1827 | 1827 untitled song. Title taken from first line.</gloss>
+                        </valItem>
+                        <valItem ident="#George3_CourtFam">
+                           <gloss>George III, his court, and family | 1820</gloss>
                         </valItem>
                         <valItem ident="#Geraniaceae">
                            <gloss>Geraniaceae: The Natural Order of Gerania, Illustrated by Coloured Figures and Descriptions; Comprising the Numerous and Beautiful Mule-varieties Cultivated in the Gardens of Great Britain, with Directions for Their Treatment | 1820—1830 | Printed in 5 volumes between 1820 and 1830.</gloss>
@@ -8566,6 +8814,9 @@
                         </valItem>
                         <valItem ident="#HenryVIII_play">
                            <gloss>Henry VIII</gloss>
+                        </valItem>
+                        <valItem ident="#Heraline_LMH">
+                           <gloss>Heraline; or, Opposite Proceedings | 1821 | 4 vols. Mitford mentions reading this book in her Journal entry of 9 August 9 18</gloss>
                         </valItem>
                         <valItem ident="#HermitInLondon">
                            <gloss>The Hermit in London | 1819 | Published anonymously. 5 volumes. Full title: The Hermit In London, Or, Sketches</gloss>
@@ -8804,6 +9055,9 @@
                         <valItem ident="#Laodamia_WW">
                            <gloss>Laodamia | 1815</gloss>
                         </valItem>
+                        <valItem ident="#Last_Letters_Jac_Ortis">
+                           <gloss>The Last Letters of Jacopo Ortis | 1802 | Epistolary novel read by Mitford who describes it in her Journal on 15 June 1820</gloss>
+                        </valItem>
                         <valItem ident="#LeavingPicture_1827">
                            <gloss>On Leaving a Favourite Picture [1827 version] | 1827 | Sonnet 16 in the 1827 collection (page 309) . Appeared in the 1821 New Monthly M</gloss>
                         </valItem>
@@ -8822,6 +9076,9 @@
                         <valItem ident="#LectsHistLit_Schlegel">
                            <gloss>Lectures on the History of Literature: Ancient and Modern | 1819</gloss>
                         </valItem>
+                        <valItem ident="#Lectures_Dramatic">
+                           <gloss>A course of lectures on dramatic art and literature | 1815 | Translation of Schlegel's Vorlesungen über dramatische Kunst und Litteratur, fi</gloss>
+                        </valItem>
                         <valItem ident="#Lectures_JOpie">
                            <gloss>Lectures on Painting | 1809 | Full title: Lectures on Painting, Delivered at the Royal Academy of Arts: with a</gloss>
                         </valItem>
@@ -8830,6 +9087,9 @@
                         </valItem>
                         <valItem ident="#LegendGoodWomen">
                            <gloss>The Legend of Good Women | A collection of legends believed to be composed during the 1380s.</gloss>
+                        </valItem>
+                        <valItem ident="#Legends_B">
+                           <gloss>Metrical Legends of Exalted Characters | 1821 | </gloss>
                         </valItem>
                         <valItem ident="#LeightonPr">
                            <gloss>Leighton Priory | Author and date unidentified.</gloss>
@@ -8927,6 +9187,9 @@
                         <valItem ident="#Mademoiselle_Therese_OV">
                            <gloss>Mademoiselle Therese [Our Village version] | 1828 | This sketch appeared in volume three of Our Village in 1828. It was also publish</gloss>
                         </valItem>
+                        <valItem ident="#Mademoiselle_Tournon">
+                           <gloss>Mademoiselle de Tournon | 1820 | </gloss>
+                        </valItem>
                         <valItem ident="#Mahomet_play">
                            <gloss>Mahomet | 1741</gloss>
                         </valItem>
@@ -8998,6 +9261,9 @@
                         </valItem>
                         <valItem ident="#Memory_John_Moore_1810">
                            <gloss>To The Memory of Sir John Moore. | 1810 | 1810 poem. This title also published in Poems: Second Edition with Considerable </gloss>
+                        </valItem>
+                        <valItem ident="#Mems_AnneBoleyn">
+                           <gloss>Memoirs of the Life of Anne Boleyn, Queen of Henry VIII. By Miss Benger. | 1818 | 2 vols. Mitford mentions reading this book in her Journal entries of March 25, 2</gloss>
                         </valItem>
                         <valItem ident="#Mems_Conde">
                            <gloss>Memoirs of the Life of the Great Condé | 1807 | Translated into English from the French by Fanny Holcroft. Mitford called them n</gloss>
@@ -9085,6 +9351,9 @@
                         </valItem>
                         <valItem ident="#Mission_Ashantee">
                            <gloss>Mission from Cape Coast Castle to Ashantee | 1819 | Full title: Mission from Cape Coast Castle to Ashantee: with a statistical accou</gloss>
+                        </valItem>
+                        <valItem ident="#Missionary_SO">
+                           <gloss>The Missionary: An Indian Tale | 1811 | </gloss>
                         </valItem>
                         <valItem ident="#MissMurray_1810">
                            <gloss>To the Hon. Miss Murray, with Miss Rowden's "Poetical Introduction to Botany." | 1810 | 1810 poem. This title also published in Poems: Second Edition with Considerable </gloss>
@@ -9266,6 +9535,9 @@
                         <valItem ident="#Old_Mortality">
                            <gloss>Old Mortality</gloss>
                         </valItem>
+                        <valItem ident="#OldManor_CS">
+                           <gloss>Old Manor House | 1793 | </gloss>
+                        </valItem>
                         <valItem ident="#OldTestament_Bible">
                            <gloss>The Old Testament | The collection of ancient Hebrew scriptures comprising the first half of the Chr</gloss>
                         </valItem>
@@ -9392,6 +9664,9 @@
                         <valItem ident="#PaintersDa_DS_1827">
                            <gloss>The Painter's Daughter: A Dramatic Sketch | 1827 | Dramatic sketch. Reprinted in volume two of The Dramatic Works of Mary Russell M</gloss>
                         </valItem>
+                        <valItem ident="#PaintersDa_DS_LM">
+                           <gloss>The Artist: A Dramatic Sketch | 1822 | First published in The Lady's Magazine, new series 2, volume 3 (1822) under this</gloss>
+                        </valItem>
                         <valItem ident="#ParadiseLost">
                            <gloss>John Milton | </gloss>
                         </valItem>
@@ -9457,6 +9732,9 @@
                         </valItem>
                         <valItem ident="#Pilgrim_Cross">
                            <gloss>The Pilgrim of the Cross | 1805 | 4 vols. Full title: The Pilgrim of the Cross: or, the Chronicles of Christabelle</gloss>
+                        </valItem>
+                        <valItem ident="#Pirate_novel">
+                           <gloss>The Pirate | 1822 | </gloss>
                         </valItem>
                         <valItem ident="#Pizarro_play">
                            <gloss>Pizarro</gloss>
@@ -9527,6 +9805,9 @@
                         <valItem ident="#Pride_and_Prejudice">
                            <gloss>Pride and Prejudice: A Novel | 1813</gloss>
                         </valItem>
+                        <valItem ident="#PrioryTales_H">
+                           <gloss>Tales of the Priory | 1820 | Mitford mentions reading these tales in her Journal entries of July 1820, findin</gloss>
+                        </valItem>
                         <valItem ident="#Prisoner_Chillon">
                            <gloss>Prisoner of Chillon</gloss>
                         </valItem>
@@ -9571,6 +9852,9 @@
                         </valItem>
                         <valItem ident="#Raymond">
                            <gloss>Raymond | Author and date unidentified.</gloss>
+                        </valItem>
+                        <valItem ident="#RecluseScotland">
+                           <gloss>The Recluse of the Appenines; or the Automaton Chief. A Romance. | 1820 | Read by Mitford, as recorded in her Journal in September 1820.</gloss>
                         </valItem>
                         <valItem ident="#Recoll_Reign_GeoIII">
                            <gloss>Recollections and Reflections, Personal and Political, as Connected with Public Affairs, During the Reign of George III | 1822</gloss>
@@ -9695,6 +9979,9 @@
                         <valItem ident="#Sense_S">
                            <gloss>Sense and Sensibility | 1811 | 3 volumes. Published anonymously as by a Lady. Mitford rated it very good.</gloss>
                         </valItem>
+                        <valItem ident="#Sermons_Chalmers">
+                           <gloss>Sermons preached in the Tron Church, Glasgow | 1819 | Likely the new sermons that Mitford mentions reading in her Journal on 2 July 18</gloss>
+                        </valItem>
                         <valItem ident="#Sermons_RRussell">
                            <gloss>Manuscript sermons | Unpublished manuscript sermons by Mitford's grandfather. Mitford owns a copy, wh</gloss>
                         </valItem>
@@ -9710,6 +9997,12 @@
                         <valItem ident="#Silchester_1811">
                            <gloss>Silchester. | 1811 | 1811 poem.</gloss>
                         </valItem>
+                        <valItem ident="#Simple_Story">
+                           <gloss>A Simple Story | 1820 | Mitford mentions reading this novel in her Journal on October 16, 1820.</gloss>
+                        </valItem>
+                        <valItem ident="#Sintram_Comp">
+                           <gloss>Sintram and His Companions: A Romance | </gloss>
+                        </valItem>
                         <valItem ident="#Sir_Fr_Darrell">
                            <gloss>Sir Francis Darrell; or, the Vortex. A Novel | </gloss>
                         </valItem>
@@ -9721,6 +10014,9 @@
                         </valItem>
                         <valItem ident="#SketchBook_WI">
                            <gloss>The Sketch Book of Geoffrey Crayon, Gent. | 1819</gloss>
+                        </valItem>
+                        <valItem ident="#Sketches_France">
+                           <gloss>Sketches descriptive of Italy, in the years 1816 and 1817; with a brief account of travels in various parts of France and Switzerland, in the same years. | 1820 | Mitford may have read this in the summer of 1820.</gloss>
                         </valItem>
                         <valItem ident="#Sketches_of_America">
                            <gloss>Sketches of America: a Narrative of a Journey of Five Thousand Miles Through the Eastern and Western States of America; Contained in Eight Reports Addressed to the Thirty-nine English Families by whom the Author was Deputed, in June 1817, to Ascertain Whether Any, and What Part of the United States Would be Suitable for Their Residence. With Remarks on Mr. Birkbeck’s Notes and Letters | 1818 | The work’s subtitle refers to to Morris Birkbeck’s Notes on a Journey in America</gloss>
@@ -9752,6 +10048,9 @@
                         <valItem ident="#Stephen_Lane_BR">
                            <gloss>Stephen Lane, the Butcher | 1835</gloss>
                         </valItem>
+                        <valItem ident="#StMagdaleneAM">
+                           <gloss>The Fast of St. Magdalen: A Romance | </gloss>
+                        </valItem>
                         <valItem ident="#StolenL_FT">
                            <gloss>The Stolen Letter | 1840 | A poem by Mary Russell Mitford. Also collected in Finden's Tableaux of National </gloss>
                         </valItem>
@@ -9778,6 +10077,9 @@
                         </valItem>
                         <valItem ident="#TaleOf2Cities">
                            <gloss>A Tale of Two Cities | 1859</gloss>
+                        </valItem>
+                        <valItem ident="#Tales_Heart">
+                           <gloss>Tales of the heart | 1820 | </gloss>
                         </valItem>
                         <valItem ident="#TalesHall_GC">
                            <gloss>Tales of the Hall | 1819 | 2 vols. Verse. Last work published in his lifetime.</gloss>
@@ -9902,6 +10204,9 @@
                         <valItem ident="#Travels_Acerbi">
                            <gloss>Travels through Sweden, Finland, and Lapland to the North Cape, in the Years 1798 and 1799. | 1802</gloss>
                         </valItem>
+                        <valItem ident="#Travels_Belzoni">
+                           <gloss>Narrative of the Operations and Recent Discoveries within the Pyramids, Temples, Tombs, and Excavations, in Egypt and Nucia | 1821 | Mitford mentions reading this in her Journal on September 29, 1821.</gloss>
+                        </valItem>
                         <valItem ident="#Travels_NGermany">
                            <gloss>Travels in the North of Germany | 1820 | Full title: Travels in the North of Germany: Describing the Present State of the</gloss>
                         </valItem>
@@ -9910,6 +10215,9 @@
                         </valItem>
                         <valItem ident="#Travels_Nubia">
                            <gloss>Travels in Nubia | 1819 | Published by the Association for Promoting the Discovery for the Interior Parts </gloss>
+                        </valItem>
+                        <valItem ident="#Travels_TheoDucas">
+                           <gloss>Travels of Theodore Ducas | 1822 | Full title: The Travels of Theodore Ducas of Candia in Various Countries in Euro</gloss>
                         </valItem>
                         <valItem ident="#TwelfthNight_Shkspr">
                            <gloss>Twelfth Night | 1601 | A late dark romantic comedy in Shakespeare’s oeuvre, with first recorded product</gloss>
@@ -9937,6 +10245,9 @@
                         </valItem>
                         <valItem ident="#Valerius_novel">
                            <gloss>Valerius: A Roman Story | </gloss>
+                        </valItem>
+                        <valItem ident="#Vampyre">
+                           <gloss>The Vampyre: A Tale | 1819 | </gloss>
                         </valItem>
                         <valItem ident="#Venice_Preserved_play">
                            <gloss>Venice Preserv’d | 1683 | First performed in 1683 and printed soon thereafter. Frequently re-staged until </gloss>
@@ -10103,6 +10414,9 @@
                         <valItem ident="#Walton_Lives">
                            <gloss>The Lives of Dr. John Donne, Sir Henry Wotton, Mr. Richard Hooker, Mr. George Herbert and Dr. Robert Sanderson. | Walton had written biographical sketches of Donne, Wotton, Hooker and Herbert wh</gloss>
                         </valItem>
+                        <valItem ident="#Wanderer">
+                           <gloss>The Wanderer, a Poem | 1820 | Mitford mentions in her Journal that MacFarlane sent her his poem in her on Augu</gloss>
+                        </valItem>
                         <valItem ident="#Warbeck_Wolfstein_MH">
                            <gloss>Warbeck of Wolfstein | 1820</gloss>
                         </valItem>
@@ -10125,7 +10439,7 @@
                            <gloss>Watlington Hill: A Descriptive Poem | 1827 | 1827 published version of long narrative poem, originally published separately i</gloss>
                         </valItem>
                         <valItem ident="#Waverley">
-                           <gloss>Waverley; or ’Tis Sixty Years Since | </gloss>
+                           <gloss>Waverley; or ’Tis Sixty Years Since |  | Mitford mentions reading Waverley in her Journal in 1819 and 1820.</gloss>
                         </valItem>
                         <valItem ident="#WaytoKeepHim">
                            <gloss>The Way to Keep Him. A Comedy in Five Acts | 1770 | Full title: The Way to Keep Him: a Comedy in five acts, as it is performed at th</gloss>
@@ -10573,6 +10887,9 @@
                         <valItem ident="#Account_GeoMathews">
                            <gloss>Account of the Extraordinary and Shocking Case of George Mathews | 1819 | Full title: Account of the Extraordinary and Shocking Case of George Mathews: Wh</gloss>
                         </valItem>
+                        <valItem ident="#AccountOfIndia">
+                           <gloss>Description of the character, manners, and customs of the people of India : and of their institutions, religious and civils | 1818 | </gloss>
+                        </valItem>
                         <valItem ident="#Acct_Knox">
                            <gloss>Account of the captivity of Capt. Robert Knox and other Englishmen, in the island of Ceylon | 1818 | Full title: Account of the Captivity of Capt. Robert Knox and other Englishmen, </gloss>
                         </valItem>
@@ -10584,6 +10901,9 @@
                         </valItem>
                         <valItem ident="#Admiral_on_Shore_OV">
                            <gloss>An Admiral on Shore [Our Village version] | 1828 | This sketch appeared in volume three of Our Village in 1828.</gloss>
+                        </valItem>
+                        <valItem ident="#Advice_Julia">
+                           <gloss>Advice to Julia: A Letter in Rhyme | 1820 | A poem that Mitford mentions reading in her Journal on October 7 1820.</gloss>
                         </valItem>
                         <valItem ident="#Aeneid_CP">
                            <gloss>The Works of Virgil, in Latin and English. The original Text correctly printed from the most authentic Editions, collated for this Purpose. The Æneid Translated By the Rev. Mr. Christopher Pitt, The Eclogues and Georgics, with Notes on the Whole, By the Rev. Mr. Joseph Warton. With several New Observations By Mr. Holdsworth, Mr. Spence, and Others. Also, A Dissertation on the Sixth Book of the Æneid, by Mr. Warburton. On the Shield of Æneas, by Mr. W. Whitehead. On the Character of Japis, by the late Dr. Atterbury, Bishop of Rochester. And, Three Essays on Pastoral, Didactic and Epic Poetry, by the Editor | 1753</gloss>
@@ -10605,6 +10925,9 @@
                         </valItem>
                         <valItem ident="#Agamemnon_play">
                            <gloss>Agamemnon | Athenian tragedy attributed to Aeschylus; the first play of the Oresteia</gloss>
+                        </valItem>
+                        <valItem ident="#Age_Elizabeth">
+                           <gloss>Lectures Chiefly on the Dramatic Literature of the Age of Elizabeth | 1820 | Mitford indicated that she read Hazlitt’s Lectures in her Journal on October 22,</gloss>
                         </valItem>
                         <valItem ident="#Aladdin_panto">
                            <gloss>Aladdin | There were many pantomimes under this name on the English stage, many combining </gloss>
@@ -10686,6 +11009,9 @@
                         </valItem>
                         <valItem ident="#Beacon_FT">
                            <gloss>The Beacon | 1839 | A short story by Mary Russell Mitford. Also collected in Finden's Tableaux of Na</gloss>
+                        </valItem>
+                        <valItem ident="#Beau_Fletch">
+                           <gloss>The Works of Beaumont and Fletcher, in Fourteen Volumes: With an Introduction and Explanatory Notes | 1812 | </gloss>
                         </valItem>
                         <valItem ident="#BeautifulWoman_1827">
                            <gloss>On a Beautiful Woman [1827 version] | 1827 | Sonnet 7 in the 1827 collection (page 300) . Also appeared in the 1822 New Month</gloss>
@@ -10795,6 +11121,9 @@
                         <valItem ident="#BoR">
                            <gloss>Bill of Rights | 1689 | One of the basic instruments of the British constitution, the English Bill of Ri</gloss>
                         </valItem>
+                        <valItem ident="#BowlesPamphletWar_1820">
+                           <gloss>A reply to the charges brought by the reviewer of Spence's Anecdotes in the Quarterly review for October 1820 against the last editor of Pope's works, and author of A letter to Mr. Campbell on The invariable principles of poetry | 1820 | Bowles' riposte of 1820 in the midst of a pamphlet war over Alexander Pope’s wri</gloss>
+                        </valItem>
                         <valItem ident="#Bramley_Maying_LM">
                            <gloss>Bramley Maying [Lady's Magazine version] | 1823-05 | This sketch was later collected in volume one of Our Village .</gloss>
                         </valItem>
@@ -10834,6 +11163,9 @@
                         <valItem ident="#Camilla_FB">
                            <gloss>Camilla, or a Picture of Young Lady | 1796</gloss>
                         </valItem>
+                        <valItem ident="#CanonsCriticism">
+                           <gloss>The canons of criticism, and glossary, being a supplement to Mr. Warburton's edition of Shakespear. | 1765 | Mitford mentions reading Edwards' Canons of Criticism in her Journal on 12 June </gloss>
+                        </valItem>
                         <valItem ident="#CanterburyTales">
                            <gloss>The Canterbury Tales | 1400 | Collection of 23 tales and a prologue frame story, written over a period of year</gloss>
                         </valItem>
@@ -10842,6 +11174,9 @@
                         </valItem>
                         <valItem ident="#CaptivityCaptKnox">
                            <gloss>Account of the Captivity of Robert Knox and Other Englishmen, in the Island of Ceylon: And of the Captain’s Miraculous Escape and Return to England in September 1680, After Detention on the Island of Nineteen Years and a Half | 1818</gloss>
+                        </valItem>
+                        <valItem ident="#CaribCh">
+                           <gloss>The Carib Chief: A Tragedy, in Five Acts | 1819 | </gloss>
                         </valItem>
                         <valItem ident="#Carpenters_Daughter_BR">
                            <gloss>The Carpenter's Daughter | 1835 | This story was first published in the Friendship's Offering for 1834.</gloss>
@@ -11335,6 +11670,9 @@
                         <valItem ident="#Flirtation_Extraordinary_BR">
                            <gloss>Flirtation Extraordinary | 1835 | This story was also published in the English Annual for 1837 with the title A Se</gloss>
                         </valItem>
+                        <valItem ident="#Flora_Fest">
+                           <gloss>Festival of Flora | 1818 | </gloss>
+                        </valItem>
                         <valItem ident="#Florence_Macarthy_SO">
                            <gloss>Florence Macarthy: An Irish Tale | 1818 | Mitford records that she was very much amused by it. Later, she writes that she </gloss>
                         </valItem>
@@ -11376,6 +11714,9 @@
                         </valItem>
                         <valItem ident="#GaySummerMorn_1827">
                            <gloss>'Tis a gay summer morn, and the sunbeams dance | 1827 | 1827 untitled song. Title taken from first line.</gloss>
+                        </valItem>
+                        <valItem ident="#George3_CourtFam">
+                           <gloss>George III, his court, and family | 1820</gloss>
                         </valItem>
                         <valItem ident="#Geraniaceae">
                            <gloss>Geraniaceae: The Natural Order of Gerania, Illustrated by Coloured Figures and Descriptions; Comprising the Numerous and Beautiful Mule-varieties Cultivated in the Gardens of Great Britain, with Directions for Their Treatment | 1820—1830 | Printed in 5 volumes between 1820 and 1830.</gloss>
@@ -11490,6 +11831,9 @@
                         </valItem>
                         <valItem ident="#HenryVIII_play">
                            <gloss>Henry VIII</gloss>
+                        </valItem>
+                        <valItem ident="#Heraline_LMH">
+                           <gloss>Heraline; or, Opposite Proceedings | 1821 | 4 vols. Mitford mentions reading this book in her Journal entry of 9 August 9 18</gloss>
                         </valItem>
                         <valItem ident="#HermitInLondon">
                            <gloss>The Hermit in London | 1819 | Published anonymously. 5 volumes. Full title: The Hermit In London, Or, Sketches</gloss>
@@ -11728,6 +12072,9 @@
                         <valItem ident="#Laodamia_WW">
                            <gloss>Laodamia | 1815</gloss>
                         </valItem>
+                        <valItem ident="#Last_Letters_Jac_Ortis">
+                           <gloss>The Last Letters of Jacopo Ortis | 1802 | Epistolary novel read by Mitford who describes it in her Journal on 15 June 1820</gloss>
+                        </valItem>
                         <valItem ident="#LeavingPicture_1827">
                            <gloss>On Leaving a Favourite Picture [1827 version] | 1827 | Sonnet 16 in the 1827 collection (page 309) . Appeared in the 1821 New Monthly M</gloss>
                         </valItem>
@@ -11746,6 +12093,9 @@
                         <valItem ident="#LectsHistLit_Schlegel">
                            <gloss>Lectures on the History of Literature: Ancient and Modern | 1819</gloss>
                         </valItem>
+                        <valItem ident="#Lectures_Dramatic">
+                           <gloss>A course of lectures on dramatic art and literature | 1815 | Translation of Schlegel's Vorlesungen über dramatische Kunst und Litteratur, fi</gloss>
+                        </valItem>
                         <valItem ident="#Lectures_JOpie">
                            <gloss>Lectures on Painting | 1809 | Full title: Lectures on Painting, Delivered at the Royal Academy of Arts: with a</gloss>
                         </valItem>
@@ -11754,6 +12104,9 @@
                         </valItem>
                         <valItem ident="#LegendGoodWomen">
                            <gloss>The Legend of Good Women | A collection of legends believed to be composed during the 1380s.</gloss>
+                        </valItem>
+                        <valItem ident="#Legends_B">
+                           <gloss>Metrical Legends of Exalted Characters | 1821 | </gloss>
                         </valItem>
                         <valItem ident="#LeightonPr">
                            <gloss>Leighton Priory | Author and date unidentified.</gloss>
@@ -11851,6 +12204,9 @@
                         <valItem ident="#Mademoiselle_Therese_OV">
                            <gloss>Mademoiselle Therese [Our Village version] | 1828 | This sketch appeared in volume three of Our Village in 1828. It was also publish</gloss>
                         </valItem>
+                        <valItem ident="#Mademoiselle_Tournon">
+                           <gloss>Mademoiselle de Tournon | 1820 | </gloss>
+                        </valItem>
                         <valItem ident="#Mahomet_play">
                            <gloss>Mahomet | 1741</gloss>
                         </valItem>
@@ -11922,6 +12278,9 @@
                         </valItem>
                         <valItem ident="#Memory_John_Moore_1810">
                            <gloss>To The Memory of Sir John Moore. | 1810 | 1810 poem. This title also published in Poems: Second Edition with Considerable </gloss>
+                        </valItem>
+                        <valItem ident="#Mems_AnneBoleyn">
+                           <gloss>Memoirs of the Life of Anne Boleyn, Queen of Henry VIII. By Miss Benger. | 1818 | 2 vols. Mitford mentions reading this book in her Journal entries of March 25, 2</gloss>
                         </valItem>
                         <valItem ident="#Mems_Conde">
                            <gloss>Memoirs of the Life of the Great Condé | 1807 | Translated into English from the French by Fanny Holcroft. Mitford called them n</gloss>
@@ -12009,6 +12368,9 @@
                         </valItem>
                         <valItem ident="#Mission_Ashantee">
                            <gloss>Mission from Cape Coast Castle to Ashantee | 1819 | Full title: Mission from Cape Coast Castle to Ashantee: with a statistical accou</gloss>
+                        </valItem>
+                        <valItem ident="#Missionary_SO">
+                           <gloss>The Missionary: An Indian Tale | 1811 | </gloss>
                         </valItem>
                         <valItem ident="#MissMurray_1810">
                            <gloss>To the Hon. Miss Murray, with Miss Rowden's "Poetical Introduction to Botany." | 1810 | 1810 poem. This title also published in Poems: Second Edition with Considerable </gloss>
@@ -12190,6 +12552,9 @@
                         <valItem ident="#Old_Mortality">
                            <gloss>Old Mortality</gloss>
                         </valItem>
+                        <valItem ident="#OldManor_CS">
+                           <gloss>Old Manor House | 1793 | </gloss>
+                        </valItem>
                         <valItem ident="#OldTestament_Bible">
                            <gloss>The Old Testament | The collection of ancient Hebrew scriptures comprising the first half of the Chr</gloss>
                         </valItem>
@@ -12316,6 +12681,9 @@
                         <valItem ident="#PaintersDa_DS_1827">
                            <gloss>The Painter's Daughter: A Dramatic Sketch | 1827 | Dramatic sketch. Reprinted in volume two of The Dramatic Works of Mary Russell M</gloss>
                         </valItem>
+                        <valItem ident="#PaintersDa_DS_LM">
+                           <gloss>The Artist: A Dramatic Sketch | 1822 | First published in The Lady's Magazine, new series 2, volume 3 (1822) under this</gloss>
+                        </valItem>
                         <valItem ident="#ParadiseLost">
                            <gloss>John Milton | </gloss>
                         </valItem>
@@ -12381,6 +12749,9 @@
                         </valItem>
                         <valItem ident="#Pilgrim_Cross">
                            <gloss>The Pilgrim of the Cross | 1805 | 4 vols. Full title: The Pilgrim of the Cross: or, the Chronicles of Christabelle</gloss>
+                        </valItem>
+                        <valItem ident="#Pirate_novel">
+                           <gloss>The Pirate | 1822 | </gloss>
                         </valItem>
                         <valItem ident="#Pizarro_play">
                            <gloss>Pizarro</gloss>
@@ -12451,6 +12822,9 @@
                         <valItem ident="#Pride_and_Prejudice">
                            <gloss>Pride and Prejudice: A Novel | 1813</gloss>
                         </valItem>
+                        <valItem ident="#PrioryTales_H">
+                           <gloss>Tales of the Priory | 1820 | Mitford mentions reading these tales in her Journal entries of July 1820, findin</gloss>
+                        </valItem>
                         <valItem ident="#Prisoner_Chillon">
                            <gloss>Prisoner of Chillon</gloss>
                         </valItem>
@@ -12495,6 +12869,9 @@
                         </valItem>
                         <valItem ident="#Raymond">
                            <gloss>Raymond | Author and date unidentified.</gloss>
+                        </valItem>
+                        <valItem ident="#RecluseScotland">
+                           <gloss>The Recluse of the Appenines; or the Automaton Chief. A Romance. | 1820 | Read by Mitford, as recorded in her Journal in September 1820.</gloss>
                         </valItem>
                         <valItem ident="#Recoll_Reign_GeoIII">
                            <gloss>Recollections and Reflections, Personal and Political, as Connected with Public Affairs, During the Reign of George III | 1822</gloss>
@@ -12619,6 +12996,9 @@
                         <valItem ident="#Sense_S">
                            <gloss>Sense and Sensibility | 1811 | 3 volumes. Published anonymously as by a Lady. Mitford rated it very good.</gloss>
                         </valItem>
+                        <valItem ident="#Sermons_Chalmers">
+                           <gloss>Sermons preached in the Tron Church, Glasgow | 1819 | Likely the new sermons that Mitford mentions reading in her Journal on 2 July 18</gloss>
+                        </valItem>
                         <valItem ident="#Sermons_RRussell">
                            <gloss>Manuscript sermons | Unpublished manuscript sermons by Mitford's grandfather. Mitford owns a copy, wh</gloss>
                         </valItem>
@@ -12634,6 +13014,12 @@
                         <valItem ident="#Silchester_1811">
                            <gloss>Silchester. | 1811 | 1811 poem.</gloss>
                         </valItem>
+                        <valItem ident="#Simple_Story">
+                           <gloss>A Simple Story | 1820 | Mitford mentions reading this novel in her Journal on October 16, 1820.</gloss>
+                        </valItem>
+                        <valItem ident="#Sintram_Comp">
+                           <gloss>Sintram and His Companions: A Romance | </gloss>
+                        </valItem>
                         <valItem ident="#Sir_Fr_Darrell">
                            <gloss>Sir Francis Darrell; or, the Vortex. A Novel | </gloss>
                         </valItem>
@@ -12645,6 +13031,9 @@
                         </valItem>
                         <valItem ident="#SketchBook_WI">
                            <gloss>The Sketch Book of Geoffrey Crayon, Gent. | 1819</gloss>
+                        </valItem>
+                        <valItem ident="#Sketches_France">
+                           <gloss>Sketches descriptive of Italy, in the years 1816 and 1817; with a brief account of travels in various parts of France and Switzerland, in the same years. | 1820 | Mitford may have read this in the summer of 1820.</gloss>
                         </valItem>
                         <valItem ident="#Sketches_of_America">
                            <gloss>Sketches of America: a Narrative of a Journey of Five Thousand Miles Through the Eastern and Western States of America; Contained in Eight Reports Addressed to the Thirty-nine English Families by whom the Author was Deputed, in June 1817, to Ascertain Whether Any, and What Part of the United States Would be Suitable for Their Residence. With Remarks on Mr. Birkbeck’s Notes and Letters | 1818 | The work’s subtitle refers to to Morris Birkbeck’s Notes on a Journey in America</gloss>
@@ -12676,6 +13065,9 @@
                         <valItem ident="#Stephen_Lane_BR">
                            <gloss>Stephen Lane, the Butcher | 1835</gloss>
                         </valItem>
+                        <valItem ident="#StMagdaleneAM">
+                           <gloss>The Fast of St. Magdalen: A Romance | </gloss>
+                        </valItem>
                         <valItem ident="#StolenL_FT">
                            <gloss>The Stolen Letter | 1840 | A poem by Mary Russell Mitford. Also collected in Finden's Tableaux of National </gloss>
                         </valItem>
@@ -12702,6 +13094,9 @@
                         </valItem>
                         <valItem ident="#TaleOf2Cities">
                            <gloss>A Tale of Two Cities | 1859</gloss>
+                        </valItem>
+                        <valItem ident="#Tales_Heart">
+                           <gloss>Tales of the heart | 1820 | </gloss>
                         </valItem>
                         <valItem ident="#TalesHall_GC">
                            <gloss>Tales of the Hall | 1819 | 2 vols. Verse. Last work published in his lifetime.</gloss>
@@ -12826,6 +13221,9 @@
                         <valItem ident="#Travels_Acerbi">
                            <gloss>Travels through Sweden, Finland, and Lapland to the North Cape, in the Years 1798 and 1799. | 1802</gloss>
                         </valItem>
+                        <valItem ident="#Travels_Belzoni">
+                           <gloss>Narrative of the Operations and Recent Discoveries within the Pyramids, Temples, Tombs, and Excavations, in Egypt and Nucia | 1821 | Mitford mentions reading this in her Journal on September 29, 1821.</gloss>
+                        </valItem>
                         <valItem ident="#Travels_NGermany">
                            <gloss>Travels in the North of Germany | 1820 | Full title: Travels in the North of Germany: Describing the Present State of the</gloss>
                         </valItem>
@@ -12834,6 +13232,9 @@
                         </valItem>
                         <valItem ident="#Travels_Nubia">
                            <gloss>Travels in Nubia | 1819 | Published by the Association for Promoting the Discovery for the Interior Parts </gloss>
+                        </valItem>
+                        <valItem ident="#Travels_TheoDucas">
+                           <gloss>Travels of Theodore Ducas | 1822 | Full title: The Travels of Theodore Ducas of Candia in Various Countries in Euro</gloss>
                         </valItem>
                         <valItem ident="#TwelfthNight_Shkspr">
                            <gloss>Twelfth Night | 1601 | A late dark romantic comedy in Shakespeare’s oeuvre, with first recorded product</gloss>
@@ -12861,6 +13262,9 @@
                         </valItem>
                         <valItem ident="#Valerius_novel">
                            <gloss>Valerius: A Roman Story | </gloss>
+                        </valItem>
+                        <valItem ident="#Vampyre">
+                           <gloss>The Vampyre: A Tale | 1819 | </gloss>
                         </valItem>
                         <valItem ident="#Venice_Preserved_play">
                            <gloss>Venice Preserv’d | 1683 | First performed in 1683 and printed soon thereafter. Frequently re-staged until </gloss>
@@ -13027,6 +13431,9 @@
                         <valItem ident="#Walton_Lives">
                            <gloss>The Lives of Dr. John Donne, Sir Henry Wotton, Mr. Richard Hooker, Mr. George Herbert and Dr. Robert Sanderson. | Walton had written biographical sketches of Donne, Wotton, Hooker and Herbert wh</gloss>
                         </valItem>
+                        <valItem ident="#Wanderer">
+                           <gloss>The Wanderer, a Poem | 1820 | Mitford mentions in her Journal that MacFarlane sent her his poem in her on Augu</gloss>
+                        </valItem>
                         <valItem ident="#Warbeck_Wolfstein_MH">
                            <gloss>Warbeck of Wolfstein | 1820</gloss>
                         </valItem>
@@ -13049,7 +13456,7 @@
                            <gloss>Watlington Hill: A Descriptive Poem | 1827 | 1827 published version of long narrative poem, originally published separately i</gloss>
                         </valItem>
                         <valItem ident="#Waverley">
-                           <gloss>Waverley; or ’Tis Sixty Years Since | </gloss>
+                           <gloss>Waverley; or ’Tis Sixty Years Since |  | Mitford mentions reading Waverley in her Journal in 1819 and 1820.</gloss>
                         </valItem>
                         <valItem ident="#WaytoKeepHim">
                            <gloss>The Way to Keep Him. A Comedy in Five Acts | 1770 | Full title: The Way to Keep Him: a Comedy in five acts, as it is performed at th</gloss>
@@ -13343,7 +13750,7 @@
                            <gloss>common blackbird | Medium-sized black member of the thrush family, with a yellow-orange bill and di</gloss>
                         </valItem>
                         <valItem ident="#butterfly">
-                           <gloss>butterfly | Insect of the order Lepidoptera with two pairs of large wings that are covered w</gloss>
+                           <gloss>butterfly | Mitford mentions seeing a most beautiful butterfly in the grounds near her home </gloss>
                         </valItem>
                         <valItem ident="#cat">
                            <gloss>cat | Now, as in Mitford's time, cats may be classed as domestic (kept as companion an</gloss>
@@ -13393,6 +13800,9 @@
                         <valItem ident="#ferret">
                            <gloss>European ferret | Carnivorous mammal native to Eurasia, North Africa, and the UK. Shorter and stou</gloss>
                         </valItem>
+                        <valItem ident="#flea">
+                           <gloss>flea | A type of insect that typically bites animals and humans.</gloss>
+                        </valItem>
                         <valItem ident="#glow_worm">
                            <gloss>glow-worm | A nocturnal beetle found throughout Europe and Asia, a member of the bioluminesc</gloss>
                         </valItem>
@@ -13428,6 +13838,9 @@
                         </valItem>
                         <valItem ident="#lark">
                            <gloss>lark | In the UK, the lark family includes the woodlark, the skylark, and the shore lar</gloss>
+                        </valItem>
+                        <valItem ident="#leech">
+                           <gloss>leech | A type of blood-sucking worm that was often used for medical treatment in a proc</gloss>
                         </valItem>
                         <valItem ident="#Long_tailed_wren">
                            <gloss>long-tailed wren | The Naga wren-babbler or long-tailed wren-babbler (Spelaeornis chocolatinus), a </gloss>
